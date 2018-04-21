@@ -1,0 +1,22 @@
+{
+  "browsers": [
+    "> 1%",
+    "iOS > 7",
+    "Android >= 4.0",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "features": {
+    "bem": {
+      "shortcuts": {
+        "component": "b",
+        "modifier": "m",
+        "descendent": "e"
+      },
+      "separators": {
+        "descendent": "__",
+        "modifier": "--"
+      }
+    }
+  }
+}
