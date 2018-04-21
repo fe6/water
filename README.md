@@ -1,6 +1,6 @@
-# component-template
+# water
 
-> Vue.js 组件库模板
+> 水滴组件库
 
 ## 需要的环境
 
