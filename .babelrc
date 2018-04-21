@@ -1,0 +1,48 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": [
+          "> 1%",
+          "iOS > 7",
+          "Android >= 4.0",
+          "last 2 versions",
+          "not ie <= 8"
+        ]
+      }
+    }],
+    "stage-2"
+  ],
+  "comments": false,
+  "env": {
+    "test": {
+      "presets": ["env", "stage-2"],
+      "plugins": ["transform-vue-jsx", "transform-es2015-modules-commonjs", "dynamic-import-node"]
+    },
+    "development": {
+      "plugins": [
+        ["transform-runtime", {
+          "helpers": true,
+          "polyfill": true,
+          "regenerator": true
+        }],
+        ["transform-strict-mode", {
+          "strict": false
+        }],
+        "dynamic-import-webpack"
+      ]
+    },
+    "production": {
+      "plugins": [
+        ["transform-runtime", {
+          "helpers": false,
+          "polyfill": true,
+          "regenerator": true
+        }],
+        ["transform-strict-mode", {
+          "strict": false
+        }],
+      ]
+    }
+  }
+}
