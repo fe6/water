@@ -43,7 +43,7 @@ describe('Icon.vue', () => {
     wrapper.vm.$nextTick(() => {
       try {
         expect(wrapper.is('i')).toBe(true);
-        expect(wrapper.classes().toString()).toBe('vi-font,vi-loading1');
+        expect(wrapper.classes().toString()).toBe('w-font,w-loading1');
         done();
       } catch (err) {
         done.fail(err);
@@ -78,7 +78,7 @@ describe('Icon.vue', () => {
     wrapperSpin.vm.$nextTick(() => {
       try {
         expect(wrapperSpin.is('i')).toBe(true);
-        expect(wrapperSpin.classes().toString()).toBe('vi-font,vi-loading1,vi-spin');
+        expect(wrapperSpin.classes().toString()).toBe('w-font,w-loading1,w-spin');
         done();
       } catch (err) {
         done.fail(err);
