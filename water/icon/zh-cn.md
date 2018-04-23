@@ -5,7 +5,7 @@
 
 使用 `<w-icon />` 标签声明组件，指定图标对应的 type 属性，示例代码如下:
 ```` html
-<w-icon />
+<w-icon type="loading1" />
 ````
 
 ## 本地部署
@@ -17,11 +17,10 @@
 由于图标字体本质上还是文字，可以使用 `style` 和 `class` 设置图标的大小和颜色。
 
 ```` html
-<w-icon />
+<w-icon type="loading1" />
 ````
 
 |参数|说明|类型|是否必填|默认值|
 |---|----|---|-------|-----|
 |type|图标类型。如果为空则不显示|boolean|是|-|
-|style|设置图标的样式，例如 fontSize 和 color|object|否|-|
 |spin|是否有旋转动画|object|否|false|
