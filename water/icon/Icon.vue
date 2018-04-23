@@ -2,7 +2,7 @@
   <i
     v-if="type"
     :class="[`${prefix}-font`,`${prefix}-${type}`, {
-      'vi-spin': !!spin,
+      'w-spin': !!spin,
     }]"
   ></i>
 </template>
@@ -15,7 +15,7 @@ export default {
     spin: Boolean,
     prefix: {
       type: String,
-      default: 'vi',
+      default: 'w',
     },
   },
   data() {
