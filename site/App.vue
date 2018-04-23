@@ -7,4 +7,10 @@
 </template>
 <style lang="scss">
 @import '../node_modules/em-normalize/dist/em-normalize.scss';
+
+html,
+body,
+.app {
+  height: 100%;
+}
 </style>
