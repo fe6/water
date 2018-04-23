@@ -22,5 +22,6 @@
 
 |参数|说明|类型|是否必填|默认值|
 |---|----|---|-------|-----|
-|type|图标类型。如果为空则不显示|boolean|是|-|
-|spin|是否有旋转动画|object|否|false|
+|type|图标类型。如果为空则不显示|Boolean|是|-|
+|spin|是否有旋转动画|Object|否|false|
+|prefix|样式的前缀|String|否|vi|
