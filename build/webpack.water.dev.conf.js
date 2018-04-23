@@ -35,7 +35,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       {
         from: path.resolve(__dirname, '../water'),
         to: '',
-        ignore: ['.*', '*.md',, '*.test.*', 'water.scss', 'water.js']
+        ignore: ['.*', '*.md',, '*.test.*', 'water.js']
       }
     ]),
   ]

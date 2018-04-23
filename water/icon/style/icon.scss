@@ -1,3 +1,56 @@
-i {
-  color: #1996f9;
+$font-name: "iconfont";
+$font-version: 1524475512080;
+$font-prefix: 'vi-';
+$font-path: './icon/font/';
+
+@font-face {
+  font-family: $font-name;
+  src: url('#{$font-path}iconfont.eot?t=#{$font-version}');
+  src:
+    url('#{$font-path}iconfont.eot?t=#{$font-version}#iefix') format('embedded-opentype'),
+    url("#{$font-path}iconfont.woff?t=#{$font-version}") format("woff"),
+    url('#{$font-path}iconfont.ttf?t=#{$font-version}') format('truetype'),
+    url('#{$font-path}iconfont.svg?t=#{$font-version}#iconfont') format('svg');
+}
+
+.#{$font-prefix}font {
+  font-family: $font-name !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: none;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+}
+
+.#{$font-prefix}back::before { content: "\e934"; }
+
+.#{$font-prefix}forward::before { content: "\e94d"; }
+
+$font-list: "\e66a" "\e668" "\e669" "\e667";
+
+@each $font-item in $font-list {
+  .#{$font-prefix}loading#{index($font-list, $font-item)}::before {
+    content: $font-item;
+  }
+}
+
+.#{$font-prefix}spin::before {
+  display: inline-block;
+  animation: loadingCircle 1s infinite linear;
+}
+
+@keyframes loadingCircle {
+  0% {
+    transform-origin: 50% 50%;
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform-origin: 50% 50%;
+    transform: rotate(1turn);
+  }
 }
