@@ -48,7 +48,7 @@ export default {
     click: {
       type: Function,
       default: () => {},
-    }
+    },
   },
   data() {
     return {
