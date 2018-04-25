@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button.vue 检测快照是否一样。 1`] = `
+<button
+  class="w-button"
+  type="button"
+>
+  <!---->
+   
+  <span
+    class="w-button-text"
+  >
+    default
+  </span>
+</button>
+`;

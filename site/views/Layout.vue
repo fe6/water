@@ -6,6 +6,7 @@
     <div class="layout-body">
       <div class="layout-side">
         <router-link :to="{ name: 'Home'}">首页</router-link>
+        <router-link :to="{ name: 'Button'}">按钮</router-link>
         <router-link :to="{ name: 'Icon'}">图标</router-link>
       </div>
       <keep-alive>

@@ -1,8 +1,10 @@
 // 组件
 import WIcon from './icon/index';
+import WButton from './button/index';
 
 const waterCpt = {
   WIcon,
+  WButton,
 };
 
 const install = (Vue) => {
