@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import doc from './doc';
 
 Vue.use(Router);
 
@@ -17,16 +18,7 @@ const VueRouter = new Router({
     },
     {
       path: '/doc',
-      children: [
-        {
-          path: 'icon',
-          name: 'Icon',
-          meta: {
-            title: '图标',
-          },
-          component: () => import('../../water/icon/zh-cn.md'),
-        },
-      ],
+      children: doc,
       component: () => import('../views/Layout.vue'),
     },
   ],

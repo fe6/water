@@ -6,8 +6,7 @@
   </div>
 </template>
 <style lang="scss">
-@import '../node_modules/em-normalize/dist/em-normalize.scss';
-
+// @import '../node_modules/em-normalize/dist/em-normalize.scss';
 html,
 body,
 .app {

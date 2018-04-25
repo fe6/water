@@ -1,0 +1,214 @@
+@import '../../style/config.scss';
+
+$prefix: 'w-';
+$button-list: ('': 32, '-lg': 40, '-sm': 24);
+$button-font: ('': 14, '-lg': 16, '-sm': 14);
+
+.#{$prefix}button {
+  padding: 0 16px;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: $border-radius-base;
+  border: 1px solid transparent;
+  border-color: $normal-border;
+  background: $normal-bg;
+  transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  outline: none;
+  // 用户是否可选择文本
+  user-select: none;
+  // 浏览器只允许进行滚动和持续缩放操作
+  touch-action: manipulation;
+  // 文本不换行
+  white-space: nowrap;
+
+  &:focus,
+  &:hover {
+    border-color: $blue-6;
+    color: $blue-6;
+  }
+
+  &:active {
+    border-color: $blue-7;
+    color: $blue-7;
+  }
+
+  &-primary {
+    background: $blue-6;
+    border-color: $blue-6;
+    color: $normal-color;
+
+    &:focus,
+    &:hover {
+      border-color: $blue-5;
+      background: $blue-5;
+      color: $normal-color;
+    }
+
+    &:active {
+      background: $blue-7;
+      color: $normal-color;
+    }
+  }
+
+  &-dashed {
+    border-style: dashed;
+    border-color: $normal-border;
+  }
+
+  &-danger {
+    background: $base-bg;
+    color: $red-6;
+    border-color: $normal-border;
+
+    &:focus {
+      color: $red-5;
+      border-color: $red-5;
+    }
+
+    &:hover {
+      background: $red-5;
+      color: $normal-bg;
+      border-color: $red-5;
+    }
+
+    &:active {
+      background: $red-7;
+      color: $normal-bg;
+      border-color: $red-7;
+    }
+  }
+  // 循环尺寸
+  @each $size, $value in $button-list {
+    &#{$size} {
+      height: $value + px;
+      font-size: map-get($button-font, $size) + px;
+
+      @if $size == '-sm' {
+        padding: 0 8px;
+      }
+    }
+  }
+
+  &-loading {
+    position: relative;
+    pointer-events: none;
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      bottom: -1px;
+      right: -1px;
+      background: $normal-bg;
+      border-radius: inherit;
+      opacity: 0.5;
+    }
+  }
+
+  &-circle {
+    border-radius: 50%;
+    position: relative;
+    // padding: 0;
+
+    // 循环尺寸
+    @each $size, $value in $button-list {
+      &.#{$prefix}button#{$size} {
+        width: $value + px;
+      }
+    }
+
+    & > i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &-ghost {
+    background: none;
+
+    &.#{$prefix}button-primary {
+      color: $blue-6;
+
+      &:hover,
+      &:focus {
+        background: none;
+        color: $blue-5;
+      }
+
+      &:active {
+        background: none;
+        color: $blue-7;
+      }
+    }
+
+    &.#{$prefix}button-danger {
+      color: $red-6;
+
+      &:hover,
+      &:focus {
+        color: $red-5;
+        background: none;
+      }
+
+      &:active {
+        border-color: $red-7;
+        background: none;
+      }
+    }
+  }
+
+  &-click {
+    position: relative;
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: -1px;
+      bottom: -1px;
+      right: -1px;
+      left: -1px;
+      border-radius: inherit;
+      border: 1px solid;
+      border-color: inherit;
+      opacity: 0.4;
+      animation: big 0.4s;
+    }
+  }
+
+  &-disabled {
+    background: $disabled-bg;
+    color: $disabled-color;
+    border-color: $disabled-border;
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus {
+      background: $disabled-bg;
+      color: $disabled-color;
+      border-color: $disabled-border;
+    }
+  }
+}
+
+@keyframes big {
+  0% {
+    opacity: 1;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    border-width: 1px;
+  }
+
+  100% {
+    opacity: 0;
+    top: -6px;
+    left: -6px;
+    bottom: -6px;
+    right: -6px;
+    border-width: 6px;
+  }
+}
