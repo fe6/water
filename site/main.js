@@ -12,10 +12,25 @@ Vue.config.productionTip = false;
 
 Vue.use(Http);
 Vue.use(water);
+// 初始化 全局页面切换进度条
+water.WLoadbar.init();
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title;
+  // 开启 全局页面切换进度条
+  water.WLoadbar.start();
+  next();
+});
+
+router.afterEach(() => {
+  // 关闭 全局页面切换进度条
+  water.WLoadbar.finish();
+});
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  template: '<App/>',
-  components: { App },
+  render(h) {
+    return h(App);
+  },
 });

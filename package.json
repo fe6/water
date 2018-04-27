@@ -10,8 +10,9 @@
     "build:water": "cross-env BABEL_ENV=production && node build/build.water.js && gulp --gulpfile build/gulpfile.js",
     "eslint": "eslint --ext .js,.vue site water --fix",
     "stylelint": "stylelint site/**/*.scss water/**/*.scss",
+    "lint": "npm run eslint && npm run stylelint",
     "lint-staged": "lint-staged",
-    "test": "jest --config jest.conf.js --no-cache",
+    "test": "jest --config jest.conf.js --no-cache --verbose",
     "codecov": "codecov ./coverage/clover.xml"
   },
   "dependencies": {

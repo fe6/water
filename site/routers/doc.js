@@ -15,4 +15,12 @@ export default [
     },
     component: () => import('../../water/button/zh-cn.md'),
   },
+  {
+    path: 'loadbar',
+    name: 'Loadbar',
+    meta: {
+      title: 'Loadbar 全局进度条 - 水滴',
+    },
+    component: () => import('../../water/loadbar/zh-cn.md'),
+  },
 ];

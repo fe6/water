@@ -4,7 +4,7 @@
 
 * []确保您向右分支提出PR：针对最新活动分支“feature-x.x”的`master`错误修复。
 * []确保遵循antd的[代码约定]（https://github.com/ant-design/ant-design/wiki/Code-convention-for-antd）。
-* []运行`npm run eslint && npm run stylelint`并在提交之前修正这些错误以保持一致的代码风格。
+* []运行`npm run lint`并在提交之前修正这些错误以保持一致的代码风格。
 * []在创建 PR 以保持提交历史清晰之前重新创建。
 * []添加一些说明并为您推荐相关的问题PR。
 
