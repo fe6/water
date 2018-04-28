@@ -2,11 +2,14 @@
 import WIcon from './icon/index';
 import WButton from './button/index';
 import WLoadbar from './loadbar/index';
+import WGrid from './grid/index';
 
 const waterCpt = {
   WIcon,
   WButton,
   WLoadbar,
+  WCol: WGrid.WCol,
+  WRow: WGrid.WRow,
 };
 
 const install = (Vue) => {
