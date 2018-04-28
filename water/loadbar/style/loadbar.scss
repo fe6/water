@@ -1,0 +1,9 @@
+.w-loadbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 0%;
+  transition: width 0.2s;
+  z-index: 999999;
+}
