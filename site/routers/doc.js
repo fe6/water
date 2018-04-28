@@ -23,4 +23,12 @@ export default [
     },
     component: () => import('../../water/loadbar/zh-cn.md'),
   },
+  {
+    path: 'grid',
+    name: 'Grid',
+    meta: {
+      title: 'Grid 栅格 - 水滴',
+    },
+    component: () => import('../../water/grid/zh-cn.md'),
+  },
 ];
