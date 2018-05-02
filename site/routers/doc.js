@@ -31,4 +31,12 @@ export default [
     },
     component: () => import('../../water/grid/zh-cn.md'),
   },
+  {
+    path: 'affix',
+    name: 'Affix',
+    meta: {
+      title: 'Affix 图钉 - 水滴',
+    },
+    component: () => import('../../water/affix/zh-cn.md'),
+  },
 ];

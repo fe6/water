@@ -3,6 +3,7 @@ import WIcon from './icon/index';
 import WButton from './button/index';
 import WLoadbar from './loadbar/index';
 import WGrid from './grid/index';
+import WAffix from './affix/index';
 
 const waterCpt = {
   WIcon,
@@ -11,6 +12,7 @@ const waterCpt = {
   WLoadbar,
   WCol: WGrid.WCol,
   WRow: WGrid.WRow,
+  WAffix,
 };
 
 const install = (Vue) => {
