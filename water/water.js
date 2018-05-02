@@ -6,7 +6,8 @@ import WGrid from './grid/index';
 
 const waterCpt = {
   WIcon,
-  WButton,
+  WButton: WButton.WButton,
+  WButtonGroup: WButton.WButtonGroup,
   WLoadbar,
   WCol: WGrid.WCol,
   WRow: WGrid.WRow,

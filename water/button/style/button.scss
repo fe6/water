@@ -27,6 +27,7 @@ $button-font: ('': 14, '-lg': 16, '-sm': 14);
     color: $blue-6;
   }
 
+  &-on,
   &:active {
     border-color: $blue-7;
     color: $blue-7;
@@ -44,6 +45,7 @@ $button-font: ('': 14, '-lg': 16, '-sm': 14);
       color: $normal-color;
     }
 
+    &-on,
     &:active {
       background: $blue-7;
       color: $normal-color;
@@ -71,10 +73,17 @@ $button-font: ('': 14, '-lg': 16, '-sm': 14);
       border-color: $red-5;
     }
 
+    &-on,
     &:active {
       background: $red-7;
       color: $normal-bg;
       border-color: $red-7;
+    }
+
+    &-on {
+      &:focus {
+        color: $normal-color;
+      }
     }
   }
   // 循环尺寸
@@ -138,6 +147,7 @@ $button-font: ('': 14, '-lg': 16, '-sm': 14);
         color: $blue-5;
       }
 
+      &-on,
       &:active {
         background: none;
         color: $blue-7;
@@ -153,6 +163,7 @@ $button-font: ('': 14, '-lg': 16, '-sm': 14);
         background: none;
       }
 
+      &-on,
       &:active {
         border-color: $red-7;
         background: none;

@@ -2,15 +2,11 @@
 
 exports[`Button.vue 检测快照是否一样。 1`] = `
 <button
-  class="w-button"
+  class="w-button w-button-on"
   type="button"
 >
   <!---->
    
-  <span
-    class="w-button-text"
-  >
-    default
-  </span>
+  <!---->
 </button>
 `;
