@@ -1,12 +1,36 @@
 # Button 按钮
 ``` html
-<p>组合</p>
+<p>组合1</p>
 <w-button-group>
   <w-button disabled type="danger" size="small">Default1</w-button>
   <w-button disabled type="danger" size="small">Default2</w-button>
   <w-button disabled type="danger" size="small">Default3</w-button>
 </w-button-group>
 ```
+``` html
+<p>组合2</p>
+<w-button-group :on="stats">
+  <w-button :key="1" type="primary" size="large" @click="clickFn">primary1</w-button>
+  <w-button :key="2" type="danger" size="large" @click="clickFn">primary2</w-button>
+  <w-button :key="3" type="dashed" size="large" @click="clickFn">primary3</w-button>
+  <w-button :key="4" ghost size="large" @click="clickFn">primary3</w-button>
+</w-button-group>
+```
+
+<script>
+export default {
+  data() {
+    return {
+      stats: 3,
+    };
+  },
+  methods: {
+    clickFn($event, index) {
+      this.stats = index;
+    },
+  },
+};
+</script>
 
 ```` html
 <p>不可用1</p>
