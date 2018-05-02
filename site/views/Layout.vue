@@ -6,10 +6,16 @@
     <div class="layout-body">
       <div class="layout-side">
         <router-link :to="{ name: 'Home'}">首页</router-link>
+        <br>
         <router-link :to="{ name: 'Button'}">按钮</router-link>
+        <br>
         <router-link :to="{ name: 'Icon'}">图标</router-link>
+        <br>
         <router-link :to="{ name: 'Loadbar'}">全局进度条</router-link>
+        <br>
         <router-link :to="{ name: 'Grid'}">栅格</router-link>
+        <br>
+        <router-link :to="{ name: 'Affix'}">图钉</router-link>
       </div>
       <keep-alive>
         <router-view class="markdown-body layout-main"></router-view>
