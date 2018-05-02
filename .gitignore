@@ -18,6 +18,8 @@ node_modules/
 *.log
 *.log.*
 *.ini
+yarn.lock
+package-lock.json
 yarn-error.log
 .vscode
 $Recycle.Bin
