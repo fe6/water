@@ -39,4 +39,12 @@ export default [
     },
     component: () => import('../../water/affix/zh-cn.md'),
   },
+  {
+    path: 'breadcrumb',
+    name: 'Breadcrumb',
+    meta: {
+      title: 'Breadcrumb 面包屑 - 水滴',
+    },
+    component: () => import('../../water/breadcrumb/zh-cn.md'),
+  },
 ];

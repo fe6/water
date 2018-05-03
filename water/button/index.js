@@ -9,7 +9,7 @@ WButtonGroup.install = (Vue) => {
   Vue.component(WButtonGroup.name, WButton);
 };
 
-export default {
+export {
   WButton,
   WButtonGroup,
 };

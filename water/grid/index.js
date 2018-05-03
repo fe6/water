@@ -9,7 +9,7 @@ WCol.install = (Vue) => {
   Vue.component(WCol.name, WCol);
 };
 
-export default {
+export {
   WRow,
   WCol,
 };
