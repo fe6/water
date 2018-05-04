@@ -1,5 +1,5 @@
 $font-name: "iconfont";
-$font-version: 1524475512080;
+$font-version: 1525402010198;
 $font-prefix: 'w-';
 $font-path: './icon/font/';
 
@@ -26,10 +26,6 @@ $font-path: './icon/font/';
   text-rendering: optimizeLegibility;
 }
 
-.#{$font-prefix}back::before { content: "\e934"; }
-
-.#{$font-prefix}forward::before { content: "\e94d"; }
-
 $font-list: "\e66a" "\e668" "\e669" "\e667";
 
 @each $font-item in $font-list {
@@ -41,6 +37,22 @@ $font-list: "\e66a" "\e668" "\e669" "\e667";
 .#{$font-prefix}spin::before {
   display: inline-block;
   animation: loadingCircle 1s infinite linear;
+}
+
+.#{$font-prefix}forward::before {
+  content: '\e94d';
+}
+
+.#{$font-prefix}back::before {
+  content: '\e934';
+}
+
+.#{$font-prefix}heart::before {
+  content: "\e64e";
+}
+
+.#{$font-prefix}star::before {
+  content: "\e615";
 }
 
 @keyframes loadingCircle {
