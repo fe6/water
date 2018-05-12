@@ -1,5 +1,7 @@
 # water
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fe6/water.svg)](https://greenkeeper.io/)
+
 > 水滴组件库
 
 ## 需要的环境
