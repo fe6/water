@@ -1,0 +1,63 @@
+@import '../../style/config.scss';
+
+.w-rate {
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 20px;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 30px;
+  cursor: pointer;
+
+  &-elem {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: $rate-base-color;
+    // transition: color 1s;
+
+    &-right {
+      position: relative;
+      width: 50%;
+      left: 50%;
+
+      &-font {
+        transform: translateX(-50%);
+      }
+
+      &-character {
+        left: auto;
+      }
+    }
+
+    &-left {
+      position: absolute;
+      width: 50%;
+      z-index: 2;
+      overflow: hidden;
+    }
+  }
+
+  &-item {
+    list-style: none;
+    margin: 0 8px 0 0 !important;
+    color: $rate-base-color;
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    transition: transform 0.2s;
+
+    &:last-child {
+      margin: 0 !important;
+    }
+  }
+
+  &-big {
+    transform: scale(1.1);
+  }
+
+  &-on {
+    color: inherit;
+  }
+}

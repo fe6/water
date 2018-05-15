@@ -5,6 +5,7 @@ import WLoadbar from './loadbar/index';
 import { WCol, WRow } from './grid/index';
 import WAffix from './affix/index';
 import { WBreadcrumb, WBreadcrumbItem } from './breadcrumb/index';
+import WRate from './rate/index';
 
 const waterCpt = {
   WIcon,
@@ -16,6 +17,7 @@ const waterCpt = {
   WAffix,
   WBreadcrumb,
   WBreadcrumbItem,
+  WRate,
 };
 
 const install = (Vue) => {
