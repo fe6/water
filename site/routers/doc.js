@@ -47,4 +47,12 @@ export default [
     },
     component: () => import('../../water/breadcrumb/zh-cn.md'),
   },
+  {
+    path: 'rate',
+    name: 'Rate',
+    meta: {
+      title: 'Rate 评分 - 水滴',
+    },
+    component: () => import('../../water/rate/zh-cn.md'),
+  },
 ];

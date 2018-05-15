@@ -18,6 +18,8 @@
         <router-link :to="{ name: 'Affix'}">图钉</router-link>
         <br>
         <router-link :to="{ name: 'Breadcrumb'}">面包屑</router-link>
+        <br>
+        <router-link :to="{ name: 'Rate'}">评分</router-link>
       </div>
       <keep-alive>
         <router-view class="markdown-body layout-main"></router-view>

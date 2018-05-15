@@ -35,4 +35,4 @@
 |---|----|---|-------|-----|
 |type|图标类型。如果为空则不显示|String|是|无|
 |spin|是否有旋转动画|Boolean|否|无|
-|prefix|样式的前缀|String|否|vi|
+|prefix|样式的前缀|String|否|无|
