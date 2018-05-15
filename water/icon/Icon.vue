@@ -1,9 +1,22 @@
 <template>
   <i
     v-if="type"
-    :class="[`${prefix}-font`,`${prefix}-${type}`, {
-      'w-spin': !!spin,
-    }]"
+    :class="[
+      'w-font',
+      {
+        [`w-${type}`]: !!type,
+      },
+      {
+        [`${prefix}-font`]: !!prefix,
+      },
+      {
+        [`${prefix}-${type}`]: !!prefix && !!type,
+      },
+      {
+        'w-spin': !!spin,
+      },
+      className,
+    ]"
   ></i>
 </template>
 
@@ -13,10 +26,8 @@ export default {
   props: {
     type: String,
     spin: Boolean,
-    prefix: {
-      type: String,
-      default: 'w',
-    },
+    prefix: String,
+    className: [String, Object],
   },
   data() {
     return {};

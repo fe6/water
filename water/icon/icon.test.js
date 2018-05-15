@@ -66,7 +66,7 @@ describe('Icon.vue', () => {
     wrapperPrefix.vm.$nextTick(() => {
       try {
         expect(wrapperPrefix.is('i')).toBe(true);
-        expect(wrapperPrefix.classes().toString()).toBe('test-font,test-loading1');
+        expect(wrapperPrefix.classes().toString()).toBe('w-font,w-loading1,test-font,test-loading1');
         done();
       } catch (err) {
         done.fail(err);
