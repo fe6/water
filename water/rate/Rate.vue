@@ -43,6 +43,8 @@
   </ul>
 </template>
 <script>
+import WIcon from '../icon/Icon';
+
 export default {
   name: 'WRate',
   data() {
@@ -152,6 +154,9 @@ export default {
       this.$emit('input', value);
       this.$emit('change', value);
     },
+  },
+  components: {
+    WIcon,
   },
   watch: {
     value(val) {

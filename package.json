@@ -6,6 +6,8 @@
   "private": true,
   "scripts": {
     "start": "cross-env BABEL_ENV=development && node build/dev-server.js",
+    "dev": "vuepress dev water",
+    "docs:build": "vuepress build water",
     "build": "cross-env BABEL_ENV=production && node build/build.js",
     "build:water": "cross-env BABEL_ENV=production && node build/build.water.js && gulp --gulpfile build/gulpfile.js",
     "eslint": "eslint --ext .js,.vue site water --fix",
@@ -105,6 +107,7 @@
     "vue-loader": "^15.0.10",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "2.5.16",
+    "vuepress": "^0.8.4",
     "webpack": "^4.6.0",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-dev-middleware": "^3.1.0",

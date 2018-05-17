@@ -1,21 +1,25 @@
-# 图标
+# Icon 图标
 > Vue.js 的 语义化的矢量图形。
 
 ## 如何使用
 
 使用 `<w-icon />` 标签声明组件，指定图标对应的 type 属性，示例代码如下:
-```` html
-<p>
-  <span><w-icon type="forward" /></span>
-  <span><w-icon type="back" /></span>
-  <span><w-icon type="loading1" /></span>
-  <span><w-icon type="loading2" /></span>
-  <span><w-icon type="loading3" /></span>
-  <span><w-icon type="loading4" /></span>
-  <span><w-icon type="heart" /></span>
-  <span><w-icon type="star" /></span>
-</p>
+```` vue
+<w-icon type="forward" />
 ````
+
+## 水滴里面的 icon
+
+|示例|类型|代码|
+|---|---|---|
+|<w-icon type="forward" />|向前|`<w-icon type="forward" />`|
+|<w-icon type="back" />|向后|`<w-icon type="back" />`|
+|<w-icon type="loading1" />|加载中1|`<w-icon type="loading1" />`|
+|<w-icon type="loading2" />|加载中2|`<w-icon type="loading2" />`|
+|<w-icon type="loading3" />|加载中3|`<w-icon type="loading3" />`|
+|<w-icon type="loading4" />|加载中4|`<w-icon type="loading4" />`|
+|<w-icon type="heart" />|心|`<w-icon type="heart" />`|
+|<w-icon type="star" />|星星|`<w-icon type="star" />`|
 
 ## 本地部署
 
@@ -25,14 +29,25 @@
 
 由于图标字体本质上还是文字，可以使用 `style` 和 `class` 设置图标的大小和颜色。
 
-```` html
 <p>
   <w-icon type="loading1" spin />
 </p>
-````
 
 |参数|说明|类型|是否必填|默认值|
 |---|----|---|-------|-----|
 |type|图标类型。如果为空则不显示|String|是|无|
 |spin|是否有旋转动画|Boolean|否|无|
 |prefix|样式的前缀|String|否|无|
+
+<script>
+import WIcon from './Icon';
+
+export default {
+  components: {
+    WIcon,
+  },
+};
+</script>
+<style lang="scss">
+@import './style/icon.scss';
+</style>

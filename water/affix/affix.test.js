@@ -30,7 +30,7 @@ describe('Affix.vue', () => {
         setTimeout(() => {
           wrapperTop.vm.height = 32;
           wrapperTop.vm.offset = 578;
-          wrapperTop.vm.target.scrollTop = wrapperTop.vm.target.innerHeight;
+          wrapperTop.vm.win.scrollTop = wrapperTop.vm.win.innerHeight;
           wrapperTop.vm.debounce();
           expect(wrapperTop.vm.style).toBe('position: fixed;top: 10px; zIndex: 10;');
           expect(wrapperTop.vm.offsetType).toBe('top');
@@ -48,7 +48,7 @@ describe('Affix.vue', () => {
         setTimeout(() => {
           wrapper.vm.height = 32;
           wrapper.vm.offset = 1578;
-          wrapper.vm.target.scrollTop = wrapper.vm.target.innerHeight;
+          wrapper.vm.win.scrollTop = wrapper.vm.win.innerHeight;
           wrapper.vm.debounce();
           expect(wrapper.vm.style).toBe('position: fixed;bottom: 10px; zIndex: 10;');
           expect(wrapper.vm.offsetType).toBe('bottom');
@@ -60,12 +60,13 @@ describe('Affix.vue', () => {
     });
   });
 
-  it('检测是否有 innerHeight 属性。', (done) => {
+  it('检测没有有 innerHeight 情况。', (done) => {
     try {
-      wrapperbeforeDestroy.vm.target.innerHeight = undefined;
-      wrapper.vm.target.offsetHeight = 5;
+      wrapperbeforeDestroy.vm.win = window;
       setTimeout(() => {
-        expect(wrapper.vm.boxHeight).toBe(wrapper.vm.target.offsetHeight);
+        wrapper.vm.win.innerHeight = undefined;
+        wrapper.vm.win.offsetHeight = 768;
+        expect(wrapper.vm.boxHeight).toBe(wrapper.vm.win.offsetHeight);
         done();
       }, 0);
     } catch (err) {
@@ -73,13 +74,27 @@ describe('Affix.vue', () => {
     }
   });
 
-  it('检测是否销毁全局注册方法。', (done) => {
+  it('检测有 innerHeight 属性。', (done) => {
+    try {
+      wrapperbeforeDestroy.vm.win = window;
+      setTimeout(() => {
+        wrapper.vm.win.innerHeight = 768;
+        expect(wrapper.vm.boxHeight).toBe(wrapper.vm.win.innerHeight);
+        done();
+      }, 0);
+    } catch (err) {
+      done.fail(err);
+    }
+  });
+
+  it('检测是否销毁全局 window 注册方法。', (done) => {
     wrapperbeforeDestroy.vm.$nextTick(() => {
       try {
         const debounceFn = jest.fn();
-        wrapperbeforeDestroy.removeEventListener = debounceFn;
+        wrapperbeforeDestroy.vm.win = window;
+        wrapperbeforeDestroy.vm.win.removeEventListener = debounceFn;
         wrapperbeforeDestroy.destroy();
-        wrapperbeforeDestroy.removeEventListener();
+        wrapperbeforeDestroy.vm.win.removeEventListener();
         expect(debounceFn).toBeCalled();
         done();
       } catch (err) {

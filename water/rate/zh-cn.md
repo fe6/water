@@ -6,52 +6,95 @@
 - 对评价进行展示。
 - 对事物进行快速的评级操作。
 
-## 代码演示
+## 基本使用
+> 最简单的用法。
 
-``` html
-<p>
-  <div>{{number}}<w-rate prefix="o" half v-model="number"></w-rate></div>
-  <div>{{number1}}<w-rate prefix="a" v-model="number1"></w-rate></div>
-  <div><w-rate :count="10"></w-rate></div>
-  <div>
-    <p><w-button size="small" @click="click">当前数字是</w-button> -> {{number3}} -> 对应的评分是 -> </p>
-    <w-rate character="我的" v-model="number3"></w-rate>
-  </div>
-  <div>
-    <p>当前改变的值->{{numberClick}}->当前移动的值->{{numberHover}}-></p>
-    <w-rate half character="w-icon" @change="changeValue" :hover="changeHover"></w-rate>
-  </div>
-  <div>
-    <p>当前改变的值->{{numberClick}}->当前移动的值->{{numberHover}}-></p>
-    <w-rate half character="我的我人" :change="changeValue" :hover="changeHover"></w-rate>
-  </div>
-</p>
+***output***
+<br>
+<w-rate />
+
+***input***
+``` vue
+<w-rate />
 ```
 
-<script>
+## 半星
+> 支持选中半星。
+
+***output***
+<br>
+<w-rate half v-model="halfRate" />
+
+***input***
+
+``` vue
+<w-rate half v-model="halfRate" />
+```
+
+``` js
+import WRate from './Rate';
+
 export default {
   data() {
     return {
-      number: 1.5,
-      number1: 1,
-      number3: 3,
-      numberClick: -1,
-      numberHover: -1,
+      halfRate: 1.5,
+    };
+  },
+  components: {
+    WRate,
+  },
+};
+```
+
+## 其他字符
+> 可以将星星替换为其他字符，比如字母，数字，字体图标甚至中文。
+
+***output***
+<br>
+<w-rate character="水滴" />
+
+***input***
+
+``` vue
+<w-rate character="水滴" />
+```
+
+## 随时改变设置的值
+> 不仅可以上来选中，也可以之后修改。
+
+***output***
+<br>
+<w-button size="small" v-bind:click="click">当前数字是</w-button> -> {{number}} -> 对应的评分是 ->
+<w-rate character="水滴" v-model="number"></w-rate>
+
+***input***
+
+``` vue
+<w-button size="small" v-bind:click="click">当前数字是</w-button> -> {{number}} -> 对应的评分是 ->
+<w-rate character="水滴" v-model="number"></w-rate>
+```
+
+``` js
+import WRate from './Rate';
+import WButton from '../button/Button';
+
+export default {
+  data() {
+    return {
+      number: 3,
     };
   },
   methods: {
     click() {
-      this.number3 = Math.floor((Math.random() * 5) + 1);
-    },
-    changeValue(val) {
-      this.numberClick = val;
-    },
-    changeHover(val) {
-      this.numberHover = val;
+      this.number = Math.floor((Math.random() * 5) + 1);
     },
   },
+  components: {
+    WRate,
+    WButton,
+  },
 };
-</script>
+```
 
 ## API
 
@@ -73,3 +116,31 @@ export default {
 |-----|---|-----|
 |change|选择时的回调|当前选择的数字|
 |hover|鼠标经过时的回调|当前选择的数字|
+
+<script>
+import WRate from './Rate';
+import WButton from '../button/Button';
+
+export default {
+  data() {
+    return {
+      halfRate: 1.5,
+      number: 3,
+    };
+  },
+  methods: {
+    click() {
+      this.number = Math.floor((Math.random() * 5) + 1);
+    },
+  },
+  components: {
+    WRate,
+    WButton,
+  },
+};
+</script>
+<style lang="scss">
+@import '../button/style/button.scss';
+@import '../icon/style/icon.scss';
+@import './style/rate.scss';
+</style>

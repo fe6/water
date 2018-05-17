@@ -1,28 +1,72 @@
-# LoadingBar 全局加载进度条
+# Loadbar 全局加载进度条
 
 ## 概述
 全局创建一个显示页面加载、异步请求、文件上传等的加载进度条。
 
-## 说明
-LoadingBar 只会在全局创建一个，因此在任何位置调用的方法都会控制这同一个组件。主要使用场景是路由切换和 Ajax，因为这两者都不能拿到精确的进度，LoadingBar 会模拟进度，当然也可以通过 `update()` 方法来传入一个精确的进度，比如在文件上传时会很有用，具体见API。
+## 代码演示
 
+### 基本使用
+
+***output***
+<br>
+<br>
+<w-button prefix="demo" v-bind:click="start">开始</w-button>
+<w-button prefix="demo" type="primary" v-bind:click="finish">完成</w-button>
+<w-button prefix="demo" type="danger" v-bind:click="fail">报错</w-button>
+<w-button prefix="demo" type="dash" v-bind:click="update">更新</w-button>
+
+***input***
+``` vue
+<template>
+  <div>
+    <w-button prefix="demo" v-bind:click="start">开始</w-button>
+    <w-button prefix="demo" type="primary" v-bind:click="finish">完成</w-button>
+    <w-button prefix="demo" type="danger" v-bind:click="fail">报错</w-button>
+    <w-button prefix="demo" type="dash" v-bind:click="update">更新</w-button>
+  </div>
+</template>
+<script>
+  export default {
+    methods: {
+      start () {
+        this.$Loading.start();
+      },
+      finish () {
+        this.$Loading.finish();
+      },
+      error () {
+        this.$Loading.error();
+      },
+      update () {
+        this.$Loading.update(10);
+      }
+    }
+  }
+</script>
 ```
+
+## 说明
+Loadbar 只会在全局创建一个，因此在任何位置调用的方法都会控制这同一个组件。主要使用场景是路由切换和 Ajax，因为这两者都不能拿到精确的进度，Loadbar 会模拟进度，当然也可以通过 `update()` 方法来传入一个精确的进度，比如在文件上传时会很有用，具体见API。
+
+``` js
 // 部分代码省略
-import iView from 'iview';
-Vue.use(iView);
+import water from '@fe6/water';
+
+Vue.use(water);
+
+water.WLoadbar.init();
 
 router.beforeEach((to, from, next) => {
-    iView.LoadingBar.start();
-    next();
+  water.WLoadbar.start();
+  next();
 });
 
 router.afterEach(route => {
-    iView.LoadingBar.finish();
+  water.WLoadbar.finish();
 });
 ```
 
-
-```
+``` js
 // 以jQuery的Ajax为例，部分代码省略
 import $ from 'jquery';
 export default {
@@ -81,3 +125,41 @@ this.$Loading.update(percent)
 |color|进度条的颜色|String|'#1996f9'|
 |failedColor|失败时的进度条颜色|String|'#ff0000'|
 |duration|进度条增进的参数|Number|3000|
+
+<script>
+import WLoadbar from './index';
+import WButton from '../button/Button';
+
+export default {
+  mounted() {
+    WLoadbar.init();
+  },
+  methods: {
+    start() {
+      WLoadbar.start();
+    },
+    finish() {
+      WLoadbar.finish();
+    },
+    fail() {
+      WLoadbar.fail();
+    },
+    update () {
+      WLoadbar.update(10);
+    },
+  },
+  components: {
+    WLoadbar,
+    WButton,
+  },
+}
+</script>
+<style lang="scss">
+@import '../button/style/button.scss';
+@import './style/loadbar.scss';
+
+.demo-button {
+  margin: 0 8px 8px 0;
+  vertical-align: middle;
+}
+</style>

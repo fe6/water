@@ -1,49 +1,15 @@
 # 栅格系统
 
-## 概述 - 24栅格系统
-
-<style scope>
-.demo {
-  &-row {
-    margin-bottom: 8px;
-    background-image: linear-gradient(90deg,#f5f5f5 4.16666667%,transparent 0,transparent 8.33333333%,#f5f5f5 0,#f5f5f5 12.5%,transparent 0,transparent 16.66666667%,#f5f5f5 0,#f5f5f5 20.83333333%,transparent 0,transparent 25%,#f5f5f5 0,#f5f5f5 29.16666667%,transparent 0,transparent 33.33333333%,#f5f5f5 0,#f5f5f5 37.5%,transparent 0,transparent 41.66666667%,#f5f5f5 0,#f5f5f5 45.83333333%,transparent 0,transparent 50%,#f5f5f5 0,#f5f5f5 54.16666667%,transparent 0,transparent 58.33333333%,#f5f5f5 0,#f5f5f5 62.5%,transparent 0,transparent 66.66666667%,#f5f5f5 0,#f5f5f5 70.83333333%,transparent 0,transparent 75%,#f5f5f5 0,#f5f5f5 79.16666667%,transparent 0,transparent 83.33333333%,#f5f5f5 0,#f5f5f5 87.5%,transparent 0,transparent 91.66666667%,#f5f5f5 0,#f5f5f5 95.83333333%,transparent 0);
-  }
-
-  &-col {
-    color: #333;
-
-    &:nth-of-type(odd) {
-      color: #fff;
-      background: rgba(25, 150, 249, 0.5);
-    }
-  }
-
-  &-text {
-    padding: 30px 0;
-    text-align: center;
-    font-size: 30px;
-    line-height: 1;
-  }
-}
-</style>
-
-``` html
-<w-row type="flex" justify="center" align="middle" className="demo-row">
-  <w-col :span="24" className="demo-col">
-    <div class="demo-text">100%</div>
-  </w-col>
+## 24栅格系统
+<w-row type="flex" justify="center" align="middle" className="demo-row" class="demo-first">
+  <w-col :span="24" className="demo-col" class="demo-text">100%</w-col>
 </w-row>
 <w-row type="flex" justify="center" align="middle" className="demo-row">
-  <w-col :span="12" v-for="(a, aIndex) in 2" :key="aIndex" className="demo-col">
-    <div class="demo-text">50%</div>
-  </w-col>
+  <w-col :span="12" v-for="(a, aIndex) in 2" :key="aIndex" className="demo-col" class="demo-text">50%</w-col>
 </w-row>
 <w-row type="flex" justify="center" align="middle" className="demo-row">
-  <w-col :span="8" v-for="(a, aIndex) in 3" :key="aIndex" className="demo-col">
-    <div class="demo-text">33.33%</div>
-  </w-col>
+  <w-col :span="8" v-for="(a, aIndex) in 3" :key="aIndex" className="demo-col" class="demo-text">33.33%</w-col>
 </w-row>
-```
 
 在多数业务情况下，Ant Design需要在设计区域内解决大量信息收纳的问题，因此在 12 栅格系统的基础上，我们将整个设计建议区域按照 24 等分的原则进行划分。
 
@@ -64,12 +30,39 @@
 
 Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排版则不拘泥于栅格。
 
-## 代码演示
+## 基本栅格
 
-### 基本栅格
-
-``` html
+***output***
+<w-row className="demo-row" class="demo-second">
+  <w-col :span="8" className="demo-col">
+    <div class="demo-text">col-8</div>
+  </w-col>
+  <w-col :span="8" className="demo-col">
+    <div class="demo-text">col-8</div>
+  </w-col>
+  <w-col :span="8" className="demo-col">
+    <div class="demo-text">col-8</div>
+  </w-col>
+</w-row>
 <w-row className="demo-row">
+  <w-col :span="6" className="demo-col">
+    <div class="demo-text">col-6</div>
+  </w-col>
+  <w-col :span="6" className="demo-col">
+    <div class="demo-text">col-6</div>
+  </w-col>
+  <w-col :span="6" className="demo-col">
+    <div class="demo-text">col-6</div>
+  </w-col>
+  <w-col :span="6" className="demo-col">
+    <div class="demo-text">col-6</div>
+  </w-col>
+</w-row>
+
+***input***
+
+``` vue
+<w-row className="demo-row" class="demo-second">
   <w-col :span="8" className="demo-col">
     <div class="demo-text">col-8</div>
   </w-col>
@@ -98,165 +91,197 @@ Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排�
 
 ## 间隔用法
 
-``` html
-<w-row :gutter="16" className="demo-row">
-  <w-col :span="6" className="demo-col">
-    <div class="demo-text">col-6</div>
-  </w-col>
-  <w-col :span="6" className="demo-col">
-    <div class="demo-text">col-6</div>
-  </w-col>
-  <w-col :span="6" className="demo-col">
-    <div class="demo-text">col-6</div>
-  </w-col>
-  <w-col :span="6" className="demo-col">
-    <div class="demo-text">col-6</div>
-  </w-col>
+***output***
+
+<w-row :gutter="16" className="demo-row" class="demo-second">
+  <w-col :span="6" className="demo-col" class="demo-text">col-6</w-col>
+  <w-col :span="6" className="demo-col" class="demo-text">col-6</w-col>
+  <w-col :span="6" className="demo-col" class="demo-text">col-6</w-col>
+  <w-col :span="6" className="demo-col" class="demo-text">col-6</w-col>
+</w-row>
+
+***input***
+
+``` vue
+<w-row :gutter="16" className="demo-row" class="demo-second">
+  <w-col :span="6" className="demo-col" class="demo-text">col-6</w-col>
+  <w-col :span="6" className="demo-col" class="demo-text">col-6</w-col>
+  <w-col :span="6" className="demo-col" class="demo-text">col-6</w-col>
+  <w-col :span="6" className="demo-col" class="demo-text">col-6</w-col>
 </w-row>
 ```
 
 ## 栅格顺序
 
-``` html
-<w-row className="demo-row" type="flex">
-  <w-col :span="6" className="demo-col" :order="4">
-    <div class="demo-text">1 | order-4</div>
-  </w-col>
-  <w-col :span="6" className="demo-col" :order="3">
-    <div class="demo-text">2 | order-3</div>
-  </w-col>
-  <w-col :span="6" className="demo-col" :order="2">
-    <div class="demo-text">3 | order-4</div>
-  </w-col>
-  <w-col :span="6" className="demo-col" :order="1">
-    <div class="demo-text">4 | order-1</div>
-  </w-col>
+***output***
+
+<w-row className="demo-row" type="flex" class="demo-second">
+  <w-col :span="6" className="demo-col" :order="4" class="demo-text">1 | order-4</w-col>
+  <w-col :span="6" className="demo-col" :order="3" class="demo-text">2 | order-3</w-col>
+  <w-col :span="6" className="demo-col" :order="2" class="demo-text">3 | order-4</w-col>
+  <w-col :span="6" className="demo-col" :order="1" class="demo-text">4 | order-1</w-col>
+</w-row>
+
+***input***
+
+``` vue
+<w-row className="demo-row" type="flex" class="demo-second">
+  <w-col :span="6" className="demo-col" :order="4" class="demo-text">1 | order-4</w-col>
+  <w-col :span="6" className="demo-col" :order="3" class="demo-text">2 | order-3</w-col>
+  <w-col :span="6" className="demo-col" :order="2" class="demo-text">3 | order-4</w-col>
+  <w-col :span="6" className="demo-col" :order="1" class="demo-text">4 | order-1</w-col>
 </w-row>
 ```
 
 ## 栅格排序
 
-``` html
-<w-row className="demo-row">
-  <w-col :span="18" :pull="6" className="demo-col">
-    <div class="demo-text">col-18 | pull-6</div>
-  </w-col>
-  <w-col :span="6" :push="18" className="demo-col">
-    <div class="demo-text">col-6 | push-18</div>
-  </w-col>
+***output***
+
+<w-row className="demo-row" class="demo-second">
+  <w-col :span="18" :pull="6" className="demo-col" class="demo-text">col-18 | pull-6</w-col>
+  <w-col :span="6" :push="18" className="demo-col" class="demo-text">col-6 | push-18</w-col>
+</w-row>
+
+***input***
+
+``` vue
+<w-row className="demo-row" class="demo-second">
+  <w-col :span="18" :pull="6" className="demo-col" class="demo-text">col-18 | pull-6</w-col>
+  <w-col :span="6" :push="18" className="demo-col" class="demo-text">col-6 | push-18</w-col>
 </w-row>
 ```
 
 ## 栅格偏移
 
-``` html
-<w-row className="demo-row">
-  <w-col :span="8" className="demo-col">
-    <div class="demo-text">col-8</div>
-  </w-col>
-  <w-col :span="8" className="demo-col" :offset="8">
-    <div class="demo-text">col-8 | offset-8</div>
-  </w-col>
+***output***
+
+<w-row className="demo-row" class="demo-second">
+  <w-col :span="8" className="demo-col" class="demo-text">col-8</w-col>
+  <w-col :span="8" className="demo-col" :offset="8" class="demo-text">col-8 | offset-8</w-col>
 </w-row>
 <br>
 <w-row className="demo-row">
-  <w-col :span="6" className="demo-col" :offset="8">
-    <div class="demo-text">col-6 | offset-8</div>
-  </w-col>
-  <w-col :span="6" className="demo-col" :offset="4">
-    <div class="demo-text">col-6 | offset-4</div>
-  </w-col>
+  <w-col :span="6" className="demo-col" :offset="8" class="demo-text">col-6 | offset-8</w-col>
+  <w-col :span="6" className="demo-col" :offset="4" class="demo-text">col-6 | offset-4</w-col>
+</w-row>
+
+***input***
+
+``` vue
+<w-row className="demo-row" class="demo-second">
+  <w-col :span="8" className="demo-col" class="demo-text">col-8</w-col>
+  <w-col :span="8" className="demo-col" :offset="8" class="demo-text">col-8 | offset-8</w-col>
+</w-row>
+<br>
+<w-row className="demo-row">
+  <w-col :span="6" className="demo-col" :offset="8" class="demo-text">col-6 | offset-8</w-col>
+  <w-col :span="6" className="demo-col" :offset="4" class="demo-text">col-6 | offset-4</w-col>
 </w-row>
 ```
 
 ## 栅格排列 子元素向左排列
 
-``` html
-<w-row className="demo-row" type="flex" justify="start" align="top">
-  <w-col :span="4" className="demo-col">
-    <p class="demo-text">col-4</p>
-  </w-col>
-  <w-col :span="4" className="demo-col">
-    <p class="demo-text">col-4</p>
-  </w-col>
-  <w-col :span="4" className="demo-col">
-    <p class="demo-text">col-4</p>
-  </w-col>
-  <w-col :span="4" className="demo-col">
-    <p class="demo-text">col-4</p>
-  </w-col>
+***output***
+
+<w-row className="demo-row" type="flex" justify="start" align="top" class="demo-second">
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+</w-row>
+
+***input***
+
+``` vue
+<w-row className="demo-row" type="flex" justify="start" align="top" class="demo-second">
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
 </w-row>
 ```
 
-## 栅格垂直对齐
+## 顶部对齐
 
-### 顶部对齐
+***output***
 
-``` html
-<w-row className="demo-row" type="flex" justify="center" align="top">
-  <w-col :span="4" className="demo-col">
-    <p class="demo-text">col-4</p>
-  </w-col>
-  <w-col :span="4" className="demo-col">
-    <p class="demo-text">col-4</p>
-  </w-col>
-  <w-col :span="4" className="demo-col">
-    <p class="demo-text">col-4</p>
-  </w-col>
-  <w-col :span="4" className="demo-col">
-    <p class="demo-text">col-4</p>
-  </w-col>
+<w-row className="demo-row" type="flex" justify="center" align="top" class="demo-second">
+  <w-col :span="4" className="demo-col" class="demo-text">col-4 </w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4 </w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4 </w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4 </w-col>
+</w-row>
+
+***input***
+
+``` vue
+<w-row className="demo-row" type="flex" justify="center" align="top" class="demo-second">
+  <w-col :span="4" className="demo-col" class="demo-text">col-4 </w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4 </w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4 </w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4 </w-col>
 </w-row>
 ```
 
-### 底部对齐
+## 底部对齐
 
-``` html
-<w-row className="demo-row" type="flex" justify="center" align="bottom">
-  <w-col :span="4" className="demo-col">
-    <p class="demo-text">col-4</p>
-  </w-col>
-  <w-col :span="4" className="demo-col">
-    <p class="demo-text">col-4</p>
-  </w-col>
-  <w-col :span="4" className="demo-col">
-    <p class="demo-text">col-4</p>
-  </w-col>
-  <w-col :span="4" className="demo-col">
-    <p class="demo-text">col-4</p>
-  </w-col>
+***output***
+
+<w-row className="demo-row" type="flex" justify="center" align="bottom" class="demo-second">
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+</w-row>
+
+***input***
+
+``` vue
+<w-row className="demo-row" type="flex" justify="center" align="bottom" class="demo-second">
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
 </w-row>
 ```
 
 ## 栅格响应式
 
-``` html
-<w-row className="demo-row">
-  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col">
-    <div class="demo-text">w-col</div>
-  </w-col>
-  <w-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col">
-    <div class="demo-text">w-col</div>
-  </w-col>
-  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col">
-    <div class="demo-text">w-col</div>
-  </w-col>
+***output***
+
+<w-row className="demo-row" class="demo-second">
+  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
+  <w-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
+  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
+</w-row>
+
+***input***
+
+``` vue
+<w-row className="demo-row" class="demo-second">
+  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
+  <w-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
+  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
 </w-row>
 ```
 
 ## 栅格其他属性
 
-``` html
-<w-row className="demo-row">
-  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col">
-    <div class="demo-text">w-col</div>
-  </w-col>
-  <w-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col">
-    <div class="demo-text">w-col</div>
-  </w-col>
-  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col">
-    <div class="demo-text">w-col</div>
-  </w-col>
+***output***
+
+<w-row className="demo-row" class="demo-second">
+  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
+  <w-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
+  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
+</w-row>
+
+***input***
+
+``` vue
+<w-row className="demo-row" class="demo-second">
+  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
+  <w-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
+  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
 </w-row>
 ```
 
@@ -293,3 +318,50 @@ md|≥ 768px 响应式栅格，可为栅格数或一个包含其他属性的对�
 lg|≥ 992px 响应式栅格，可为栅格数或一个包含其他属性的对象|	Number \| Object|否|无|
 xl|≥ 1200px 响应式栅格，可为栅格数或一个包含其他属性的对象|	Number \| Object|否|无|
 xxl|≥ 1600px 响应式栅格，可为栅格数或一个包含其他属性的对象|	Number \| Object|否|无|
+
+<script>
+import { WCol, WRow } from './index';
+
+export default {
+  components: {
+    WCol,
+    WRow,
+  },
+};
+</script>
+
+<style lang="scss">
+@import './style/col.scss';
+@import './style/row.scss';
+
+.demo {
+  &-first {
+    margin-top: 24px !important;
+  }
+
+  &-second {
+    margin-top: 16px !important;
+  }
+
+  &-row {
+    margin-bottom: 8px;
+    background-image: linear-gradient(90deg,#f5f5f5 4.16666667%,transparent 0,transparent 8.33333333%,#f5f5f5 0,#f5f5f5 12.5%,transparent 0,transparent 16.66666667%,#f5f5f5 0,#f5f5f5 20.83333333%,transparent 0,transparent 25%,#f5f5f5 0,#f5f5f5 29.16666667%,transparent 0,transparent 33.33333333%,#f5f5f5 0,#f5f5f5 37.5%,transparent 0,transparent 41.66666667%,#f5f5f5 0,#f5f5f5 45.83333333%,transparent 0,transparent 50%,#f5f5f5 0,#f5f5f5 54.16666667%,transparent 0,transparent 58.33333333%,#f5f5f5 0,#f5f5f5 62.5%,transparent 0,transparent 66.66666667%,#f5f5f5 0,#f5f5f5 70.83333333%,transparent 0,transparent 75%,#f5f5f5 0,#f5f5f5 79.16666667%,transparent 0,transparent 83.33333333%,#f5f5f5 0,#f5f5f5 87.5%,transparent 0,transparent 91.66666667%,#f5f5f5 0,#f5f5f5 95.83333333%,transparent 0);
+  }
+
+  &-col {
+    color: #333;
+
+    &:nth-of-type(odd) {
+      color: #fff;
+      background: rgba(25, 150, 249, 0.5);
+    }
+  }
+
+  &-text {
+    padding: 30px 0;
+    text-align: center;
+    font-size: 30px;
+    line-height: 1;
+  }
+}
+</style>
