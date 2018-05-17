@@ -27,6 +27,10 @@ $button-font: ('': 14, '-lg': 16, '-sm': 14);
     color: $blue-6;
   }
 
+  &-text {
+    margin-left: 8px;
+  }
+
   &-on,
   &:active {
     border-color: $blue-7;

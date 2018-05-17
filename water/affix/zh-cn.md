@@ -2,35 +2,26 @@
 > 将页面元素钉在可视范围。
 
 ## 何时使用
+
 当内容区域比较长，需要滚动页面时，这部分内容对应的操作或者导航需要在滚动范围内始终展现。常用于侧边菜单和按钮组合。
 
 页面可视范围过小时，慎用此功能以免遮挡页面内容。
 
-## 代码演示
+## 基本用法
 
-### 基本用法
+***output***
+<w-affix :offsetTop="10" :index="200">
+  <w-button type="danger">w-affix top</w-button>
+</w-affix>
 
-``` html
-<w-affix :target="body" :offsetTop="10">
+***input***
+
+``` vue
+<w-affix :offsetTop="10">
   <w-button type="danger">w-affix top</w-button>
 </w-affix>
 ```
 
-<script>
-export default {
-  data() {
-    return {
-      body: null,
-    };
-  },
-  created() {
-    this.$nextTick(() => {
-      this.body = document.querySelector('article');
-    });
-  },
-};
-</script>
-
 一些无关紧要的文字。
 
 一些无关紧要的文字。
@@ -65,13 +56,16 @@ export default {
 
 一些无关紧要的文字。
 
-### 底部悬浮用法
+## 底部悬浮用法
 
-``` html
-<w-affix :target="body" :offsetBottom="10">
+``` vue
+<w-affix :offsetBottom="10">
   <w-button type="danger">w-affix bottom</w-button>
 </w-affix>
 ```
+<w-affix :offsetBottom="10">
+  <w-button type="danger">w-affix bottom</w-button>
+</w-affix>
 
 ## API
 
@@ -92,3 +86,18 @@ export default {
 |事件名|说明|返回值|
 |-----|---|-----|
 |change|固定状态改变时触发的回调函数|当前定位类型|
+
+<script>
+import WAffix from './Affix';
+import WButton from '../button/Button';
+
+export default {
+  components: {
+    WAffix,
+    WButton,
+  },
+};
+</script>
+<style lang="scss">
+@import '../button/style/button.scss';
+</style>

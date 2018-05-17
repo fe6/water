@@ -23,26 +23,24 @@
     <w-icon
       :class="[
         prefix ? `${prefix}-button-icon` : '',
-        `${className}-icon`,
       ]"
       v-show="loading || icon"
       v-if="loading || icon"
       :type="icon ? icon : 'loading1'"
       :spin="loading || icon.indexOf('loading') > -1"
     />
-    <span :class="[
-      `${prefixCls}text`,
-      {
-        [`${prefix}-button-text`]: prefix,
-        [`${className}-text`]: className,
-      },
-    ]" v-if="$slots.default">
+    <span :class="{
+      [`${prefixCls}text`]: loading || icon,
+      [`${prefix}-button-text`]: prefix,
+    }" v-if="$slots.default">
       <slot></slot>
     </span>
   </button>
 </template>
 
 <script>
+import WIcon from '../icon/Icon';
+
 const name = 'w-button';
 const prefixCls = `${name}-`;
 
@@ -117,6 +115,9 @@ export default {
       this.index = index;
       this.status = index === key;
     },
+  },
+  components: {
+    WIcon,
   },
 };
 </script>

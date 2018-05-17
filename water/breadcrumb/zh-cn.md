@@ -9,35 +9,45 @@
 
 ## 代码演示
 
-```` html
-<br />
-<w-breadcrumb prefix="demo" class="demo1111">
-  <w-breadcrumb-item prefix="demo" class="demo-item1" separator=">" :to="{ name: 'Affix' }">内部跳转</w-breadcrumb-item>
-  <w-breadcrumb-item prefix="demo" class="demo-item2" separator="<b class='demo'>|</b>">自定义间隔符号</w-breadcrumb-item>
-  <w-breadcrumb-item prefix="demo" class="demo-item4" open="https://qq.com">
-    <w-icon type="loading1" />
-  </w-breadcrumb-item>
-  <w-breadcrumb-item prefix="demo" class="demo-item3" href="https://baidu.com">
-    <span>外跳baidu</span>
-  </w-breadcrumb-item>
-  <w-breadcrumb-item prefix="demo" class="demo-item5">
-    <span>now</span>
-  </w-breadcrumb-item>
-</w-breadcrumb>
-<br />
-<br />
-````
+***output***
 
-<style>
-.demo {
-  color: #1996f5;
-  font-weight: normal;
-}
-</style>
+<w-breadcrumb prefix="demo" class="demo1111">
+  <w-breadcrumb-item prefix="demo" class="demo-item1" separator=">" :to="{ path: '/button/zh-cn.html' }">内部跳转到按钮</w-breadcrumb-item>
+  <w-breadcrumb-item prefix="demo" class="demo-item2" separator="<b class='demo'>|</b>">自定义间隔符号</w-breadcrumb-item>
+  <w-breadcrumb-item prefix="demo" class="demo-item4" open="https://qq.com">外跳qq</w-breadcrumb-item>
+  <w-breadcrumb-item prefix="demo" class="demo-item3" href="https://baidu.com">外跳baidu</w-breadcrumb-item>
+  <w-breadcrumb-item prefix="demo" class="demo-item5">now</w-breadcrumb-item>
+</w-breadcrumb>
+
+***input***
+
+``` vue
+<w-breadcrumb prefix="demo" class="demo1111">
+  <w-breadcrumb-item prefix="demo" class="demo-item1" separator=">" :to="{ path: '/button/zh-cn' }">内部跳转</w-breadcrumb-item>
+  <w-breadcrumb-item prefix="demo" class="demo-item2" separator="<b class='demo'>|</b>">自定义间隔符号</w-breadcrumb-item>
+  <w-breadcrumb-item prefix="demo" class="demo-item4" open="https://qq.com">外跳qq</w-breadcrumb-item>
+  <w-breadcrumb-item prefix="demo" class="demo-item3" href="https://baidu.com">外跳baidu</w-breadcrumb-item>
+  <w-breadcrumb-item prefix="demo" class="demo-item5">now</w-breadcrumb-item>
+</w-breadcrumb>
+```
+
+``` js
+import WBreadcrumb from './Breadcrumb';
+import WBreadcrumbItem from './BreadcrumbItem';
+import WIcon from '../icon/Icon';
+
+export default {
+  components: {
+    WIcon,
+    WBreadcrumb,
+    WBreadcrumbItem,
+  },
+};
+```
 
 ## API
 
-### w-breadcrumb-item
+### w-breadcrumb
 
 #### 属性
 
@@ -64,3 +74,26 @@
 |事件名|说明|返回值|
 |-----|---|-----|
 |click|绑定按钮点击事件|无|
+
+<script>
+import WBreadcrumb from './Breadcrumb';
+import WBreadcrumbItem from './BreadcrumbItem';
+import WIcon from '../icon/Icon';
+
+export default {
+  components: {
+    WIcon,
+    WBreadcrumb,
+    WBreadcrumbItem,
+  },
+};
+</script>
+<style lang="scss">
+@import './style/breadcrumb.scss';
+@import '../icon/style/icon.scss';
+
+.demo {
+  color: #1996f5;
+  font-weight: normal;
+}
+</style>

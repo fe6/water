@@ -1,407 +1,176 @@
 # Button 按钮
-``` html
-<p>组合1</p>
-<w-button-group>
-  <w-button disabled type="danger" size="small">Default1</w-button>
-  <w-button disabled type="danger" size="small">Default2</w-button>
-  <w-button disabled type="danger" size="small">Default3</w-button>
-</w-button-group>
-```
-``` html
-<p>组合2</p>
-<w-button-group :on="stats">
-  <w-button :key="1" type="primary" size="large" @click="clickFn">primary1</w-button>
-  <w-button :key="2" type="danger" size="large" @click="clickFn">primary2</w-button>
-  <w-button :key="3" type="dashed" size="large" @click="clickFn">primary3</w-button>
-  <w-button :key="4" ghost size="large" @click="clickFn">primary3</w-button>
-</w-button-group>
+> 按钮用于开始一个即时操作。
+
+## 何时使用
+
+标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
+
+## 按钮类型用法
+
+***output***
+
+<div>
+<w-button prefix="demo" type="primary">Primary</w-button>
+<w-button prefix="demo">Default</w-button>
+<w-button prefix="demo" type="dashed">Dashed</w-button>
+<w-button prefix="demo" type="danger">Danger</w-button>
+</div>
+
+***input***
+
+``` vue
+<w-button prefix="demo" type="primary">Primary</w-button>
+<w-button prefix="demo">Default</w-button>
+<w-button prefix="demo" type="dashed">Dashed</w-button>
+<w-button prefix="demo" type="danger">Danger</w-button>
 ```
 
-<script>
+## 图标按钮用法
+
+***output***
+
+<div>
+  <w-button prefix="demo" type="primary" circle icon="loading3" />
+  <w-button prefix="demo" type="primary" icon="loading3">Search</w-button>
+  <w-button prefix="demo" circle icon="loading3" />
+  <w-button prefix="demo" icon="loading3">Search</w-button>
+  <br />
+  <w-button prefix="demo" type="danger" circle icon="loading3" />
+  <w-button prefix="demo" type="danger" icon="loading3">Search</w-button>
+  <w-button prefix="demo" type="dashed" circle icon="loading3" />
+  <w-button prefix="demo" type="dashed" icon="loading3">Search</w-button>
+</div>
+
+***input***
+
+``` vue
+<w-button prefix="demo" type="primary" circle icon="loading3" />
+<w-button prefix="demo" type="primary" icon="loading3">Search</w-button>
+<w-button prefix="demo" circle icon="loading3" />
+<w-button prefix="demo" icon="loading3">Search</w-button>
+<br />
+<w-button prefix="demo" type="danger" circle icon="loading3" />
+<w-button prefix="demo" type="danger" icon="loading3">Search</w-button>
+<w-button prefix="demo" type="dashed" circle icon="loading3" />
+<w-button prefix="demo" type="dashed" icon="loading3">Search</w-button>
+```
+
+## 加载中状态
+
+***output***
+
+<w-button prefix="demo" :loading="loadStatus" @click="changeLoadStatus">点击加载中</w-button>
+<w-button prefix="demo" :disabled="disableStatus" @click="changeDisableStatus">点击禁用</w-button>
+
+***input***
+
+``` vue
+<w-button prefix="demo" :loading="loadStatus" @click="changeLoadStatus">点击加载中</w-button>
+<w-button prefix="demo" :disabled="disableStatus" @click="changeDisableStatus">点击禁用</w-button>
+```
+
+``` js
+import WButton from './Button';
+
 export default {
   data() {
     return {
-      stats: 3,
+      loadStatus: false,
+      disableStatus: false,
     };
   },
   methods: {
-    clickFn($event, index) {
-      this.stats = index;
+    changeLoadStatus() {
+      this.loadStatus = true;
+    },
+    changeDisableStatus() {
+      this.disableStatus = true;
     },
   },
+  components: {
+    WButton,
+  },
 };
-</script>
+```
 
-```` html
-<p>不可用1</p>
-<div>
-  <w-button class="ccc" disabled type="danger" size="small"
-  prefix="demo" className="aoop">Default</w-button>
-  <w-button disabled type="danger">Default</w-button>
-  <w-button disabled type="danger" size="large">Default</w-button>
-  <w-button disabled size="small">Default</w-button>
-  <w-button disabled>Default</w-button>
-  <w-button disabled size="large">Default</w-button>
-  <w-button disabled type="primary" size="small">Default</w-button>
-  <w-button disabled type="primary">Default</w-button>
-  <w-button disabled type="primary" size="large">Default</w-button>
-  <w-button disabled type="dashed" size="small">Default</w-button>
-  <w-button disabled type="dashed">Default</w-button>
-  <w-button disabled type="dashed" size="large">Default</w-button>
-</div>
-<p>不可用1</p>
-<div>
-  <span><w-button disabled icon="loading3" type="danger" size="small" /></span>
-  <span><w-button disabled icon="loading3" type="danger" /></span>
-  <span><w-button disabled icon="loading3" type="danger" size="large" /></span>
-  <span><w-button disabled icon="loading3" size="small" /></span>
-  <span><w-button disabled icon="loading3" /></span>
-  <span><w-button disabled icon="loading3" size="large" /></span>
-  <span><w-button disabled icon="loading3" type="primary" size="small" /></span>
-  <span><w-button disabled icon="loading3" type="primary" /></span>
-  <span><w-button disabled icon="loading3" type="primary" size="large" /></span>
-  <span><w-button disabled icon="loading3" type="dashed" size="small" /></span>
-  <span><w-button disabled icon="loading3" type="dashed" /></span>
-  <span><w-button disabled icon="loading3" type="dashed" size="large" /></span>
-</div>
+## 按钮组合
 
-<p>不可用1</p>
-<div>
-  <span><w-button disabled circle icon="loading3" type="danger" size="small" /></span>
-  <span><w-button disabled circle icon="loading3" type="danger" /></span>
-  <span><w-button disabled circle icon="loading3" type="danger" size="large" /></span>
-  <span><w-button disabled circle icon="loading3" size="small" /></span>
-  <span><w-button disabled circle icon="loading3" /></span>
-  <span><w-button disabled circle icon="loading3" size="large" /></span>
-  <span><w-button disabled circle icon="loading3" type="primary" size="small" /></span>
-  <span><w-button disabled circle icon="loading3" type="primary" /></span>
-  <span><w-button disabled circle icon="loading3" type="primary" size="large" /></span>
-  <span><w-button disabled circle icon="loading3" type="dashed" size="small" /></span>
-  <span><w-button disabled circle icon="loading3" type="dashed" /></span>
-  <span><w-button disabled circle icon="loading3" type="dashed" size="large" /></span>
-</div>
-<p>不可用2</p>
-<div>
-    <w-button disabled icon="loading1" type="danger" size="small">Default</w-button>
-    <w-button disabled icon="loading1" type="danger">Default</w-button>
-    <w-button disabled icon="loading1" type="danger" size="large">Default</w-button>
-    <w-button disabled icon="loading1" size="small">Default</w-button>
-    <w-button disabled icon="loading1">Default</w-button>
-    <w-button disabled icon="loading1" size="large">Default</w-button>
-    <w-button disabled icon="loading1" type="primary" size="small">Default</w-button>
-    <w-button disabled icon="loading1" type="primary">Default</w-button>
-    <w-button disabled icon="loading1" type="primary" size="large">Default</w-button>
-    <w-button disabled icon="loading1" type="dashed" size="small">Default</w-button>
-    <w-button disabled icon="loading1" type="dashed">Default</w-button>
-    <w-button disabled icon="loading1" type="dashed" size="large">Default</w-button>
-</div>
-<p>不可用3</p>
-<div>
-  <w-button disabled loading icon="loading3" type="danger" size="small">Default</w-button>
-  <w-button disabled loading icon="loading3" type="danger">Default</w-button>
-  <w-button disabled loading icon="loading3" type="danger" size="large">Default</w-button>
-  <w-button disabled loading icon="loading3" size="small">Default</w-button>
-  <w-button disabled loading icon="loading3">Default</w-button>
-  <w-button disabled loading icon="loading3" size="large">Default</w-button>
-  <w-button disabled loading icon="loading3" type="primary" size="small">Default</w-button>
-  <w-button disabled loading icon="loading3" type="primary">Default</w-button>
-  <w-button disabled loading icon="loading3" type="primary" size="large">Default</w-button>
-  <w-button disabled loading icon="loading3" type="dashed" size="small">Default</w-button>
-  <w-button disabled loading icon="loading3" type="dashed">Default</w-button>
-  <w-button disabled loading icon="loading3" type="dashed" size="large">Default</w-button>
-</div>
-<p>不可用4</p>
-<div>
-  <span><w-button disabled circle loading icon="loading3" type="danger" size="small" /></span>
-  <span><w-button disabled circle loading icon="loading3" type="danger" /></span>
-  <span><w-button disabled circle loading icon="loading3" type="danger" size="large" /></span>
-  <span><w-button disabled circle loading icon="loading3" size="small" /></span>
-  <span><w-button disabled circle loading icon="loading3" /></span>
-  <span><w-button disabled circle loading icon="loading3" size="large" /></span>
-  <span><w-button disabled circle loading icon="loading3" type="primary" size="small" /></span>
-  <span><w-button disabled circle loading icon="loading3" type="primary" /></span>
-  <span><w-button disabled circle loading icon="loading3" type="primary" size="large" /></span>
-  <span><w-button disabled circle loading icon="loading3" type="dashed" size="small" /></span>
-  <span><w-button disabled circle loading icon="loading3" type="dashed" /></span>
-  <span><w-button disabled circle loading icon="loading3" type="dashed" size="large" /></span>
-</div>
-<p>不可用5</p>
-<div>
-  <span><w-button disabled loading icon="loading3" type="danger" size="small" /></span>
-  <span><w-button disabled loading icon="loading3" type="danger" /></span>
-  <span><w-button disabled loading icon="loading3" type="danger" size="large" /></span>
-  <span><w-button disabled loading icon="loading3" size="small" /></span>
-  <span><w-button disabled loading icon="loading3" /></span>
-  <span><w-button disabled loading icon="loading3" size="large" /></span>
-  <span><w-button disabled loading icon="loading3" type="primary" size="small" /></span>
-  <span><w-button disabled loading icon="loading3" type="primary" /></span>
-  <span><w-button disabled loading icon="loading3" type="primary" size="large" /></span>
-  <span><w-button disabled loading icon="loading3" type="dashed" size="small" /></span>
-  <span><w-button disabled loading icon="loading3" type="dashed" /></span>
-  <span><w-button disabled loading icon="loading3" type="dashed" size="large" /></span>
-</div>
-<p>不可用6</p>
-<div>
-  <w-button disabled loading icon="loading1" type="danger" size="small">Default</w-button>
-  <w-button disabled loading icon="loading1" type="danger">Default</w-button>
-  <w-button disabled loading icon="loading1" type="danger" size="large">Default</w-button>
-  <w-button disabled loading icon="loading1" size="small">Default</w-button>
-  <w-button disabled loading icon="loading1">Default</w-button>
-  <w-button disabled loading icon="loading1" size="large">Default</w-button>
-  <w-button disabled loading icon="loading1" type="primary" size="small">Default</w-button>
-  <w-button disabled loading icon="loading1" type="primary">Default</w-button>
-  <w-button disabled loading icon="loading1" type="primary" size="large">Default</w-button>
-  <w-button disabled loading icon="loading1" type="dashed" size="small">Default</w-button>
-  <w-button disabled loading icon="loading1" type="dashed">Default</w-button>
-  <w-button disabled loading icon="loading1" type="dashed" size="large">Default</w-button>
-</div>
-````
-```` html
-<p>基本1</p>
-<div>
-  <w-button type="danger" size="small">Default</w-button>
-  <w-button type="danger">Default</w-button>
-  <w-button type="danger" size="large">Default</w-button>
-  <w-button size="small">Default</w-button>
-  <w-button>Default</w-button>
-  <w-button size="large">Default</w-button>
-  <w-button type="primary" size="small">Default</w-button>
-  <w-button type="primary">Default</w-button>
-  <w-button type="primary" size="large">Default</w-button>
-  <w-button type="dashed" size="small">Default</w-button>
-  <w-button type="dashed">Default</w-button>
-  <w-button type="dashed" size="large">Default</w-button>
-</div>
-<p>基本1</p>
-<div>
-  <span><w-button icon="loading3" type="danger" size="small" /></span>
-  <span><w-button icon="loading3" type="danger" /></span>
-  <span><w-button icon="loading3" type="danger" size="large" /></span>
-  <span><w-button icon="loading3" size="small" /></span>
-  <span><w-button icon="loading3" /></span>
-  <span><w-button icon="loading3" size="large" /></span>
-  <span><w-button icon="loading3" type="primary" size="small" /></span>
-  <span><w-button icon="loading3" type="primary" /></span>
-  <span><w-button icon="loading3" type="primary" size="large" /></span>
-  <span><w-button icon="loading3" type="dashed" size="small" /></span>
-  <span><w-button icon="loading3" type="dashed" /></span>
-  <span><w-button icon="loading3" type="dashed" size="large" /></span>
+***output***
+
+<p>当前选中：{{groupStatus}}， 按钮大小为： {{groupConfig[groupStatus] || 'default'}}</p>
+<w-button-group :on="groupStatus">
+  <w-button prefix="demo" :key="0" @click="changeGroupStatus">小</w-button>
+  <w-button prefix="demo" :key="1" @click="changeGroupStatus">中</w-button>
+  <w-button prefix="demo" :key="2" @click="changeGroupStatus">大</w-button>
+</w-button-group>
+
+<w-button-group>
+  <w-button prefix="demo" :size="groupConfig[groupStatus]" :key="1">普通按钮</w-button>
+  <w-button prefix="demo" type="danger" :size="groupConfig[groupStatus]" icon="star" :key="2">图标按钮</w-button>
+  <w-button prefix="demo" type="dashed" :size="groupConfig[groupStatus]" icon="heart" circle :key="3" />
+</w-button-group>
+
+***input***
+
+``` vue
+<p>当前选中：{{groupStatus}}， 按钮大小为： {{groupConfig[groupStatus] || 'default'}}</p>
+<w-button-group :on="groupStatus">
+  <w-button prefix="demo" :key="0" @click="changeGroupStatus">小</w-button>
+  <w-button prefix="demo" :key="1" @click="changeGroupStatus">中</w-button>
+  <w-button prefix="demo" :key="2" @click="changeGroupStatus">大</w-button>
+</w-button-group>
+
+<w-button-group>
+  <w-button prefix="demo" :size="groupConfig[groupStatus]" :key="1">普通按钮</w-button>
+  <w-button prefix="demo" type="danger" :size="groupConfig[groupStatus]" icon="star" :key="2">图标按钮</w-button>
+  <w-button prefix="demo" type="dashed" :size="groupConfig[groupStatus]" icon="heart" circle :key="3" />
+</w-button-group>
+```
+
+``` js
+import WButton from './Button';
+import WButtonGroup from './ButtonGroup';
+
+export default {
+  data() {
+    return {
+      groupStatus: 2,
+      groupConfig: ['small', '', 'large',],
+    };
+  },
+  methods: {
+    changeGroupStatus($event, index) {
+      this.groupStatus = index;
+    },
+  },
+  components: {
+    WButton,
+    WButtonGroup,
+  },
+};
+```
+
+## 幽灵按钮
+
+***output***
+
+<div class="ghost">
+  <w-button prefix="demo" ghost>普通按钮</w-button>
+  <w-button prefix="demo" type="danger" ghost icon="star">图标按钮</w-button>
+  <w-button prefix="demo" type="primary" ghost icon="heart" circle />
+  <w-button prefix="demo" type="dashed" ghost icon="heart" />
 </div>
 
-<p>基本1</p>
-<div>
-  <span><w-button circle icon="loading3" type="danger" size="small" /></span>
-  <span><w-button circle icon="loading3" type="danger" /></span>
-  <span><w-button circle icon="loading3" type="danger" size="large" /></span>
-  <span><w-button circle icon="loading3" size="small" /></span>
-  <span><w-button circle icon="loading3" /></span>
-  <span><w-button circle icon="loading3" size="large" /></span>
-  <span><w-button circle icon="loading3" type="primary" size="small" /></span>
-  <span><w-button circle icon="loading3" type="primary" /></span>
-  <span><w-button circle icon="loading3" type="primary" size="large" /></span>
-  <span><w-button circle icon="loading3" type="dashed" size="small" /></span>
-  <span><w-button circle icon="loading3" type="dashed" /></span>
-  <span><w-button circle icon="loading3" type="dashed" size="large" /></span>
-</div>
-<p>基本2</p>
-<div>
-    <w-button icon="loading1" type="danger" size="small">Default</w-button>
-    <w-button icon="loading1" type="danger">Default</w-button>
-    <w-button icon="loading1" type="danger" size="large">Default</w-button>
-    <w-button icon="loading1" size="small">Default</w-button>
-    <w-button icon="loading1">Default</w-button>
-    <w-button icon="loading1" size="large">Default</w-button>
-    <w-button icon="loading1" type="primary" size="small">Default</w-button>
-    <w-button icon="loading1" type="primary">Default</w-button>
-    <w-button icon="loading1" type="primary" size="large">Default</w-button>
-    <w-button icon="loading1" type="dashed" size="small">Default</w-button>
-    <w-button icon="loading1" type="dashed">Default</w-button>
-    <w-button icon="loading1" type="dashed" size="large">Default</w-button>
-</div>
-<p>基本3</p>
-<div>
-  <w-button loading icon="loading3" type="danger" size="small">Default</w-button>
-  <w-button loading icon="loading3" type="danger">Default</w-button>
-  <w-button loading icon="loading3" type="danger" size="large">Default</w-button>
-  <w-button loading icon="loading3" size="small">Default</w-button>
-  <w-button loading icon="loading3">Default</w-button>
-  <w-button loading icon="loading3" size="large">Default</w-button>
-  <w-button loading icon="loading3" type="primary" size="small">Default</w-button>
-  <w-button loading icon="loading3" type="primary">Default</w-button>
-  <w-button loading icon="loading3" type="primary" size="large">Default</w-button>
-  <w-button loading icon="loading3" type="dashed" size="small">Default</w-button>
-  <w-button loading icon="loading3" type="dashed">Default</w-button>
-  <w-button loading icon="loading3" type="dashed" size="large">Default</w-button>
-</div>
-<p>基本4</p>
-<div>
-  <span><w-button circle loading icon="loading3" type="danger" size="small" /></span>
-  <span><w-button circle loading icon="loading3" type="danger" /></span>
-  <span><w-button circle loading icon="loading3" type="danger" size="large" /></span>
-  <span><w-button circle loading icon="loading3" size="small" /></span>
-  <span><w-button circle loading icon="loading3" /></span>
-  <span><w-button circle loading icon="loading3" size="large" /></span>
-  <span><w-button circle loading icon="loading3" type="primary" size="small" /></span>
-  <span><w-button circle loading icon="loading3" type="primary" /></span>
-  <span><w-button circle loading icon="loading3" type="primary" size="large" /></span>
-  <span><w-button circle loading icon="loading3" type="dashed" size="small" /></span>
-  <span><w-button circle loading icon="loading3" type="dashed" /></span>
-  <span><w-button circle loading icon="loading3" type="dashed" size="large" /></span>
-</div>
-<p>基本5</p>
-<div>
-  <span><w-button loading icon="loading3" type="danger" size="small" /></span>
-  <span><w-button loading icon="loading3" type="danger" /></span>
-  <span><w-button loading icon="loading3" type="danger" size="large" /></span>
-  <span><w-button loading icon="loading3" size="small" /></span>
-  <span><w-button loading icon="loading3" /></span>
-  <span><w-button loading icon="loading3" size="large" /></span>
-  <span><w-button loading icon="loading3" type="primary" size="small" /></span>
-  <span><w-button loading icon="loading3" type="primary" /></span>
-  <span><w-button loading icon="loading3" type="primary" size="large" /></span>
-  <span><w-button loading icon="loading3" type="dashed" size="small" /></span>
-  <span><w-button loading icon="loading3" type="dashed" /></span>
-  <span><w-button loading icon="loading3" type="dashed" size="large" /></span>
-</div>
-<p>基本6</p>
-<div>
-  <w-button loading icon="loading1" type="danger" size="small">Default</w-button>
-  <w-button loading icon="loading1" type="danger">Default</w-button>
-  <w-button loading icon="loading1" type="danger" size="large">Default</w-button>
-  <w-button loading icon="loading1" size="small">Default</w-button>
-  <w-button loading icon="loading1">Default</w-button>
-  <w-button loading icon="loading1" size="large">Default</w-button>
-  <w-button loading icon="loading1" type="primary" size="small">Default</w-button>
-  <w-button loading icon="loading1" type="primary">Default</w-button>
-  <w-button loading icon="loading1" type="primary" size="large">Default</w-button>
-  <w-button loading icon="loading1" type="dashed" size="small">Default</w-button>
-  <w-button loading icon="loading1" type="dashed">Default</w-button>
-  <w-button loading icon="loading1" type="dashed" size="large">Default</w-button>
-</div>
-````
-```` html
-<p>幽灵1</p>
-<div style="background: #fffecf">
-  <w-button ghost type="danger" size="small">Default</w-button>
-  <w-button ghost type="danger">Default</w-button>
-  <w-button ghost type="danger" size="large">Default</w-button>
-  <w-button ghost size="small">Default</w-button>
-  <w-button ghost>Default</w-button>
-  <w-button ghost size="large">Default</w-button>
-  <w-button ghost type="primary" size="small">Default</w-button>
-  <w-button ghost type="primary">Default</w-button>
-  <w-button ghost type="primary" size="large">Default</w-button>
-  <w-button ghost type="dashed" size="small">Default</w-button>
-  <w-button ghost type="dashed">Default</w-button>
-  <w-button ghost type="dashed" size="large">Default</w-button>
-</div>
-<p>幽灵1</p>
-<div style="background: #fffecf">
-  <span><w-button ghost icon="loading3" type="danger" size="small" /></span>
-  <span><w-button ghost icon="loading3" type="danger" /></span>
-  <span><w-button ghost icon="loading3" type="danger" size="large" /></span>
-  <span><w-button ghost icon="loading3" size="small" /></span>
-  <span><w-button ghost icon="loading3" /></span>
-  <span><w-button ghost icon="loading3" size="large" /></span>
-  <span><w-button ghost icon="loading3" type="primary" size="small" /></span>
-  <span><w-button ghost icon="loading3" type="primary" /></span>
-  <span><w-button ghost icon="loading3" type="primary" size="large" /></span>
-  <span><w-button ghost icon="loading3" type="dashed" size="small" /></span>
-  <span><w-button ghost icon="loading3" type="dashed" /></span>
-  <span><w-button ghost icon="loading3" type="dashed" size="large" /></span>
-</div>
+***input***
 
-<p>幽灵1</p>
-<div style="background: #fffecf">
-  <span><w-button ghost circle icon="loading3" type="danger" size="small" /></span>
-  <span><w-button ghost circle icon="loading3" type="danger" /></span>
-  <span><w-button ghost circle icon="loading3" type="danger" size="large" /></span>
-  <span><w-button ghost circle icon="loading3" size="small" /></span>
-  <span><w-button ghost circle icon="loading3" /></span>
-  <span><w-button ghost circle icon="loading3" size="large" /></span>
-  <span><w-button ghost circle icon="loading3" type="primary" size="small" /></span>
-  <span><w-button ghost circle icon="loading3" type="primary" /></span>
-  <span><w-button ghost circle icon="loading3" type="primary" size="large" /></span>
-  <span><w-button ghost circle icon="loading3" type="dashed" size="small" /></span>
-  <span><w-button ghost circle icon="loading3" type="dashed" /></span>
-  <span><w-button ghost circle icon="loading3" type="dashed" size="large" /></span>
+``` vue
+<div class="ghost">
+  <w-button prefix="demo" ghost>普通按钮</w-button>
+  <w-button prefix="demo" type="danger" ghost icon="star">图标按钮</w-button>
+  <w-button prefix="demo" type="primary" ghost icon="heart" circle />
+  <w-button prefix="demo" type="dashed" ghost icon="heart" />
 </div>
-<p>幽灵2</p>
-<div style="background: #fffecf">
-    <w-button ghost icon="loading1" type="danger" size="small">Default</w-button>
-    <w-button ghost icon="loading1" type="danger">Default</w-button>
-    <w-button ghost icon="loading1" type="danger" size="large">Default</w-button>
-    <w-button ghost icon="loading1" size="small">Default</w-button>
-    <w-button ghost icon="loading1">Default</w-button>
-    <w-button ghost icon="loading1" size="large">Default</w-button>
-    <w-button ghost icon="loading1" type="primary" size="small">Default</w-button>
-    <w-button ghost icon="loading1" type="primary">Default</w-button>
-    <w-button ghost icon="loading1" type="primary" size="large">Default</w-button>
-    <w-button ghost icon="loading1" type="dashed" size="small">Default</w-button>
-    <w-button ghost icon="loading1" type="dashed">Default</w-button>
-    <w-button ghost icon="loading1" type="dashed" size="large">Default</w-button>
-</div>
-<p>幽灵3</p>
-<div style="background: #fffecf">
-  <w-button ghost loading icon="loading3" type="danger" size="small">Default</w-button>
-  <w-button ghost loading icon="loading3" type="danger">Default</w-button>
-  <w-button ghost loading icon="loading3" type="danger" size="large">Default</w-button>
-  <w-button ghost loading icon="loading3" size="small">Default</w-button>
-  <w-button ghost loading icon="loading3">Default</w-button>
-  <w-button ghost loading icon="loading3" size="large">Default</w-button>
-  <w-button ghost loading icon="loading3" type="primary" size="small">Default</w-button>
-  <w-button ghost loading icon="loading3" type="primary">Default</w-button>
-  <w-button ghost loading icon="loading3" type="primary" size="large">Default</w-button>
-  <w-button ghost loading icon="loading3" type="dashed" size="small">Default</w-button>
-  <w-button ghost loading icon="loading3" type="dashed">Default</w-button>
-  <w-button ghost loading icon="loading3" type="dashed" size="large">Default</w-button>
-</div>
-<p>幽灵4</p>
-<div style="background: #fffecf">
-  <span><w-button ghost circle loading icon="loading3" type="danger" size="small" /></span>
-  <span><w-button ghost circle loading icon="loading3" type="danger" /></span>
-  <span><w-button ghost circle loading icon="loading3" type="danger" size="large" /></span>
-  <span><w-button ghost circle loading icon="loading3" size="small" /></span>
-  <span><w-button ghost circle loading icon="loading3" /></span>
-  <span><w-button ghost circle loading icon="loading3" size="large" /></span>
-  <span><w-button ghost circle loading icon="loading3" type="primary" size="small" /></span>
-  <span><w-button ghost circle loading icon="loading3" type="primary" /></span>
-  <span><w-button ghost circle loading icon="loading3" type="primary" size="large" /></span>
-  <span><w-button ghost circle loading icon="loading3" type="dashed" size="small" /></span>
-  <span><w-button ghost circle loading icon="loading3" type="dashed" /></span>
-  <span><w-button ghost circle loading icon="loading3" type="dashed" size="large" /></span>
-</div>
-<p>幽灵5</p>
-<div style="background: #fffecf">
-  <span><w-button ghost loading icon="loading3" type="danger" size="small" /></span>
-  <span><w-button ghost loading icon="loading3" type="danger" /></span>
-  <span><w-button ghost loading icon="loading3" type="danger" size="large" /></span>
-  <span><w-button ghost loading icon="loading3" size="small" /></span>
-  <span><w-button ghost loading icon="loading3" /></span>
-  <span><w-button ghost loading icon="loading3" size="large" /></span>
-  <span><w-button ghost loading icon="loading3" type="primary" size="small" /></span>
-  <span><w-button ghost loading icon="loading3" type="primary" /></span>
-  <span><w-button ghost loading icon="loading3" type="primary" size="large" /></span>
-  <span><w-button ghost loading icon="loading3" type="dashed" size="small" /></span>
-  <span><w-button ghost loading icon="loading3" type="dashed" /></span>
-  <span><w-button ghost loading icon="loading3" type="dashed" size="large" /></span>
-</div>
-<p>幽灵6</p>
-<div style="background: #fffecf">
-  <w-button ghost loading icon="loading1" type="danger" size="small">Default</w-button>
-  <w-button ghost loading icon="loading1" type="danger">Default</w-button>
-  <w-button ghost loading icon="loading1" type="danger" size="large">Default</w-button>
-  <w-button ghost loading icon="loading1" size="small">Default</w-button>
-  <w-button ghost loading icon="loading1">Default</w-button>
-  <w-button ghost loading icon="loading1" size="large">Default</w-button>
-  <w-button ghost loading icon="loading1" type="primary" size="small">Default</w-button>
-  <w-button ghost loading icon="loading1" type="primary">Default</w-button>
-  <w-button ghost loading icon="loading1" type="primary" size="large">Default</w-button>
-  <w-button ghost loading icon="loading1" type="dashed" size="small">Default</w-button>
-  <w-button ghost loading icon="loading1" type="dashed">Default</w-button>
-  <w-button ghost loading icon="loading1" type="dashed" size="large">Default</w-button>
-</div>
-````
+```
 
 ## API
 
@@ -444,3 +213,51 @@ export default {
 |prefix|自定义样式的前缀|String|否|无|
 |className|自定义样式的 class 名|String\|Object|否|无|
 |on|定义当前选中的索引。必须子组件 key 对应|Number|否|0|
+
+<script>
+import WButton from './Button';
+import WButtonGroup from './ButtonGroup';
+
+export default {
+  data() {
+    return {
+      groupStatus: 2,
+      loadStatus: false,
+      disableStatus: false,
+      groupConfig: ['small', '', 'large',],
+    };
+  },
+  methods: {
+    changeGroupStatus($event, index) {
+      this.groupStatus = index;
+    },
+    changeLoadStatus() {
+      this.loadStatus = true;
+    },
+    changeDisableStatus() {
+      this.disableStatus = true;
+    },
+  },
+  components: {
+    WButton,
+    WButtonGroup,
+  },
+};
+</script>
+<style lang="scss">
+@import '../icon/style/icon.scss';
+@import './style/button.scss';
+
+.demo {
+  &-button {
+    margin: 0 16px 16px 0;
+    vertical-align: middle;
+  }
+}
+
+.ghost {
+  background: rgb(190, 200, 200);
+  padding: 26px 16px 16px;
+  margin: 16px 0
+}
+</style>
