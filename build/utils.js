@@ -1,6 +1,5 @@
 var path = require('path');
 var MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var config = require('../config');
 var pkg = require('../package.json');
 
 exports.outname = function () {
@@ -10,10 +9,7 @@ exports.outname = function () {
 }
 
 exports.assetsPath = function (_path) {
-  var assetsSubDirectory = process.env.NODE_ENV === 'production'
-    ? config.build.assetsSubDirectory
-    : config.dev.assetsSubDirectory
-  return path.posix.join(assetsSubDirectory, _path)
+  return path.posix.join('static', _path)
 }
 
 exports.cssLoaders = function (options) {
