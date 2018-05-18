@@ -1,4 +1,4 @@
-const base = process.env.GH ? '/vuepress/' : '/'
+const base = process.env.GH ? '/water/' : '/'
 
 module.exports = {
   title: '水滴',
@@ -6,6 +6,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: `/logo.png` }]
   ],
+  dest: './docs',
   serviceWorker: true,
   themeConfig: {
     repo: 'fe6/water',

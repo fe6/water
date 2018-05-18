@@ -7,7 +7,7 @@
   "scripts": {
     "start": "cross-env BABEL_ENV=development && node build/dev-server.js",
     "dev": "vuepress dev water",
-    "docs:build": "vuepress build water",
+    "build:site": "export GH=1 && vuepress build water",
     "build": "cross-env BABEL_ENV=production && node build/build.js",
     "build:water": "cross-env BABEL_ENV=production && node build/build.water.js && gulp --gulpfile build/gulpfile.js",
     "eslint": "eslint --ext .js,.vue site water --fix",
@@ -15,7 +15,8 @@
     "lint": "npm run eslint && npm run stylelint",
     "lint-staged": "lint-staged",
     "test": "jest --config jest.conf.js --no-cache --verbose",
-    "codecov": "codecov ./coverage/clover.xml"
+    "codecov": "codecov ./coverage/clover.xml",
+    "deploy-gh": "yarn build:site && bash scripts/deploy-gh.sh"
   },
   "dependencies": {
     "babel-helpers": "^6.24.1",
