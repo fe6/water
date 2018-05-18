@@ -3,28 +3,14 @@ var webpack = require('webpack');
 var merge = require('webpack-merge');
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var StyleLintPlugin = require('stylelint-webpack-plugin');
+var CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 var utils = require('./utils');
-var config = require('../config');
 var baseWebpackConfig = require('./webpack.water.base.conf');
 
-var env = config.build.env;
-
-var styleLoaders = utils.styleLoaders({
-  sourceMap: config.build.productionSourceMap,
-  extract: true
-});
-var files = baseWebpackConfig.module.rules.splice(2, 3);
-
-files.forEach((file) => {
-  styleLoaders.push(file);
-});
 
 var webpackConfig = merge(baseWebpackConfig, {
-  module: {
-    rules:styleLoaders
-  },
-  devtool: config.build.productionSourceMap ? '#source-map' : false,
+  devtool: '#source-map',
   output: {
     filename: utils.outname() + '.min.js',
   },
@@ -42,32 +28,18 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     new StyleLintPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': env,
-    }),
     new UglifyJSPlugin(),
-  ]
-})
-
-if (config.build.productionGzip) {
-  var CompressionWebpackPlugin = require('compression-webpack-plugin')
-
-  webpackConfig.plugins.push(
     new CompressionWebpackPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
-      test: new RegExp(
-        '\\.(' +
-        config.build.productionGzipExtensions.join('|') +
-        ')$'
-      ),
+      test: new RegExp('\\.(js|css)$'),
       threshold: 10240,
       minRatio: 0.8
-    })
-  )
-}
-
-if (config.build.bundleAnalyzerReport) {
+    }),
+  ]
+});
+// 如果环境允许就打出报告
+if (process.env.npm_config_report) {
   var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }

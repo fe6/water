@@ -7,12 +7,10 @@ var path = require('path');
 var webpack = require('webpack');
 
 var pkg = require('../package.json');
-var config = require('../config');
 var webpackConfigDev = require('./webpack.water.dev.conf');
 var webpackConfigProd = require('./webpack.water.prod.conf');
 
-var assetsRoot = config.build.assetsRoot;
-var assetsSubDirectory = config.build.assetsSubDirectory;
+var assetsRoot = path.resolve(__dirname, '../dist');
 
 var build = function(wpkConfig) {
   return new Promise(function (resolve, reject) {
@@ -34,7 +32,7 @@ var build = function(wpkConfig) {
   });
 };
 
-rm(path.join(assetsRoot, assetsSubDirectory), err => {
+rm(path.join(assetsRoot), err => {
   if (err) throw err
   console.log(chalk.cyan('❗️  开始打包\n'));
   // 打包 js | css
@@ -42,7 +40,7 @@ rm(path.join(assetsRoot, assetsSubDirectory), err => {
     build(webpackConfigDev),
     build(webpackConfigProd),
   ]).then(function() {
-    console.log(chalk.cyan('✅  ') + chalk.redBright.bold(pkg.name) + chalk.cyan('✅  打包完成.\n'))
+    console.log(chalk.cyan('✅  ') + chalk.redBright.bold(pkg.name+'@'+pkg.version) + chalk.cyan('  打包完成.\n'))
   }, function() {
     throw err;
   });

@@ -6,7 +6,6 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 var utils = require('./utils');
 var vueLoaderConfig = require('./vue-loader.conf');
-var md = require('./markdown');
 // 公共的 banner
 var banner = require( './banner' )();
 
@@ -28,8 +27,6 @@ module.exports = {
     extensions: ['.js', '.md', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('site'),
-      'assets': resolve('site/assets'),
     }
   },
   performance: {
@@ -53,7 +50,6 @@ module.exports = {
         test: /\.(js|vue)$/,
         loader: 'eslint',
         enforce: 'pre',
-        include: [resolve('site')],
         options: {
           cache: true,
           fix: true,
@@ -68,9 +64,12 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel?cacheDirectory',
-        include: [resolve('site')],
         exclude: [resolve('node_modules')],
       },
+      ...utils.styleLoaders({
+        sourceMap: true,
+        extract: true
+      }),
       {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'url',
