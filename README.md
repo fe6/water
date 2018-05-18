@@ -6,6 +6,7 @@
 
 # 水滴 - water
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fe6/water.svg)](https://greenkeeper.io/)
 [![water 持续集成](https://img.shields.io/travis/fe6/water.svg?style=flat-square)](https://travis-ci.org/fe6/water)
 [![Codecov 单元测试覆盖率](https://img.shields.io/codecov/c/github/fe6/water/master.svg?style=flat-square)](https://codecov.io/gh/fe6/water/branch/master)
 
