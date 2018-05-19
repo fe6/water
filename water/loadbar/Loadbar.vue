@@ -67,18 +67,27 @@ export default {
      * @params Number num 设置的值
     */
     update(num) {
-      this.percent = Math.floor(num);
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timer = null;
+      }
+      this.$nextTick(() => {
+        this.show = true;
+        this.percent = Math.floor(num);
+      });
     },
     finish() {
+      this.show = true;
       this.percent = 100;
       this.hide();
     },
     hide() {
       this.$nextTick(() => {
-        this.reset(400);
+        this.reset(300);
       });
     },
     fail() {
+      this.show = true;
       this.canSuccess = false;
       this.finish();
     },

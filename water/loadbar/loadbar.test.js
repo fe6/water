@@ -106,8 +106,25 @@ describe('Loadbar.vue', () => {
     wrapper.vm.$nextTick(() => {
       try {
         wrapper.vm.update(10);
-        expect(wrapper.vm.percent).toBe(10);
-        done();
+        wrapper.vm.$nextTick(() => {
+          expect(wrapper.vm.percent).toBe(10);
+          done();
+        });
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('有定时器的情况检测 update 的方法。', (done) => {
+    wrapper.vm.$nextTick(() => {
+      try {
+        wrapper.vm.timer = 2;
+        wrapper.vm.update(10);
+        wrapper.vm.$nextTick(() => {
+          expect(wrapper.vm.timer).toBe(null);
+          done();
+        });
       } catch (err) {
         done.fail(err);
       }
