@@ -5,8 +5,9 @@
     },
     className,
   ]" @mouseleave="out()">
-    <li class="w-rate-item" style="color: #fadb14;" :class="{
+    <li class="w-rate-item" :style="{color,}" :class="{
       ['w-rate-on']: isOn(cNow, index),
+      ['w-rate-big']: isBig(cNow),
       [`${prefix}-rate-item`]: !!prefix,
     }" v-for="(num, cNow) in count" :key="cNow">
       <span v-if="half" class="w-rate-elem w-rate-elem-left" :class="{
@@ -66,6 +67,10 @@ export default {
       type: String,
       default: 'star',
     },
+    color: {
+      type: String,
+      default: '#fadb14',
+    },
     prefix: String,
     className: [String, Object],
     change: {
@@ -86,6 +91,9 @@ export default {
     },
     isOn(cNow, index) {
       return cNow < index;
+    },
+    isBig(cNow) {
+      return cNow === Math.ceil(this.now) - 1;
     },
     init(value = -1) {
       this.setIndex(value);
