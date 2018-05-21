@@ -104,6 +104,7 @@ export default {
 |---|----|---|-------|-----|
 |count|star 总数|Number|是|无|
 |half|是否允许半选|Boolean|否|false|
+|color|高亮颜色|String|否|'#fadb14'|
 |character|自定义字符，支持字符串，不支持html格式|String|否|无|
 |icon|自定义 icon 类型|String|否|star|
 |prefix|样式的前缀|String|否|无|
