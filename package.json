@@ -1,9 +1,14 @@
 {
   "name": "@fe6/water",
-  "version": "0.0.1",
-  "description": "Vue.js 组件库模板",
+  "version": "0.0.0",
+  "description": "Vue.js 2.x 好用的组件库",
   "author": "李梦龙 <649076408@qq.com>",
-  "private": true,
+  "main": "dist/water.js",
+  "unpkg": "dist/water.js",
+  "files": [
+    "dist",
+    "water"
+  ],
   "scripts": {
     "start": "vuepress dev water",
     "build:site": "export GH=1 && vuepress build water",
@@ -14,9 +19,10 @@
     "lint-staged": "lint-staged",
     "test": "jest --config jest.conf.js --no-cache --verbose",
     "codecov": "codecov ./coverage/clover.xml",
-    "deploy-gh": "yarn build:site && bash scripts/deploy-gh.sh"
+    "deploy-gh": "yarn build:site && bash scripts/deploy-gh.sh",
+    "prepublishOnly": "npm run build"
   },
-  "dependencies": {
+  "devDependencies": {
     "babel-helpers": "^6.24.1",
     "babel-jest": "^23.0.0",
     "babel-plugin-dynamic-import-node": "^1.2.0",
@@ -53,9 +59,7 @@
     "vue-jest": "^2.5.0",
     "vue-markdown-loader": "^2.4.1",
     "vue-router": "^3.0.1",
-    "vue-test-utils": "^1.0.0-beta.11"
-  },
-  "devDependencies": {
+    "vue-test-utils": "^1.0.0-beta.11",
     "autoprefixer": "^8.2.0",
     "axios": "^0.18.0",
     "babel-core": "^6.26.0",
@@ -113,7 +117,7 @@
     "webpack-merge": "^4.1.2"
   },
   "engines": {
-    "node": ">= 9.0.0",
+    "node": ">= 8.0.0",
     "npm": ">= 5.0.0"
   },
   "browserslist": [
