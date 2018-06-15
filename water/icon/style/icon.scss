@@ -1,3 +1,5 @@
+@import '../../style/mixin/circle.scss';
+
 $font-name: "iconfont";
 $font-version: 1525402010198;
 $font-prefix: 'w-';
@@ -36,7 +38,7 @@ $font-list: "\e66a" "\e668" "\e669" "\e667";
 
 .#{$font-prefix}spin::before {
   display: inline-block;
-  animation: loadingCircle 1s infinite linear;
+  animation: circle 1s infinite linear;
 }
 
 .#{$font-prefix}forward::before {
@@ -53,16 +55,4 @@ $font-list: "\e66a" "\e668" "\e669" "\e667";
 
 .#{$font-prefix}star::before {
   content: "\e615";
-}
-
-@keyframes loadingCircle {
-  0% {
-    transform-origin: 50% 50%;
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform-origin: 50% 50%;
-    transform: rotate(1turn);
-  }
 }

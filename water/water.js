@@ -6,6 +6,7 @@ import { WCol, WRow } from './grid/index';
 import WAffix from './affix/index';
 import { WBreadcrumb, WBreadcrumbItem } from './breadcrumb/index';
 import WRate from './rate/index';
+import WSwitch from './switch/index';
 
 const waterCpt = {
   WIcon,
@@ -18,6 +19,7 @@ const waterCpt = {
   WBreadcrumb,
   WBreadcrumbItem,
   WRate,
+  WSwitch,
 };
 
 const install = (Vue) => {

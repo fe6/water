@@ -24,6 +24,7 @@ module.exports = {
       '/icon/zh-cn',
       '/loadbar/zh-cn',
       '/rate/zh-cn',
+      '/switch/zh-cn',
     ]
   }
 }
