@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioGroup.vue 检测快照是否一样。 1`] = `
+<div
+  class="w-radio-group w-radio-group-horizontal"
+>
+  <div
+    class="w-radio w-radio-horizontal w-radio-on"
+  >
+    <div
+      class="w-radio-status"
+    >
+      <input
+        class="w-radio-input"
+        name="wradio"
+        type="radio"
+        value="0"
+      />
+       
+      <i
+        class="w-radio-inner"
+      />
+    </div>
+     
+    <div
+      class="w-radio-content"
+    />
+  </div>
+</div>
+`;

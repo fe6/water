@@ -25,6 +25,7 @@ module.exports = {
       '/loadbar/zh-cn',
       '/rate/zh-cn',
       '/switch/zh-cn',
+      '/radio/zh-cn',
     ]
   }
 }
