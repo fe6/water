@@ -100,7 +100,7 @@ export default {
 <p>当前选择： {{more}}</p>
 <w-radio-group v-model="more">
   <w-radio :key="0">中国</w-radio>
-  <w-radio :key="1">美国</w-radio>
+  <w-radio :key="1" aria-label="美国">美国</w-radio>
   <w-radio :key="2">
     <span class="input-more-text">更多</span>
     <input type="text" class="input-more" v-if="more === 2">
@@ -112,7 +112,7 @@ export default {
 ``` vue
 <w-radio-group v-model="more">
   <w-radio :key="0">中国</w-radio>
-  <w-radio :key="1">美国</w-radio>
+  <w-radio :key="1" aria-label="美国">美国</w-radio>
   <w-radio :key="2">
     <span class="input-more-text">更多</span>
     <input type="text" class="input-more" v-if="more === 2">

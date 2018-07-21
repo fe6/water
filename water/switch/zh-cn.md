@@ -142,6 +142,26 @@ export default {
 };
 ```
 
+## API
+
+### 属性
+
+|属性|说明|类型|是否必须|默认|
+|---|---|----|-------|---|
+|value|状态值|Boolean|否|无|
+|v-model|双向数据绑定|Boolean|否|无|
+|size|尺寸大小。可选值： small \|\| normal |Number|String|否|normal|
+|disabled|处于不可用状态，点击事件失效，样式也会变|Boolean|否|无|
+|loading|处于加载中状态，点击事件失效，样式也会变|Boolean|否|无|
+|before|改变之前触发，返回 Promise 对象|Function|否|无|
+|change|改变的时候触发，返回 当前状态|Function|否|() => {}|
+
+### 事件
+
+|事件名|说明|返回值|
+|-----|---|-----|
+|change|改变的时候触发|当前状态|
+
 <script>
 import WIcon from '../icon/Icon';
 import WSwitch from './Switch';
