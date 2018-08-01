@@ -55,7 +55,7 @@
     "stylelint": "^9.2.0",
     "transliteration": "^1.6.2",
     "uglifyjs-webpack-plugin": "^1.2.5",
-    "vue": "2.5.16",
+    "vue": "2.5.17",
     "vue-jest": "^2.5.0",
     "vue-markdown-loader": "^2.4.1",
     "vue-router": "^3.0.1",
