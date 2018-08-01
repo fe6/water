@@ -108,7 +108,7 @@
     "url-loader": "^1.0.1",
     "vue-loader": "^15.0.10",
     "vue-style-loader": "^4.1.0",
-    "vue-template-compiler": "2.5.16",
+    "vue-template-compiler": "2.5.17",
     "vuepress": "^0.8.4",
     "webpack": "^4.12.0",
     "webpack-bundle-analyzer": "^2.13.1",
