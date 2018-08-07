@@ -5,6 +5,7 @@ module.exports = {
     'js',
     'vue'
   ],
+  testURL: "http://localhost/",
   testEnvironment: 'jest-environment-jsdom-global',
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/water/$1'
