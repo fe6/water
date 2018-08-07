@@ -23,7 +23,7 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "autoprefixer": "^8.2.0",
+    "autoprefixer": "^9.1.0",
     "axios": "^0.18.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
@@ -93,12 +93,12 @@
     "pre-commit": "^1.2.2",
     "progress-bar-webpack-plugin": "^1.11.0",
     "rimraf": "^2.6.2",
-    "sass-loader": "^7.0.1",
+    "sass-loader": "^7.1.0",
     "semver": "^5.5.0",
     "shelljs": "^0.8.1",
     "stylelint": "^9.2.0",
     "stylelint-webpack-plugin": "^0.10.4",
-    "transliteration": "^1.6.2",
+    "transliteration": "^1.6.6",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
     "vue": "^2.5.17",
@@ -110,11 +110,11 @@
     "vue-template-compiler": "^2.5.17",
     "vue-test-utils": "^1.0.0-beta.11",
     "vuepress": "^0.13.1",
-    "webpack": "^4.12.0",
+    "webpack": "^4.16.5",
     "webpack-bundle-analyzer": "^2.13.1",
     "webpack-dev-middleware": "^3.1.0",
     "webpack-hot-middleware": "^2.21.2",
-    "webpack-merge": "^4.1.2"
+    "webpack-merge": "^4.1.4"
   },
   "engines": {
     "node": ">= 8.0.0",
