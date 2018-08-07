@@ -1,0 +1,13 @@
+@keyframes radioBig {
+  0% {
+    opacity: 1;
+    border: 1px solid $blue-6;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    border: 1px solid $blue-6;
+    transform: scale(1.6);
+  }
+}
