@@ -1,5 +1,7 @@
 @import '../../style/config.scss';
 @import '../../style/mixin/circle.scss';
+@import '../../style/mixin/radioActive.scss';
+@import '../../style/mixin/radiobig.scss';
 
 $radio-move-time: 0.5s;
 
@@ -128,29 +130,5 @@ $radio-move-time: 0.5s;
     & .w-radio-inner-disabled {
       background-color: $disabled-bg-dark;
     }
-  }
-}
-
-@keyframes radioActive {
-  0% {
-    transform: scale(0);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes radioBig {
-  0% {
-    opacity: 1;
-    border: 1px solid $blue-6;
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    border: 1px solid $blue-6;
-    transform: scale(1.6);
   }
 }
