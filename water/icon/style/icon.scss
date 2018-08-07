@@ -1,9 +1,9 @@
 @import '../../style/mixin/circle.scss';
 
-$font-name: "iconfont";
-$font-version: 1525402010198;
-$font-prefix: 'w-';
-$font-path: '../font/';
+$font-name: "iconfont" !default;
+$font-version: 1525402010198 !default;
+$font-prefix: 'w-' !default;
+$font-path: '../font/' !default;
 
 @font-face {
   font-family: $font-name;

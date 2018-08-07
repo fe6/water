@@ -1,0 +1,148 @@
+# Rate 评分
+> 评分组件。
+
+## 何时使用
+
+- 对评价进行展示。
+- 对事物进行快速的评级操作。
+
+## 基本使用
+> 最简单的用法。
+
+***output***
+<br>
+<w-rate />
+
+***input***
+``` vue
+<w-rate />
+```
+
+## 半星
+> 支持选中半星。
+
+***output***
+<br>
+<w-rate half v-model="halfRate" />
+
+***input***
+
+``` vue
+<w-rate half v-model="halfRate" />
+```
+
+``` js
+import WRate from './Rate';
+
+export default {
+  data() {
+    return {
+      halfRate: 1.5,
+    };
+  },
+  components: {
+    WRate,
+  },
+};
+```
+
+## 其他字符
+> 可以将星星替换为其他字符，比如字母，数字，字体图标甚至中文。
+
+***output***
+<br>
+<w-rate character="水滴" />
+
+***input***
+
+``` vue
+<w-rate character="水滴" />
+```
+
+## 随时改变设置的值
+> 不仅可以上来选中，也可以之后修改。
+
+***output***
+<br>
+<w-button size="small" v-bind:click="click">当前数字是</w-button> -> {{number}} -> 对应的评分是 ->
+<w-rate character="水滴" v-model="number"></w-rate>
+
+***input***
+
+``` vue
+<w-button size="small" v-bind:click="click">当前数字是</w-button> -> {{number}} -> 对应的评分是 ->
+<w-rate character="水滴" v-model="number"></w-rate>
+```
+
+``` js
+import WRate from './Rate';
+import WButton from '../button/Button';
+
+export default {
+  data() {
+    return {
+      number: 3,
+    };
+  },
+  methods: {
+    click() {
+      this.number = Math.floor((Math.random() * 5) + 1);
+    },
+  },
+  components: {
+    WRate,
+    WButton,
+  },
+};
+```
+
+## API
+
+### 属性
+
+|参数|说明|类型|是否必填|默认值|
+|---|----|---|-------|-----|
+|count|star 总数|Number|是|无|
+|half|是否允许半选|Boolean|否|false|
+|color|高亮颜色|String|否|'#fadb14'|
+|character|自定义字符，支持字符串，不支持html格式|String|否|无|
+|icon|自定义 icon 类型|String|否|star|
+|prefix|样式的前缀|String|否|无|
+|change|选择时的回调|Function(value: number)|否|() => {}|
+|hover|鼠标经过时数值变化的回调|Function(value: number)|否|() => {}|
+
+### 事件
+
+|事件名|说明|返回值|
+|-----|---|-----|
+|change|选择时的回调|当前选择的数字|
+|hover|鼠标经过时的回调|当前选择的数字|
+
+<script>
+import WRate from '../../water/rate/Rate';
+import WButton from '../../water/button/Button';
+
+export default {
+  data() {
+    return {
+      halfRate: 1.5,
+      number: 3,
+    };
+  },
+  methods: {
+    click() {
+      this.number = Math.floor((Math.random() * 5) + 1);
+    },
+  },
+  components: {
+    WRate,
+    WButton,
+  },
+};
+</script>
+<style lang="scss">
+$font-path: '../../water/font/';
+@import '../../water/button/style/button.scss';
+@import '../../water/icon/style/icon.scss';
+@import '../../water/rate/style/rate.scss';
+</style>

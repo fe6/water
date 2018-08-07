@@ -10,7 +10,7 @@
     "water"
   ],
   "scripts": {
-    "start": "vuepress dev water",
+    "start": "vuepress dev site",
     "build:site": "export GH=1 && vuepress build water",
     "build": "cross-env BABEL_ENV=production && node build/build.water.js && gulp --gulpfile build/gulpfile.js",
     "eslint": "eslint --ext .js,.vue site water --fix",
