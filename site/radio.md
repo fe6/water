@@ -103,7 +103,7 @@ export default {
   <w-radio :key="1" aria-label="United States">United States</w-radio>
   <w-radio :key="2">
     <span class="input-more-text">More</span>
-    <input type="text" class="input-more" v-if="more === 2">
+    <input type="text" class="input-more" v-if="more === 2" aria-label="more">
   </w-radio>
 </w-radio-group>
 
@@ -115,7 +115,7 @@ export default {
   <w-radio :key="1" aria-label="United States">United States</w-radio>
   <w-radio :key="2">
     <span class="input-more-text">More</span>
-    <input type="text" class="input-more" v-if="more === 2">
+    <input type="text" class="input-more" v-if="more === 2" aria-label="more">
   </w-radio>
 </w-radio-group>
 ```
