@@ -1,4 +1,4 @@
-# 栅格系统
+# Grid 栅格系统
 
 ## 24栅格系统
 <w-row type="flex" justify="center" align="middle" className="demo-row" class="demo-first">
