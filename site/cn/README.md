@@ -6,8 +6,8 @@ heroImage: /logo.png
 actionText: 快速上手
 actionLink: /cn/affix
 features:
-- title: 简洁至上asss
-  details: 超凡脱俗的那么亲近。那么像 ant-desgin ，那么像 iview ，那么像 element-ui ，但它是 water 。
+- title: 简洁至上
+  details: 极简易的使用，超凡脱俗的用户体验。
 - title: 按需加载
   details: 单文件引用没有问题，整体引用更是支持。不在乎你有多大，不用的完全不用引进来。
 - title: 好用

@@ -7,7 +7,7 @@ actionText: Get Started
 actionLink: /affix
 features:
 - title: Simplicity first
-  details: Extraordinary and so close. So like ant-desgin , then like iview , then like element-ui , but it is water .
+  details: Extremely easy to use, extraordinary user experience.
 - title: Load on demand
   details: There is no problem with single file references, and overall references are more supportive. Don't care how big you are, don't need to introduce them at all.
 - title: Easy to use

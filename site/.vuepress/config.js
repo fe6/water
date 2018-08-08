@@ -9,13 +9,13 @@ module.exports = {
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'VuePress',
-      description: 'Vue-powered Static Site Generator'
+      title: 'Water',
+      description: 'An enterprise-level UI design language and Vue.js implementation'
     },
     '/cn/': {
       lang: 'zh-CN',
-      title: 'VuePress',
-      description: 'Vue 驱动的静态网站生成器'
+      title: '水滴',
+      description: '一套企业级的 UI 设计语言和 Vue.js 实现'
     }
   },
   dest: './docs',
