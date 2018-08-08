@@ -33,6 +33,6 @@
 - node.js >= 9.0.0
 - npm >= 5.0.0
 
-## 说明
+## Description
 
-本仓库是用脚手架 [fecli](https://github.com/fe6/fecli)，结合 [component-template](https://github.com/fe6/component-template) 模板生成的。
+This warehouse is built with scaffolding [fecli](https://github.com/fe6/fecli), combined with a [component-template](https://github.com/fe6/component-template) template.
