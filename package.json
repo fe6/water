@@ -46,7 +46,7 @@
     "cache-loader": "^1.2.2",
     "chalk": "^2.3.2",
     "codecov": "^3.0.0",
-    "compression-webpack-plugin": "^1.1.11",
+    "compression-webpack-plugin": "^2.0.0",
     "connect-history-api-fallback": "^1.5.0",
     "copy-webpack-plugin": "^4.5.1",
     "cross-env": "^5.1.4",
