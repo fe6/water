@@ -81,8 +81,8 @@ export default {
       debounce(this.gogogo)();
     },
     gogogo() {
-      const scrollTop = this.win.scrollTop ||
-        Math.max(
+      const scrollTop = this.win.scrollTop
+        || Math.max(
           window.pageYOffset,
           this.doc.documentElement.scrollTop,
           this.doc.body.scrollTop,

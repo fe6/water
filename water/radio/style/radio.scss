@@ -1,6 +1,6 @@
 @import '../../style/config.scss';
 @import '../../style/mixin/circle.scss';
-@import '../../style/mixin/radioActive.scss';
+@import '../../style/mixin/radioactive.scss';
 @import '../../style/mixin/radiobig.scss';
 
 $radio-move-time: 0.5s;
@@ -60,7 +60,7 @@ $radio-move-time: 0.5s;
         left: 3px;
         top: 3px;
         z-index: 2;
-        animation: circle 1s infinite linear;
+        animation: 'circle' 1s infinite linear;
         transition: left $radio-move-time, margin $radio-move-time;
       }
     }
@@ -95,7 +95,7 @@ $radio-move-time: 0.5s;
 
   &-click {
     & .w-radio-status::before {
-      animation: radioBig 0.4s;
+      animation: 'radioBig' 0.4s;
     }
   }
 
@@ -105,7 +105,7 @@ $radio-move-time: 0.5s;
     }
 
     & .w-radio-inner {
-      animation: radioActive 0.4s forwards;
+      animation: 'radioActive' 0.4s forwards;
     }
   }
 

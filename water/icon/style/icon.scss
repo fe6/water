@@ -38,7 +38,7 @@ $font-list: "\e66a" "\e668" "\e669" "\e667";
 
 .#{$font-prefix}spin::before {
   display: inline-block;
-  animation: circle 1s infinite linear;
+  animation: 'circle' 1s infinite linear;
 }
 
 .#{$font-prefix}forward::before {

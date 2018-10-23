@@ -30,7 +30,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     new StyleLintPlugin(),
     new UglifyJSPlugin(),
     new CompressionWebpackPlugin({
-      asset: '[path].gz[query]',
+      filename: '[path].gz[query]',
       algorithm: 'gzip',
       test: new RegExp('\\.(js|css)$'),
       threshold: 10240,
