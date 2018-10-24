@@ -45,6 +45,7 @@ module.exports = {
           '/icon',
           '/loadbar',
           '/radio',
+          '/checkbox',
           '/rate',
           '/switch',
         ]
@@ -69,6 +70,7 @@ module.exports = {
           '/cn/icon',
           '/cn/loadbar',
           '/cn/radio',
+          '/cn/checkbox',
           '/cn/rate',
           '/cn/switch',
         ]
