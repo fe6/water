@@ -95,7 +95,7 @@ export default {
 
 通过直接调用以下方法来使用组件：
 
-```
+``` js
 this.$Loading.init({
   height: '2px',
   color: '#1996f9',

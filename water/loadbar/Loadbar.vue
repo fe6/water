@@ -60,7 +60,7 @@ export default {
      * @params Number num 累加的值
     */
     increase(num) {
-      this.percent += Math.floor(num);
+      this.percent += num;
     },
     /*
      * 更新方法
