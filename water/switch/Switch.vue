@@ -34,7 +34,7 @@ export default {
     change: {
       type: Function,
       default: () => {},
-    }
+    },
   },
   methods: {
     changeFn() {

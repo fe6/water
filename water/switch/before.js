@@ -1,6 +1,6 @@
-export default function before(url) {
-  return new Promise((resolve, reject) => {
-    process.nextTick(() =>{
+export default function before() {
+  return new Promise((resolve) => {
+    process.nextTick(() => {
       resolve();
     });
   });

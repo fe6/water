@@ -1,5 +1,5 @@
-export default function before(url) {
-  return new Promise((resolve, reject) => {
+export default function before() {
+  return new Promise((resolve) => {
     resolve();
   });
 }

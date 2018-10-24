@@ -9,7 +9,7 @@ describe('Switch.vue', () => {
   beforeEach(() => {
     wrapper = shallow(Switch, {
       propsData: {
-        before: async function() {
+        async before() {
           return before;
         },
       },

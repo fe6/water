@@ -37,7 +37,7 @@ export default {
     before: {
       type: Function,
       default() {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
           resolve();
         });
       },

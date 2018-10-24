@@ -1,13 +1,11 @@
-import { shallow, mount } from 'vue-test-utils';
+import { mount } from 'vue-test-utils';
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
-import before from './before';
 
 describe('Radio.vue', () => {
   let wrapperBase = null;
   let wrapperRadioDisabled = null;
   let wrapperRadio99 = null;
-  let wrapperRadio82 = null;
   let wrapperRadio71 = null;
   let wrapperRadio65 = null;
   let wrapper = null;
@@ -16,11 +14,11 @@ describe('Radio.vue', () => {
     slots: {
       default: [
         Radio,
-        Radio
+        Radio,
       ],
     },
     propsData,
-  })
+  });
 
   beforeEach(() => {
     wrapper = createCmp({
@@ -40,10 +38,6 @@ describe('Radio.vue', () => {
       on: 1,
     });
 
-    wrapperRadio82 = createCmp({
-      on: 1,
-    });
-
     wrapperRadio65 = createCmp({
       on: 1,
     });
@@ -56,7 +50,6 @@ describe('Radio.vue', () => {
   it('测试 animationend', (done) => {
     wrapper.vm.$nextTick(() => {
       try {
-        const switchElem = wrapper.find('.w-radio');
         wrapper.vm.$children[0].removeClickName();
         expect(wrapper.vm.$children[0].isClick).toBeFalsy();
         done();
@@ -110,9 +103,9 @@ describe('Radio.vue', () => {
     wrapperRadio65.vm.$nextTick(() => {
       try {
         const switchElem = wrapperRadioDisabled.find('.w-radio');
-        wrapperRadio65.vm.$children[0].disabledStatus =false;
-        wrapperRadio65.vm.$children[0].status =false;
-        wrapperRadio65.vm.loading =false;
+        wrapperRadio65.vm.$children[0].disabledStatus = false;
+        wrapperRadio65.vm.$children[0].status = false;
+        wrapperRadio65.vm.loading = false;
         const childClickdFn = jest.fn();
         wrapperRadio65.vm.childClick = childClickdFn;
         wrapperRadio65.update();
@@ -128,7 +121,6 @@ describe('Radio.vue', () => {
   it('测试 71 line', (done) => {
     wrapperRadio71.vm.$nextTick(() => {
       try {
-        const switchElem = wrapperRadioDisabled.find('.w-radio');
         wrapperRadio71.vm.$children[0].status = true;
         expect(wrapperRadio71.vm.$children[0].clickFn({})).toBeFalsy();
         done();

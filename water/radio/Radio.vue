@@ -41,7 +41,9 @@ export default {
   data() {
     const { $parent = { index: 0 }, $vnode } = this;
     const { index, $options: { _componentTag } = { _componentTag: '' } } = $parent;
-    const { name, defaultChecked = true, prefix, disabled, loading, } = $parent;
+    const {
+      name, defaultChecked = true, prefix, disabled, loading,
+    } = $parent;
     const { key = 0 } = $vnode.data;
     return {
       inputName: name || this.name || 'wradio',
