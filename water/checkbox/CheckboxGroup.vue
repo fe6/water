@@ -14,6 +14,7 @@ export default {
     return {
       list: this.options,
       checkList: this.on || [],
+      hasFormat: false,
     };
   },
   model: {
@@ -39,21 +40,19 @@ export default {
   },
   methods: {
     checkFn(value) {
-      if (!this.disabled && !value.disabled) {
-        this.setValue(value);
-        this.$emit('model', this.checkList);
-      }
+      this.setValue(value);
+      this.$emit('model', this.checkList);
     },
     setValue(value) {
-      const hasFormat = this.format && value[this.format];
-      const checkIndex = hasFormat
+      this.hasFormat = this.format && value[this.format];
+      const checkIndex = this.hasFormat
         ? this.checkList.indexOf(value[this.format])
         : this.checkList.findIndex(item => item === value);
       const checkIn = checkIndex > -1;
       if (checkIn) {
         this.checkList.splice(checkIndex, 1);
       } else {
-        const checkItem = hasFormat ? value[this.format] : value;
+        const checkItem = this.hasFormat ? value[this.format] : value;
         this.checkList.push(checkItem);
       }
       this.$emit('change', this.checkList, !checkIn, value);
