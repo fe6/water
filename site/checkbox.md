@@ -133,9 +133,9 @@ export default {
 ***output***
 
 <p>
-  <w-checkbox-group :options="groupOpts" v-model="groupList" v-bind:change="changeGroup" format="value" formatValue="value"></w-checkbox-group><input v-show="groupMore" type="text">
+  <w-checkbox-group aria-label="group" :options="groupOpts" v-model="groupList" v-bind:change="changeGroup" format="value" formatValue="value"></w-checkbox-group><input v-show="groupMore" type="text">
   <br>
-  <w-checkbox-group :disabled="true" :options="groupOpts" formatValue="age"></w-checkbox-group>
+  <w-checkbox-group aria-label="group" :disabled="true" :options="groupOpts" formatValue="age"></w-checkbox-group>
 </p>
 
 ***input***
@@ -143,9 +143,9 @@ export default {
 ``` vue
 <template>
   <p>
-    <w-checkbox-group :options="groupOpts" v-model="groupList" v-bind:change="changeGroup" format="value" formatValue="value"></w-checkbox-group><input v-show="groupMore" type="text">
+    <w-checkbox-group aria-label="group" :options="groupOpts" v-model="groupList" v-bind:change="changeGroup" format="value" formatValue="value"></w-checkbox-group><input v-show="groupMore" type="text">
     <br>
-    <w-checkbox-group :disabled="true" :options="groupOpts" formatValue="age"></w-checkbox-group>
+    <w-checkbox-group aria-label="group" :disabled="true" :options="groupOpts" formatValue="age"></w-checkbox-group>
   </p>
 </template>
 
