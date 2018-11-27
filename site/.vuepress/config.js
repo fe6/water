@@ -48,6 +48,7 @@ module.exports = {
           '/checkbox',
           '/rate',
           '/switch',
+          '/input',
         ]
       },
       '/cn/': {
@@ -73,6 +74,7 @@ module.exports = {
           '/cn/checkbox',
           '/cn/rate',
           '/cn/switch',
+          '/cn/input',
         ]
       },
     },
