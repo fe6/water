@@ -1,0 +1,18 @@
+@mixin placeholder($attr, $value) {
+
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    #{$attr}:  $value;
+  }
+
+  &::-moz-placeholder { /* Firefox 19+ */
+    #{$attr}:  $value;
+  }
+
+  &:-ms-input-placeholder { /* IE 10+ */
+    #{$attr}:  $value;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    #{$attr}:  $value;
+  }
+}

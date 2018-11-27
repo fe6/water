@@ -314,13 +314,13 @@ export default {
         this.flexOnList.push(item);
       }
     },
-    checkAllFn(value) {
+    checkAllFn(event, value) {
       this.flexList = !value ? this.flexList.map(item => {
         item.value = false;
         return item;
       }).slice() : this.flexList;
       this.flexOnList = value ? this.flexList.map(item => {
-        item.value = true;
+        item.value = value;
         return item;
       }).slice() : [];
     },
@@ -482,13 +482,13 @@ export default {
         this.flexOnList.push(item);
       }
     },
-    checkAllFn(value) {
+    checkAllFn(event, value) {
       this.flexList = !value ? this.flexList.map(item => {
         item.value = false;
         return item;
       }).slice() : this.flexList;
       this.flexOnList = value ? this.flexList.map(item => {
-        item.value = true;
+        item.value = value;
         return item;
       }).slice() : [];
     },

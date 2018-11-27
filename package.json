@@ -140,7 +140,6 @@
     ]
   },
   "pre-commit": [
-    "lint-staged",
-    "test"
+    "lint-staged"
   ]
 }
