@@ -49,6 +49,7 @@ module.exports = {
           '/rate',
           '/switch',
           '/input',
+          '/tag',
         ]
       },
       '/cn/': {
@@ -75,6 +76,7 @@ module.exports = {
           '/cn/rate',
           '/cn/switch',
           '/cn/input',
+          '/cn/tag',
         ]
       },
     },

@@ -1,0 +1,124 @@
+@import '../../style/config.scss';
+@import '../../style/mixin/buttonbig.scss';
+
+$move-time: 0.5s;
+$tag-list: ('': 32, '-lg': 40, '-sm': 24);
+$tag-font: ('': 14, '-lg': 16, '-sm': 14);
+$margin-right: ('': 8, '-lg': 16, '-sm': 8);
+$border-radius: ('': 8, '-lg': 8, '-sm': 4);
+
+.w-tag {
+  border: 1px solid $normal-border;
+  color: $text-color;
+  padding: 0 16px;
+  white-space: nowrap;
+  background: $disabled-bg;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+  &-inline {
+    display: inline-block;
+  }
+
+  &-section {
+    transition: opacity $move-time;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  // 循环尺寸
+  @each $size, $value in $tag-list {
+    &#{$size} {
+      height: $value + px;
+      line-height: $value + px;
+      font-size: map-get($tag-font, $size) + px;
+      margin-right: map-get($margin-right, $size) + px;
+      border-radius: map-get($border-radius, $size) + px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @if $size == '-sm' {
+        padding: 0 8px;
+      }
+    }
+  }
+
+  &-click {
+    position: relative;
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: -1px;
+      bottom: -1px;
+      right: -1px;
+      left: -1px;
+      border-radius: inherit;
+      border: 1px solid;
+      border-color: inherit;
+      opacity: 0.4;
+      animation: 'buttonBig' 0.4s;
+    }
+  }
+
+  &-close {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    position: relative;
+
+    &:hover {
+      &::before,
+      &::after {
+        background: rgba(0, 0, 0, 0.85);
+      }
+
+      & .w-tag-close-section {
+        &::before,
+        &::after {
+          background: #fff;
+        }
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      width: 2px;
+      height: 10px;
+      border-radius: 2px;
+      background: $text-color-secondary;
+      transition: background $move-time;
+      position: absolute;
+      left: 4px;
+      top: 0;
+    }
+
+    &-section {
+      &::before,
+      &::after {
+        background: #fff;
+      }
+
+      &:hover {
+        &::before,
+        &::after {
+          background: #fff;
+        }
+      }
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
