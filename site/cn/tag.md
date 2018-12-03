@@ -4,7 +4,7 @@
 > 可通过 CheckTag 实现类似 Checkbox 的效果，点击切换选中效果
 
 <div>
-  <select @change="disSelFn">
+  <select @change="disSelFn" aria-label="disabled">
     <option value="">请选择禁用</option>
     <option v-for="(check, checkIndex) in checks" :key="checkIndex" :value="checkIndex">{{check.name}}</option>
   </select>
