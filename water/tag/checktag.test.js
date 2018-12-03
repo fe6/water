@@ -1,5 +1,5 @@
 import { shallow } from 'vue-test-utils';
-import Checktag from './Checktag';
+import Checktag from './CheckTag';
 
 describe('Checktag.vue', () => {
   let wrapperModel = null;
