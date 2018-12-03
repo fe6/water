@@ -14,8 +14,7 @@
   <button :key="0" @click="changeGroupStatus($event, 0)" class="inp-btn" :class="{'on': sizeStatus === 0}">小</button>
   <button :key="1" @click="changeGroupStatus($event, 1)" class="inp-btn" :class="{'on': sizeStatus === 1}">中</button>
   <button :key="2" @click="changeGroupStatus($event, 2)" class="inp-btn" :class="{'on': sizeStatus === 2}">大</button>
-  <button @click="disabled = !disabled" class="inp-btn" :class="{'on': disabled
-  }">禁用</button>
+  <button @click="disabled = !disabled" class="inp-btn" :class="{'on': disabled}">禁用</button>
 </div>
 <p>
   <w-input :size="groupConfig[sizeStatus]" placeholder="尺寸" :disabled="disabled" />
@@ -26,7 +25,7 @@
 > 在输入框上添加前缀或后缀图标
 
 <p>
-<w-input :placeholder="前缀和后缀" >
+<w-input placeholder="前缀和后缀" >
   <w-icon slot="prefix" type="heart" />
   <w-icon slot="suffix" type="star" />
 </w-input>
@@ -39,7 +38,7 @@
 |属性|说明|类型|是否必须|默认|
 |---|---|----|-------|---|
 |placeholder|默认文案|String|否|无|
-|size|尺寸设置|String|否|无|
+|size|尺寸设置。可选 large || small|String|否|无|
 |disabled|是否禁用状态|Boolean|否|无|
 |change|改变的时候触发。会返回 `Event 对象`, `当前状态`|Function|否|()=>{}|
 |type|声明 input 类型，同原生 input 标签的 type 属性，见：MDN。|String|否|text|

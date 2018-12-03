@@ -8,7 +8,7 @@
       [`${prefixCls}ghost`]: ghost,
       [`${prefixCls}lg`]: size === 'large',
       [`${prefixCls}sm`]: size === 'small', [`${prefixCls}lg`]: size === 'large', [`${prefixCls}loading`]: loading, [`${prefixCls}circle`]: circle,
-      [`${prefixCls}click`]: isClick,
+      [`${prefixCls}click`]: clicked,
       [`${prefixCls}disabled`]: disabled,
       [`${prefixCls}on`]: status,
       [`${prefixCls}primary-on`]: type === 'primary' && status,
@@ -81,14 +81,14 @@ export default {
     return {
       name,
       prefixCls,
-      isClick: false,
+      clicked: false,
       index,
       status: index === key && _componentTag === `${prefixCls}group`,
     };
   },
   methods: {
     clickFn(evente) {
-      this.isClick = true;
+      this.clicked = true;
       const { key } = this.$vnode.data;
       this.click(evente, key);
       this.$emit('click', evente, key);
@@ -104,7 +104,7 @@ export default {
       this.$emit('mouseout', evente, key);
     },
     removeClickName() {
-      this.isClick = false;
+      this.clicked = false;
     },
     /*
      * 父组件更新子组件选中状态的方法
