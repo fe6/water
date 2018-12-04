@@ -40,6 +40,7 @@ module.exports = {
           '/grid',
           '/icon',
           '/input',
+          '/link',
           '/loadbar',
           '/radio',
           '/rate',
