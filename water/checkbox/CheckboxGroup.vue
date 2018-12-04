@@ -9,7 +9,7 @@
 import WCheckbox from './Checkbox';
 
 export default {
-  name: 'wCheckboxGroup',
+  name: 'WCheckboxGroup',
   data() {
     return {
       list: this.options,

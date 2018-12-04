@@ -35,13 +35,13 @@
 - 背景，边框颜色，文字颜色随设置的颜色变化
 
 <transition-group class="w-tag-box" name="list" tag="div">
-  <w-tag class="list-item" v-for="(color, colorIndex) in allColors" :key="color" :size="groupConfig[sizeStatus]" :color="color" :closable="true" @close="closeTag('allColors', colorIndex)">标签</w-tag>
+  <w-tag class="list-item" v-for="(color, colorIndex) in allColors" :key="color.color" :size="groupConfig[sizeStatus]" :color="color.color" :closable="true" :loading="color.loading" @close="closeTag('allColors', colorIndex)">标签</w-tag>
 </transition-group>
 
 - 背景和边框颜色统一是设置的颜色，文字为白色
 
 <transition-group class="w-tag-box" name="list" tag="div">
-  <w-tag class="list-item" v-for="(color, colorIndex) in sectionColors" :key="color" :size="groupConfig[sizeStatus]" :color="color" colorType="section" :closable="true" @close="closeTag('sectionColors', colorIndex)">标签</w-tag>
+  <w-tag class="list-item" v-for="(color, colorIndex) in sectionColors" :key="color.color" :size="groupConfig[sizeStatus]" :color="color.color" colorType="section" :closable="true" :loading="color.loading" @close="closeTag('sectionColors', colorIndex)">标签</w-tag>
 </transition-group>
 
 ## API
@@ -57,6 +57,7 @@
 |colorType|标签色的渲染类型，可选值： section 部分 || all 全部|String|否|all|
 |inline|是否会一行显示，是否会有 display: inline-block 样式|Boolean|否|无|
 |close|关闭的时候触发。会返回 `Event 对象`|Function|否|()=>{}|
+|loading|处于加载中状态，点击事件失效，样式也会变|Boolean|否|无|
 
 #### 事件
 
@@ -80,8 +81,38 @@ import WChecktag from '../../water/tag/CheckTag';
 export default {
   data() {
     return {
-      sectionColors: ['#eb2f96', '#f5222d', '#fa541c', '#fa8c16', '#faad14', '#a0d911', '#52c41a', '#13c2c2', '#1890ff', '#2f54eb', '#722ed1'],
-      allColors: ['#eb2f96', '#f5222d', '#fa541c', '#fa8c16', '#faad14', '#a0d911', '#52c41a', '#13c2c2', '#1890ff', '#2f54eb', '#722ed1'],
+      sectionColors: [{
+        color: '#eb2f96',
+        loading: false,
+      },
+      {
+        color: '#f5222d',
+        loading: false,
+      },
+      {
+        color: '#fa541c',
+        loading: false,
+      },
+      {
+        color: '#fa8c16',
+        loading: false,
+      }],
+      allColors: [{
+        color: '#eb2f96',
+        loading: false,
+      }, {
+        color: '#f5222d',
+        loading: false,
+      }, {
+        color: '#fa541c',
+        loading: false,
+      }, {
+        color: '#fa8c16',
+        loading: false,
+      }, {
+        color: '#faad14',
+        loading: false,
+      }],
       disabled: false,
       sizeStatus: 0,
       groupConfig: ['small', '', 'large',],
@@ -118,7 +149,14 @@ export default {
       }
     },
     closeTag(colors, index) {
-      this[colors].splice(index, 1);
+      const { color } = this[colors][index];
+      this[colors].splice(index, 1, {
+        color,
+        loading: true,
+      });
+      setTimeout(() => {
+        this[colors].splice(index, 1);
+      }, 1000);
     },
     disSelFn(event) {
       const { value } = event.target;

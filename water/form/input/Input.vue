@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: "WInputTag",
+  name: 'WInputTag',
   data() {
     return {
       inputValue: '',
@@ -42,7 +42,7 @@ export default {
     change: {
       type: Function,
       default: () => {},
-    }
+    },
   },
   mounted() {
     this.setValue(this.value);
@@ -64,5 +64,5 @@ export default {
       this.setValue(val);
     },
   },
-}
+};
 </script>

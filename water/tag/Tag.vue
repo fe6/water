@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-import { hexToRgb, rgbToHsb } from '../utils/color';
+import { hexToRgb } from '../utils/color';
 
 export default {
   name: 'WTag',
@@ -22,6 +22,7 @@ export default {
     closable: Boolean,
     value: String,
     size: String,
+    loading: Boolean,
     color: String,
     colorType: {
       type: String,
@@ -32,23 +33,36 @@ export default {
     close: {
       type: Function,
       default: () => {},
-    }
+    },
   },
   computed: {
     classList() {
       return [
         {
+          'w-tag-loading': this.loading,
           'w-tag-lg': this.size === 'large',
           'w-tag-sm': this.size === 'small',
-          'w-tag-click': this.clicked,
+          'w-tag-loading-lg': this.loadLarge,
+          'w-tag-loading-sm': this.loadSmall,
+          'w-tag-click': !this.loading && this.clicked,
           'w-tag-inline': this.inline,
           'w-tag-disabled': this.disabled,
           'w-tag-section': !this.isAllValue,
+          'w-tag-section-loading': this.sectionLoad,
         },
       ];
     },
+    sectionLoad() {
+      return !this.isAllValue && this.loading;
+    },
+    loadLarge() {
+      return this.loading && this.size === 'large';
+    },
+    loadSmall() {
+      return this.loading && this.size === 'small';
+    },
     closableValue() {
-      return this.closable;
+      return this.closable && !this.loading;
     },
     sizeValue() {
       return this.size;
@@ -63,17 +77,17 @@ export default {
       return this.colorType === 'all';
     },
     borderColorValue() {
-      const { r, g, b, } = this.colorValue;
+      const { r, g, b } = this.colorValue;
       const alpha = this.isAllValue ? 0.4 : 1;
-      return `rgba(${r}, ${g}, ${b}, ${alpha})` ;
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
     },
     backgroundColorValue() {
-      const { r, g, b, } = this.colorValue;
+      const { r, g, b } = this.colorValue;
       const alpha = this.isAllValue ? 0.1 : 1;
       return `rgba(${r}, ${g}, ${b}, ${alpha})`;
     },
     fontColorValue() {
-      const { r, g, b, } = this.colorValue;
+      const { r, g, b } = this.colorValue;
       return this.isAllValue ? `rgb(${r}, ${g}, ${b})` : '#fff';
     },
     colorValue() {
@@ -92,5 +106,5 @@ export default {
       this.$emit('close', event);
     },
   },
-}
+};
 </script>

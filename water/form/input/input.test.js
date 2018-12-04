@@ -6,18 +6,18 @@ describe('Input.vue', () => {
   let wrapperWatch = null;
 
   beforeEach(() => {
-    wrapperModel  = shallow(Input, {
+    wrapperModel = shallow(Input, {
       propsData: {
         value: 'true',
       },
     });
-    wrapperWatch  = shallow(Input);
+    wrapperWatch = shallow(Input);
   });
 
   it('render', (done) => {
     wrapperModel.vm.$nextTick(() => {
       try {
-        wrapperModel.vm.changeValue({target: { value: 'lee' } });
+        wrapperModel.vm.changeValue({ target: { value: 'lee' } });
         expect(wrapperModel.vm.inputValue).toEqual('lee');
         done();
       } catch (err) {

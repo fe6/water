@@ -8,22 +8,22 @@ describe('InputWraper.vue', () => {
   let wrapperSlotValue = null;
 
   beforeEach(() => {
-    wrapperModel  = mount(InputWraper, {
+    wrapperModel = mount(InputWraper, {
       slots: {
         prefix: Icon,
-        suffix: Icon
-      }
+        suffix: Icon,
+      },
     });
-    wrapperWatch  = mount(InputWraper, {
+    wrapperWatch = mount(InputWraper, {
       slots: {
         prefix: Icon,
-        suffix: Icon
+        suffix: Icon,
       },
       propsData: {
         value: 'input',
       },
     });
-    wrapperSlotValue  = mount(InputWraper, {
+    wrapperSlotValue = mount(InputWraper, {
       propsData: {
         value: 'input',
       },
@@ -45,10 +45,9 @@ describe('InputWraper.vue', () => {
   it('test watch', (done) => {
     wrapperWatch.vm.$nextTick(() => {
       try {
-        const inp = wrapperWatch.find('input');
         const changeFn = jest.fn();
         wrapperWatch.setMethods({
-          'setValue': changeFn,
+          setValue: changeFn,
         });
         wrapperWatch.vm.value = '100';
         wrapperWatch.vm.$nextTick(() => {
