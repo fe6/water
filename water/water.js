@@ -10,6 +10,7 @@ import WSwitch from './switch/index';
 import { WTag, WCheckTag } from './tag/index';
 import { WRadio, WRadioGroup } from './radio/index';
 import WInput from './form/index';
+import WSpin from './spin/index';
 
 const waterCpt = {
   WIcon,
@@ -22,6 +23,7 @@ const waterCpt = {
   WBreadcrumb,
   WBreadcrumbItem,
   WRate,
+  WSpin,
   WSwitch,
   WRadio,
   WRadioGroup,
