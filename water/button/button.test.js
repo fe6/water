@@ -29,9 +29,9 @@ describe('Button.vue', () => {
       try {
         const button = wrapper.find('.w-button');
         button.trigger('click');
-        expect(wrapper.vm.$children[0].isClick).toBeTruthy();
+        expect(wrapper.vm.$children[0].clicked).toBeTruthy();
         button.trigger('animationend');
-        expect(wrapper.vm.$children[0].isClick).toBeFalsy();
+        expect(wrapper.vm.$children[0].clicked).toBeFalsy();
         done();
       } catch (err) {
         done.fail(err);

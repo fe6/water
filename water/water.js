@@ -7,7 +7,9 @@ import WAffix from './affix/index';
 import { WBreadcrumb, WBreadcrumbItem } from './breadcrumb/index';
 import WRate from './rate/index';
 import WSwitch from './switch/index';
+import { WTag, WCheckTag} from './tag/index';
 import { WRadio, WRadioGroup } from './radio/index';
+import { WInput } from './form/index';
 
 const waterCpt = {
   WIcon,
@@ -23,6 +25,9 @@ const waterCpt = {
   WSwitch,
   WRadio,
   WRadioGroup,
+  WInput,
+  WTag,
+  WCheckTag,
 };
 
 const install = (Vue) => {
