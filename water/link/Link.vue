@@ -1,11 +1,11 @@
 <template>
-  <a class="w-link" :href="urlValue" :target="targetValue" v-if="urlValue">
+  <a class="w-link" :class="classList" :href="urlValue" :target="targetValue" v-if="urlValue">
     <slot></slot>
   </a>
-  <router-link class="w-link" :tag="tag" :to="toValue" v-else-if="toValue">
+  <router-link class="w-link" :class="classList" :tag="tag" :to="toValue" v-else-if="toValue">
     <slot></slot>
   </router-link>
-  <span class="w-link" v-else><slot></slot></span>
+  <span class="w-link" :class="classList" v-else><slot></slot></span>
 </template>
 <script>
 export default {
@@ -18,8 +18,27 @@ export default {
     url: String,
     target: String,
     to: Object,
+    size: String,
+    loading: Boolean,
   },
   computed: {
+    classList() {
+      return [
+        {
+          'w-link-loading': this.loading,
+          'w-link-lg': this.size === 'large',
+          'w-link-sm': this.size === 'small',
+          'w-link-loading-lg': this.loadLarge,
+          'w-link-loading-sm': this.loadSmall,
+        },
+      ];
+    },
+    loadLarge() {
+      return this.loading && this.size === 'large';
+    },
+    loadSmall() {
+      return this.loading && this.size === 'small';
+    },
     urlValue() {
       return this.url;
     },
