@@ -1,120 +1,58 @@
-# Rate
-> Rate component.
+# Rate 评分
+> 评分组件。
 
-## When To Use
+## 何时使用
 
-- Show evaluation.
-- A quick rating operation on something.
+- 对评价进行展示。
+- 对事物进行快速的评级操作。
 
-## Basic usage
+## 基本使用
+> 最简单的用法。
 
-***output***
 <br>
 <w-rate />
 
-***input***
-``` vue
-<w-rate />
-```
+## 半星
+> 支持选中半星。
 
-## Half star
-
-***output***
 <br>
 <w-rate half v-model="halfRate" />
 
-***input***
+## 其他字符
+> 可以将星星替换为其他字符，比如字母，数字，字体图标甚至中文。
 
-``` vue
-<w-rate half v-model="halfRate" />
-```
-
-``` js
-import WRate from './Rate';
-
-export default {
-  data() {
-    return {
-      halfRate: 1.5,
-    };
-  },
-  components: {
-    WRate,
-  },
-};
-```
-
-## Other characters
-> You can replace stars with other characters, such as letters, numbers, font icons, or even Chinese.
-
-***output***
 <br>
-<w-rate character="Water" />
+<w-rate character="水滴" />
 
-***input***
+## 随时改变设置的值
+> 不仅可以上来选中，也可以之后修改。
 
-``` vue
-<w-rate character="Water" />
-```
-
-## Change Value
-> Not only can it be selected, but it can be modified later.
-
-***output***
 <br>
-<w-button size="small" v-bind:click="click">The current number is </w-button> -> {{number}} -> The corresponding rating is ->
-<w-rate character="Water" v-model="number"></w-rate>
+<w-button size="small" v-bind:click="click">当前数字是</w-button> -> {{number}} -> 对应的评分是 ->
+<w-rate character="水滴" v-model="number"></w-rate>
 
-***input***
-
-``` vue
-<w-button size="small" v-bind:click="click">The current number is </w-button> -> {{number}} -> The corresponding rating is ->
-<w-rate character="Water" v-model="number"></w-rate>
-```
-
-``` js
-import WRate from './Rate';
-import WButton from '../button/Button';
-
-export default {
-  data() {
-    return {
-      number: 3,
-    };
-  },
-  methods: {
-    click() {
-      this.number = Math.floor((Math.random() * 5) + 1);
-    },
-  },
-  components: {
-    WRate,
-    WButton,
-  },
-};
-```
 
 ## API
 
-### Props
+### 属性
 
-|Property|Description|Type|Required|Default|
+|参数|说明|类型|是否必填|默认值|
 |---|----|---|-------|-----|
-|count|Star total|Number|Yes|-|
-|half|Whether semi-selection is allowed|Boolean|No|false|
-|color|Highlight color|String|No|'#fadb14'|
-|character|Custom characters, support strings, html format not supported|String|No|-|
-|icon|Custom icon type|String|No|star|
-|prefix|Style prefix|String|No|-|
-|change|Callback when selecting|Function(value: number)|No|() => {}|
-|hover|Callback of numerical changes as the mouse passes|Function(value: number)|No|() => {}|
+|count|star 总数|Number|是|无|
+|half|是否允许半选|Boolean|否|false|
+|color|高亮颜色|String|否|'#fadb14'|
+|character|自定义字符，支持字符串，不支持html格式|String|否|无|
+|icon|自定义 icon 类型|String|否|star|
+|prefix|样式的前缀|String|否|无|
+|change|选择时的回调|Function(value: number)|否|() => {}|
+|hover|鼠标经过时数值变化的回调|Function(value: number)|否|() => {}|
 
-### Methods
+### 事件
 
-|Name|Description|Return Value|
+|事件名|说明|返回值|
 |-----|---|-----|
-|change|Callback when selecting|Currently selected number|
-|hover|Callback of numerical changes as the mouse passes|Currently selected number|
+|change|选择时的回调|当前选择的数字|
+|hover|鼠标经过时的回调|当前选择的数字|
 
 <script>
 import WRate from '../water/rate/Rate';

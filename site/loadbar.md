@@ -1,95 +1,25 @@
-# Loadbar
-> Create a loading progress bar that displays page loads, asynchronous requests, file uploads, and so on.
+# Loadbar 全局加载进度条
 
-## Code Demo
+## 概述
+全局创建一个显示页面加载、异步请求、文件上传等的加载进度条。
 
-***output***
+## 代码演示
+
+### 基本使用
+
 <br>
 <br>
-<w-button prefix="demo" v-bind:click="start">Start</w-button>
-<w-button prefix="demo" type="primary" v-bind:click="finish">Finish</w-button>
-<w-button prefix="demo" type="danger" v-bind:click="fail">Error</w-button>
-<w-button prefix="demo" type="dash" v-bind:click="update">Update</w-button>
+<w-button prefix="demo" v-bind:click="start">开始</w-button>
+<w-button prefix="demo" type="primary" v-bind:click="finish">完成</w-button>
+<w-button prefix="demo" type="danger" v-bind:click="fail">报错</w-button>
+<w-button prefix="demo" type="dash" v-bind:click="update">更新</w-button>
 
-***input***
-``` vue
-<template>
-  <div>
-    <w-button prefix="demo" v-bind:click="start">Start</w-button>
-    <w-button prefix="demo" type="primary" v-bind:click="finish">Finish</w-button>
-    <w-button prefix="demo" type="danger" v-bind:click="fail">Error</w-button>
-    <w-button prefix="demo" type="dash" v-bind:click="update">Update</w-button>
-  </div>
-</template>
-<script>
-  export default {
-    methods: {
-      start () {
-        this.$Loading.start();
-      },
-      finish () {
-        this.$Loading.finish();
-      },
-      error () {
-        this.$Loading.error();
-      },
-      update () {
-        this.$Loading.update(10);
-      }
-    }
-  }
-</script>
-```
-
-## Description
-The Loadbar will only create one globally, so methods called anywhere will control the same component. The main usage scenarios are route switching and Ajax, because neither of them can get accurate progress, Loadbar will simulate the progress, of course, you can also pass an exact progress through the `update()` method, such as when the file is uploaded. Very useful, see [API](#api).
-
-``` js
-// Partial code omitting
-import water from '@fe6/water';
-
-Vue.use(water);
-
-water.WLoadbar.init();
-
-router.beforeEach((to, from, next) => {
-  water.WLoadbar.start();
-  next();
-});
-
-router.afterEach(route => {
-  water.WLoadbar.finish();
-});
-```
-
-``` js
-// Take jQuery's Ajax as an example, some code is omitted.
-import $ from 'jquery';
-export default {
-  methods: {
-    getData () {
-      // Progress bar starts
-      this.$WLoadbar.start();
-      $.ajax({
-        url: '/api/someurl',
-        type: 'get',
-        success: () => {
-          // Progress bar success end
-          this.$WLoadbar.finish();
-        }
-        error: () => {
-          // Progress bar failed end
-          this.$WLoadbar.fail();
-        }
-      });
-    }
-  }
-}
-```
+## 说明
+Loadbar 只会在全局创建一个，因此在任何位置调用的方法都会控制这同一个组件。主要使用场景是路由切换和 Ajax，因为这两者都不能拿到精确的进度，Loadbar 会模拟进度，当然也可以通过 `update()` 方法来传入一个精确的进度，比如在文件上传时会很有用，具体见API。
 
 ## API
 
-Use the component by calling the following methods directly:
+通过直接调用以下方法来使用组件：
 
 ``` js
 this.$Loading.init({
@@ -97,30 +27,30 @@ this.$Loading.init({
   color: '#1996f9',
   failedColor: '#ff0000',
   duration: 3000,
-})
-this.$Loading.start()
-this.$Loading.finish()
-this.$Loading.fail()
-this.$Loading.update(percent)
+});
+this.$Loading.start();
+this.$Loading.finish();
+this.$Loading.fail();
+this.$Loading.update(10);
 ```
 
-The above method implicitly creates and maintains the Vue component. The function and parameters are as follows:
+以上方法隐式的创建及维护Vue组件。函数及参数说明如下：
 
-|Method Name|Description|Parameter|
+|函数名|说明|参数|
 |---|---|---|---|
-|init|Initialization. Can be configured with some progress bars.|Have|
-|finish|End the progress bar and automatically complete the remaining progress|-|
-|fail|End the progress bar with the wrong type and automatically complete the remaining progress.|-|
-|update|Accurately load to the specified progress, in % |Specified progress percentage|
+|init|初始化。可配一些进度条的配置|有|
+|finish|结束进度条，自动补全剩余进度|无|
+|fail|以错误的类型结束进度条，自动补全剩余进度|无|
+|update|精确加载到指定的进度，单位 % |percent，指定的进度百分比|
 
-In addition, the parameters of the init method are described as follows:
+另外 init 方法的参数(都是可选参数)说明如下：
 
-|Property|Description|Type|Required|Default|
-|---|---|---|---|---|
-|height|Progress bar height, the unit must be taken|String|No|'2px'|
-|color|Progress bar color|String|No|'#1996f9'|
-|failedColor|Progress bar color when it fails|String|No|'#ff0000'|
-|duration|Progress bar enhancement parameters|Number|No|3000|
+|属性|说明|类型|默认|
+|---|---|---|---|
+|height|进度条高度，单位必须带上|String|'2px'|
+|color|进度条的颜色|String|'#1996f9'|
+|failedColor|失败时的进度条颜色|String|'#ff0000'|
+|duration|进度条增进的参数|Number|3000|
 
 <script>
 import WLoadbar from '../water/loadbar/index';
