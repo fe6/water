@@ -15,7 +15,7 @@ $border-radius: ('': 8, '-lg': 8, '-sm': 4);
   background: $normal-bg;
   transition: background $move-time, border-color $move-time, color $move-time;
   cursor: pointer;
-  font-family: Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: $family;
 
   &-inline {
     display: inline-block;

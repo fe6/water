@@ -18,7 +18,7 @@ $loading-right: ('': 16, '-lg': 16, '-sm': 8);
   background: $disabled-bg;
   cursor: pointer;
   border-radius: 4px;
-  font-family: Chinese Quote, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: $family;
 
   &-inline {
     display: inline-block;
