@@ -1,6 +1,7 @@
 // 组件
 import WIcon from './icon/index';
 import { WButton, WButtonGroup } from './button/index';
+import WLink from './link/index';
 import WLoadbar from './loadbar/index';
 import { WCol, WRow } from './grid/index';
 import WAffix from './affix/index';
@@ -15,6 +16,7 @@ const waterCpt = {
   WIcon,
   WButton,
   WButtonGroup,
+  WLink,
   WLoadbar,
   WCol,
   WRow,
