@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'WChecktag',
+  name: 'WCheckTag',
   data() {
     return {
       clicked: false,

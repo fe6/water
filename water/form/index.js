@@ -4,6 +4,4 @@ WInput.install = (Vue) => {
   Vue.component(WInput.name, WInput);
 };
 
-export {
-  WInput,
-};
+export default WInput;

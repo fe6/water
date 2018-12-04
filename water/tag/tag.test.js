@@ -4,23 +4,30 @@ import Tag from './Tag';
 describe('Tag.vue', () => {
   let wrapperModel = null;
   let wrapperClose = null;
-  let wrapperColorSection = null;
+  let wrapperLoading = null;
+  let wrapperSection = null;
 
   beforeEach(() => {
-    wrapperModel  = shallow(Tag, {
+    wrapperModel = shallow(Tag, {
       propsData: {
         size: 'small',
         disabled: false,
       },
     });
-    wrapperClose  = shallow(Tag, {
+    wrapperClose = shallow(Tag, {
       propsData: {
         closable: true,
       },
     });
-    wrapperColorSection  = shallow(Tag, {
+    wrapperLoading = shallow(Tag, {
       propsData: {
-        color: '#eb2f96',
+        size: 'small',
+        loading: true,
+      },
+    });
+    wrapperSection = shallow(Tag, {
+      propsData: {
+        color: '#1996f9',
         colorType: 'section',
       },
     });
@@ -52,6 +59,31 @@ describe('Tag.vue', () => {
         const button = wrapperClose.find('.w-tag-close');
         button.trigger('click');
         expect(stub).toBeCalled();
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('loading', (done) => {
+    wrapperLoading.vm.$nextTick(() => {
+      try {
+        expect(wrapperLoading.vm.loadLarge).toBeFalsy();
+        expect(wrapperLoading.vm.sectionLoad).toBeFalsy();
+        expect(wrapperLoading.vm.loadSmall).toBeTruthy();
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('color section', (done) => {
+    wrapperSection.vm.$nextTick(() => {
+      try {
+        expect(wrapperSection.vm.isAllValue).toBeFalsy();
+        expect(wrapperSection.vm.borderColorValue).toBe('rgba(25, 150, 249, 1)');
         done();
       } catch (err) {
         done.fail(err);

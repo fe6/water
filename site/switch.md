@@ -1,25 +1,22 @@
-# Switch
+# Switch 开关
 
-> Switching Selector.
+> 开关选择器。
 
-## When To Use
+## 何时使用
 
-- If you need to represent the switching between two states or on-off state.
-- The difference between `Switch` and `Checkbox` is that `Switch` will trigger a state change directly when you toggle it, while `Checkbox` is generally used for state marking, which should work in conjunction with submit operation.
+- 需要表示开关状态/两种状态之间的切换时；
 
-## Basic usage
+- 和 `checkbox` 的区别是，切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要和提交操作配合。
 
-> The simplest usage.
+## 基本
+
+<br>
 
 <w-switch></w-switch>
 
-``` vue
-<w-switch></w-switch>
-```
+## 图标
 
-## Icon usage
-
-> With an icon.
+<br>
 
 <p>
   <w-switch>
@@ -28,138 +25,70 @@
   </w-switch>
 </p>
 
-``` vue
-<w-switch>
-  <span slot="open"><w-icon type="star"/></span>
-  <span slot="close"><w-icon type="heart"/></span>
-</w-switch>
-```
+## 两种大小
 
-## Two sizes
+<br>
+<p>
+  <span>标准：</span><w-switch></w-switch>
+</p>
+<p>
+  <span>小版：</span><w-switch size="small"></w-switch>
+</p>
 
-> `size="small"` Indicates the small switch. The default is the standard size.
+## 加载中
 
-<div>
-  <span>standard: </span><w-switch></w-switch>
-</div>
-<div>
-  <span>Small: </span><w-switch size="small"></w-switch>
-</div>
-
-``` vue
-<w-switch></w-switch>
-<w-switch size="small"></w-switch>
-```
-
-## Loading usage
-
-> The identification switch operation is still in progress. Set the `loading` property.
+<br>
 
 <p>
   <w-switch loading></w-switch>
 </p>
 
-``` vue
-<w-switch loading></w-switch>
-```
+## 不可用
 
-## Disable usage
-
-> Set the `disabled` property
+<br>
 
 <p>
-  <span>effect:</span>
+  <span>效果：</span>
   <w-switch :disabled="disabled">
     <span slot="open"><w-icon type="star"/></span>
     <span slot="close"><w-icon type="heart"/></span>
   </w-switch>
 </p>
 <p>
-  <span>handle:</span>
+  <span>操作：</span>
   <w-switch v-model="disabled">
-    <span slot="open">Disable</span>
-    <span slot="close">Available</span>
+    <span slot="open">不可用</span>
+    <span slot="close">可用</span>
   </w-switch>
 </p>
 
-``` vue
-<p>
-  <span>effect</span>
-  <w-switch :disabled="disabled">
-    <span slot="open"><w-icon type="star"/></span>
-    <span slot="close"><w-icon type="heart"/></span>
-  </w-switch>
-</p>
-<p>
-  <span>handle</span>
-  <w-switch v-model="disabled">
-    <span slot="open">Disable</span>
-    <span slot="close">Available</span>
-  </w-switch>
-</p>
-```
+## 拦截效果
 
-``` js
-export default {
-  data() {
-    return {
-      disabled: false,
-    };
-  },
-```
-
-## Intercept usage
-
-> The following example has a two second delay before each change.
+<br>
 
 <p>
   <w-switch :loading="isLoading" :before="before"></w-switch>
 </p>
 
-``` vue
-<w-switch :loading="isLoading" :before="before"></w-switch>
-```
-
-``` js
-export default {
-  data() {
-    return {
-      isLoading: false,
-    };
-  },
-  methods: {
-    before: async function() {
-      this.isLoading = true;
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          this.isLoading = false;
-          resolve()
-        }, 2000);
-      } )
-    },
-  },
-};
-```
-
 ## API
 
-### Props
+### 属性
 
-|Property|Description|Type|Required|Default|
+|属性|说明|类型|是否必须|默认|
 |---|---|----|-------|---|
-|value|Status value|Boolean|No|-|
-|v-model|Two-way data binding|Boolean|No|-|
-|size|Size. Optional value: small \|\| normal |Number|String|No|normal|
-|disabled|In the unavailable state, the click event is invalid, the style will also change|Boolean|No|-|
-|loading|In the loading state, the click event is invalid, the style will also change|Boolean|No|-|
-|before|Trigger before the change, return the Promise object|Function|No|-|
-|change|Triggered when changing, returning to current state|Function|No|() => {}|
+|value|状态值|Boolean|否|无|
+|v-model|双向数据绑定|Boolean|否|无|
+|size|尺寸大小。可选值： small \|\| normal |Number|String|否|normal|
+|disabled|处于不可用状态，点击事件失效，样式也会变|Boolean|否|无|
+|loading|处于加载中状态，点击事件失效，样式也会变|Boolean|否|无|
+|before|改变之前触发，返回 Promise 对象|Function|否|无|
+|change|改变的时候触发，返回 当前状态|Function|否|() => {}|
 
-### Methods
+### 事件
 
-|Name|Description|Return Value|
+|事件名|说明|返回值|
 |-----|---|-----|
-|change|Triggered when changing|Current state|
+|change|改变的时候触发|当前状态|
 
 <script>
 import WIcon from '../water/icon/Icon';

@@ -9,7 +9,7 @@ WCheckTag.install = (Vue) => {
   Vue.component(WCheckTag.name, WCheckTag);
 };
 
-export default {
+export {
   WTag,
-  WCheckTag
+  WCheckTag,
 };

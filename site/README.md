@@ -1,26 +1,26 @@
 ---
 home: true
-title: 'Water'
-description: 'Easy to use component library'
+title: '水滴aaa'
+description: '好用的组件库'
 heroImage: /logo.png
-actionText: Get Started
+actionText: 快速上手
 actionLink: /affix
 features:
-- title: Simplicity first
-  details: Extremely easy to use, extraordinary user experience.
-- title: Load on demand
-  details: There is no problem with single file references, and overall references are more supportive. Don't care how big you are, don't need to introduce them at all.
-- title: Easy to use
-  details: Don't forget to be configurable outside of tall. Customization, personalization is not a thing, it is too late to find out.
+- title: 简洁至上
+  details: 极简易的使用，超凡脱俗的用户体验。
+- title: 按需加载
+  details: 单文件引用没有问题，整体引用更是支持。不在乎你有多大，不用的完全不用引进来。
+- title: 好用
+  details: 高大上之外不忘记可配置。定制化，个性化都不是事儿，是事儿就是发现太晚。
 footer: MIT Licensed | Copyright © 2018-present 李梦龙
 ---
 
-### Make components more convenient
+### 让组件更方便
 
 ``` bash
 yarn add @fe6/water
 ```
 
-::: warning note
-Make sure your Node.js version >= 9.0.0.
+::: warning 注意
+请确保你的 Node.js 版本 >= 9.0.0。
 :::

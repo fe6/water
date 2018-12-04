@@ -1,91 +1,85 @@
-# Affix
-> Make an element stick to viewport.
+# Affix 固钉
+> 将页面元素钉在可视范围。
 
-## When To Use
+## 何时使用
 
-When user browses a long web page, some content need to stick to the viewport. This is common for menus and actions.
+当内容区域比较长，需要滚动页面时，这部分内容对应的操作或者导航需要在滚动范围内始终展现。常用于侧边菜单和按钮组合。
 
-Please note that Affix should not cover other content on the page, especially when the size of the viewport is small.
+页面可视范围过小时，慎用此功能以免遮挡页面内容。
 
-## Basic usage
+## 基本用法
 
-***output***
-<w-affix :offsetTop="10" :index="200">
-  <w-button type="danger">w-affix top</w-button>
-</w-affix>
+<br>
 
-***input***
+<p>
+  <w-affix :offsetTop="10" :index="200">
+    <w-button type="danger">w-affix top</w-button>
+  </w-affix>
+</p>
 
-``` vue
-<w-affix :offsetTop="10">
-  <w-button type="danger">w-affix top</w-button>
-</w-affix>
-```
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+一些无关紧要的文字。
 
-Some insignificant words.
+## 底部悬浮用法
 
-## Bottom suspension usage
+<br>
 
-``` vue
-<w-affix :offsetBottom="10">
-  <w-button type="danger">w-affix bottom</w-button>
-</w-affix>
-```
-<w-affix :offsetBottom="10">
-  <w-button type="danger">w-affix bottom</w-button>
-</w-affix>
+<p>
+  <w-affix :offsetBottom="10">
+    <w-button type="danger">w-affix bottom</w-button>
+  </w-affix>
+</p>
 
 ## API
 
-### Props
+### 属性
 
-|Property|Description|Type|Required|Default|
+|参数|说明|类型|是否必填|默认值|
 |---|----|---|-------|-----|
-|target|Sets the element that Affix needs to listen for its scroll event, and the value is a function that returns the corresponding DOM element.|() => HTMLElement|No|() => window|
-|offsetTop|Triggered after reaching the specified offset from the top of the window|number|No|0|
-|offsetBottom|Triggered after reaching the specified offset from the bottom of the window|number|No|0|
-|index|Affix level|number|No|10|
-|prefix|Style prefix|String|No|w|
-|position|Set the positioning type. For optional values, please refer to the [CSS standard](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position)|String|No|fixed|
-|change|Callback function triggered when the fixed state changes|Function|No|Current targeting type|
+|target|设置 Affix 需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数|() => HTMLElement|否|() => window|
+|offsetTop|距离窗口顶部达到指定偏移量后触发|number|否|0|
+|offsetBottom|距离窗口底部达到指定偏移量后触发|number|否|0|
+|index|图钉层级|number|否|10|
+|prefix|样式的前缀|String|否|w|
+|position|设置定位类型。，可选值请参考 [CSS 标准](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position)|String|否|fixed|
+|change|固定状态改变时触发的回调函数|Function|否|当前定位类型|
 
-### Methods
+### 事件
 
-|Name|Description|Return Value|
+|事件名|说明|返回值|
 |-----|---|-----|
-|change|Callback function triggered when the fixed state changes|Current targeting type|
+|change|固定状态改变时触发的回调函数|当前定位类型|
 
 <script>
 import WAffix from '../water/Affix';

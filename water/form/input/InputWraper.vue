@@ -11,7 +11,7 @@ import WIcon from '../../icon/Icon';
 import WInputTag from './Input';
 
 export default {
-  name: "WInput",
+  name: 'WInput',
   data() {
     return {
       inputValue: '',
@@ -91,7 +91,7 @@ export default {
     change: {
       type: Function,
       default: () => {},
-    }
+    },
   },
   mounted() {
     this.setValue(this.value);
@@ -116,5 +116,5 @@ export default {
       this.setValue(val);
     },
   },
-}
+};
 </script>

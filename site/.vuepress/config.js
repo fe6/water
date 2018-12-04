@@ -8,15 +8,10 @@ module.exports = {
   ],
   locales: {
     '/': {
-      lang: 'en-US',
-      title: 'Water',
-      description: 'An enterprise-level UI design language and Vue.js implementation'
-    },
-    '/cn/': {
       lang: 'zh-CN',
       title: '水滴',
       description: '一套企业级的 UI 设计语言和 Vue.js 实现'
-    }
+    },
   },
   dest: './docs',
   serviceWorker: true,
@@ -26,33 +21,6 @@ module.exports = {
     docsDir: 'site',
     locales: {
       '/': {
-        label: 'English',
-        selectText: 'Languages',
-        editLinkText: 'Edit this page on GitHub',
-        lastUpdated: 'Last Updated',
-        serviceWorker: {
-          updatePopup: {
-            message: "New content is available.",
-            buttonText: "Refresh"
-          }
-        },
-        sidebar: [
-          '/',
-          '/affix',
-          '/breadcrumb',
-          '/button',
-          '/grid',
-          '/icon',
-          '/loadbar',
-          '/radio',
-          '/checkbox',
-          '/rate',
-          '/switch',
-          '/input',
-          '/tag',
-        ]
-      },
-      '/cn/': {
         label: '简体中文',
         selectText: '选择语言',
         editLinkText: '在 GitHub 上编辑此页',
@@ -64,19 +32,19 @@ module.exports = {
           }
         },
         sidebar: [
-          '/cn/',
-          '/cn/affix',
-          '/cn/breadcrumb',
-          '/cn/button',
-          '/cn/grid',
-          '/cn/icon',
-          '/cn/loadbar',
-          '/cn/radio',
-          '/cn/checkbox',
-          '/cn/rate',
-          '/cn/switch',
-          '/cn/input',
-          '/cn/tag',
+          '/',
+          '/affix',
+          '/breadcrumb',
+          '/button',
+          '/checkbox',
+          '/grid',
+          '/icon',
+          '/input',
+          '/loadbar',
+          '/radio',
+          '/rate',
+          '/switch',
+          '/tag',
         ]
       },
     },

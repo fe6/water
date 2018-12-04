@@ -5,7 +5,7 @@ describe('Checktag.vue', () => {
   let wrapperModel = null;
 
   beforeEach(() => {
-    wrapperModel  = shallow(Checktag, {
+    wrapperModel = shallow(Checktag, {
       propsData: {
         size: 'small',
         disabled: false,
