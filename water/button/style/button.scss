@@ -6,6 +6,7 @@ $button-list: ('': 32, '-lg': 40, '-sm': 24);
 $button-font: ('': 14, '-lg': 16, '-sm': 14);
 
 .#{$prefix}button {
+  font-family: $family;
   padding: 0 16px;
   display: inline-block;
   cursor: pointer;

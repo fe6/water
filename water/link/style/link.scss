@@ -1,0 +1,56 @@
+@import '../../style/config.scss';
+@import '../../style/mixin/circle.scss';
+
+$link-font: ('': 14, '-lg': 16, '-sm': 12);
+$move-time: 0.5s;
+
+.w-link {
+  line-height: 1;
+  cursor: pointer;
+  color: $blue-6;
+  font-family: $family;
+  text-decoration: none;
+  font-weight: normal;
+  transition: opacity $move-time, padding-left $move-time;
+
+  &:visited {
+    color: $blue-6;
+  }
+
+  &:hover {
+    color: $blue-5;
+    text-decoration: none !important;
+  }
+
+  &:active {
+    color: $blue-7;
+  }
+
+  // 循环尺寸
+  @each $size, $value in $link-font {
+    &#{$size} {
+      font-size: $value + px;
+    }
+  }
+
+  &-loading {
+    opacity: 0.5;
+    pointer-events: none;
+    position: relative;
+    padding-left: 16px;
+
+    &::before {
+      content: ' ';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border-top: 1px solid $blue-6;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      margin-top: -5px;
+      z-index: 2;
+      animation: 'circle' 1s infinite linear;
+    }
+  }
+}
