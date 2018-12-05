@@ -39,7 +39,7 @@
     <p>这是描述</p>
     <p>这是描述</p>
     <p>这是描述</p>
-    <p><input type="text"></p>
+    <p><input aria-label="text" type="text"></p>
     <p>这是描述</p>
     <p>这是描述</p>
   </div>
