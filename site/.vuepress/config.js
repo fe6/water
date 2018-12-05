@@ -44,6 +44,7 @@ module.exports = {
           '/loadbar',
           '/radio',
           '/rate',
+          '/spin',
           '/switch',
           '/tag',
         ]
