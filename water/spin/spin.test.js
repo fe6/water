@@ -18,7 +18,7 @@ describe('Spin.vue', () => {
         expect(wrapperModel.vm.spinValue).toBeTruthy();
         expect(wrapperModel.vm.boxClasses).toBeTruthy();
         expect(wrapperModel.vm.tipValue).toBeFalsy();
-        expect(wrapperModel.vm.tipClasses).toEqual([{"w-spin-tip-lg": false, "w-spin-tip-sm": false}]);
+        expect(wrapperModel.vm.tipClasses).toEqual([{ 'w-spin-tip-lg': false, 'w-spin-tip-sm': false }]);
 
         done();
       } catch (err) {

@@ -61,7 +61,6 @@ $move-time: 0.4s;
     &-active {
       opacity: 0.5;
       filter: blur(0.5px);
-      filter: progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1,MakeShadow\=false);
     }
   }
 }
