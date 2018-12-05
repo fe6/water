@@ -45,7 +45,7 @@ $checkbox-move-time: 0.5s;
     border: 1px solid $normal-border;
     border-radius: 2px;
     background-color: #fff;
-    transition: background-color .3s, border-color .3s;
+    transition: background-color 0.3s, border-color 0.3s;
 
     &::after {
       transform: rotate(45deg) scale(0);
@@ -97,7 +97,7 @@ $checkbox-move-time: 0.5s;
     }
   }
 
-  &-on{
+  &-on {
     background-color: #1890ff;
     border-color: #1890ff;
 

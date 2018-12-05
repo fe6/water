@@ -24,20 +24,6 @@ $loading-right: ('': 16, '-lg': 16, '-sm': 8);
     display: inline-block;
   }
 
-  &-section {
-    transition: opacity $move-time;
-
-    &:hover {
-      opacity: 0.85;
-    }
-
-    &-loading {
-      &::before {
-        border-top: 1px solid $normal-color;
-      }
-    }
-  }
-
   // 循环尺寸
   @each $size, $value in $tag-list {
     &#{$size} {
@@ -142,7 +128,7 @@ $loading-right: ('': 16, '-lg': 16, '-sm': 8);
         padding-right: $value + px;
 
         &::before {
-          right: map-get($loading-right, $size) + px;;
+          right: map-get($loading-right, $size) + px;
         }
       }
     }
@@ -163,6 +149,12 @@ $loading-right: ('': 16, '-lg': 16, '-sm': 8);
   }
 
   &-section {
+    transition: opacity $move-time;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
     &-loading {
       &::before {
         border-top: 1px solid $normal-color;
