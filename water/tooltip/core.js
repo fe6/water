@@ -68,8 +68,6 @@ export default {
     this.bindDomClick();
   },
   destroyed() {
-    //do something after destroying vue instance
-    console.log(999);
     this.unbindDomClick();
   },
   methods: {
