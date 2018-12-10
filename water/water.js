@@ -12,6 +12,7 @@ import { WTag, WCheckTag } from './tag/index';
 import { WRadio, WRadioGroup } from './radio/index';
 import WInput from './form/index';
 import WSpin from './spin/index';
+import WTooltip from './tooltip/index';
 
 const waterCpt = {
   WIcon,
@@ -32,6 +33,7 @@ const waterCpt = {
   WInput,
   WTag,
   WCheckTag,
+  WTooltip,
 };
 
 const install = (Vue) => {
