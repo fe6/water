@@ -1,8 +1,11 @@
 $move-time: 0.5s;
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+ .fade-leave-active {
   transition: opacity $move-time;
 }
-.fade-enter, .fade-leave-to {
+
+.fade-enter,
+ .fade-leave-to {
   opacity: 0;
 }
