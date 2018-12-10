@@ -1,10 +1,12 @@
 <template>
-  <div class="w-tooltip" :class="tooltipClass" :style=" { left: `${left}px`, top: `${top}px` }" ref="tooltipElem" v-show="status" v-if="contentValue">
-    <i class="w-tooltip-arrow" :class="arrowClass"></i>
-    <div class="w-tooltip-content">
-      {{contentValue}}
+  <transition name="fade">
+    <div class="w-tooltip" :class="tooltipClass" :style=" { left: `${left}px`, top: `${top}px` }" ref="tooltipElem" v-show="status" v-if="contentValue">
+      <i class="w-tooltip-arrow" :class="arrowClass"></i>
+      <div class="w-tooltip-content">
+        {{contentValue}}
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 <script>
 import { setLeftFn, setTopFn } from '../utils/poper';
