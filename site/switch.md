@@ -83,6 +83,7 @@
 |loading|处于加载中状态，点击事件失效，样式也会变|Boolean|否|无|
 |before|改变之前触发，返回 Promise 对象|Function|否|无|
 |change|改变的时候触发，返回 当前状态|Function|否|() => {}|
+|stop|是否点击事件冒泡|Boolean|否|无|
 
 ### 事件
 

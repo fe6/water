@@ -6,7 +6,7 @@
     ['w-switch-on']: status,
     [`w-switch-${size}-on`]: size === 'small' && status,
     ['w-switch-disabled']: disabled,
-  }" @click.stop="changeFn">
+  }" @click="changeFn($event)">
     <span class="w-switch-inner" :class="{
       [`w-switch-${size}-inner`]: size === 'small',
       ['w-switch-on-inner']: status,
@@ -30,6 +30,7 @@ export default {
     size: String,
     disabled: Boolean,
     loading: Boolean,
+    stop: Boolean,
     before: Function,
     change: {
       type: Function,
@@ -37,7 +38,7 @@ export default {
     },
   },
   methods: {
-    changeFn() {
+    changeFn(event) {
       if (this.before) {
         const promiseGo = this.before();
         promiseGo.then(() => {
@@ -49,6 +50,9 @@ export default {
       this.change(this.status);
       this.$emit('change', this.status);
       this.$emit('input', this.status);
+      if (this.stop) {
+        event.stopPropagation()
+      }
     },
     changeStatus() {
       this.status = !this.status;

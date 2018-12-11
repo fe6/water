@@ -24,6 +24,21 @@ describe('Button.vue', () => {
     });
   });
 
+  it('阻止冒泡', (done) => {
+    wrapper.vm.$nextTick(() => {
+      try {
+        const button = wrapper.find('.w-button');
+        const stub = jest.fn();
+        wrapper.vm.$children[0].stop = true;
+        button.trigger('click', {stopPropagation: stub});
+        expect(stub).toBeCalled();
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
   it('点击事件是否触发', (done) => {
     wrapper.vm.$nextTick(() => {
       try {
