@@ -58,6 +58,7 @@
 |inline|是否会一行显示，是否会有 display: inline-block 样式|Boolean|否|无|
 |close|关闭的时候触发。会返回 `Event 对象`|Function|否|()=>{}|
 |loading|处于加载中状态，点击事件失效，样式也会变|Boolean|否|无|
+|stop|是否点击事件冒泡|Boolean|否|无|
 
 #### 事件
 

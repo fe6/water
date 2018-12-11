@@ -5,6 +5,7 @@ import before from './before';
 describe('Switch.vue', () => {
   let wrapper = null;
   let wrapperBeforeDefault = null;
+  let wrapperStop = null;
 
   beforeEach(() => {
     wrapper = shallow(Switch, {
@@ -15,6 +16,11 @@ describe('Switch.vue', () => {
       },
     });
     wrapperBeforeDefault = shallow(Switch);
+    wrapperStop = shallow(Switch, {
+      propsData: {
+        stop: true,
+      },
+    });
   });
 
   it('change 事件是否 emit', (done) => {
@@ -40,6 +46,20 @@ describe('Switch.vue', () => {
         const switchElem = wrapperBeforeDefault.find('.w-switch');
         switchElem.trigger('click');
         expect(wrapperBeforeDefault.vm.status).toBe(true);
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('stopPropagation', (done) => {
+    wrapperStop.vm.$nextTick(() => {
+      try {
+        const switchStub = jest.fn();
+        const switchEle = wrapperStop.find('.w-switch');
+        switchEle.trigger('click', {stopPropagation: switchStub});
+        expect(switchStub).toBeCalled();
         done();
       } catch (err) {
         done.fail(err);

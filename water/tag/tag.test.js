@@ -6,6 +6,7 @@ describe('Tag.vue', () => {
   let wrapperClose = null;
   let wrapperLoading = null;
   let wrapperSection = null;
+  let wrapperStop = null;
 
   beforeEach(() => {
     wrapperModel = shallow(Tag, {
@@ -29,6 +30,12 @@ describe('Tag.vue', () => {
       propsData: {
         color: '#1996f9',
         colorType: 'section',
+      },
+    });
+    wrapperStop = shallow(Tag, {
+      propsData: {
+        closable: true,
+        stop: true,
       },
     });
   });
@@ -56,8 +63,8 @@ describe('Tag.vue', () => {
       try {
         const stub = jest.fn();
         wrapperClose.vm.close = stub;
-        const button = wrapperClose.find('.w-tag-close');
-        button.trigger('click');
+        const close = wrapperClose.find('.w-tag-close');
+        close.trigger('click');
         expect(stub).toBeCalled();
         done();
       } catch (err) {
@@ -84,6 +91,24 @@ describe('Tag.vue', () => {
       try {
         expect(wrapperSection.vm.isAllValue).toBeFalsy();
         expect(wrapperSection.vm.borderColorValue).toBe('rgba(25, 150, 249, 1)');
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('stopPropagation', (done) => {
+    wrapperStop.vm.$nextTick(() => {
+      try {
+        const closeStub = jest.fn();
+        const clsoe = wrapperStop.find('.w-tag-close');
+        clsoe.trigger('click', {stopPropagation: closeStub});
+        expect(closeStub).toBeCalled();
+        const tagStub = jest.fn();
+        const tag = wrapperStop.find('.w-tag');
+        tag.trigger('click', {stopPropagation: tagStub});
+        expect(tagStub).toBeCalled();
         done();
       } catch (err) {
         done.fail(err);

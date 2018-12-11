@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import { createRenderer } from 'vue-server-renderer';
-import Popover from './Popover';
+import Popconfirm from './Popconfirm';
 
 const render = createRenderer();
 
-describe('Popover.vue', () => {
+describe('Popconfirm.vue', () => {
   it('render', (done) => {
     const divEle = document.createElement('div');
     const vm = new Vue({
@@ -15,13 +15,12 @@ describe('Popover.vue', () => {
         };
       },
       render(h) {
-        return h(Popover, {
+        return h(Popconfirm, {
           props: {
             render: divEle,
             value: this.value,
           },
         }, [
-          h('title', this.$slots.title),
           h('content', this.$slots.content),
         ]);
       },
@@ -38,9 +37,9 @@ describe('Popover.vue', () => {
     } catch (err) {
       done.fail(err);
     }
-  });
+  }); // end render
 
-  it('test appendChild', (done) => {
+  it('test changeStatus', (done) => {
     /* eslint-disable no-underscore-dangle */
     const content = new Vue({
       render: h => h('div', {}, [h('content', {}, 'hell')]),
@@ -55,7 +54,7 @@ describe('Popover.vue', () => {
         };
       },
       render(h) {
-        return h(Popover, {
+        return h(Popconfirm, {
           props: {
             render: divEle,
             value: this.value,
@@ -67,53 +66,79 @@ describe('Popover.vue', () => {
     });
     try {
       render.renderToString(vm, () => {
-        expect(vm.$children[0].$data.title).toBeFalsy();
-        vm.$data.value = true;
+        vm.$children[0].okFn();
+        const okJest = jest.fn();
+        expect(vm.$children[0].status).toBeFalsy();
+        vm.$children[0].changeStatus = okJest;
         setTimeout(() => {
-          expect(vm.$children[0].$data.status).toBeTruthy();
+          expect(okJest).toBeCalled();
           done();
-        }, 0);
+        }, 1000);
       });
     } catch (err) {
       done.fail(err);
     }
-  });
+  }); // test changeStatus end
 
-  it('no slot', (done) => {
+  it('content attr no slot', (done) => {
     const divEle = document.createElement('div');
     const vm = new Vue({
       el: divEle,
       render(h) {
-        return h(Popover, {
+        return h(Popconfirm, {
           props: {
             render: divEle,
           },
-        });
+        }, [
+          h('title', this.$slots.content),
+        ]);
       },
     });
     try {
       render.renderToString(vm, () => {
-        expect(vm.$children[0].$data.title).toBeFalsy();
+        vm.$children[0].cancelFn();
+        expect(vm.$children[0].content).toBeFalsy();
         done();
       });
     } catch (err) {
       done.fail(err);
     }
-  });
+  }); // content attr no slot
 
   it('body click', (done) => {
     const divEle = document.createElement('div');
     const vm = new Vue({
       el: divEle,
       render(h) {
-        return h(Popover, {
+        return h(Popconfirm, {
           props: { render: divEle },
-        });
+        }, [h('title', this.$slots.content)]);
       },
     });
     try {
       render.renderToString(vm, () => {
         vm.$children[0].boxClick({ stopPropagation() {} });
+        expect(vm.$children[0].status).toBeFalsy();
+        done();
+      });
+    } catch (err) {
+      done.fail(err);
+    }
+  }); // body click
+
+  it('loading', (done) => {
+    const divEle = document.createElement('div');
+    const vm = new Vue({
+      el: divEle,
+      render(h) {
+        return h(Popconfirm, {
+          props: { render: divEle, loading: true },
+        }, [h('title', this.$slots.content)]);
+      },
+    });
+    try {
+      render.renderToString(vm, () => {
+        vm.$children[0].cancelFn();
         expect(vm.$children[0].status).toBeFalsy();
         done();
       });

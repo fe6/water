@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="w-popover" :class="popoverClass" :style=" { left: `${left}px`, top: `${top}px` }" ref="tooltipElem" v-show="status">
+    <div class="w-popover" :class="popoverClass" :style=" { left: `${left}px`, top: `${top}px` }" ref="tooltipElem" v-show="status" @click.stop="boxClick($event)">
       <i class="w-popover-arrow" :class="arrowClass"></i>
       <div class="w-popover-main">
         <div class="w-popover-title" :class="titleClass" ref="title" v-if="title"></div>
@@ -139,6 +139,9 @@ export default {
     });
   },
   methods: {
+    boxClick(event) {
+      event.stopPropagation();
+    },
     handleSlot() {
       this.filterSlot('title');
       this.filterSlot('content');

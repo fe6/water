@@ -4,6 +4,7 @@
 $prefix: 'w-';
 $button-list: ('': 32, '-lg': 40, '-sm': 24);
 $button-font: ('': 14, '-lg': 16, '-sm': 14);
+$button-text: ('': 8, '-lg': 8, '-sm': 4);
 
 .#{$prefix}button {
   font-family: $family;
@@ -30,7 +31,12 @@ $button-font: ('': 14, '-lg': 16, '-sm': 14);
   }
 
   &-text {
-    margin-left: 8px;
+    // 循环尺寸
+    @each $size, $value in $button-text {
+      &#{$size} {
+        margin-left: $value + px;
+      }
+    }
   }
 
   &-on,

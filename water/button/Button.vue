@@ -7,7 +7,9 @@
       [`${prefixCls}danger`]: type === 'danger',
       [`${prefixCls}ghost`]: ghost,
       [`${prefixCls}lg`]: size === 'large',
-      [`${prefixCls}sm`]: size === 'small', [`${prefixCls}lg`]: size === 'large', [`${prefixCls}loading`]: loading, [`${prefixCls}circle`]: circle,
+      [`${prefixCls}sm`]: size === 'small',
+      [`${prefixCls}loading`]: loading,
+      [`${prefixCls}circle`]: circle,
       [`${prefixCls}click`]: clicked,
       [`${prefixCls}disabled`]: disabled,
       [`${prefixCls}on`]: status,
@@ -19,7 +21,7 @@
     prefix ? `${prefix}-button` : '',
     prefix && status ? `${prefix}-button-on` : '',
     className,
-  ]" @animationend="removeClickName" @click.stop="clickFn($event)" @mouseover="mouseoverFn($event)" @mouseout="mouseoutFn($event)">
+  ]" @animationend="removeClickName" @click="clickFn($event)" @mouseover="mouseoverFn($event)" @mouseout="mouseoutFn($event)">
     <w-icon
       :class="[
         prefix ? `${prefix}-button-icon` : '',
@@ -32,6 +34,8 @@
     <span :class="{
       [`${prefixCls}text`]: loading || icon,
       [`${prefix}-button-text`]: prefix,
+      [`${prefixCls}text-lg`]: (loading || icon) && size === 'large',
+      [`${prefixCls}text-sm`]: (loading || icon) && size === 'small',
     }" v-if="$slots.default">
       <slot></slot>
     </span>
@@ -60,6 +64,7 @@ export default {
     },
     prefix: String,
     className: [String, Object],
+    stop: Boolean,
     click: {
       type: Function,
       default: () => {},
@@ -92,6 +97,9 @@ export default {
       const { key } = this.$vnode.data;
       this.click(evente, key);
       this.$emit('click', evente, key);
+      if (this.stop) {
+        evente.stopPropagation()
+      }
     },
     mouseoverFn(evente) {
       const { key } = this.$vnode.data;
