@@ -100,4 +100,25 @@ describe('Popover.vue', () => {
       done.fail(err);
     }
   });
+
+  it('body click', (done) => {
+    const divEle = document.createElement('div');
+    const vm = new Vue({
+      el: divEle,
+      render(h) {
+        return h(Popover, {
+          props: { render: divEle },
+        });
+      },
+    });
+    try {
+      render.renderToString(vm, () => {
+        vm.$children[0].boxClick({ stopPropagation() {} });
+        expect(vm.$children[0].status).toBeFalsy();
+        done();
+      });
+    } catch (err) {
+      done.fail(err);
+    }
+  }); // body click
 });

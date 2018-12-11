@@ -1,4 +1,4 @@
-import WTooltip from './Tooltip';
+import WTooltip from './core';
 
 WTooltip.install = (Vue) => {
   Vue.component(WTooltip.name, WTooltip);
