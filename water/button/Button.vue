@@ -19,7 +19,7 @@
     prefix ? `${prefix}-button` : '',
     prefix && status ? `${prefix}-button-on` : '',
     className,
-  ]" @animationend="removeClickName" @click="clickFn($event)" @mouseover="mouseoverFn($event)" @mouseout="mouseoutFn($event)">
+  ]" @animationend="removeClickName" @click.stop="clickFn($event)" @mouseover="mouseoverFn($event)" @mouseout="mouseoutFn($event)">
     <w-icon
       :class="[
         prefix ? `${prefix}-button-icon` : '',

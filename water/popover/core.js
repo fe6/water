@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import WTooltip from './Tooltip';
+import WPopover from './Popover';
 
 export default {
-  name: 'WTooltip',
+  name: 'WPopover',
   data() {
     return {
       render: null,
@@ -43,7 +43,6 @@ export default {
       type: Function,
       default: () => {},
     },
-    content: String,
     coreName: {
       type: [String, Array, Object],
       default: () => {},
@@ -53,18 +52,15 @@ export default {
     isHover() {
       return !!this.trigger && this.trigger === 'hover';
     },
-    contentValue() {
-      return this.content;
-    },
   },
   mounted() {
     const boxElem = this.createBox();
-    const tooltipElem = this.createTooltip();
+    const popoverElem = this.createPopover();
     this.getPopupContainer().appendChild(boxElem);
-    boxElem.appendChild(tooltipElem);
+    boxElem.appendChild(popoverElem);
     this.setStatus(this.value, true);
-    this.mountEnd(this.value, tooltipElem);
-    this.$emit('mountEnd', this.value, tooltipElem);
+    this.mountEnd(this.value, popoverElem);
+    this.$emit('mountEnd', this.value, popoverElem);
     this.bindDomClick();
   },
   destroyed() {
@@ -90,21 +86,23 @@ export default {
         this.$emit('model', val);
       }
     },
-    createTooltip() {
+    createPopover() {
       return (new Vue({
-        render: h => h(WTooltip, {
+        render: h => h(WPopover, {
           props: {
             render: this.$refs.render,
             placement: this.placement,
             value: this.status,
-            content: this.contentValue,
           },
-        }),
+        }, [
+          h('title', this.$slots.title),
+          h('content', this.$slots.content),
+        ]),
       })).$mount().$el;
     },
     createBox() {
       const divElem = document.createElement('div');
-      divElem.setAttribute('class', 'w-tooltip-box');
+      divElem.setAttribute('class', 'w-popover-box');
       return divElem;
     },
     mouseenter() {
@@ -131,7 +129,7 @@ export default {
   },
   render(createElement) {
     return createElement('div', {
-      class: ['w-tooltip-core', this.coreName],
+      class: ['w-popover-core', this.coreName],
       ref: 'render',
       on: {
         mouseenter: this.mouseenter,

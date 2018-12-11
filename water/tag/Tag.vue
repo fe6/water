@@ -1,7 +1,7 @@
 <template>
-  <div class="w-tag" :class="classList" @animationend="removeClickName" @click="clickFn()" :style="{'border-color': borderColorValue, 'color': fontColorValue, 'background-color': backgroundColorValue, }">
+  <div class="w-tag" :class="classList" @animationend="removeClickName" @click.stop="clickFn()" :style="{'border-color': borderColorValue, 'color': fontColorValue, 'background-color': backgroundColorValue, }">
     <slot></slot>
-    <i class="w-tag-close" :class="{'w-tag-close-section': !isAllValue}" v-if="closableValue" @click="closeTag($event)"></i>
+    <i class="w-tag-close" :class="{'w-tag-close-section': !isAllValue}" v-if="closableValue" @click.stop="closeTag($event)"></i>
   </div>
 </template>
 <script>

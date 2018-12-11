@@ -48,6 +48,7 @@ module.exports = {
           '/switch',
           '/tag',
           '/tooltip',
+          '/popover',
         ]
       },
     },

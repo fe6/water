@@ -6,7 +6,7 @@
     ['w-switch-on']: status,
     [`w-switch-${size}-on`]: size === 'small' && status,
     ['w-switch-disabled']: disabled,
-  }" @click="changeFn">
+  }" @click.stop="changeFn">
     <span class="w-switch-inner" :class="{
       [`w-switch-${size}-inner`]: size === 'small',
       ['w-switch-on-inner']: status,
