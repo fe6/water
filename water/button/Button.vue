@@ -7,7 +7,9 @@
       [`${prefixCls}danger`]: type === 'danger',
       [`${prefixCls}ghost`]: ghost,
       [`${prefixCls}lg`]: size === 'large',
-      [`${prefixCls}sm`]: size === 'small', [`${prefixCls}lg`]: size === 'large', [`${prefixCls}loading`]: loading, [`${prefixCls}circle`]: circle,
+      [`${prefixCls}sm`]: size === 'small',
+      [`${prefixCls}loading`]: loading,
+      [`${prefixCls}circle`]: circle,
       [`${prefixCls}click`]: clicked,
       [`${prefixCls}disabled`]: disabled,
       [`${prefixCls}on`]: status,
@@ -32,6 +34,8 @@
     <span :class="{
       [`${prefixCls}text`]: loading || icon,
       [`${prefix}-button-text`]: prefix,
+      [`${prefixCls}text-lg`]: (loading || icon) && size === 'large',
+      [`${prefixCls}text-sm`]: (loading || icon) && size === 'small',
     }" v-if="$slots.default">
       <slot></slot>
     </span>

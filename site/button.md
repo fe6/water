@@ -38,8 +38,8 @@
 <br>
 
 <p>
-  <w-button prefix="demo" :loading="loadStatus" @click="changeLoadStatus">点击加载中</w-button>
-  <w-button prefix="demo" :disabled="disableStatus" @click="changeDisableStatus">点击禁用</w-button>
+  <w-button prefix="demo" :size="groupConfig[groupStatus]" :loading="loadStatus" @click="changeLoadStatus">点击加载中</w-button>
+  <w-button prefix="demo" :size="groupConfig[groupStatus]" :disabled="disableStatus" @click="changeDisableStatus">点击禁用</w-button>
 </p>
 
 ## 按钮组合
