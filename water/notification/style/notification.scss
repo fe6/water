@@ -1,0 +1,81 @@
+@import '../../style/config.scss';
+@import '../../style/mixin/gradual.scss';
+
+$move-time: 0.5s;
+
+.w-notification {
+  font-family: $family;
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  color: $text-color;
+  box-sizing: border-box;
+  list-style: none;
+  position: fixed;
+  z-index: 1010;
+  width: 384px;
+  max-width: calc(100vw - 32px);
+
+  &-notice {
+    background: $normal-bg;
+    padding: 0 24px;
+    border-radius: $border-radius-base;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+
+  &-title {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 4px;
+    line-height: 24px;
+    display: inline-block;
+    padding: 16px 24px 0 0;
+  }
+
+  &-close {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 22px;
+    top: 16px;
+    cursor: pointer;
+
+    &:hover {
+      &::before,
+      &::after {
+        background: rgba(0, 0, 0, 0.85);
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      width: 2px;
+      height: 14px;
+      border-radius: 2px;
+      background: $text-color-secondary;
+      transition: background $move-time;
+      position: absolute;
+      left: 4px;
+      top: 0;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  } // close end
+
+  &-content {
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.65);
+    padding-bottom: 16px;
+  }
+}

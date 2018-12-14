@@ -58,7 +58,7 @@ describe('Switch.vue', () => {
       try {
         const switchStub = jest.fn();
         const switchEle = wrapperStop.find('.w-switch');
-        switchEle.trigger('click', {stopPropagation: switchStub});
+        switchEle.trigger('click', { stopPropagation: switchStub });
         expect(switchStub).toBeCalled();
         done();
       } catch (err) {

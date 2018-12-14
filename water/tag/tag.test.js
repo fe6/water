@@ -103,11 +103,11 @@ describe('Tag.vue', () => {
       try {
         const closeStub = jest.fn();
         const clsoe = wrapperStop.find('.w-tag-close');
-        clsoe.trigger('click', {stopPropagation: closeStub});
+        clsoe.trigger('click', { stopPropagation: closeStub });
         expect(closeStub).toBeCalled();
         const tagStub = jest.fn();
         const tag = wrapperStop.find('.w-tag');
-        tag.trigger('click', {stopPropagation: tagStub});
+        tag.trigger('click', { stopPropagation: tagStub });
         expect(tagStub).toBeCalled();
         done();
       } catch (err) {

@@ -30,7 +30,7 @@ describe('Button.vue', () => {
         const button = wrapper.find('.w-button');
         const stub = jest.fn();
         wrapper.vm.$children[0].stop = true;
-        button.trigger('click', {stopPropagation: stub});
+        button.trigger('click', { stopPropagation: stub });
         expect(stub).toBeCalled();
         done();
       } catch (err) {

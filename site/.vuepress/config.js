@@ -50,6 +50,7 @@ module.exports = {
           '/tooltip',
           '/popover',
           '/popconfirm',
+          '/notification',
         ]
       },
     },
