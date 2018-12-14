@@ -51,7 +51,7 @@ export default {
       this.$emit('change', this.status);
       this.$emit('input', this.status);
       if (this.stop) {
-        event.stopPropagation()
+        event.stopPropagation();
       }
     },
     changeStatus() {

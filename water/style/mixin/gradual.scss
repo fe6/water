@@ -1,0 +1,5 @@
+$move-time: 0.3s;
+
+.w-gradual {
+  transition: height $move-time ease-in-out, padding-top $move-time ease-in-out, padding-bottom $move-time ease-in-out, transform $move-time ease-in-out;
+}

@@ -99,7 +99,7 @@ export default {
     clickFn(event) {
       this.clicked = true;
       if (this.stop) {
-        event.stopPropagation()
+        event.stopPropagation();
       }
     },
     removeClickName() {
@@ -109,7 +109,7 @@ export default {
       this.close(event);
       this.$emit('close', event);
       if (this.stop) {
-        event.stopPropagation()
+        event.stopPropagation();
       }
     },
   },

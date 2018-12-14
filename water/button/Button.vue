@@ -98,7 +98,7 @@ export default {
       this.click(evente, key);
       this.$emit('click', evente, key);
       if (this.stop) {
-        evente.stopPropagation()
+        evente.stopPropagation();
       }
     },
     mouseoverFn(evente) {
