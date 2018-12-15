@@ -51,6 +51,7 @@ module.exports = {
           '/popover',
           '/popconfirm',
           '/notification',
+          '/message',
         ]
       },
     },
