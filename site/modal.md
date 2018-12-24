@@ -35,8 +35,8 @@
 
 <div>
 <w-modal title="对话框" v-model="beforeStatus" okText="提交" :loading="isLoading" :before="before">
-  姓名：<input type="text">
-  密码：<input type="passworld">
+  姓名：<input type="text" aria-label="姓名">
+  密码：<input type="passworld" aria-label="密码">
 </w-modal>
 </div>
 
