@@ -15,6 +15,7 @@ import WTooltip from './tooltip/index';
 import WPopover from './popover/index';
 import WPopconfirm from './popconfirm/index';
 import WNotification from './notification/index';
+import WModal from './modal/index';
 
 import WLoadbar from './loadbar/index';
 import WMessage from './message/index';
@@ -42,6 +43,7 @@ const waterCpt = {
   WPopover,
   WPopconfirm,
   WNotification,
+  WModal,
 };
 
 const install = (Vue) => {

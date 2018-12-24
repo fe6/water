@@ -1,0 +1,141 @@
+@import '../../style/config.scss';
+@import '../../style/mixin/fade.scss';
+
+$move-time: 0.5s;
+
+.w-modal {
+  width: 520px;
+  position: relative;
+  background: $normal-bg;
+  border-radius: $border-radius-base;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  &-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+  }
+
+  &-mask {
+    background: $mask;
+  }
+
+  &-header {
+    font-family: $family;
+    padding: 16px 24px;
+    border-radius: 4px 4px 0 0;
+    background: $normal-bg;
+    color: $text-color;
+    border-bottom: 1px solid $modal-border-color;
+  }
+
+  &-close {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 22px;
+    top: 16px;
+    cursor: pointer;
+
+    &:hover {
+      &::before,
+      &::after {
+        background: rgba(0, 0, 0, 0.85);
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      width: 2px;
+      height: 16px;
+      border-radius: 2px;
+      background: $text-color-secondary;
+      transition: background $move-time;
+      position: absolute;
+      left: 7px;
+      top: 1px;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  } // close end
+
+  &-body {
+    padding: 24px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+
+  &-footer {
+    border-top: 1px solid $modal-border-color;
+    padding: 10px 16px;
+    text-align: right;
+    border-radius: 0 0 4px 4px;
+    font-size: 0;
+  }
+
+  &-button {
+    margin-left: 8px;
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+
+  &-confirm {
+    &-header {
+      position: relative;
+    }
+
+    &-icon {
+      position: absolute;
+      font-size: 22px;
+      left: 0;
+      top: 0;
+    }
+
+    &-title {
+      line-height: 22px;
+      font-size: 16px;
+      padding-left: 38px;
+      color: rgba(0, 0, 0, 0.85);
+    }
+
+    &-content {
+      padding: 8px 0 0 38px;
+      font-size: 14px;
+      color: $text-color;
+    }
+
+    &-footer {
+      border: none;
+      padding: 0 24px 24px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .w-modal {
+    width: auto !important;
+    margin: 10px;
+  }
+}
