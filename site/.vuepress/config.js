@@ -52,6 +52,7 @@ module.exports = {
           '/popconfirm',
           '/notification',
           '/message',
+          '/modal',
         ]
       },
     },
