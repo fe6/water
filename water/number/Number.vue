@@ -16,7 +16,7 @@
       ['w-number-input-disabled']: disabledValue,
       ['w-number-input-lg']: size === 'large',
       ['w-number-input-sm']: size === 'small',
-    }" :value="count" @input="changeValue($event)" @focus="focusFn" @blur="blurFn($event)" :readonly="readonly" :disabled="disabledValue">
+    }" :value="count" @input="changeValue($event)" @focus="focusFn" @blur="blurFn($event)" :readonly="readonly" aria-label="number" :disabled="disabledValue">
     <!-- {{animatedNumber}}-{{number}} -->
   </div>
 </template>
