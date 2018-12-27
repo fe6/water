@@ -78,7 +78,7 @@
 |---|---|----|-------|---|
 |value|状态值|Boolean|否|无|
 |v-model|双向数据绑定|Boolean|否|无|
-|size|尺寸大小。可选值： small \|\| normal |Number|String|否|normal|
+|size|尺寸大小。可选值： small \| large \| normal |String|否|normal|
 |disabled|处于不可用状态，点击事件失效，样式也会变|Boolean|否|无|
 |loading|处于加载中状态，点击事件失效，样式也会变|Boolean|否|无|
 |before|改变之前触发，返回 Promise 对象|Function|否|无|
