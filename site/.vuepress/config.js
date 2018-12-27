@@ -53,6 +53,7 @@ module.exports = {
           '/notification',
           '/message',
           '/modal',
+          '/number',
         ]
       },
     },
