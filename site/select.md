@@ -10,7 +10,7 @@
 </div>
 <br>
 <div>
-<w-select style="width: 320px;" :size="size[sizeIndex]" mode="tag" v-model="tag" @scroll="tagScroll">
+<w-select style="width: 320px;" :size="size[sizeIndex]" mode="tag" v-model="tag">
   <w-option v-for="oneData in oneSels" :key="oneData.id" :value="oneData.name" :disabled="oneData.disabled || false">{{oneData.name}}</w-option>
 </w-select>
 <br>
@@ -29,7 +29,7 @@
 <br>
 <br>
 <div>
-  <w-select style="width: 320px;" disabled mode="tag" v-model="tag" @scroll="tagScroll">
+  <w-select style="width: 320px;" disabled mode="tag" v-model="tag">
     <w-option v-for="oneData in oneSels" :key="oneData.id" :value="oneData.name" :disabled="oneData.disabled || false">{{oneData.name}}</w-option>
   </w-select>
   <br>
@@ -48,7 +48,7 @@
 <br>
 <br>
 <div>
-<w-select style="width: 100%;" mode="tag" v-model="tag" @scroll="tagScroll">
+<w-select style="width: 100%;" mode="tag" v-model="tag">
   <w-option v-for="oneData in oneSels" :key="oneData.id" :value="oneData.name" :disabled="oneData.disabled || false">{{oneData.name}}</w-option>
 </w-select>
 </div>
@@ -267,9 +267,6 @@ export default {
         name: `new${id}`,
         id,
       });
-    },
-    tagScroll(ev) {
-      console.log(ev, 'iscroll tag')
     },
   },
   components: {
