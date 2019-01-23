@@ -33,7 +33,7 @@ $prefix: w-tooltip;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px $shadow;
     box-sizing: border-box;
     min-height: 32px;
     word-wrap: break-word;

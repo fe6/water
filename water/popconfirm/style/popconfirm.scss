@@ -30,7 +30,7 @@ $prefix: w-popconfirm;
     background-color: $normal-bg;
     background-clip: padding-box;
     border-radius: $border-radius-base;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px $shadow;
     padding: 12px 16px;
   }
 

@@ -9,7 +9,7 @@ $move-time: 0.5s;
   background: $normal-bg;
   border-radius: $border-radius-base;
   margin: 20px auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px $shadow;
 
   &-center {
     margin: 0;
