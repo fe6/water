@@ -59,12 +59,12 @@ export default {
   },
   mounted() {
     const boxElem = this.createBox();
-    const tooltipElem = this.createTooltip();
+    const popElem = this.createTooltip();
     this.getPopupContainer().appendChild(boxElem);
-    boxElem.appendChild(tooltipElem);
+    boxElem.appendChild(popElem);
     this.setStatus(this.value, true);
-    this.mountEnd(this.value, tooltipElem);
-    this.$emit('mountEnd', this.value, tooltipElem);
+    this.mountEnd(this.value, popElem);
+    this.$emit('mountEnd', this.value, popElem);
     this.bindDomClick();
   },
   destroyed() {

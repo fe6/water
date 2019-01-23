@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="w-tooltip" :class="tooltipClass" :style=" { left: `${left}px`, top: `${top}px` }" ref="tooltipElem" v-show="status" v-if="contentValue">
+    <div class="w-tooltip" :class="tooltipClass" :style=" { left: `${left}px`, top: `${top}px` }" ref="popElem" v-show="status" v-if="contentValue">
       <i class="w-tooltip-arrow" :class="arrowClass"></i>
       <div class="w-tooltip-content">
         {{contentValue}}
@@ -9,7 +9,11 @@
   </transition>
 </template>
 <script>
-import { setLeftFn, setTopFn } from '../utils/poper';
+import {
+  setLeftFn,
+  setTopFn,
+  regDirection,
+} from '../utils/poper';
 
 export default {
   name: 'WTooltipWarp',
@@ -68,50 +72,7 @@ export default {
         },
       ];
     },
-    // 纵向( Ver )，设置左边的判断 start
-    isVerCenter() {
-      // top bottom
-      return /\b(top|bottom)\b/g.test(this.placement);
-    },
-    isVerEndRight() {
-      // topRight bottomRight
-      return /Right/g.test(this.placement);
-    },
-    isVerEndLeft() {
-      // topLeft bottomLeft
-      return /Left/g.test(this.placement);
-    },
-    isVerLeft() {
-      // leftTop left leftBottom
-      return /left/g.test(this.placement);
-    },
-    isVerRight() {
-      // rightTop right rightBottom
-      return /right/g.test(this.placement);
-    },
-    // 纵向( Ver )，设置左边的判断 end
-
-    // 横向( Hor )，设置左边的判断 end
-    isHorCenter() {
-      // left right
-      return /\b(left|right)\b/g.test(this.placement);
-    },
-    isHorEndBottom() {
-      // leftBottom rightBottom
-      return /Bottom/g.test(this.placement);
-    },
-    isVerEndTop() {
-      // topTop bottomTop
-      return /Top/g.test(this.placement);
-    },
-    isHorTop() {
-      // top topLeft topRight
-      return /top/g.test(this.placement);
-    },
-    isHorBottom() {
-      // bottom bottomLeft bottomRight
-      return /bottom/g.test(this.placement);
-    },
+    ...regDirection,
   },
   mounted() {
     this.$nextTick(() => {

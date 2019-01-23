@@ -91,7 +91,7 @@
 |esc|是否键盘 esc 关闭|Boolean|否|true|
 |center|是否居中显示|Boolean|否|true|
 |transfer|是否转移到 body 下|Boolean|否|true|
-|getModalContainer|浮层渲染父节点，默认渲染到 body 上|Function(triggerNode)|否|() => document.body|
+|getContainer|浮层渲染父节点，默认渲染到 body 上|Function(triggerNode)|否|() => document.body|
 |closable|是否显示关闭小叉子|Boolean|否|true|
 |cancelText|取消文案自定义|String|否|取消|
 |cancelable|是否显示取消按钮|Boolean|否|true|

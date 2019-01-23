@@ -11,3 +11,5 @@ export const type = (thing) => {
   // special case
   return Object.prototype.toString.call(thing);
 };
+
+export const isArray = obj => type(obj) === '[object Array]';

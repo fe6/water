@@ -20,7 +20,7 @@ $move-time: 0.5s;
     background: $normal-bg;
     padding: 0 24px;
     border-radius: $border-radius-base;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px $shadow;
     position: relative;
     margin-bottom: 16px;
     overflow: hidden;
