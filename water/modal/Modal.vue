@@ -1,5 +1,5 @@
 <template>
-  <div v-transfer-dom="getContainer()" :data-transfer="transfer" @keyup="keyUpFn">
+  <div v-transfer-dom="getContainer && getContainer()" :data-transfer="transfer" @keyup="keyUpFn">
     <transition name="fade">
       <div class="w-modal-wrap" :class="wrapClass" v-show="status" @click="wrapClickFn">
         <div class="w-modal" :class="modalClass" :style="modalStyle" @click.stop="noop">
@@ -128,10 +128,7 @@ export default {
       type: Boolean,
       default: true,
     },
-    getContainer: {
-      type: Function,
-      default: () => document.body,
-    },
+    getContainer: Function,
   },
   computed: {
     modalClass() {

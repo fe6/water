@@ -17,7 +17,7 @@ describe('Popover.vue', () => {
       render(h) {
         return h(Popover, {
           props: {
-            render: divEle,
+            getLayout: () => divEle,
             value: this.value,
           },
         }, [
@@ -57,7 +57,7 @@ describe('Popover.vue', () => {
       render(h) {
         return h(Popover, {
           props: {
-            render: divEle,
+            getLayout: () => divEle,
             value: this.value,
           },
         }, [
@@ -86,7 +86,7 @@ describe('Popover.vue', () => {
       render(h) {
         return h(Popover, {
           props: {
-            render: divEle,
+            getLayout: () => divEle,
           },
         });
       },
@@ -107,7 +107,7 @@ describe('Popover.vue', () => {
       el: divEle,
       render(h) {
         return h(Popover, {
-          props: { render: divEle },
+          props: { getLayout: () => divEle },
         });
       },
     });

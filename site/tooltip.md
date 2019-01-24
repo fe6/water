@@ -93,7 +93,7 @@
 |enterDelay|鼠标移入后延时多少才显示 Tooltip，单位：毫秒|Number|否|0|
 |leaveDelay|鼠标移出后延时多少才隐藏 Tooltip，单位：秒|Number|否|100|
 |trigger|触发行为，可选 hover\|click|String|否|hover|
-|getPopupContainer|浮层渲染父节点，默认渲染到 body 上|Function(triggerNode)|否|() => document.body|
+|getContainer|浮层渲染父节点，默认渲染到 body 上|Function(triggerNode)|否|() => document.body|
 |placement|气泡框位置|String|否|top|
 |content|气泡框内容|String|否|无|
 |coreName|气泡框包裹元素的 class 名|String\|Array\|Object|否|() => {}|
