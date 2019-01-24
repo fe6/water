@@ -1,5 +1,6 @@
 @import '../../style/config.scss';
 @import '../../style/mixin/circle.scss';
+@import '../../style/mixin/loading.scss';
 
 $switch-move-time: 0.5s;
 
@@ -36,21 +37,15 @@ $switch-move-time: 0.5s;
   }
 
   &-loading {
-    opacity: 0.4;
+    @extend .w-loading;
+
     pointer-events: none;
 
     &::before {
-      content: ' ';
       width: 12px;
       height: 12px;
-      border-radius: 50%;
-      border-top: 1px solid $blue-6;
-      position: absolute;
       left: 5px;
       top: 5px;
-      z-index: 2;
-      animation: 'circle' 1s infinite linear;
-      transition: left $switch-move-time, margin $switch-move-time;
     }
   }
 
