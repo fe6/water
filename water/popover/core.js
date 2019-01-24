@@ -27,7 +27,7 @@ export default {
       type: String,
       default: 'hover',
     },
-    getPopupContainer: {
+    getContainer: {
       type: Function,
       default: () => document.body,
     },
@@ -56,7 +56,7 @@ export default {
   mounted() {
     const boxElem = this.createBox();
     const popoverElem = this.createPopover();
-    this.getPopupContainer().appendChild(boxElem);
+    this.getContainer().appendChild(boxElem);
     boxElem.appendChild(popoverElem);
     this.setStatus(this.value, true);
     this.mountEnd(this.value, popoverElem);
@@ -90,7 +90,7 @@ export default {
       return (new Vue({
         render: h => h(WPopover, {
           props: {
-            render: this.$refs.render,
+            getLayout: () => this.$el,
             placement: this.placement,
             value: this.status,
           },
@@ -130,7 +130,6 @@ export default {
   render(createElement) {
     return createElement('div', {
       class: ['w-popover-core', this.coreName],
-      ref: 'render',
       on: {
         mouseenter: this.mouseenter,
         mouseleave: this.mouseleave,

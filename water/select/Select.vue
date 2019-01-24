@@ -52,7 +52,7 @@
       ['w-select-arrow-active']: !loading && optStatus,
       ['w-select-arrow-disabled']: disabledValue,
     }" v-if="isSingleMode"></i>
-    <div class="w-option" v-transfer-dom="getContainer()" :data-transfer="transfer" :class="optionClass" ref="popElem">
+    <div class="w-option" v-transfer-dom="getContainer && getContainer()" :data-transfer="transfer" :class="optionClass" ref="popElem">
       <render-option
         v-if="$slots.default"
         :slots="$slots.default"
@@ -168,8 +168,9 @@ export default {
         if (!this.fieldValue) {
           this.fieldWidth = '0.75em';
         }
-        const { focus = () => {} } = this.$refs[this.mode];
-        focus();
+        if (hasOwn(this.$refs, this.mode)) {
+          this.$refs[this.mode].focus();
+        }
       });
     },
     setStatus(val = !this.optStatus) {

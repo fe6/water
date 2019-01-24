@@ -27,7 +27,7 @@ export default {
       type: String,
       default: 'hover',
     },
-    getPopupContainer: {
+    getContainer: {
       type: Function,
       default: () => document.body,
     },
@@ -60,7 +60,7 @@ export default {
   mounted() {
     const boxElem = this.createBox();
     const popElem = this.createTooltip();
-    this.getPopupContainer().appendChild(boxElem);
+    this.getContainer().appendChild(boxElem);
     boxElem.appendChild(popElem);
     this.setStatus(this.value, true);
     this.mountEnd(this.value, popElem);
@@ -94,7 +94,7 @@ export default {
       return (new Vue({
         render: h => h(WTooltip, {
           props: {
-            render: this.$refs.render,
+            getLayout: () => this.$el,
             placement: this.placement,
             value: this.status,
             content: this.contentValue,
@@ -132,7 +132,6 @@ export default {
   render(createElement) {
     return createElement('div', {
       class: ['w-tooltip-core', this.coreName],
-      ref: 'render',
       on: {
         mouseenter: this.mouseenter,
         mouseleave: this.mouseleave,

@@ -17,7 +17,7 @@ describe('Tooltip.vue', () => {
       render(h) {
         return h(Tooltip, {
           props: {
-            render: divEle,
+            getLayout: () => divEle,
             value: this.value,
             content: '文字提示',
           },

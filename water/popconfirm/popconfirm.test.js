@@ -17,7 +17,7 @@ describe('Popconfirm.vue', () => {
       render(h) {
         return h(Popconfirm, {
           props: {
-            render: divEle,
+            getLayout: () => divEle,
             value: this.value,
           },
         }, [
@@ -56,7 +56,7 @@ describe('Popconfirm.vue', () => {
       render(h) {
         return h(Popconfirm, {
           props: {
-            render: divEle,
+            getLayout: () => divEle,
             value: this.value,
           },
         }, [
@@ -87,7 +87,7 @@ describe('Popconfirm.vue', () => {
       render(h) {
         return h(Popconfirm, {
           props: {
-            render: divEle,
+            getLayout: () => divEle,
           },
         }, [
           h('title', this.$slots.content),
@@ -111,7 +111,7 @@ describe('Popconfirm.vue', () => {
       el: divEle,
       render(h) {
         return h(Popconfirm, {
-          props: { render: divEle },
+          props: { getLayout: () => divEle },
         }, [h('title', this.$slots.content)]);
       },
     });
@@ -132,7 +132,7 @@ describe('Popconfirm.vue', () => {
       el: divEle,
       render(h) {
         return h(Popconfirm, {
-          props: { render: divEle, loading: true },
+          props: { getLayout: () => divEle, loading: true },
         }, [h('title', this.$slots.content)]);
       },
     });

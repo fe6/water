@@ -27,7 +27,7 @@ export default {
       type: String,
       default: 'click',
     },
-    getPopupContainer: {
+    getContainer: {
       type: Function,
       default: () => document.body,
     },
@@ -68,7 +68,7 @@ export default {
   mounted() {
     const boxElem = this.createBox();
     const popconfirmElem = this.createPopconfirm();
-    this.getPopupContainer().appendChild(boxElem);
+    this.getContainer().appendChild(boxElem);
     boxElem.appendChild(popconfirmElem);
     this.setStatus(this.value, true);
     this.mountEnd(this.value, popconfirmElem);
@@ -102,7 +102,7 @@ export default {
       return (new Vue({
         render: h => h(WPopconfirm, {
           props: {
-            render: this.$refs.render,
+            getLayout: () => this.$el,
             placement: this.placement,
             value: this.status,
             before: this.before,
@@ -154,7 +154,6 @@ export default {
   render(createElement) {
     return createElement('div', {
       class: ['w-popconfirm-core', this.coreName],
-      ref: 'render',
       on: {
         click: this.clickFn,
       },

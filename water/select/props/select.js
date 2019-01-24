@@ -36,10 +36,7 @@ export default {
       });
     },
   },
-  getContainer: {
-    type: Function,
-    default: () => document.body,
-  },
+  getContainer: Function,
   change: {
     type: Function,
     default: noop,

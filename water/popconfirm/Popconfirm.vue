@@ -37,7 +37,7 @@ export default {
     event: 'model',
   },
   props: {
-    render: HTMLDivElement,
+    getLayout: Function,
     value: Boolean,
     loading: Boolean,
     placement: {
@@ -109,16 +109,17 @@ export default {
     ...regDirection,
   },
   mounted() {
+    const layout = this.getLayout();
     this.handleSlot();
     this.$nextTick(() => {
-      setLeftFn(this, this.render, () => {
+      setLeftFn(this, layout, () => {
         this.setStatus(true);
       }, () => {
         this.setStatus(this.value);
       }).then((left) => {
         this.left = left;
       });
-      setTopFn(this, this.render, () => {
+      setTopFn(this, layout, () => {
         this.setStatus(true);
       }, () => {
         this.setStatus(this.value);
