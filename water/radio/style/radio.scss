@@ -1,6 +1,7 @@
 @import '../../style/config.scss';
 @import '../../style/mixin/circle.scss';
 @import '../../style/mixin/radioactive.scss';
+@import '../../style/mixin/loading.scss';
 @import '../../style/mixin/radiobig.scss';
 
 $radio-move-time: 0.5s;
@@ -46,22 +47,17 @@ $radio-move-time: 0.5s;
     }
 
     &-loading {
-      opacity: 0.4;
-      pointer-events: none;
-      position: relative;
+      @extend .w-loading;
 
       &::before {
-        content: ' ';
         width: 8px;
         height: 8px;
-        border-radius: 50%;
-        border-top: 1px solid $blue-6;
-        position: absolute;
         left: 3px;
         top: 3px;
-        z-index: 2;
-        animation: 'circle' 1s infinite linear;
-        transition: left $radio-move-time, margin $radio-move-time;
+        border-right: none;
+        border-bottom: none;
+        border-color: $loading-color;
+        margin: 0;
       }
     }
   }
