@@ -1,9 +1,11 @@
 import WOption from './Option';
 import {
   handleName,
-  // findEnabled,
   addUsedStatus,
 } from '../utils/option';
+import {
+  hasOwn,
+} from '../utils/o';
 import renderProps from './props/renderoption';
 
 export default {
@@ -45,10 +47,12 @@ export default {
     // 初始化下来选项
     slots.forEach((slot) => {
       if (slot.tag) {
+        const { children, propsData } = slot.componentOptions;
         slotsDefault.push({
           key: slot.key,
+          text: children.length && hasOwn(children[0], 'text') ? children[0].text : '',
           attrs: slot.data.attrs,
-          ...slot.componentOptions.propsData,
+          ...propsData,
         });
       }
     });
@@ -84,6 +88,7 @@ export default {
       liElem = slotsDefault.map((slot, slotIndex) => {
         const {
           value,
+          text,
           disabled,
         } = slot;
         return createElement(WOption, {
@@ -111,7 +116,7 @@ export default {
               }
             },
           },
-        }, value);
+        }, text || value);
       });
     }
 

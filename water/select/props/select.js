@@ -14,6 +14,18 @@ export default {
   loading: Boolean,
   disabled: Boolean,
   size: String,
+  reference: {
+    type: String,
+    default: 'value',
+  },
+  prefix: {
+    type: String,
+    default: '',
+  },
+  suffix: {
+    type: String,
+    default: '',
+  },
   placement: {
     type: String,
     default: 'bottom',

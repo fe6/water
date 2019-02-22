@@ -130,6 +130,37 @@ tag 多选，搜索，回车添加
 multiple 多选，搜索，回车选中
 <br>
 
+## 前后缀
+
+<br>
+<br>
+<div>
+  <w-select style="width: 320px;" v-model="fix" prefix="前缀 " suffix=" 后缀">
+    <w-option v-for="oneData in oneSels" :key="oneData.id" :value="oneData.name" :disabled="oneData.disabled || false">{{oneData.name}}</w-option>
+  </w-select>
+</div>
+<br>
+
+## 参考(reference)
+
+<br>
+<br>
+<div>
+  <w-select style="width: 120px;" v-model="refText" reference="text">
+    <w-option value="10">10 条/页</w-option>
+    <w-option value="20">20 条/页</w-option>
+    <w-option value="30">30 条/页</w-option>
+    <w-option value="40">40 条/页</w-option>
+  </w-select>
+  <w-select style="width: 80px;" v-model="refValue">
+    <w-option value="10">10 条/页</w-option>
+    <w-option value="20">20 条/页</w-option>
+    <w-option value="30">30 条/页</w-option>
+    <w-option value="40">40 条/页</w-option>
+  </w-select>
+</div>
+<br>
+
 ## option
 
 <br>
@@ -161,6 +192,9 @@ multiple 多选，搜索，回车选中
 |---|---|----|-------|---|
 |search|搜索的开关|Boolean|否|无|
 |emptyText|搜索未匹配到的文案|String|否|未匹配到结果|
+|prefix|单选中的前缀|String|否|无|
+|suffix|单选中的后缀|String|否|无|
+|reference|单选中获取选中数据中key值的设置，如 value ，就获取 value 的值。目前支持 value 和 text 。 value 是 option 组件 value 属性， text 是 option 组件中的内容。|String|否|value|
 |mode|选择器的模式，支持 单选模式(single)、多选模式(multiple)，标签模式(tag)|String|否|single|
 |loading|加载模式|Boolean|否|无|
 |disabled|禁用模式|Boolean|否|无|
@@ -197,6 +231,9 @@ export default {
       size: ['small', '', 'large',],
       status: 'true',
       loading: false,
+      fix: '江小白',
+      refText: '10 条/页',
+      refValue: '10',
       one: '红星',
       expand: '红星',
       loadModel: '牛栏山',
