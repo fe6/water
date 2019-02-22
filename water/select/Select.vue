@@ -45,7 +45,10 @@
         <pre class="w-select-more-pre" ref="pre">{{fieldValue}}</pre>
       </li>
     </ul>
-    <div class="w-select-result" v-else>{{name}}</div>
+    <div class="w-select-result" :class="{
+      [`w-select-result-lg`]: this.size === 'large',
+      [`w-select-result-sm`]: this.size === 'small',
+      }" v-else>{{name}}</div>
     <i :class="{
       ['w-select-loading']: loading,
       ['w-select-arrow']: !loading,
@@ -73,7 +76,7 @@
 <script>
 import TransferDom from '../directives/transfer-dom';
 import docClick from '../directives/doclick';
-import { hasOwn, isArray } from '../utils/o';
+import { hasOwn, isArray, type } from '../utils/o';
 import RenderOption from './renderoption';
 import props from './props/select';
 import {
@@ -135,7 +138,7 @@ export default {
       };
     },
     name() {
-      let newValue = this.value;
+      let newValue = type(this.value) === '[object String]' ? `${this.prefix}${this.value}${this.suffix}` : this.value;
       if (!this.isSingleMode) {
         newValue = isArray(newValue) ? newValue : [];
       }
@@ -217,11 +220,22 @@ export default {
       this.getFocus();
     },
     optionChange(value, ev, options) {
+      // 键盘会有模糊搜索
+      // 点击会有匹配内容(text)和 value 情况
+      const isKeyUp = ev.type === 'keyUp';
       // 获取当前
-      const optItem = options.find(opt => value.indexOf(opt.value) > -1);
-      this.$emit('model', value);
-      this.$emit('change', value, optItem, ev, options);
-      this.change(value, optItem, ev, options);
+      const optItem = options.find(opt => (
+        isKeyUp
+          ? value.indexOf(opt.value) > -1
+          : value === opt.value || value === opt.text
+      ));
+      const newValue = this.isSingleMode && optItem
+                        && hasOwn(optItem, this.reference)
+        ? optItem[this.reference]
+        : value;
+      this.$emit('model', newValue);
+      this.$emit('change', newValue, optItem, ev, options);
+      this.change(newValue, optItem, ev, options);
       this.toggleNewTag(this.fieldValue);
       this.setFieldValue();
       this.$nextTick(() => {

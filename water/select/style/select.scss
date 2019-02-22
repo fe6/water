@@ -66,7 +66,7 @@ $move-time: 0.4s;
     }
 
     &-sm {
-      min-height: 22px;
+      min-height: 24px;
     }
   }
 
@@ -78,7 +78,7 @@ $move-time: 0.4s;
     }
 
     &-sm {
-      min-height: 22px;
+      min-height: 24px;
     }
   }
 
@@ -88,8 +88,8 @@ $move-time: 0.4s;
   }
 
   &-sm {
-    line-height: 22px;
-    height: 22px;
+    line-height: 24px;
+    height: 24px;
   }
 
   &-placeholder {
@@ -114,6 +114,14 @@ $move-time: 0.4s;
     @extend .w-ellipsis;
 
     max-width: 100%;
+
+    &-sm {
+      line-height: 22px;
+    }
+
+    &-lg {
+      line-height: 36px;
+    }
   }
 
   &-arrow {

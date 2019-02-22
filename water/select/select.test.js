@@ -39,6 +39,7 @@ describe('Select.vue', () => {
   let testUpdateHock = null;
   let testNoUpdateHock = null;
   let testNoName = null;
+  let testName = null;
 
   beforeEach(() => {
     testFn = createSingle;
@@ -48,6 +49,16 @@ describe('Select.vue', () => {
     testToggleNewTag = createTag;
     testFieldEnter = createTag;
     testFieldNoValueEnter = createTag;
+    testName = shallow(Select, {
+      propsData: {
+        value: 'tag',
+        prefix: 'prefix ',
+        suffix: ' suffix',
+      },
+      slots: {
+        default: [Option],
+      },
+    });
     testNoName = shallow(Select, {
       propsData: {
         mode: 'tag',
@@ -407,6 +418,17 @@ describe('Select.vue', () => {
     testNoName.vm.$nextTick(() => {
       try {
         expect(testNoName.vm.name).toEqual([]);
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('test string name', (done) => {
+    testName.vm.$nextTick(() => {
+      try {
+        expect(testName.vm.name).toEqual('prefix tag suffix');
         done();
       } catch (err) {
         done.fail(err);
