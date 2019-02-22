@@ -33,6 +33,7 @@ module.exports = {
         },
         sidebar: [
           '/',
+          '/page',
           '/select',
           '/affix',
           '/breadcrumb',
