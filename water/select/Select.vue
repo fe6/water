@@ -80,9 +80,8 @@ import { hasOwn, isArray, type } from '../utils/o';
 import RenderOption from './renderoption';
 import props from './props/select';
 import {
-  setLeftFn,
-  setTopFn,
   regDirection,
+  setPostion,
 } from '../utils/poper';
 import { handleName, findEnabled, toggleItem } from '../utils/option';
 
@@ -179,17 +178,6 @@ export default {
     setStatus(val = !this.optStatus) {
       this.optStatus = val;
     },
-    setPostion() {
-      const { select, popElem } = this.$refs;
-      if (hasOwn(this.$refs, 'select') && hasOwn(this.$refs, 'popElem')) {
-        setLeftFn(this, select).then((left) => {
-          popElem.style.left = `${left}px`;
-        });
-        setTopFn(this, select).then((top) => {
-          popElem.style.top = `${top}px`;
-        });
-      }
-    },
     setWidth() {
       const { select, popElem } = this.$refs;
       popElem.style.width = `${select.offsetWidth}px`;
@@ -198,7 +186,7 @@ export default {
       this.$nextTick(() => {
         const { pre } = this.$refs;
         this.fieldWidth = `${pre.offsetWidth}px`;
-        this.setPostion();
+        setPostion(this, 'select');
         this.resetHoverIndex();
       });
     },
@@ -207,7 +195,7 @@ export default {
         this.before().then(() => {
           this.setStatus(true);
           this.$nextTick(() => {
-            this.setPostion();
+            setPostion(this, 'select');
             this.setWidth();
             this.getFocus();
             this.$emit('click', event);
@@ -239,7 +227,7 @@ export default {
       this.toggleNewTag(this.fieldValue);
       this.setFieldValue();
       this.$nextTick(() => {
-        this.setPostion();
+        setPostion(this, 'select');
       });
     },
     keyDown() {

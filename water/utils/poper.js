@@ -1,3 +1,7 @@
+import {
+  hasOwn,
+} from './o';
+
 // 纵向( Ver )，设置左边的判断 start
 export const isVerCenter = placement => /\b(top|bottom)\b/g.test(placement);
 // topRight bottomRight
@@ -129,3 +133,15 @@ export const setTopFn = (self, render, before = () => {}, after = () => {}) => {
     });
   });
 }; // end setTopFn
+
+export const setPostion = (self, refName) => {
+  const { popElem } = self.$refs;
+  if (hasOwn(self.$refs, refName) && hasOwn(self.$refs, 'popElem')) {
+    setLeftFn(self, self.$refs[refName]).then((left) => {
+      popElem.style.left = `${left}px`;
+    });
+    setTopFn(self, self.$refs[refName]).then((top) => {
+      popElem.style.top = `${top}px`;
+    });
+  }
+};

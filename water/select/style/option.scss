@@ -68,7 +68,7 @@ $move-time: 0.4s;
 
     &-hover,
     &:hover {
-      background-color: #e6f7ff;
+      background-color: $option-hover-bg;
     }
   } // w-option-single end
 
@@ -111,7 +111,7 @@ $move-time: 0.4s;
 
     &-hover,
     &:hover {
-      background-color: #e6f7ff;
+      background-color: $option-hover-bg;
     }
   } // w-option-multiple end
 

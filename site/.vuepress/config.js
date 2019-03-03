@@ -33,6 +33,7 @@ module.exports = {
         },
         sidebar: [
           '/',
+          '/cascader',
           '/badge',
           '/page',
           '/select',
