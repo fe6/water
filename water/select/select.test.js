@@ -251,14 +251,11 @@ describe('Select.vue', () => {
     testFieldInput.vm.$nextTick(() => {
       try {
         // test setInputWidth
-        const setPostionFn = jest.fn();
-        testFieldInput.vm.setPostion = setPostionFn;
         const resetHoverIndexFn = jest.fn();
         testFieldInput.vm.resetHoverIndex = resetHoverIndexFn;
         testFieldInput.vm.setInputWidth();
         testFieldInput.vm.$nextTick(() => {
           expect(testFieldInput.vm.fieldWidth).toBe('0px');
-          expect(setPostionFn).toBeCalled();
           expect(resetHoverIndexFn).toBeCalled();
         });
 
@@ -372,7 +369,6 @@ describe('Select.vue', () => {
             focus: focusFn,
           },
         };
-        testSelectDisabledClick.vm.setPostion();
         testSelectDisabledClick.vm.fieldValue = '11111';
         testSelectDisabledClick.vm.getFocus();
         // test 没有 ref 不获取焦点
