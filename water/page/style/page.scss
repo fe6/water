@@ -1,5 +1,9 @@
+$font-path: '../water/font/';
+
 @import '../../style/config.scss';
 @import '../../style/mixin/arrow.scss';
+@import '../../icon/style/icon.scss';
+@import '../../button/style/button.scss';
 
 $move-time: 0.4s;
 

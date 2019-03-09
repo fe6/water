@@ -75,7 +75,8 @@ export const regDirection = {
 };
 
 export const setLeftFn = (self, render, before = () => {}, after = () => {}) => {
-  const { offsetLeft, offsetWidth } = render;
+  const { x, width } = render.getBoundingClientRect();
+  const offsetLeft = x;
   before();
   return new Promise((resolve) => {
     self.$nextTick(() => {
@@ -88,16 +89,16 @@ export const setLeftFn = (self, render, before = () => {}, after = () => {}) => 
       // leftTop leftBottom rightTop rightBottom
       if (self.isVerCenter) {
         // top bottom
-        posX = offsetLeft + offsetWidth / 2 - tooltipWidth / 2;
+        posX = offsetLeft + width / 2 - tooltipWidth / 2;
       } else if (self.isVerLeft) {
         // leftTop left leftBottom
         posX = offsetLeft - tooltipWidth - self.interval;
       } else if (self.isVerEndRight) {
         // topRight bottomRight
-        posX = offsetLeft + offsetWidth - tooltipWidth;
+        posX = offsetLeft + width - tooltipWidth;
       } else if (self.isVerRight) {
         // rightTop right rightBottom
-        posX = offsetLeft + offsetWidth + self.interval;
+        posX = offsetLeft + width + self.interval;
       }
       resolve(posX);
     });
@@ -105,7 +106,8 @@ export const setLeftFn = (self, render, before = () => {}, after = () => {}) => 
 }; // end setLeftFn
 
 export const setTopFn = (self, render, before = () => {}, after = () => {}) => {
-  const { offsetTop, offsetHeight } = render;
+  const { y, height } = render.getBoundingClientRect();
+  const offsetTop = y;
   before();
   return new Promise((resolve) => {
     self.$nextTick(() => {
@@ -118,16 +120,16 @@ export const setTopFn = (self, render, before = () => {}, after = () => {}) => {
       // leftTop leftBottom rightTop rightBottom
       if (self.isHorCenter) {
         // left right
-        posY = offsetTop + offsetHeight / 2 - tooltipHeight / 2;
+        posY = offsetTop + height / 2 - tooltipHeight / 2;
       } else if (self.isHorEndBottom) {
         // leftBottom rightBottom
-        posY = offsetTop + offsetHeight - tooltipHeight;
+        posY = offsetTop + height - tooltipHeight;
       } else if (self.isHorTop) {
         // top topLeft topRight
         posY = offsetTop - tooltipHeight - self.interval;
       } else if (self.isHorBottom) {
         // bottom bottomLeft bottomRight
-        posY = offsetTop + offsetHeight + self.interval;
+        posY = offsetTop + height + self.interval;
       }
       resolve(posY);
     });

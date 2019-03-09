@@ -109,26 +109,24 @@ export default {
     ...regDirection,
   },
   mounted() {
-    const layout = this.getLayout();
     this.handleSlot();
-    this.$nextTick(() => {
-      setLeftFn(this, layout, () => {
-        this.setStatus(true);
-      }, () => {
-        this.setStatus(this.value);
-      }).then((left) => {
-        this.left = left;
-      });
-      setTopFn(this, layout, () => {
-        this.setStatus(true);
-      }, () => {
-        this.setStatus(this.value);
-      }).then((top) => {
-        this.top = top;
-      });
-    });
   },
   methods: {
+    setPosition() {
+      const layout = this.getLayout();
+      this.$nextTick(() => {
+        setLeftFn(this, layout, () => {
+        }, () => {
+        }).then((left) => {
+          this.left = left;
+        });
+        setTopFn(this, layout, () => {
+        }, () => {
+        }).then((top) => {
+          this.top = top;
+        });
+      });
+    },
     handleSlot() {
       this.filterSlot('content');
     },
@@ -152,6 +150,7 @@ export default {
     },
     setStatus(val) {
       this.status = val;
+      this.setPosition();
     },
     cancelFn() {
       if (!this.loadingValue) {
