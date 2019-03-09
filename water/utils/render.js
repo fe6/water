@@ -3,6 +3,7 @@ export default {
   functional: true,
   props: {
     render: Function,
+    data: Object,
   },
-  render: (h, ctx) => ctx.props.render(h),
+  render: (h, { props }) => props.render(h, props.data),
 };

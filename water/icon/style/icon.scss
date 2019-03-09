@@ -1,7 +1,7 @@
 @import '../../style/mixin/circle.scss';
 
 $font-name: "iconfont" !default;
-$font-version: 1525402010198 !default;
+$font-version: 1551837788449 !default;
 $font-prefix: 'w-' !default;
 $font-path: '../font/' !default;
 
@@ -55,4 +55,8 @@ $font-list: "\e66a" "\e668" "\e669" "\e667";
 
 .#{$font-prefix}star::before {
   content: "\e615";
+}
+
+.#{$font-prefix}filter::before {
+  content: "\e66e";
 }

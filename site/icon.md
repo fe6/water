@@ -17,6 +17,7 @@
 |<w-icon type="loading4" />|加载中4|`<w-icon type="loading4" />`|
 |<w-icon type="heart" />|心|`<w-icon type="heart" />`|
 |<w-icon type="star" />|星星|`<w-icon type="star" />`|
+|<w-icon type="filter" />|过滤|`<w-icon type="filter" />`|
 
 ## 本地部署
 

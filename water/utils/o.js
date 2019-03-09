@@ -13,6 +13,8 @@ export const type = (thing) => {
 };
 
 export const isArray = obj => type(obj) === '[object Array]';
+export const isFunction = fun => type(fun) === '[object Function]';
+
 // 将多维数组，转成路径数组
 // cascader 联级 中使用
 export const objToPath = (arr, objValue = 'value', objDisabled = 'disabled', children = 'children') => {

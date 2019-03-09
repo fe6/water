@@ -172,12 +172,8 @@ export default {
 </script>
 
 <style lang="scss" scope>
-$font-path: '../water/font/';
-@import '../water/icon/style/icon.scss';
-@import '../water/button/style/button.scss';
 @import '../water/select/style/select.scss';
 @import '../water/select/style/option.scss';
-@import '../water/form/input/input.scss';
 @import '../water/page/style/page.scss';
 @import '../water/page/style/pagejump.scss';
 

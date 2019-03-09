@@ -132,14 +132,12 @@ export default {
       event.stopPropagation();
     },
     okFn(status) {
-      console.log('ok core', status);
       this.setStatus(this.isHover, !this.isHover, status);
       this.$emit('model', status);
       this.ok(status);
       this.$emit('ok', status);
     },
     cancelFn(status) {
-      console.log('cancel core', status);
       this.setStatus(this.isHover, !this.isHover, status);
       this.$emit('model', status);
       this.cancel(status);
