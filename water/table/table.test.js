@@ -1,10 +1,12 @@
 import { shallow } from 'vue-test-utils';
 import { baseData, baseColumns } from '../../site/table/base';
+import { fixData, fixColumns } from '../../site/table/fix';
 import Table from './Table';
 
 describe('Table.vue', () => {
   let wrapperModel = null;
   let wrapperFix = null;
+  let wrapperFix2 = null;
   let wrapperChange = null;
 
   beforeEach(() => {
@@ -13,6 +15,17 @@ describe('Table.vue', () => {
         data: baseData,
         columns: baseColumns,
         loading: true,
+      },
+    });
+    wrapperFix2 = shallow(Table, {
+      propsData: {
+        data: fixData,
+        columns: fixColumns,
+        fixed: true,
+        scroll: {
+          y: 100,
+          x: 100,
+        },
       },
     });
     wrapperFix = shallow(Table, {
@@ -80,6 +93,18 @@ describe('Table.vue', () => {
         expect(wrapperFix.vm.scrollWidth).toEqual({ width: '100px', overflowX: 'scroll' });
         wrapperModel.vm.scrollingFn({});
         expect(wrapperFix.vm.scrollLeft).toBeTruthy();
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('fix', (done) => {
+    wrapperFix2.vm.$nextTick(() => {
+      try {
+        expect(wrapperFix2.vm.hasFixedLeft).toBeTruthy();
+        expect(wrapperFix2.vm.hasFixedRight).toBeTruthy();
         done();
       } catch (err) {
         done.fail(err);
