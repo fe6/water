@@ -176,12 +176,4 @@ export default {
 @import '../water/select/style/option.scss';
 @import '../water/page/style/page.scss';
 @import '../water/page/style/pagejump.scss';
-
-.demo {
-  &-page,
-  &-select {
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
 </style>

@@ -80,36 +80,4 @@ export default {
 $font-path: '../water/font/';
 @import '../water/icon/style/icon.scss';
 @import '../water/spin/style/spin.scss';
-
-.inp-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  &:focus {
-    outline: none;
-  }
-
-  &.on {
-    background: #1996f9;
-    color: #fff;
-  }
-}
-
-.panel {
-  background: rgba(250, 173, 20, 0.1);
-  border: 1px solid rgba(250, 173, 20, 0.4);
-  padding: 16px;
-
-  & h3 {
-    margin: 0;
-    line-height: 1;
-    padding-bottom: 8px;
-  }
-
-  & p {
-    margin: 0;
-    line-height: 1.5;
-  }
-}
 </style>

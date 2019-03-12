@@ -144,8 +144,8 @@ $move-time: 0.4s;
   &-now {
     display: inline-block;
     vertical-align: middle;
-    width: 34px;
-    margin-right: 16px;
+    width: 34px !important;
+    margin-right: 16px !important;
     text-align: center;
   }
 

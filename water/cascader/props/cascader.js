@@ -21,6 +21,7 @@ export default {
     default: () => ({
       label: 'label',
       value: 'value',
+      loading: 'loading',
       children: 'children',
     }),
   },

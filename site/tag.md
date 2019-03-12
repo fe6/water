@@ -184,41 +184,4 @@ export default {
 <style lang="scss">
 @import '../water/tag/style/tag.scss';
 @import '../water/tag/style/checktag.scss';
-
-.w-tag {
-  margin-bottom: 8px;
-
-  &-box {
-    display: flex;
-    flex-flow: wrap;
-  }
-}
-
-.inp-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  &:focus {
-    outline: none;
-  }
-
-  &.on {
-    background: #1996f9;
-    color: #fff;
-  }
-}
-
-.list-leave-active {
-  transition: all 0.3s;
-}
-
-.list-leave-to {
-  opacity: 0;
-  width: 0;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  border-raduis: 0;
-}
 </style>

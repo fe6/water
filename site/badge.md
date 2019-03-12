@@ -178,35 +178,4 @@ export default {
 $font-path: '../water/font/';
 @import '../water/icon/style/icon.scss';
 @import '../water/badge/style/badge.scss';
-
-.inp-btn {
-  border: none;
-  cursor: pointer;
-  border: 1px solid #1996f9;
-  color: #333;
-  transition: color 0.4s, background 0.4s;
-
-  &:focus {
-    outline: none;
-  }
-
-  &.on {
-    background: #1996f9;
-    color: #fff;
-  }
-}
-
-.demo {
-  &-badge {
-    margin-right: 20px;
-  }
-
-  &-link {
-    width: 42px;
-    height: 42px;
-    border-radius: 4px;
-    background: #eee;
-    display: inline-block;
-  }
-}
 </style>

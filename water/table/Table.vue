@@ -12,13 +12,13 @@
       </div>
       <div class="w-table-fix-wrap w-table-fix-left" :class="{
         ['w-table-fix-left-shadow']: !scrollLeft,
-        }">
+        }" v-if="hasFixedLeft">
         <t-head :columns="columns" :data="data" :expandedRowRender="expandedRowRender" :bordered="bordered" :rowSelection="rowSelection" :scroll="scroll" @checkboxChange="checkboxTHeadChange" :checked="bodyChecked" :optional="bodyOptional" @change="headerChange" fixed="left"></t-head>
         <t-body :columns="columns" :data="data" :expandedRowRender="expandedRowRender" :bordered="bordered" :rowSelection="rowSelection" :scrollStyle="scrollHeight" @checkboxChange="checkboxTBodyChange" :checked="bodyChecked" v-if="data.length" @changeHover="getHoverIndex" fixed="left" :hoverIndex="hoverIndex" @changeScroll="getSrollTop" :scrollTop="scrollTop"></t-body>
       </div>
       <div class="w-table-fix-wrap w-table-fix-right" :class="{
         ['w-table-fix-right-shadow']: !scrollRight,
-        }">
+        }" v-if="hasFixedRight">
         <t-head :columns="columns" :data="data" :expandedRowRender="expandedRowRender" :bordered="bordered" :rowSelection="rowSelection" :scroll="scroll" @checkboxChange="checkboxTHeadChange" :checked="bodyChecked" :optional="bodyOptional" @change="headerChange" fixed="right"></t-head>
         <t-body :columns="columns" :data="data" :expandedRowRender="expandedRowRender" :bordered="bordered" :rowSelection="rowSelection" :scrollStyle="scrollHeight" @checkboxChange="checkboxTBodyChange" :checked="bodyChecked" v-if="data.length" @changeHover="getHoverIndex" fixed="right" :hoverIndex="hoverIndex" @changeScroll="getSrollTop" :scrollTop="scrollTop"></t-body>
       </div>
@@ -31,6 +31,7 @@ import THead from './THead';
 import TBody from './TBody';
 import WSpin from '../spin/Spin';
 import checkboxProps from './props/checkbox';
+import { hasOwn } from '../utils/o';
 
 export default {
   name: 'WTable',
@@ -45,6 +46,12 @@ export default {
   },
   props,
   computed: {
+    hasFixedLeft() {
+      return this.columns.filter(colItem => hasOwn(colItem, 'fixed') && colItem.fixed === 'left').length > 0;
+    },
+    hasFixedRight() {
+      return this.columns.filter(colItem => hasOwn(colItem, 'fixed') && colItem.fixed === 'right').length > 0;
+    },
     bodyOptional() {
       this.init();
       return this.rowSelection ? this.data.filter(dataItem => !checkboxProps(this.rowSelection, dataItem, 'tbody').disabled) : this.data;

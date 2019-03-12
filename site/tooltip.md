@@ -32,47 +32,47 @@
 
 
 <div class="demo">
-  <div class="demo-top">
-    <w-tooltip coreName="demo-core" placement="topLeft" content="文字提示">
+  <div class="demo-popover-top">
+    <w-tooltip coreName="demo-popover-core" placement="topLeft" content="文字提示">
       <w-button prefix="demo">topLeft</w-button>
     </w-tooltip>
-    <w-tooltip coreName="demo-core" content="文字提示">
+    <w-tooltip coreName="demo-popover-core" content="文字提示">
       <w-button prefix="demo">top</w-button>
     </w-tooltip>
-    <w-tooltip coreName="demo-core" placement="topRight" content="文字提示">
+    <w-tooltip coreName="demo-popover-core" placement="topRight" content="文字提示">
       <w-button prefix="demo">topRight</w-button>
     </w-tooltip>
   </div>
-  <div class="demo-left">
-    <w-tooltip coreName="demo-core" placement="leftTop" content="文字提示">
+  <div class="demo-popover-left">
+    <w-tooltip coreName="demo-popover-core" placement="leftTop" content="文字提示">
       <w-button prefix="demo">leftTop</w-button>
     </w-tooltip>
-    <w-tooltip coreName="demo-core" placement="left" content="文字提示">
+    <w-tooltip coreName="demo-popover-core" placement="left" content="文字提示">
       <w-button prefix="demo">left</w-button>
     </w-tooltip>
-    <w-tooltip coreName="demo-core" placement="leftBottom" content="文字提示">
+    <w-tooltip coreName="demo-popover-core" placement="leftBottom" content="文字提示">
       <w-button prefix="demo">leftBottom</w-button>
     </w-tooltip>
   </div>
-  <div class="demo-right">
-    <w-tooltip coreName="demo-core" placement="rightTop" content="文字提示">
+  <div class="demo-popover-right">
+    <w-tooltip coreName="demo-popover-core" placement="rightTop" content="文字提示">
       <w-button prefix="demo">rightTop</w-button>
     </w-tooltip>
-    <w-tooltip coreName="demo-core" placement="right" content="文字提示">
+    <w-tooltip coreName="demo-popover-core" placement="right" content="文字提示">
       <w-button prefix="demo">right</w-button>
     </w-tooltip>
-    <w-tooltip coreName="demo-core" placement="rightBottom" content="文字提示">
+    <w-tooltip coreName="demo-popover-core" placement="rightBottom" content="文字提示">
       <w-button prefix="demo">rightBottom</w-button>
     </w-tooltip>
   </div>
-  <div class="demo-bottom">
-    <w-tooltip coreName="demo-core" placement="bottomLeft" content="文字提示">
+  <div class="demo-popover-bottom">
+    <w-tooltip coreName="demo-popover-core" placement="bottomLeft" content="文字提示">
       <w-button prefix="demo">bottomLeft</w-button>
     </w-tooltip>
-    <w-tooltip coreName="demo-core" placement="bottom" content="文字提示">
+    <w-tooltip coreName="demo-popover-core" placement="bottom" content="文字提示">
       <w-button prefix="demo">Bottom</w-button>
     </w-tooltip>
-    <w-tooltip coreName="demo-core" placement="bottomRight" content="文字提示">
+    <w-tooltip coreName="demo-popover-core" placement="bottomRight" content="文字提示">
       <w-button prefix="demo">bottomRight</w-button>
     </w-tooltip>
   </div>
@@ -132,54 +132,4 @@ $font-path: '../water/font/';
 @import '../water/button/style/button.scss';
 @import '../water/switch/style/switch.scss';
 @import '../water/tooltip/style/tooltip.scss';
-
-.demo {
-  overflow: auto;
-  margin: 16px 0;
-
-  &-core {
-    margin: 0 8px 8px 0;
-  }
-
-  &-button {
-    width: 110px;
-  }
-
-  &-top {
-    margin-left: 110px;
-    white-space: nowrap;
-  }
-
-  &-left {
-    width: 70px;
-    float: left;
-  }
-
-  &-right {
-    width: 110px;
-    margin-left: 465px;
-  }
-
-  &-bottom {
-    margin-left: 110px;
-    clear: both;
-    white-space: nowrap;
-  }
-}
-
-.inp-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-
-  &:focus {
-    outline: none;
-  }
-
-  &.on {
-    background: #1996f9;
-    color: #fff;
-  }
-}
 </style>

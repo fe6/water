@@ -40,7 +40,9 @@
 <br>
 <br>
 
-##  筛选和排序
+##  排序
+
+> 点击表头小箭头，排序条件可定义
 
 <br>
 <br>
@@ -52,6 +54,8 @@
 <br>
 
 ## 远程加载数据
+
+> 点击表头小箭头
 
 <br>
 <br>
@@ -237,22 +241,4 @@ $font-path: '../water/font/';
 @import '../water/form/input/input.scss';
 @import '../water/popconfirm/style/popconfirm.scss';
 @import '../water/table/style/table.scss';
-
-
-.inp-btn {
-  border: none;
-  cursor: pointer;
-  border: 1px solid #1996f9;
-  color: #333;
-  transition: color 0.4s, background 0.4s;
-
-  &:focus {
-    outline: none;
-  }
-
-  &.on {
-    background: #1996f9;
-    color: #fff;
-  }
-}
 </style>

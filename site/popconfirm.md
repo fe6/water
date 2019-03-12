@@ -57,80 +57,80 @@
 ## 12方向
 
 <div class="popconfirm">
-  <div class="popconfirm-top">
-    <w-popconfirm coreName="popconfirm-core" placement="topLeft">
+  <div class="demo-popover-top">
+    <w-popconfirm coreName="demo-popover-core" placement="topLeft">
       <w-button prefix="popconfirm">topLeft</w-button>
       <div slot="content">
         <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
       </div>
     </w-popconfirm>
-    <w-popconfirm coreName="popconfirm-core">
+    <w-popconfirm coreName="demo-popover-core">
       <w-button prefix="popconfirm">top</w-button>
       <div slot="content">
         <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
       </div>
     </w-popconfirm>
-    <w-popconfirm coreName="popconfirm-core" placement="topRight">
+    <w-popconfirm coreName="demo-popover-core" placement="topRight">
       <w-button prefix="popconfirm">topRight</w-button>
       <div slot="content">
         <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
       </div>
     </w-popconfirm>
   </div>
-  <div class="popconfirm-left">
-    <w-popconfirm coreName="popconfirm-core" placement="leftTop">
+  <div class="demo-popover-left">
+    <w-popconfirm coreName="demo-popover-core" placement="leftTop">
       <w-button prefix="popconfirm">leftTop</w-button>
       <div slot="content">
         <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
       </div>
     </w-popconfirm>
-    <w-popconfirm coreName="popconfirm-core" placement="left">
+    <w-popconfirm coreName="demo-popover-core" placement="left">
       <w-button prefix="popconfirm">left</w-button>
       <div slot="content">
         <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
       </div>
     </w-popconfirm>
-    <w-popconfirm coreName="popconfirm-core" placement="leftBottom">
+    <w-popconfirm coreName="demo-popover-core" placement="leftBottom">
       <w-button prefix="popconfirm">leftBottom</w-button>
       <div slot="content">
         <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
       </div>
     </w-popconfirm>
   </div>
-  <div class="popconfirm-right">
-    <w-popconfirm coreName="popconfirm-core" placement="rightTop">
+  <div class="demo-popover-right">
+    <w-popconfirm coreName="demo-popover-core" placement="rightTop">
       <w-button prefix="popconfirm">rightTop</w-button>
       <div slot="content">
         <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
       </div>
     </w-popconfirm>
-    <w-popconfirm coreName="popconfirm-core" placement="right">
+    <w-popconfirm coreName="demo-popover-core" placement="right">
       <w-button prefix="popconfirm">right</w-button>
       <div slot="content">
         <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
       </div>
     </w-popconfirm>
-    <w-popconfirm coreName="popconfirm-core" placement="rightBottom">
+    <w-popconfirm coreName="demo-popover-core" placement="rightBottom">
       <w-button prefix="popconfirm">rightBottom</w-button>
       <div slot="content">
         <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
       </div>
     </w-popconfirm>
   </div>
-  <div class="popconfirm-bottom">
-    <w-popconfirm coreName="popconfirm-core" placement="bottomLeft">
+  <div class="demo-popover-bottom">
+    <w-popconfirm coreName="demo-popover-core" placement="bottomLeft">
       <w-button prefix="popconfirm">bottomLeft</w-button>
       <div slot="content">
         <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
       </div>
     </w-popconfirm>
-    <w-popconfirm coreName="popconfirm-core" placement="bottom">
+    <w-popconfirm coreName="demo-popover-core" placement="bottom">
       <w-button prefix="popconfirm">Bottom</w-button>
       <div slot="content">
         <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
       </div>
     </w-popconfirm>
-    <w-popconfirm coreName="popconfirm-core" placement="bottomRight">
+    <w-popconfirm coreName="demo-popover-core" placement="bottomRight">
       <w-button prefix="popconfirm">bottomRight</w-button>
       <div slot="content">
         <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
@@ -216,39 +216,4 @@ $font-path: '../water/font/';
 @import '../water/button/style/button.scss';
 @import '../water/switch/style/switch.scss';
 @import '../water/popconfirm/style/popconfirm.scss';
-
-.popconfirm {
-  overflow: auto;
-  margin: 16px 0;
-
-  &-core {
-    margin: 0 8px 8px 0;
-  }
-
-  &-button {
-    width: 110px;
-  }
-
-  &-top {
-    margin-left: 110px;
-    white-space: nowrap;
-  }
-
-  &-left {
-    width: 70px;
-    float: left;
-  }
-
-  &-right {
-    width: 110px;
-    margin-left: 465px;
-  }
-
-  &-bottom {
-    margin-left: 110px;
-    clear: both;
-    white-space: nowrap;
-  }
-}
-
 </style>

@@ -1,20 +1,20 @@
 # Notification 通知提醒框
 
-### 基本使用
+## 基本使用
 
 <br>
 <p>
   <w-button prefix="notification" v-bind:click="open">open</w-button>
 </p>
 
-### 不自动关闭
+## 不自动关闭
 > 间隔参数 `duration` 设置为 0 即可。
 
 <p>
   <w-button v-bind:click="noAutoClose">不会自己关</w-button>
 </p>
 
-### 位置
+## 位置
 
 <br>
 <p>
@@ -24,7 +24,7 @@
   <w-button prefix="notification" v-bind:click="changePlacement">打开</w-button>
 </p>
 
-### 自定义消息内容
+## 自定义消息内容
 > 间隔参数 `render` ，具体请移步[官方文档](https://cn.vuejs.org/v2/api/#render)。
 
 <p>
@@ -123,12 +123,4 @@ $font-path: '../water/font/';
 @import '../water/button/style/button.scss';
 @import '../water/notification/style/notification.scss';
 
-.notification-button {
-  margin: 0 0 0 8px;
-  vertical-align: middle;
-}
-
-.notice-sel {
-  height: 32px;
-}
 </style>
