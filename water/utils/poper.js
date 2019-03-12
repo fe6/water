@@ -74,6 +74,19 @@ export const regDirection = {
   // 横向( Hor )，设置左边的判断 end
 };
 
+export const getScroll = (target, top) => {
+  const prop = top ? 'pageYOffset' : 'pageXOffset';
+  const method = top ? 'scrollTop' : 'scrollLeft';
+
+  let ret = target[prop];
+
+  if (typeof ret !== 'number') {
+    ret = window.document.documentElement[method];
+  }
+
+  return ret;
+};
+
 export const setLeftFn = (self, render, before = () => {}, after = () => {}) => {
   const { x, width } = render.getBoundingClientRect();
   const offsetLeft = x;
@@ -100,7 +113,7 @@ export const setLeftFn = (self, render, before = () => {}, after = () => {}) => 
         // rightTop right rightBottom
         posX = offsetLeft + width + self.interval;
       }
-      resolve(posX);
+      resolve(posX + getScroll(window));
     });
   });
 }; // end setLeftFn
@@ -131,7 +144,7 @@ export const setTopFn = (self, render, before = () => {}, after = () => {}) => {
         // bottom bottomLeft bottomRight
         posY = offsetTop + height + self.interval;
       }
-      resolve(posY);
+      resolve(posY + getScroll(window, true));
     });
   });
 }; // end setTopFn

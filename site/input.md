@@ -77,19 +77,4 @@ export default {
 $font-path: '../water/font/';
 @import '../water/icon/style/icon.scss';
 @import '../water/form/input/input.scss';
-
-.inp-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  &:focus {
-    outline: none;
-  }
-
-  &.on {
-    background: #1996f9;
-    color: #fff;
-  }
-}
 </style>

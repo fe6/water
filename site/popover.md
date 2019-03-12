@@ -14,7 +14,7 @@
   <w-popover>
     <a href="javascript:;">Hover me</a>
     <a href="javascript:;" slot="title">这是标题</a>
-    <ul slot="content" class="demo-ul">
+    <ul slot="content" class="demo-popover-ul">
       <li>气泡卡片1</li>
       <li>气泡卡片2</li>
     </ul>
@@ -30,7 +30,7 @@
     <a href="javascript:;">Click me</a>
     <a href="javascript:;" slot="title">这是标题</a>
     <div slot="content">
-      <ul class="demo-ul">
+      <ul class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
@@ -49,105 +49,105 @@
 ## 12方向
 
 <div class="demo">
-  <div class="demo-top">
-    <w-popover coreName="demo-core" placement="topLeft">
+  <div class="demo-popover-top">
+    <w-popover coreName="demo-popover-core" placement="topLeft">
       <w-button prefix="demo">topLeft</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
-      <ul slot="content" class="demo-ul">
+      <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
     </w-popover>
-    <w-popover coreName="demo-core">
+    <w-popover coreName="demo-popover-core">
       <w-button prefix="demo">top</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
-      <ul slot="content" class="demo-ul">
+      <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
     </w-popover>
-    <w-popover coreName="demo-core" placement="topRight">
+    <w-popover coreName="demo-popover-core" placement="topRight">
       <w-button prefix="demo">topRight</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
-      <ul slot="content" class="demo-ul">
+      <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
     </w-popover>
   </div>
-  <div class="demo-left">
-    <w-popover coreName="demo-core" placement="leftTop">
+  <div class="demo-popover-left">
+    <w-popover coreName="demo-popover-core" placement="leftTop">
       <w-button prefix="demo">leftTop</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
-      <ul slot="content" class="demo-ul">
+      <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
     </w-popover>
-    <w-popover coreName="demo-core" placement="left">
+    <w-popover coreName="demo-popover-core" placement="left">
       <w-button prefix="demo">left</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
-      <ul slot="content" class="demo-ul">
+      <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
     </w-popover>
-    <w-popover coreName="demo-core" placement="leftBottom">
+    <w-popover coreName="demo-popover-core" placement="leftBottom">
       <w-button prefix="demo">leftBottom</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
-      <ul slot="content" class="demo-ul">
+      <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
     </w-popover>
   </div>
-  <div class="demo-right">
-    <w-popover coreName="demo-core" placement="rightTop">
+  <div class="demo-popover-right">
+    <w-popover coreName="demo-popover-core" placement="rightTop">
       <w-button prefix="demo">rightTop</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
-      <ul slot="content" class="demo-ul">
+      <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
     </w-popover>
-    <w-popover coreName="demo-core" placement="right">
+    <w-popover coreName="demo-popover-core" placement="right">
       <w-button prefix="demo">right</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
-      <ul slot="content" class="demo-ul">
+      <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
     </w-popover>
-    <w-popover coreName="demo-core" placement="rightBottom">
+    <w-popover coreName="demo-popover-core" placement="rightBottom">
       <w-button prefix="demo">rightBottom</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
-      <ul slot="content" class="demo-ul">
+      <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
     </w-popover>
   </div>
-  <div class="demo-bottom">
-    <w-popover coreName="demo-core" placement="bottomLeft">
+  <div class="demo-popover-bottom">
+    <w-popover coreName="demo-popover-core" placement="bottomLeft">
       <w-button prefix="demo">bottomLeft</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
-      <ul slot="content" class="demo-ul">
+      <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
     </w-popover>
-    <w-popover coreName="demo-core" placement="bottom">
+    <w-popover coreName="demo-popover-core" placement="bottom">
       <w-button prefix="demo">Bottom</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
-      <ul slot="content" class="demo-ul">
+      <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
     </w-popover>
-    <w-popover coreName="demo-core" placement="bottomRight">
+    <w-popover coreName="demo-popover-core" placement="bottomRight">
       <w-button prefix="demo">bottomRight</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
-      <ul slot="content" class="demo-ul">
+      <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
         <li>气泡卡片2</li>
       </ul>
@@ -208,65 +208,4 @@ $font-path: '../water/font/';
 @import '../water/button/style/button.scss';
 @import '../water/switch/style/switch.scss';
 @import '../water/popover/style/popover.scss';
-
-.demo {
-  overflow: auto;
-  margin: 16px 0;
-
-  &-core {
-    margin: 0 8px 8px 0;
-  }
-
-  &-button {
-    width: 110px;
-  }
-
-  &-top {
-    margin-left: 110px;
-    white-space: nowrap;
-  }
-
-  &-left {
-    width: 70px;
-    float: left;
-  }
-
-  &-right {
-    width: 110px;
-    margin-left: 465px;
-  }
-
-  &-bottom {
-    margin-left: 110px;
-    clear: both;
-    white-space: nowrap;
-  }
-}
-
-.inp-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-
-  &:focus {
-    outline: none;
-  }
-
-  &.on {
-    background: #1996f9;
-    color: #fff;
-  }
-}
-
-.demo-ul {
-  margin: 0;
-  padding: 0;
-
-  & li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-}
 </style>

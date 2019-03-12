@@ -91,13 +91,4 @@ $font-path: '../water/font/';
 @import '../water/icon/style/icon.scss';
 @import '../water/button/style/button.scss';
 @import '../water/message/style/message.scss';
-
-.message-button {
-  margin: 0 0 0 8px;
-  vertical-align: middle;
-}
-
-.notice-sel {
-  height: 32px;
-}
 </style>

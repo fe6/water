@@ -69,9 +69,4 @@ export default {
 $font-path: '../water/font/';
 @import '../water/breadcrumb/style/breadcrumb.scss';
 @import '../water/icon/style/icon.scss';
-
-.demo {
-  color: #1996f5;
-  font-weight: normal;
-}
 </style>

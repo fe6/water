@@ -151,17 +151,4 @@ export default {
 $font-path: '../water/font/';
 @import '../water/icon/style/icon.scss';
 @import '../water/button/style/button.scss';
-
-.demo {
-  &-button {
-    margin: 0 16px 16px 0;
-    vertical-align: middle;
-  }
-}
-
-.ghost {
-  background: rgb(190, 200, 200);
-  padding: 26px 16px 16px;
-  margin: 16px 0
-}
 </style>

@@ -34,7 +34,6 @@
 <br>
 
 <div>
-  {{diy}}
   <w-cascader :option="baseOpts" @change="baseChange" style="width: 280px; display: inline-block;">
     <a href="javascript:;">Change city</a>
   </w-cascader>

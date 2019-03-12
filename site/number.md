@@ -96,21 +96,4 @@ export default {
 
 <style lang="scss" scope>
 @import '../water/number/style/number.scss';
-
-.inp-btn {
-  border: none;
-  cursor: pointer;
-  border: 1px solid #1996f9;
-  color: #333;
-  transition: color 0.4s, background 0.4s;
-
-  &:focus {
-    outline: none;
-  }
-
-  &.on {
-    background: #1996f9;
-    color: #fff;
-  }
-}
 </style>

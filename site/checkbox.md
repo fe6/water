@@ -219,11 +219,4 @@ export default {
 @import '../water/grid/style/row.scss';
 @import '../water/checkbox/style/checkbox.scss';
 @import '../water/checkbox/style/checkboxgroup.scss';
-
-.demo-checkbox {
-  display: block;
-  height: 20px;
-  width: 50%;
-  margin: 0;
-}
 </style>

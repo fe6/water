@@ -3,14 +3,14 @@
 ## 24栅格系统
 
 <div>
-  <w-row type="flex" justify="center" align="middle" className="demo-row" class="demo-first">
-    <w-col :span="24" className="demo-col" class="demo-text">100%</w-col>
+  <w-row type="flex" justify="center" align="middle" className="demo-grid-row" class="demo-grid-first">
+    <w-col :span="24" className="demo-grid-col" class="demo-grid-text">100%</w-col>
   </w-row>
-  <w-row type="flex" justify="center" align="middle" className="demo-row">
-    <w-col :span="12" v-for="(a, aIndex) in 2" :key="aIndex" className="demo-col" class="demo-text">50%</w-col>
+  <w-row type="flex" justify="center" align="middle" className="demo-grid-row">
+    <w-col :span="12" v-for="(a, aIndex) in 2" :key="aIndex" className="demo-grid-col" class="demo-grid-text">50%</w-col>
   </w-row>
-  <w-row type="flex" justify="center" align="middle" className="demo-row">
-    <w-col :span="8" v-for="(a, aIndex) in 3" :key="aIndex" className="demo-col" class="demo-text">33.33%</w-col>
+  <w-row type="flex" justify="center" align="middle" className="demo-grid-row">
+    <w-col :span="8" v-for="(a, aIndex) in 3" :key="aIndex" className="demo-grid-col" class="demo-grid-text">33.33%</w-col>
   </w-row>
 </div>
 
@@ -38,29 +38,29 @@ Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排�
 <br>
 
 <div>
-  <w-row className="demo-row" class="demo-second">
-    <w-col :span="8" className="demo-col">
-      <div class="demo-text">col-8</div>
+  <w-row className="demo-grid-row" class="demo-grid-second">
+    <w-col :span="8" className="demo-grid-col">
+      <div class="demo-grid-text">col-8</div>
     </w-col>
-    <w-col :span="8" className="demo-col">
-      <div class="demo-text">col-8</div>
+    <w-col :span="8" className="demo-grid-col">
+      <div class="demo-grid-text">col-8</div>
     </w-col>
-    <w-col :span="8" className="demo-col">
-      <div class="demo-text">col-8</div>
+    <w-col :span="8" className="demo-grid-col">
+      <div class="demo-grid-text">col-8</div>
     </w-col>
   </w-row>
-  <w-row className="demo-row">
-    <w-col :span="6" className="demo-col">
-      <div class="demo-text">col-6</div>
+  <w-row className="demo-grid-row">
+    <w-col :span="6" className="demo-grid-col">
+      <div class="demo-grid-text">col-6</div>
     </w-col>
-    <w-col :span="6" className="demo-col">
-      <div class="demo-text">col-6</div>
+    <w-col :span="6" className="demo-grid-col">
+      <div class="demo-grid-text">col-6</div>
     </w-col>
-    <w-col :span="6" className="demo-col">
-      <div class="demo-text">col-6</div>
+    <w-col :span="6" className="demo-grid-col">
+      <div class="demo-grid-text">col-6</div>
     </w-col>
-    <w-col :span="6" className="demo-col">
-      <div class="demo-text">col-6</div>
+    <w-col :span="6" className="demo-grid-col">
+      <div class="demo-grid-text">col-6</div>
     </w-col>
   </w-row>
 </div>
@@ -70,22 +70,22 @@ Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排�
 
 <br>
 
-<w-row :gutter="16" className="demo-row" class="demo-second">
-  <w-col :span="6" className="demo-col" class="demo-text">col-6</w-col>
-  <w-col :span="6" className="demo-col" class="demo-text">col-6</w-col>
-  <w-col :span="6" className="demo-col" class="demo-text">col-6</w-col>
-  <w-col :span="6" className="demo-col" class="demo-text">col-6</w-col>
+<w-row :gutter="16" className="demo-grid-row" class="demo-grid-second">
+  <w-col :span="6" className="demo-grid-col" class="demo-grid-text">col-6</w-col>
+  <w-col :span="6" className="demo-grid-col" class="demo-grid-text">col-6</w-col>
+  <w-col :span="6" className="demo-grid-col" class="demo-grid-text">col-6</w-col>
+  <w-col :span="6" className="demo-grid-col" class="demo-grid-text">col-6</w-col>
 </w-row>
 
 ## 栅格顺序
 
 <br>
 
-<w-row className="demo-row" type="flex" class="demo-second">
-  <w-col :span="6" className="demo-col" :order="4" class="demo-text">1 | order-4</w-col>
-  <w-col :span="6" className="demo-col" :order="3" class="demo-text">2 | order-3</w-col>
-  <w-col :span="6" className="demo-col" :order="2" class="demo-text">3 | order-4</w-col>
-  <w-col :span="6" className="demo-col" :order="1" class="demo-text">4 | order-1</w-col>
+<w-row className="demo-grid-row" type="flex" class="demo-grid-second">
+  <w-col :span="6" className="demo-grid-col" :order="4" class="demo-grid-text">1 | order-4</w-col>
+  <w-col :span="6" className="demo-grid-col" :order="3" class="demo-grid-text">2 | order-3</w-col>
+  <w-col :span="6" className="demo-grid-col" :order="2" class="demo-grid-text">3 | order-4</w-col>
+  <w-col :span="6" className="demo-grid-col" :order="1" class="demo-grid-text">4 | order-1</w-col>
 </w-row>
 
 
@@ -93,76 +93,76 @@ Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排�
 
 <br>
 
-<w-row className="demo-row" class="demo-second">
-  <w-col :span="18" :pull="6" className="demo-col" class="demo-text">col-18 | pull-6</w-col>
-  <w-col :span="6" :push="18" className="demo-col" class="demo-text">col-6 | push-18</w-col>
+<w-row className="demo-grid-row" class="demo-grid-second">
+  <w-col :span="18" :pull="6" className="demo-grid-col" class="demo-grid-text">col-18 | pull-6</w-col>
+  <w-col :span="6" :push="18" className="demo-grid-col" class="demo-grid-text">col-6 | push-18</w-col>
 </w-row>
 
 ## 栅格偏移
 
 <br>
 
-<w-row className="demo-row" class="demo-second">
-  <w-col :span="8" className="demo-col" class="demo-text">col-8</w-col>
-  <w-col :span="8" className="demo-col" :offset="8" class="demo-text">col-8 | offset-8</w-col>
+<w-row className="demo-grid-row" class="demo-grid-second">
+  <w-col :span="8" className="demo-grid-col" class="demo-grid-text">col-8</w-col>
+  <w-col :span="8" className="demo-grid-col" :offset="8" class="demo-grid-text">col-8 | offset-8</w-col>
 </w-row>
 <br>
-<w-row className="demo-row">
-  <w-col :span="6" className="demo-col" :offset="8" class="demo-text">col-6 | offset-8</w-col>
-  <w-col :span="6" className="demo-col" :offset="4" class="demo-text">col-6 | offset-4</w-col>
+<w-row className="demo-grid-row">
+  <w-col :span="6" className="demo-grid-col" :offset="8" class="demo-grid-text">col-6 | offset-8</w-col>
+  <w-col :span="6" className="demo-grid-col" :offset="4" class="demo-grid-text">col-6 | offset-4</w-col>
 </w-row>
 
 ## 栅格排列 子元素向左排列
 
 <br>
 
-<w-row className="demo-row" type="flex" justify="start" align="top" class="demo-second">
-  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
-  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
-  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
-  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+<w-row className="demo-grid-row" type="flex" justify="start" align="top" class="demo-grid-second">
+  <w-col :span="4" className="demo-grid-col" class="demo-grid-text">col-4</w-col>
+  <w-col :span="4" className="demo-grid-col" class="demo-grid-text">col-4</w-col>
+  <w-col :span="4" className="demo-grid-col" class="demo-grid-text">col-4</w-col>
+  <w-col :span="4" className="demo-grid-col" class="demo-grid-text">col-4</w-col>
 </w-row>
 
 ## 顶部对齐
 
 <br>
 
-<w-row className="demo-row" type="flex" justify="center" align="top" class="demo-second">
-  <w-col :span="4" className="demo-col" class="demo-text">col-4 </w-col>
-  <w-col :span="4" className="demo-col" class="demo-text">col-4 </w-col>
-  <w-col :span="4" className="demo-col" class="demo-text">col-4 </w-col>
-  <w-col :span="4" className="demo-col" class="demo-text">col-4 </w-col>
+<w-row className="demo-grid-row" type="flex" justify="center" align="top" class="demo-grid-second">
+  <w-col :span="4" className="demo-grid-col" class="demo-grid-text">col-4 </w-col>
+  <w-col :span="4" className="demo-grid-col" class="demo-grid-text">col-4 </w-col>
+  <w-col :span="4" className="demo-grid-col" class="demo-grid-text">col-4 </w-col>
+  <w-col :span="4" className="demo-grid-col" class="demo-grid-text">col-4 </w-col>
 </w-row>
 
 ## 底部对齐
 
 <br>
 
-<w-row className="demo-row" type="flex" justify="center" align="bottom" class="demo-second">
-  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
-  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
-  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
-  <w-col :span="4" className="demo-col" class="demo-text">col-4</w-col>
+<w-row className="demo-grid-row" type="flex" justify="center" align="bottom" class="demo-grid-second">
+  <w-col :span="4" className="demo-grid-col" class="demo-grid-text">col-4</w-col>
+  <w-col :span="4" className="demo-grid-col" class="demo-grid-text">col-4</w-col>
+  <w-col :span="4" className="demo-grid-col" class="demo-grid-text">col-4</w-col>
+  <w-col :span="4" className="demo-grid-col" class="demo-grid-text">col-4</w-col>
 </w-row>
 
 ## 栅格响应式
 
 <br>
 
-<w-row className="demo-row" class="demo-second">
-  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
-  <w-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
-  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
+<w-row className="demo-grid-row" class="demo-grid-second">
+  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-grid-col" class="demo-grid-text">w-col</w-col>
+  <w-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-grid-col" class="demo-grid-text">w-col</w-col>
+  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-grid-col" class="demo-grid-text">w-col</w-col>
 </w-row>
 
 ## 栅格其他属性
 
 <br>
 
-<w-row className="demo-row" class="demo-second">
-  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
-  <w-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
-  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-col" class="demo-text">w-col</w-col>
+<w-row className="demo-grid-row" class="demo-grid-second">
+  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-grid-col" class="demo-grid-text">w-col</w-col>
+  <w-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-grid-col" class="demo-grid-text">w-col</w-col>
+  <w-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }" className="demo-grid-col" class="demo-grid-text">w-col</w-col>
 </w-row>
 
 ## API
@@ -213,35 +213,4 @@ export default {
 <style lang="scss">
 @import '../water/grid/style/col.scss';
 @import '../water/grid/style/row.scss';
-
-.demo {
-  &-first {
-    margin-top: 24px !important;
-  }
-
-  &-second {
-    margin-top: 16px !important;
-  }
-
-  &-row {
-    margin-bottom: 8px;
-    background-image: linear-gradient(90deg,#f5f5f5 4.16666667%,transparent 0,transparent 8.33333333%,#f5f5f5 0,#f5f5f5 12.5%,transparent 0,transparent 16.66666667%,#f5f5f5 0,#f5f5f5 20.83333333%,transparent 0,transparent 25%,#f5f5f5 0,#f5f5f5 29.16666667%,transparent 0,transparent 33.33333333%,#f5f5f5 0,#f5f5f5 37.5%,transparent 0,transparent 41.66666667%,#f5f5f5 0,#f5f5f5 45.83333333%,transparent 0,transparent 50%,#f5f5f5 0,#f5f5f5 54.16666667%,transparent 0,transparent 58.33333333%,#f5f5f5 0,#f5f5f5 62.5%,transparent 0,transparent 66.66666667%,#f5f5f5 0,#f5f5f5 70.83333333%,transparent 0,transparent 75%,#f5f5f5 0,#f5f5f5 79.16666667%,transparent 0,transparent 83.33333333%,#f5f5f5 0,#f5f5f5 87.5%,transparent 0,transparent 91.66666667%,#f5f5f5 0,#f5f5f5 95.83333333%,transparent 0);
-  }
-
-  &-col {
-    color: #333;
-
-    &:nth-of-type(odd) {
-      color: #fff;
-      background: rgba(25, 150, 249, 0.5);
-    }
-  }
-
-  &-text {
-    padding: 30px 0;
-    text-align: center;
-    font-size: 30px;
-    line-height: 1;
-  }
-}
 </style>

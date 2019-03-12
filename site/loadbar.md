@@ -83,9 +83,4 @@ export default {
 <style lang="scss">
 @import '../water/button/style/button.scss';
 @import '../water/loadbar/style/loadbar.scss';
-
-.demo-button {
-  margin: 0 8px 8px 0;
-  vertical-align: middle;
-}
 </style>

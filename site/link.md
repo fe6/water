@@ -56,19 +56,4 @@ export default {
 </script>
 <style lang="scss">
 @import '../water/link/style/link.scss';
-
-.inp-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  &:focus {
-    outline: none;
-  }
-
-  &.on {
-    background: #1996f9;
-    color: #fff;
-  }
-}
 </style>

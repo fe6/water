@@ -199,35 +199,4 @@ $font-path: '../water/font/';
 @import '../water/icon/style/icon.scss';
 @import '../water/button/style/button.scss';
 @import '../water/modal/style/modal.scss';
-
-.inp-btn {
-  border: none;
-  cursor: pointer;
-  background: #1996f9;
-  color: #fff;
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.modal {
-  &-footer {
-    background: #d8d8d8;
-    text-align: center;
-  }
-
-  &-title {
-    background: #d8d8d8;
-    padding: 10px 24px;
-  }
-
-  &-close {
-    top: 13px;
-  }
-
-  &-mask {
-    background: rgba(255, 0, 0, 0.4);
-  }
-}
 </style>

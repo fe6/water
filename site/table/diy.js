@@ -21,10 +21,11 @@ export const diyColumns = [{
         },
         nativeOn: {
           keyup(ev = window.event) {
-            if (ev.keyCode === 13) {
+            const name = ev.target.value;
+            if (ev.keyCode === 13 && name) {
               Object.assign(dataItem, {
                 edit: false,
-                name: ev.target.value,
+                name,
               });
             }
           },
@@ -99,10 +100,14 @@ export const diyColumns = [{
           },
           on: {
             click() {
-              Object.assign(dataItem, {
-                name: nameValue[dataIdx],
+              const params = {
                 edit: false,
-              });
+              };
+              const newVal = nameValue[dataIdx];
+              if (newVal) {
+                params.name = newVal;
+              }
+              Object.assign(dataItem, params);
             },
           },
         }, '确定'),

@@ -176,17 +176,4 @@ export default {
 @import '../water/button/style/button.scss';
 @import '../water/radio/style/radio.scss';
 @import '../water/radio/style/radiogroup.scss';
-
-.input-more-text {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.input-more {
-  padding: 0;
-  margin: 0 0 0 8px;
-  height: 12px;
-  display: inline-block;
-  vertical-align: middle;
-}
 </style>
