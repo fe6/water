@@ -34,8 +34,5 @@ export default (props = {}) => {
     close() {
       modal.status = false;
     },
-    confirm() {
-      console.log(1111);
-    },
   };
 };

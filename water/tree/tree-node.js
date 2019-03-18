@@ -47,7 +47,6 @@ export default {
       this.updateAllParent(this.$parent);
       this.updateAllChilren(this.$children);
       this.change(this.title, this.checked, ev);
-      console.log(this.checked, this.title, 'this.title');
     },
     updateAllParent(parent, updateChecked = true) {
       const childs = parent.$children.filter(parentItem => parentItem.isLeaf);

@@ -144,7 +144,6 @@ export const setTopFn = (self, render, before = () => {}, after = () => {}) => {
         // bottom bottomLeft bottomRight
         posY = offsetTop + height + self.interval;
       }
-      console.log(self.interval, 'interval y');
       resolve(posY + getScroll(window, true));
     });
   });
