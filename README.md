@@ -4,13 +4,12 @@
   </a>
 </p>
 
-# water
+# 水滴 - water
 
-> An enterprise-level UI design language and Vue.js implementation.
+>一套企业级的 UI 设计语言和 Vue.js 实现。
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/fe6/water.svg)](https://greenkeeper.io)
-[![travis](https://img.shields.io/travis/fe6/water.svg?style=flat)](https://travis-ci.org/fe6/water)
-[![Codecov](https://img.shields.io/codecov/c/github/fe6/water/master.svg?style=flat)](https://codecov.io/gh/fe6/water/branch/master)
+[![water 持续集成](https://travis-ci.org/fe6/water.svg?branch=master)](https://travis-ci.org/fe6/water)
+[![Codecov 单元测试覆盖率](https://img.shields.io/codecov/c/github/fe6/water/master.svg?style=flat)](https://codecov.io/gh/fe6/water/branch/master)
 
 ![GitHub language count](https://img.shields.io/github/languages/count/fe6/water.svg)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/fe6/water.svg)
@@ -19,20 +18,18 @@
 
 [![Sauce Labs Test Status (for master branch)](https://badges.herokuapp.com/browsers?googlechrome=7&firefox=7&microsoftedge=10&iexplore=9&safari=10.10)](https://saucelabs.com/u/_wmhilton)
 
-[中文 README](README-zh_CN.md)
+## 特性
 
-## Feature
+- 提炼自企业级中后台产品的交互语言和视觉风格。
+- 开箱即用的高质量 Vue.js 组件。
+- 全链路开发和设计工具体系。
+- 按需加载系统。
 
-- Refining the interactive language and visual style of the enterprise-level mid- and back-end products.
-- High quality Vue.js components out of the box.
-- Full link development and design tooling system.
-- Load the system on demand.
-
-## Environment
+## 需要的环境
 
 - node.js >= 9.0.0
 - npm >= 5.0.0
 
-## Description
+## 说明
 
-This warehouse is built with scaffolding [fecli](https://github.com/fe6/fecli), combined with a [component-template](https://github.com/fe6/component-template) template.
+本仓库是用脚手架 [fecli](https://github.com/fe6/fecli)，结合 [component-template](https://github.com/fe6/component-template) 模板生成的。
