@@ -48,10 +48,14 @@
 
 ## 12方向
 
+<br>
+<br>
+<br>
+
 <div class="demo">
   <div class="demo-popover-top">
     <w-popover coreName="demo-popover-core" placement="topLeft">
-      <w-button prefix="demo">topLeft</w-button>
+      <w-button prefix="demo-tooltip">topLeft</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
       <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
@@ -59,7 +63,7 @@
       </ul>
     </w-popover>
     <w-popover coreName="demo-popover-core">
-      <w-button prefix="demo">top</w-button>
+      <w-button prefix="demo-tooltip">top</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
       <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
@@ -67,7 +71,7 @@
       </ul>
     </w-popover>
     <w-popover coreName="demo-popover-core" placement="topRight">
-      <w-button prefix="demo">topRight</w-button>
+      <w-button prefix="demo-tooltip">topRight</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
       <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
@@ -77,7 +81,7 @@
   </div>
   <div class="demo-popover-left">
     <w-popover coreName="demo-popover-core" placement="leftTop">
-      <w-button prefix="demo">leftTop</w-button>
+      <w-button prefix="demo-tooltip">leftTop</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
       <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
@@ -85,7 +89,7 @@
       </ul>
     </w-popover>
     <w-popover coreName="demo-popover-core" placement="left">
-      <w-button prefix="demo">left</w-button>
+      <w-button prefix="demo-tooltip">left</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
       <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
@@ -93,7 +97,7 @@
       </ul>
     </w-popover>
     <w-popover coreName="demo-popover-core" placement="leftBottom">
-      <w-button prefix="demo">leftBottom</w-button>
+      <w-button prefix="demo-tooltip">leftBottom</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
       <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
@@ -103,7 +107,7 @@
   </div>
   <div class="demo-popover-right">
     <w-popover coreName="demo-popover-core" placement="rightTop">
-      <w-button prefix="demo">rightTop</w-button>
+      <w-button prefix="demo-tooltip">rightTop</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
       <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
@@ -111,7 +115,7 @@
       </ul>
     </w-popover>
     <w-popover coreName="demo-popover-core" placement="right">
-      <w-button prefix="demo">right</w-button>
+      <w-button prefix="demo-tooltip">right</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
       <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
@@ -119,7 +123,7 @@
       </ul>
     </w-popover>
     <w-popover coreName="demo-popover-core" placement="rightBottom">
-      <w-button prefix="demo">rightBottom</w-button>
+      <w-button prefix="demo-tooltip">rightBottom</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
       <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
@@ -129,7 +133,7 @@
   </div>
   <div class="demo-popover-bottom">
     <w-popover coreName="demo-popover-core" placement="bottomLeft">
-      <w-button prefix="demo">bottomLeft</w-button>
+      <w-button prefix="demo-tooltip">bottomLeft</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
       <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
@@ -137,7 +141,7 @@
       </ul>
     </w-popover>
     <w-popover coreName="demo-popover-core" placement="bottom">
-      <w-button prefix="demo">Bottom</w-button>
+      <w-button prefix="demo-tooltip">Bottom</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
       <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>
@@ -145,7 +149,7 @@
       </ul>
     </w-popover>
     <w-popover coreName="demo-popover-core" placement="bottomRight">
-      <w-button prefix="demo">bottomRight</w-button>
+      <w-button prefix="demo-tooltip">bottomRight</w-button>
       <a href="javascript:;" slot="title">这是标题</a>
       <ul slot="content" class="demo-popover-ul">
         <li>气泡卡片1</li>

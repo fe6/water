@@ -28,52 +28,61 @@
   </w-switch>
 </p>
 
+## 自定义样式
+
+> 可调整间距，可设置颜色等样式
+
+<br>
+<p>
+  <w-tooltip :interval="16" content="文字提示" arrowColor="rgba(255, 255, 0, 0.4)" :contentStyle="{['background-color']: 'rgba(255, 255, 0, 0.2)', color: 'rgba(255, 0, 255, 0.2)'}"><a href="javascript:;">鼠标输入时，我改变的显示的位置和颜色。</a></w-tooltip>
+</p>
+
 ## 12方向
 
 
 <div class="demo">
   <div class="demo-popover-top">
     <w-tooltip coreName="demo-popover-core" placement="topLeft" content="文字提示">
-      <w-button prefix="demo">topLeft</w-button>
+      <w-button prefix="demo-tooltip">topLeft</w-button>
     </w-tooltip>
     <w-tooltip coreName="demo-popover-core" content="文字提示">
-      <w-button prefix="demo">top</w-button>
+      <w-button prefix="demo-tooltip">top</w-button>
     </w-tooltip>
     <w-tooltip coreName="demo-popover-core" placement="topRight" content="文字提示">
-      <w-button prefix="demo">topRight</w-button>
+      <w-button prefix="demo-tooltip">topRight</w-button>
     </w-tooltip>
   </div>
   <div class="demo-popover-left">
     <w-tooltip coreName="demo-popover-core" placement="leftTop" content="文字提示">
-      <w-button prefix="demo">leftTop</w-button>
+      <w-button prefix="demo-tooltip">leftTop</w-button>
     </w-tooltip>
     <w-tooltip coreName="demo-popover-core" placement="left" content="文字提示">
-      <w-button prefix="demo">left</w-button>
+      <w-button prefix="demo-tooltip">left</w-button>
     </w-tooltip>
     <w-tooltip coreName="demo-popover-core" placement="leftBottom" content="文字提示">
-      <w-button prefix="demo">leftBottom</w-button>
+      <w-button prefix="demo-tooltip">leftBottom</w-button>
     </w-tooltip>
   </div>
   <div class="demo-popover-right">
     <w-tooltip coreName="demo-popover-core" placement="rightTop" content="文字提示">
-      <w-button prefix="demo">rightTop</w-button>
+      <w-button prefix="demo-tooltip">rightTop</w-button>
     </w-tooltip>
     <w-tooltip coreName="demo-popover-core" placement="right" content="文字提示">
-      <w-button prefix="demo">right</w-button>
+      <w-button prefix="demo-tooltip">right</w-button>
     </w-tooltip>
     <w-tooltip coreName="demo-popover-core" placement="rightBottom" content="文字提示">
-      <w-button prefix="demo">rightBottom</w-button>
+      <w-button prefix="demo-tooltip">rightBottom</w-button>
     </w-tooltip>
   </div>
   <div class="demo-popover-bottom">
     <w-tooltip coreName="demo-popover-core" placement="bottomLeft" content="文字提示">
-      <w-button prefix="demo">bottomLeft</w-button>
+      <w-button prefix="demo-tooltip">bottomLeft</w-button>
     </w-tooltip>
     <w-tooltip coreName="demo-popover-core" placement="bottom" content="文字提示">
-      <w-button prefix="demo">Bottom</w-button>
+      <w-button prefix="demo-tooltip">Bottom</w-button>
     </w-tooltip>
     <w-tooltip coreName="demo-popover-core" placement="bottomRight" content="文字提示">
-      <w-button prefix="demo">bottomRight</w-button>
+      <w-button prefix="demo-tooltip">bottomRight</w-button>
     </w-tooltip>
   </div>
 </div>
@@ -94,11 +103,14 @@
 |leaveDelay|鼠标移出后延时多少才隐藏 Tooltip，单位：秒|Number|否|100|
 |trigger|触发行为，可选 hover\|click|String|否|hover|
 |getContainer|浮层渲染父节点，默认渲染到 body 上|Function(triggerNode)|否|() => document.body|
+|interval|间距修改，单位 px|Number|否|8|
 |placement|气泡框位置|String|否|top|
 |content|气泡框内容|String|否|无|
 |coreName|气泡框包裹元素的 class 名|String\|Array\|Object|否|() => {}|
 |change|显示隐藏触发的方法，返回当前状态|Function|否|()=>{}|
 |mountEnd|初始化完成之后触发，返回当前状态，和当前元素|Function|否|()=>{}|
+|arrowColor|三角的颜色|String|否|rgba(0, 0, 0, 0.75)|
+|contentStyle|内容的样式|Object|否|无|
 
 <script>
 import WIcon from '../water/icon/Icon';

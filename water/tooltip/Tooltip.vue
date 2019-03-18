@@ -1,8 +1,8 @@
 <template>
   <transition name="fade">
     <div class="w-tooltip" :class="tooltipClass" :style=" { left: `${left}px`, top: `${top}px` }" ref="popElem" v-show="status" v-if="contentValue">
-      <i class="w-tooltip-arrow" :class="arrowClass"></i>
-      <div class="w-tooltip-content">
+      <i class="w-tooltip-arrow" :class="arrowClass" :style="arrowStyle"></i>
+      <div class="w-tooltip-content" :style="contentStyle">
         {{contentValue}}
       </div>
     </div>
@@ -40,6 +40,8 @@ export default {
       type: Number,
       default: 8,
     },
+    arrowColor: String,
+    contentStyle: Object,
   },
   computed: {
     contentValue() {
@@ -71,6 +73,22 @@ export default {
           'w-tooltip-arrow-horcenter': this.isHorCenter,
         },
       ];
+    },
+    arrowStyle() {
+      const color = {};
+      if (this.isHorTop && this.arrowColor) {
+        color['border-top-color'] = this.arrowColor;
+      }
+      if (this.isHorBottom && this.arrowColor) {
+        color['border-bottom-color'] = this.arrowColor;
+      }
+      if (this.isVerLeft && this.arrowColor) {
+        color['border-left-color'] = this.arrowColor;
+      }
+      if (this.isVerRight && this.arrowColor) {
+        color['border-right-color'] = this.arrowColor;
+      }
+      return color;
     },
     ...regDirection,
   },
