@@ -23,6 +23,10 @@ export default {
       type: Number,
       default: 100,
     },
+    interval: {
+      type: Number,
+      default: 8,
+    },
     trigger: {
       type: String,
       default: 'hover',
@@ -44,6 +48,8 @@ export default {
       default: () => {},
     },
     content: String,
+    arrowColor: String,
+    contentStyle: Object,
     coreName: {
       type: [String, Array, Object],
       default: () => {},
@@ -98,6 +104,9 @@ export default {
             placement: this.placement,
             value: this.status,
             content: this.contentValue,
+            arrowColor: this.arrowColor,
+            contentStyle: this.contentStyle,
+            interval: this.interval,
           },
         }),
       })).$mount().$el;
