@@ -1,7 +1,7 @@
 sudo: false
 
 language: node_js
-node_js: 9
+node_js: 11
 
 install:
   - yarn install
