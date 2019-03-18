@@ -9,7 +9,7 @@
 >一套企业级的 UI 设计语言和 Vue.js 实现。
 
 [![water 持续集成](https://travis-ci.org/fe6/water.svg?branch=master)](https://travis-ci.org/fe6/water)
-[![Codecov 单元测试覆盖率](https://img.shields.io/codecov/c/github/fe6/water/master.svg?style=flat)](https://codecov.io/gh/fe6/water/branch/master)
+[![Codecov 单元测试覆盖](https://img.shields.io/codecov/c/github/fe6/water/master.svg?style=flat)](https://codecov.io/gh/fe6/water/branch/master)
 
 ![GitHub language count](https://img.shields.io/github/languages/count/fe6/water.svg)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/fe6/water.svg)
