@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+  verbose: true,
   moduleFileExtensions: [
     'js',
     'vue'

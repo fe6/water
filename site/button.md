@@ -95,7 +95,6 @@
 |click|绑定按钮点击事件，循环中 this 改变并传参时使用。会返回 `Event 对象`, `索引`|Function|否|() => {}|
 |mouseover|绑定按钮鼠标移入事件，循环中 this 改变并传参时使用。会返回 `Event 对象`, `索引`|Function|否|() => {}|
 |mouseout|绑定按钮鼠标移出事件，循环中 this 改变并传参时使用。会返回 `Event 对象`, `索引`|Function|否|() => {}|
-|stop|是否点击事件冒泡|Boolean|否|无|
 
 #### 事件
 

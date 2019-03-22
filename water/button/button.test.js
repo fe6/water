@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
 
@@ -6,7 +6,7 @@ describe('Button.vue', () => {
   let wrapper = null;
 
   beforeEach(() => {
-    wrapper = shallow(ButtonGroup, {
+    wrapper = shallowMount(ButtonGroup, {
       slots: {
         default: [Button],
       },
@@ -17,21 +17,6 @@ describe('Button.vue', () => {
     wrapper.vm.$nextTick(() => {
       try {
         expect(wrapper.vm.$children[0].$el).toMatchSnapshot();
-        done();
-      } catch (err) {
-        done.fail(err);
-      }
-    });
-  });
-
-  it('阻止冒泡', (done) => {
-    wrapper.vm.$nextTick(() => {
-      try {
-        const button = wrapper.find('.w-button');
-        const stub = jest.fn();
-        wrapper.vm.$children[0].stop = true;
-        button.trigger('click', { stopPropagation: stub });
-        expect(stub).toBeCalled();
         done();
       } catch (err) {
         done.fail(err);

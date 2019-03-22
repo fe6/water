@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Tag from './Tag';
 
 describe('Tag.vue', () => {
@@ -9,30 +9,30 @@ describe('Tag.vue', () => {
   let wrapperStop = null;
 
   beforeEach(() => {
-    wrapperModel = shallow(Tag, {
+    wrapperModel = shallowMount(Tag, {
       propsData: {
         size: 'small',
         disabled: false,
       },
     });
-    wrapperClose = shallow(Tag, {
+    wrapperClose = shallowMount(Tag, {
       propsData: {
         closable: true,
       },
     });
-    wrapperLoading = shallow(Tag, {
+    wrapperLoading = shallowMount(Tag, {
       propsData: {
         size: 'small',
         loading: true,
       },
     });
-    wrapperSection = shallow(Tag, {
+    wrapperSection = shallowMount(Tag, {
       propsData: {
         color: '#1996f9',
         colorType: 'section',
       },
     });
-    wrapperStop = shallow(Tag, {
+    wrapperStop = shallowMount(Tag, {
       propsData: {
         closable: true,
         stop: true,
@@ -62,7 +62,7 @@ describe('Tag.vue', () => {
     wrapperClose.vm.$nextTick(() => {
       try {
         const stub = jest.fn();
-        wrapperClose.vm.close = stub;
+        wrapperClose.setProps({ close: stub });
         const close = wrapperClose.find('.w-tag-close');
         close.trigger('click');
         expect(stub).toBeCalled();

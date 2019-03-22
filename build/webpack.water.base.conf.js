@@ -3,7 +3,7 @@ var chalk = require('chalk');
 var webpack = require('webpack');
 // 百分比进度
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 var utils = require('./utils');
 var vueLoaderConfig = require('./vue-loader.conf');
 // 公共的 banner
@@ -61,8 +61,7 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue',
-        options: vueLoaderConfig
+        loader: 'vue-loader',
       },
       {
         test: /\.js$/,
@@ -95,6 +94,7 @@ module.exports = {
     new ProgressBarPlugin({
       format: '📦  '+ chalk.blue('构建进度:') + ' '+ chalk.redBright.bold('[:bar]') + ' ' + chalk.magentaBright.bold(':percent') + ' ' + chalk.magentaBright.bold(':elapsed seconds'),
     }),
+    new VueLoaderPlugin(),
     // 注入内容
     new webpack.BannerPlugin( banner )
   ]

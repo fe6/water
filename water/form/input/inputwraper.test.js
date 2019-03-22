@@ -1,4 +1,4 @@
-import { mount } from 'vue-test-utils';
+import { mount } from '@vue/test-utils';
 import InputWraper from './InputWraper';
 import Icon from '../../icon/Icon';
 
@@ -49,7 +49,7 @@ describe('InputWraper.vue', () => {
         wrapperWatch.setMethods({
           setValue: changeFn,
         });
-        wrapperWatch.vm.value = '100';
+        wrapperWatch.setProps({ value: '100' });
         wrapperWatch.vm.$nextTick(() => {
           expect(changeFn).toBeCalled();
           done();

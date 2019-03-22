@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Checkbox from './Checkbox';
 
 describe('Checkbox.vue', () => {
@@ -9,15 +9,15 @@ describe('Checkbox.vue', () => {
   let wrapperValueEqual = null;
 
   beforeEach(() => {
-    wrapperModel = shallow(Checkbox);
-    wrapperOn = shallow(Checkbox);
-    wrapperValueEqual = shallow(Checkbox);
-    wrapperDisabled = shallow(Checkbox, {
+    wrapperModel = shallowMount(Checkbox);
+    wrapperOn = shallowMount(Checkbox);
+    wrapperValueEqual = shallowMount(Checkbox);
+    wrapperDisabled = shallowMount(Checkbox, {
       propsData: {
         disabled: true,
       },
     });
-    wrapperNoClick = shallow(Checkbox, {
+    wrapperNoClick = shallowMount(Checkbox, {
       propsData: {
         disabled: true,
       },
@@ -41,7 +41,7 @@ describe('Checkbox.vue', () => {
     wrapperDisabled.vm.$nextTick(() => {
       try {
         expect(wrapperDisabled.vm.disabledStatus).toBe(true);
-        wrapperDisabled.vm.disabled = false;
+        wrapperDisabled.setProps({ disabled: false });
         setTimeout(() => {
           expect(wrapperDisabled.vm.disabledStatus).toBe(false);
           done();
@@ -56,7 +56,7 @@ describe('Checkbox.vue', () => {
     wrapperOn.vm.$nextTick(() => {
       try {
         expect(wrapperOn.vm.on).toBe(false);
-        wrapperOn.vm.on = true;
+        wrapperOn.setProps({ on: true });
         setTimeout(() => {
           expect(wrapperOn.vm.checkStatus).toBe(true);
           done();

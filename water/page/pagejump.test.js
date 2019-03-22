@@ -1,11 +1,11 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import PageJump from './PageJump';
 
 describe('PageJump.vue', () => {
   let wrapperModel = null;
 
   beforeEach(() => {
-    wrapperModel = shallow(PageJump, {
+    wrapperModel = shallowMount(PageJump, {
       propsData: {
         value: 1,
       },

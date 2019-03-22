@@ -64,7 +64,6 @@ export default {
     },
     prefix: String,
     className: [String, Object],
-    stop: Boolean,
     click: {
       type: Function,
       default: () => {},
@@ -97,9 +96,6 @@ export default {
       const { key } = this.$vnode.data;
       this.click(evente, key);
       this.$emit('click', evente, key);
-      if (this.stop) {
-        evente.stopPropagation();
-      }
     },
     mouseoverFn(evente) {
       const { key } = this.$vnode.data;

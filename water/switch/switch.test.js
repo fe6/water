@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Switch from './Switch';
 import before from './before';
 
@@ -8,15 +8,15 @@ describe('Switch.vue', () => {
   let wrapperStop = null;
 
   beforeEach(() => {
-    wrapper = shallow(Switch, {
+    wrapper = shallowMount(Switch, {
       propsData: {
         async before() {
           return before;
         },
       },
     });
-    wrapperBeforeDefault = shallow(Switch);
-    wrapperStop = shallow(Switch, {
+    wrapperBeforeDefault = shallowMount(Switch);
+    wrapperStop = shallowMount(Switch, {
       propsData: {
         stop: true,
       },
@@ -42,10 +42,10 @@ describe('Switch.vue', () => {
   it('v-model', (done) => {
     wrapperBeforeDefault.vm.$nextTick(() => {
       try {
-        wrapperBeforeDefault.vm.value = true;
+        wrapperBeforeDefault.setProps({ value: true });
         const switchElem = wrapperBeforeDefault.find('.w-switch');
         switchElem.trigger('click');
-        expect(wrapperBeforeDefault.vm.status).toBe(true);
+        expect(wrapperBeforeDefault.vm.status).toBeFalsy();
         done();
       } catch (err) {
         done.fail(err);

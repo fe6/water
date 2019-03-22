@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import { sortData, sortColumns } from '../../site/table/sort';
 import { fixData, fixColumns } from '../../site/table/fix';
 import THead from './THead';
@@ -9,13 +9,13 @@ describe('THead.vue', () => {
   let wrapperFix2 = null;
 
   beforeEach(() => {
-    wrapperModel = shallow(THead, {
+    wrapperModel = shallowMount(THead, {
       propsData: {
         data: sortData,
         columns: sortColumns,
       },
     });
-    wrapperFix = shallow(THead, {
+    wrapperFix = shallowMount(THead, {
       propsData: {
         data: sortData,
         columns: sortColumns,
@@ -24,7 +24,7 @@ describe('THead.vue', () => {
         },
       },
     });
-    wrapperFix2 = shallow(THead, {
+    wrapperFix2 = shallowMount(THead, {
       propsData: {
         data: fixData,
         columns: fixColumns,
@@ -96,7 +96,7 @@ describe('THead.vue', () => {
     wrapperFix2.vm.$nextTick(() => {
       try {
         expect(wrapperFix2.vm.fixColumns).toEqual(fixColumns);
-        wrapperFix2.vm.fixed = 'left';
+        wrapperFix2.setProps({ fixed: 'left' });
         expect(wrapperFix2.vm.fixColumns).toEqual(fixColumns.filter(colItem => colItem.fixed === 'left'));
         done();
       } catch (err) {

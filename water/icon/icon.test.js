@@ -1,4 +1,4 @@
-import { mount } from 'vue-test-utils';
+import { mount } from '@vue/test-utils';
 import Icon from './Icon';
 
 describe('Icon.vue', () => {
@@ -54,7 +54,7 @@ describe('Icon.vue', () => {
   it('验证 prop 为空不显示', (done) => {
     wrapperNo.vm.$nextTick(() => {
       try {
-        expect(wrapperNo.is('i')).toBe(false);
+        expect(wrapperNo.is('i')).toBeFalsy();
         done();
       } catch (err) {
         done.fail(err);
@@ -65,7 +65,7 @@ describe('Icon.vue', () => {
   it('验证 自定义前缀 prefix', (done) => {
     wrapperPrefix.vm.$nextTick(() => {
       try {
-        expect(wrapperPrefix.is('i')).toBe(true);
+        expect(wrapperPrefix.is('i')).toBeTruthy();
         expect(wrapperPrefix.classes().toString()).toBe('w-font,w-loading1,test-font,test-loading1');
         done();
       } catch (err) {
@@ -77,7 +77,7 @@ describe('Icon.vue', () => {
   it('验证 spin 字段转动', (done) => {
     wrapperSpin.vm.$nextTick(() => {
       try {
-        expect(wrapperSpin.is('i')).toBe(true);
+        expect(wrapperSpin.is('i')).toBeTruthy();
         expect(wrapperSpin.classes().toString()).toBe('w-font,w-loading1,w-spin');
         done();
       } catch (err) {

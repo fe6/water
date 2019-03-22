@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import { baseData, baseColumns } from '../../site/table/base';
 import TBody from './TBody';
 import { noop } from '../utils/noop';
@@ -8,13 +8,13 @@ describe('TBody.vue', () => {
   let wrapperExpand = null;
 
   beforeEach(() => {
-    wrapperModel = shallow(TBody, {
+    wrapperModel = shallowMount(TBody, {
       propsData: {
         data: baseData,
         columns: baseColumns,
       },
     });
-    wrapperExpand = shallow(TBody, {
+    wrapperExpand = shallowMount(TBody, {
       propsData: {
         data: baseData,
         columns: baseColumns,
@@ -26,8 +26,8 @@ describe('TBody.vue', () => {
   it('render', (done) => {
     wrapperModel.vm.$nextTick(() => {
       try {
-        wrapperModel.vm.scrollTop = 1;
-        expect(wrapperModel.vm.$refs.scroll.scrollTop).toBe(0);
+        wrapperModel.setProps({ scrollTop: 1 });
+        expect(wrapperModel.vm.$refs.scroll.scrollTop).toBe(1);
         const changeScrollFn = jest.fn();
         wrapperModel.vm.$on('changeScroll', changeScrollFn);
         wrapperModel.vm.scrollingFn({

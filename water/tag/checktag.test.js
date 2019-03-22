@@ -1,11 +1,11 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Checktag from './CheckTag';
 
 describe('Checktag.vue', () => {
   let wrapperModel = null;
 
   beforeEach(() => {
-    wrapperModel = shallow(Checktag, {
+    wrapperModel = shallowMount(Checktag, {
       propsData: {
         size: 'small',
         disabled: false,

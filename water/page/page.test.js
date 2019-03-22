@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Page from './Page';
 
 describe('Page.vue', () => {
@@ -10,30 +10,30 @@ describe('Page.vue', () => {
   let wrapperMidleSize = null;
 
   beforeEach(() => {
-    wrapperModel = shallow(Page, {
+    wrapperModel = shallowMount(Page, {
       propsData: {
         value: 1,
       },
     });
-    wrapperSimple = shallow(Page, {
+    wrapperSimple = shallowMount(Page, {
       propsData: {
         value: 1,
         simple: true,
       },
     });
-    wrapperTotal = shallow(Page, {
+    wrapperTotal = shallowMount(Page, {
       propsData: {
         value: 1,
       },
     });
-    wrapperSetNow = shallow(Page);
-    wrapperItemEnd = shallow(Page, {
+    wrapperSetNow = shallowMount(Page);
+    wrapperItemEnd = shallowMount(Page, {
       propsData: {
         value: 1,
         total: 125,
       },
     });
-    wrapperMidleSize = shallow(Page, {
+    wrapperMidleSize = shallowMount(Page, {
       propsData: {
         value: 1,
         midleSize: 20,
@@ -46,7 +46,7 @@ describe('Page.vue', () => {
     wrapperModel.vm.$nextTick(() => {
       try {
         expect(wrapperModel.vm.current).toBe(1);
-        wrapperModel.vm.value = 2;
+        wrapperModel.setProps({ value: 2 });
         wrapperModel.vm.$nextTick(() => {
           expect(wrapperModel.vm.current).toBe(2);
           done();
@@ -76,7 +76,7 @@ describe('Page.vue', () => {
   it('total', (done) => {
     wrapperTotal.vm.$nextTick(() => {
       try {
-        wrapperTotal.vm.total = 100;
+        wrapperTotal.setProps({ total: 100 });
         expect(wrapperTotal.vm.totalNumber).toBe(100);
         done();
       } catch (err) {
@@ -100,7 +100,7 @@ describe('Page.vue', () => {
     wrapperItemEnd.vm.$nextTick(() => {
       try {
         expect(wrapperItemEnd.vm.itemEnd).toBe(10);
-        wrapperSetNow.vm.value = 6;
+        wrapperSetNow.setProps({ value: 6 });
         expect(wrapperItemEnd.vm.itemEnd).toBe(10);
         done();
       } catch (err) {

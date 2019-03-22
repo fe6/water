@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import CascaderPanel from './CascaderPanel';
 
 const option = [{
@@ -32,7 +32,7 @@ describe('CascaderPanel.vue', () => {
   let wrapperPanelData = null;
 
   beforeEach(() => {
-    wrapperPanelData = shallow(CascaderPanel, {
+    wrapperPanelData = shallowMount(CascaderPanel, {
       propsData: {
         value: [],
         oldValue: [],
@@ -42,28 +42,28 @@ describe('CascaderPanel.vue', () => {
         }],
       },
     });
-    wrapperBodyClick = shallow(CascaderPanel, {
+    wrapperBodyClick = shallowMount(CascaderPanel, {
       propsData: {
         value: ['zhejiang'],
         oldValue: [],
         option,
       },
     });
-    wrapperModel = shallow(CascaderPanel, {
+    wrapperModel = shallowMount(CascaderPanel, {
       propsData: {
         value: ['zhejiang'],
         oldValue: [],
         option,
       },
     });
-    wrapperSetValue = shallow(CascaderPanel, {
+    wrapperSetValue = shallowMount(CascaderPanel, {
       propsData: {
         value: ['zhejiang', 'hangzhou'],
         oldValue: [],
         option,
       },
     });
-    wrapperDisabled = shallow(CascaderPanel, {
+    wrapperDisabled = shallowMount(CascaderPanel, {
       propsData: {
         value: ['zhejiang'],
         oldValue: [],
@@ -77,9 +77,9 @@ describe('CascaderPanel.vue', () => {
       try {
         const resetStub = jest.fn();
         wrapperModel.vm.reset = resetStub;
-        wrapperModel.vm.value = [];
+        // wrapperModel.vm.value = [];
         expect(resetStub).not.toBeCalled();
-        wrapperModel.vm.option = [];
+        // wrapperModel.vm.option = [];
         expect(resetStub).not.toBeCalled();
         wrapperModel.vm.bodyClick();
         expect(wrapperModel.vm.currentOption).toEqual({});

@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Cascader from './Cascader';
 
 const option = [{
@@ -28,58 +28,58 @@ describe('Cascader.vue', () => {
   let wrapperChangeOnSelect = null;
 
   beforeEach(() => {
-    wrapperChangeOnSelect = shallow(Cascader, {
+    wrapperChangeOnSelect = shallowMount(Cascader, {
       propsData: {
         option,
         changeOnSelect: true,
       },
     });
-    wrapperUpdataResult = shallow(Cascader, {
+    wrapperUpdataResult = shallowMount(Cascader, {
       propsData: {
         option,
       },
     });
-    wrapperDisabled = shallow(Cascader, {
+    wrapperDisabled = shallowMount(Cascader, {
       propsData: {
         option,
         disabled: true,
       },
     });
-    wrapperUpdateValue = shallow(Cascader, {
+    wrapperUpdateValue = shallowMount(Cascader, {
       propsData: {
         option,
       },
     });
-    wrapperSearchFocus = shallow(Cascader, {
+    wrapperSearchFocus = shallowMount(Cascader, {
       propsData: {
         option,
       },
     });
-    wrapperSearchReset = shallow(Cascader, {
-      propsData: {
-        option,
-        search: true,
-      },
-    });
-    wrapperModel = shallow(Cascader, {
+    wrapperSearchReset = shallowMount(Cascader, {
       propsData: {
         option,
         search: true,
       },
     });
-    wrapperReset = shallow(Cascader, {
+    wrapperModel = shallowMount(Cascader, {
+      propsData: {
+        option,
+        search: true,
+      },
+    });
+    wrapperReset = shallowMount(Cascader, {
       propsData: {
         option,
         value: ['zhejiang', 'hangzhou', 'xihu'],
       },
     });
-    wrapperReset2 = shallow(Cascader, {
+    wrapperReset2 = shallowMount(Cascader, {
       propsData: {
         option,
         value: ['zhejiang', 'hangzhou', 'xihu'],
       },
     });
-    wrapperPanelChange = shallow(Cascader, {
+    wrapperPanelChange = shallowMount(Cascader, {
       propsData: {
         option,
         search: true,
