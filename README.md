@@ -16,7 +16,7 @@
 [![Fork water](https://img.shields.io/github/forks/fe6/water.svg?style=flat&label=Fork)](https://github.com/fe6/water/fork) [![Star water](https://img.shields.io/github/stars/fe6/water.svg?style=flat&label=Star)](https://github.com/fe6/water/stargazers)
 [![watchers in water](https://img.shields.io/github/watchers/fe6/water.svg?style=flat&label=Watch)](https://github.com/fe6/water/watchers)
 
-[![Sauce Labs Test Status (for master branch)](https://badges.herokuapp.com/browsers?googlechrome=7&firefox=7&microsoftedge=10&iexplore=9&safari=10.10)](https://saucelabs.com/u/_wmhilton)
+[![Sauce Labs Test Status (for master branch)](https://badges.herokuapp.com/browsers?googlechrome=7&firefox=7&microsoftedge=10&iexplore=9&safari=10.10)](https://saucelabs.com/u/_wmhilton) [![Greenkeeper badge](https://badges.greenkeeper.io/fe6/water.svg)](https://greenkeeper.io/)
 
 ## 特性
 
