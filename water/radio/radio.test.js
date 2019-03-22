@@ -8,6 +8,7 @@ describe('Radio.vue', () => {
   let wrapperRadio99 = null;
   let wrapperRadio71 = null;
   let wrapperRadio65 = null;
+  let wrapperRadio59 = null;
   let wrapper = null;
 
   const createCmp = propsData => mount(RadioGroup, {
@@ -44,6 +45,9 @@ describe('Radio.vue', () => {
 
     wrapperRadio71 = createCmp({
       on: 1,
+    });
+
+    wrapperRadio59 = createCmp({
     });
   });
 
@@ -124,6 +128,17 @@ describe('Radio.vue', () => {
       try {
         wrapperRadio71.vm.$children[0].status = true;
         expect(wrapperRadio71.vm.$children[0].clickFn({})).toBeFalsy();
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('测试 59 line', (done) => {
+    wrapperRadio59.vm.$nextTick(() => {
+      try {
+        expect(wrapperRadio59.vm.$children[0].status).toBeTruthy();
         done();
       } catch (err) {
         done.fail(err);

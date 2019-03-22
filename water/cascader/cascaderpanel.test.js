@@ -30,6 +30,7 @@ describe('CascaderPanel.vue', () => {
   let wrapperDisabled = null;
   let wrapperBodyClick = null;
   let wrapperPanelData = null;
+  let wrapperWatchValue = null;
 
   beforeEach(() => {
     wrapperPanelData = shallowMount(CascaderPanel, {
@@ -70,6 +71,13 @@ describe('CascaderPanel.vue', () => {
         option: optionDisabled,
       },
     });
+    wrapperWatchValue = shallowMount(CascaderPanel, {
+      propsData: {
+        value: ['zhejiang', 'hangzhou'],
+        oldValue: [],
+        option,
+      },
+    });
   });
 
   it('changeOnSelect', (done) => {
@@ -77,10 +85,10 @@ describe('CascaderPanel.vue', () => {
       try {
         const resetStub = jest.fn();
         wrapperModel.vm.reset = resetStub;
-        // wrapperModel.vm.value = [];
-        expect(resetStub).not.toBeCalled();
-        // wrapperModel.vm.option = [];
-        expect(resetStub).not.toBeCalled();
+        wrapperModel.setProps({ value: [] });
+        expect(resetStub).toBeCalled();
+        wrapperModel.setProps({ option: [] });
+        expect(resetStub).toBeCalled();
         wrapperModel.vm.bodyClick();
         expect(wrapperModel.vm.currentOption).toEqual({});
         const panelChangeFn = jest.fn();
@@ -144,6 +152,22 @@ describe('CascaderPanel.vue', () => {
         wrapperPanelData.vm.optChange('zhejiang', {}, true);
         wrapperModel.vm.$on('panelChange', optChangeStub);
         expect(wrapperPanelData.vm.panelData).toEqual([]);
+        expect(optChangeStub).not.toBeCalled();
+        wrapperPanelData.vm.reset();
+        expect(wrapperPanelData.vm.panelData).toEqual([]);
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('watch value', (done) => {
+    wrapperModel.vm.$nextTick(() => {
+      try {
+        const optChangeStub = jest.fn();
+        wrapperWatchValue.vm.optChange = optChangeStub;
+        wrapperWatchValue.setProps({ value: ['zhejiang', 'hangzhou'] });
         expect(optChangeStub).not.toBeCalled();
         done();
       } catch (err) {

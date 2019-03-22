@@ -78,16 +78,17 @@ export default {
     },
   },
   data() {
-    const { $parent = { index: 0 }, $vnode } = this;
-    const { index, $options: { _componentTag } = { _componentTag: '' } } = $parent;
+    const { $parent, $vnode } = this;
     const { key = 0 } = $vnode.data;
+    const { index = 0, $options } = $parent;
 
     return {
       name,
       prefixCls,
       clicked: false,
       index,
-      status: index === key && _componentTag === `${prefixCls}group`,
+      /* eslint-disable no-underscore-dangle */
+      status: index === key && $options._componentTag === `${prefixCls}group`,
     };
   },
   methods: {

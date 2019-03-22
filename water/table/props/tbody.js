@@ -16,7 +16,10 @@ export default {
   hoverIndex: Number,
   bordered: Boolean,
   fixed: String,
-  rowSelection: Object,
+  rowSelection: {
+    type: Object,
+    default: () => ({ change: () => {} }),
+  },
   scroll: Object,
   scrollStyle: Object,
   scrollTop: Number,

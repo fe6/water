@@ -97,8 +97,12 @@ describe('Notification.vue', () => {
         wrapperNoticeOut.setProps({ closed: false });
         wrapperNoticeOut.vm.noticeOut();
         expect(autoCloseFn).toBeCalled();
+        expect(wrapperNoticeOut.vm.hasTop).toBeTruthy();
+        expect(wrapperNoticeOut.vm.leftSign).toBe('');
+        expect(wrapperNoticeOut.vm.hasBottom).toBeFalsy();
         wrapperNoticeOut.setProps({ placement: 'topLeft' });
         expect(wrapperNoticeOut.vm.leftSign).toBe('-');
+        expect(wrapperNoticeOut.vm.restoreAutoClose).toBeFalsy();
         done();
       } catch (err) {
         done.fail(err);

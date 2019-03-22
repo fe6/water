@@ -11,7 +11,10 @@ export default {
   },
   bordered: Boolean,
   loading: Boolean,
-  rowSelection: Object,
+  rowSelection: {
+    type: Object,
+    default: () => ({ change: () => {} }),
+  },
   scroll: Object,
   emptyText: {
     type: String,

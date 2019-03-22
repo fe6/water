@@ -17,9 +17,9 @@ module.exports = {
   },
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
   setupFiles: ['<rootDir>/setup'],
-  "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js)$",
+  "testRegex": "\\.test\\.(js)$",
   collectCoverage: true,
   collectCoverageFrom: [
-    'water/**/*.{vue}'
+    'water/**/*.vue'
   ]
 }

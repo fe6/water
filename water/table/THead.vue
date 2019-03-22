@@ -2,8 +2,8 @@
   <div :style="scrollStyle">
     <table class="w-table">
       <colgroup>
-        <col key="colKey" :style="{ width: '62px', minWidth: '62px' }" v-if="!!rowSelection">
-        <col key="colKey" :style="{ width: '62px', minWidth: '62px' }" v-if="!!expandedRowRender">
+        <col key="colKeyRowSelection" :style="{ width: '62px', minWidth: '62px' }" v-if="!!hasOwn(rowSelection, 'getCheckboxProps') && typeof rowSelection.getCheckboxProps === 'function'">
+        <col key="colKeyExpandedRowRender" :style="{ width: '62px', minWidth: '62px' }" v-if="!!expandedRowRender">
         <col :key="colKey" v-for="(col, colKey) in fixColumns" :style="{ width: col.width, minWidth: col.width }">
       </colgroup>
       <thead class="w-table-thead">
@@ -11,7 +11,7 @@
           <!-- 选择 -->
           <th class="w-table-th" :class="{
             ['w-table-bordered-th']: bordered,
-          }" v-if="!!rowSelection">
+          }" v-if="!!hasOwn(rowSelection, 'getCheckboxProps') && typeof rowSelection.getCheckboxProps === 'function'">
             <w-checkbox :disabled="checkbox.disabled" :indeterminate="(!!checked.length && checked.length < optional.length)" :change="checkbox.change" :mode="checkbox.mode" :prefix="checkbox.prefix" :on="!!checked.length && !!optional.length && checked.length === optional.length" @change="checkboxChange"></w-checkbox>
           </th>
           <!-- 展开 -->
@@ -60,7 +60,7 @@ export default {
   props,
   computed: {
     checkbox() {
-      return checkboxProps(this.rowSelection || {}, this.columns, 'thead');
+      return checkboxProps(this.rowSelection, this.columns, 'thead');
     },
     fixColumns() {
       return this.fixed

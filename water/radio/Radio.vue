@@ -39,12 +39,12 @@ const prefixCls = `${radioName}-`;
 export default {
   name: 'WRadio',
   data() {
-    const { $parent = { index: 0 }, $vnode } = this;
-    const { index, $options: { _componentTag } = { _componentTag: '' } } = $parent;
-    const {
-      name, defaultChecked = true, prefix, disabled, loading,
-    } = $parent;
+    const { $parent, $vnode } = this;
     const { key = 0 } = $vnode.data;
+    const {
+      index = 0, $options, name, defaultChecked = true, prefix, disabled, loading,
+    } = $parent;
+
     return {
       inputName: name || this.name || 'wradio',
       modeString: '',
@@ -56,7 +56,8 @@ export default {
       prefix,
       key,
       index,
-      status: index === key && _componentTag === `${prefixCls}group`,
+      /* eslint-disable no-underscore-dangle */
+      status: index === key && $options._componentTag === `${prefixCls}group`,
     };
   },
   props: {
@@ -76,9 +77,9 @@ export default {
       }
     },
     changeStatus(evente) {
-      const { key = 0 } = this.$vnode.data;
+      const { key } = this.$vnode.data;
       this.isClick = true;
-      this.$parent.index = key;
+      this.$parent.index = key || 0;
       this.$parent.updateChild();
       this.$parent.changeFn(evente, key);
     },
