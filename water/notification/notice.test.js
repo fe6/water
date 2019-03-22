@@ -1,5 +1,6 @@
-import { mount } from 'vue-test-utils';
+import { mount } from '@vue/test-utils';
 import Notification from './Notice';
+import gradual from './gradual';
 
 describe('Notification.vue', () => {
   let wrapper = null;
@@ -11,6 +12,7 @@ describe('Notification.vue', () => {
   let wrapperPlacement = null;
 
   beforeEach(() => {
+    Notification.methods = Object.assign({}, Notification.methods, gradual);
     wrapper = mount(Notification, { props: {} });
     wrapper.vm.add({
       title: 'ttt',
@@ -60,7 +62,7 @@ describe('Notification.vue', () => {
     wrapper.vm.$nextTick(() => {
       try {
         const notice = wrapper.find('.w-notification-notice');
-        wrapper.vm.click = clickFn;
+        wrapper.setProps({ click: clickFn });
         notice.trigger('click');
         expect(clickFn).toBeCalled();
         wrapper.vm.bindAutoClose();
@@ -77,7 +79,7 @@ describe('Notification.vue', () => {
     wrapperClose.vm.$nextTick(() => {
       try {
         const notice = wrapperClose.find('.w-notification-close');
-        wrapperClose.vm.close = closeFn;
+        wrapperClose.setProps({ close: closeFn });
         notice.trigger('click');
         expect(closeFn).toBeCalled();
         done();
@@ -92,11 +94,15 @@ describe('Notification.vue', () => {
       try {
         const autoCloseFn = jest.fn();
         wrapperNoticeOut.vm.bindAutoClose = autoCloseFn;
-        wrapperNoticeOut.vm.closed = false;
+        wrapperNoticeOut.setProps({ closed: false });
         wrapperNoticeOut.vm.noticeOut();
         expect(autoCloseFn).toBeCalled();
-        wrapperNoticeOut.vm.placement = 'topLeft';
+        expect(wrapperNoticeOut.vm.hasTop).toBeTruthy();
+        expect(wrapperNoticeOut.vm.leftSign).toBe('');
+        expect(wrapperNoticeOut.vm.hasBottom).toBeFalsy();
+        wrapperNoticeOut.setProps({ placement: 'topLeft' });
         expect(wrapperNoticeOut.vm.leftSign).toBe('-');
+        expect(wrapperNoticeOut.vm.restoreAutoClose).toBeFalsy();
         done();
       } catch (err) {
         done.fail(err);
@@ -141,10 +147,10 @@ describe('Notification.vue', () => {
   it('test branch preventAutoClose', (done) => {
     wrapperPlacement.vm.$nextTick(() => {
       try {
-        wrapperPlacement.vm.placement = 'rttrt';
+        wrapperPlacement.setProps({ placement: 'rttrt' });
         wrapperPlacement.vm.matchDirection();
         expect(wrapperPlacement.vm.notificationStyle).toEqual({});
-        wrapperPlacement.vm.duration = 0;
+        wrapperPlacement.setProps({ duration: 0 });
         wrapperPlacement.vm.bindAutoClose();
         expect(wrapperPlacement.vm.closed).toBeTruthy();
         done();

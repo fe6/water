@@ -64,7 +64,6 @@ export default {
     },
     prefix: String,
     className: [String, Object],
-    stop: Boolean,
     click: {
       type: Function,
       default: () => {},
@@ -79,16 +78,17 @@ export default {
     },
   },
   data() {
-    const { $parent = { index: 0 }, $vnode } = this;
-    const { index, $options: { _componentTag } = { _componentTag: '' } } = $parent;
+    const { $parent, $vnode } = this;
     const { key = 0 } = $vnode.data;
+    const { index = 0, $options } = $parent;
 
     return {
       name,
       prefixCls,
       clicked: false,
       index,
-      status: index === key && _componentTag === `${prefixCls}group`,
+      /* eslint-disable no-underscore-dangle */
+      status: index === key && $options._componentTag === `${prefixCls}group`,
     };
   },
   methods: {
@@ -97,9 +97,6 @@ export default {
       const { key } = this.$vnode.data;
       this.click(evente, key);
       this.$emit('click', evente, key);
-      if (this.stop) {
-        evente.stopPropagation();
-      }
     },
     mouseoverFn(evente) {
       const { key } = this.$vnode.data;

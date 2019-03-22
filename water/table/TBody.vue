@@ -4,8 +4,8 @@
       ['w-table-fix']: fixed,
       }">
       <colgroup>
-        <col key="colKey" :style="{ width: '62px', minWidth: '62px' }" v-if="!!rowSelection">
-        <col key="colKey" :style="{ width: '62px', minWidth: '62px' }" v-if="!!expandedRowRender">
+        <col key="colKeyRowSelection" :style="{ width: '62px', minWidth: '62px' }" v-if="!!hasOwn(rowSelection, 'getCheckboxProps') && typeof rowSelection.getCheckboxProps === 'function'">
+        <col key="colKeyExpandedRowRender" :style="{ width: '62px', minWidth: '62px' }" v-if="!!expandedRowRender">
         <col :key="colKey" v-for="(col, colKey) in (fixed ? columns.filter(colItem => colItem.fixed === fixed): columns)" :style="{ width: col.width, minWidth: col.width }">
       </colgroup>
       <tbody class="w-table-tbody">
@@ -14,7 +14,7 @@
             <!-- 选择 -->
             <td class="w-table-td" :class="{
               ['w-table-bordered-td']: bordered,
-            }" v-if="!!rowSelection">
+            }" v-if="!!hasOwn(rowSelection, 'getCheckboxProps') && typeof rowSelection.getCheckboxProps === 'function'">
               <w-checkbox :disabled="checkbox[dataIdx].disabled" :mode="checkbox[dataIdx].mode" :prefix="checkbox[dataIdx].prefix" :change="checkboxChange.bind(this, dataItem, dataIdx)" :on="checkbox[dataIdx].on || checked.indexOf(dataItem) > -1"></w-checkbox>
             </td>
             <!-- 展开 -->
@@ -78,7 +78,7 @@ export default {
   props,
   computed: {
     checkbox() {
-      return this.data.map(dataItem => checkboxProps(this.rowSelection || {}, dataItem, 'tbody'));
+      return this.data.map(dataItem => checkboxProps(this.rowSelection, dataItem, 'tbody'));
     },
   },
   mounted() {

@@ -1,11 +1,11 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Spin from './Spin';
 
 describe('Spin.vue', () => {
   let wrapperModel = null;
 
   beforeEach(() => {
-    wrapperModel = shallow(Spin, {
+    wrapperModel = shallowMount(Spin, {
       propsData: {
         value: true,
       },

@@ -1,11 +1,11 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Option from './Option';
 
 describe('Option.vue', () => {
   let wrapperModel = null;
 
   beforeEach(() => {
-    wrapperModel = shallow(Option, {
+    wrapperModel = shallowMount(Option, {
       propsData: {
         value: 'true',
       },

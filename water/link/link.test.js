@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount, RouterLinkStub } from '@vue/test-utils';
 import Link from './Link';
 
 describe('Link.vue', () => {
@@ -7,23 +7,32 @@ describe('Link.vue', () => {
   let wrapperLoading = null;
 
   beforeEach(() => {
-    wrapperUrl = shallow(Link, {
+    wrapperUrl = shallowMount(Link, {
       propsData: {
         url: 'https://baidu.com',
         target: '_blank',
       },
+      stubs: {
+        RouterLink: RouterLinkStub,
+      },
     });
-    wrapperTo = shallow(Link, {
+    wrapperTo = shallowMount(Link, {
       propsData: {
         to: {
           path: '/',
         },
       },
+      stubs: {
+        RouterLink: RouterLinkStub,
+      },
     });
-    wrapperLoading = shallow(Link, {
+    wrapperLoading = shallowMount(Link, {
       propsData: {
         size: 'small',
         loading: true,
+      },
+      stubs: {
+        RouterLink: RouterLinkStub,
       },
     });
   });

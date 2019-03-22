@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import { baseData, baseColumns } from '../../site/table/base';
 import { fixData, fixColumns } from '../../site/table/fix';
 import Table from './Table';
@@ -10,14 +10,14 @@ describe('Table.vue', () => {
   let wrapperChange = null;
 
   beforeEach(() => {
-    wrapperModel = shallow(Table, {
+    wrapperModel = shallowMount(Table, {
       propsData: {
         data: baseData,
         columns: baseColumns,
         loading: true,
       },
     });
-    wrapperFix2 = shallow(Table, {
+    wrapperFix2 = shallowMount(Table, {
       propsData: {
         data: fixData,
         columns: fixColumns,
@@ -28,7 +28,7 @@ describe('Table.vue', () => {
         },
       },
     });
-    wrapperFix = shallow(Table, {
+    wrapperFix = shallowMount(Table, {
       propsData: {
         data: baseData,
         columns: baseColumns,
@@ -39,7 +39,7 @@ describe('Table.vue', () => {
         },
       },
     });
-    wrapperChange = shallow(Table, {
+    wrapperChange = shallowMount(Table, {
       propsData: {
         data: baseData,
         columns: baseColumns,
@@ -64,8 +64,11 @@ describe('Table.vue', () => {
         expect(wrapperModel.vm.scrollLeft).toBeTruthy();
         expect(wrapperModel.vm.scrollLeft).toBeTruthy();
         const changeFn = jest.fn();
-        wrapperModel.vm.rowSelection = {};
-        wrapperModel.vm.rowSelection.change = changeFn;
+        wrapperModel.setProps({
+          rowSelection: {
+            change: changeFn,
+          },
+        });
         wrapperModel.vm.checkboxTBodyChange({}, 1, {}, true);
         const changeFn2 = jest.fn();
         wrapperModel.vm.$on('change', changeFn2);

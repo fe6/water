@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Input from './Input';
 
 describe('Input.vue', () => {
@@ -6,12 +6,12 @@ describe('Input.vue', () => {
   let wrapperWatch = null;
 
   beforeEach(() => {
-    wrapperModel = shallow(Input, {
+    wrapperModel = shallowMount(Input, {
       propsData: {
         value: 'true',
       },
     });
-    wrapperWatch = shallow(Input);
+    wrapperWatch = shallowMount(Input);
   });
 
   it('render', (done) => {
@@ -29,7 +29,7 @@ describe('Input.vue', () => {
   it('test watch', (done) => {
     wrapperWatch.vm.$nextTick(() => {
       try {
-        wrapperWatch.vm.value = 'lee';
+        wrapperWatch.setProps({ value: 'lee' });
         setTimeout(() => {
           expect(wrapperWatch.vm.inputValue).toBe('lee');
           done();

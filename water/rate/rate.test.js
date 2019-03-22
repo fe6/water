@@ -1,11 +1,11 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Rate from './Rate';
 
 describe('Rate.vue', () => {
   let wrapper = null;
 
   beforeEach(() => {
-    wrapper = shallow(Rate, {
+    wrapper = shallowMount(Rate, {
       propsData: {
         value: 1,
       },
@@ -80,8 +80,7 @@ describe('Rate.vue', () => {
       try {
         const mockData = [];
         wrapper.vm.getIndex = jest.fn(() => mockData);
-        wrapper.vm.value = 2;
-        wrapper.update();
+        wrapper.setProps({ value: 2 });
         expect(wrapper.vm.getIndex().length).toBe(0);
         expect(wrapper.vm.index).toBe(-1);
         done();
@@ -95,8 +94,7 @@ describe('Rate.vue', () => {
     const initFn = jest.fn();
     wrapper.vm.init = initFn;
     expect(wrapper.vm.value).toBe(1);
-    wrapper.vm.value = 2;
-    wrapper.update();
+    wrapper.setProps({ value: 2 });
     expect(wrapper.vm.init).toBeCalled();
     done();
   });
@@ -106,7 +104,7 @@ describe('half Rate.vue', () => {
   let wrapper = null;
 
   beforeEach(() => {
-    wrapper = shallow(Rate, {
+    wrapper = shallowMount(Rate, {
       propsData: {
         value: 1,
         half: true,

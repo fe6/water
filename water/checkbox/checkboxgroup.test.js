@@ -1,4 +1,4 @@
-import { shallow, mount } from 'vue-test-utils';
+import { shallowMount, mount } from '@vue/test-utils';
 import Checkbox from './Checkbox';
 import CheckboxGroup from './CheckboxGroup';
 
@@ -18,7 +18,7 @@ describe('CheckboxGroup.vue', () => {
       attachToDocument: true,
     });
     wrapperOpt = mount(CheckboxGroup);
-    wrapperHasFormat = shallow(CheckboxGroup, {
+    wrapperHasFormat = shallowMount(CheckboxGroup, {
       propsData: {
         format: 'age',
         options: [
@@ -35,7 +35,7 @@ describe('CheckboxGroup.vue', () => {
         const renderElem = wrapperRender.find('.w-checkbox');
         renderElem.trigger('click');
         const stub = jest.fn();
-        wrapperRender.setMethods({ change: stub });
+        wrapperRender.setProps({ change: stub });
         wrapperRender.find(Checkbox).vm.$emit('change', [
           { value: 'Apple', age: '18岁', on: true },
         ], false, { value: 'Apple', age: '18岁', on: false });
@@ -63,7 +63,7 @@ describe('CheckboxGroup.vue', () => {
       try {
         expect(wrapperHasFormat.vm.format).toEqual('age');
         expect(wrapperHasFormat.vm.disabled).toEqual(true);
-        wrapperHasFormat.vm.disabled = false;
+        wrapperHasFormat.setProps({ disabled: false });
         expect(wrapperHasFormat.vm.hasFormat).toBeFalsy();
         wrapperHasFormat.vm.checkFn({ value: 'Pear', age: '38岁' });
         done();

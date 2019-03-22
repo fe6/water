@@ -1,4 +1,4 @@
-import { mount } from 'vue-test-utils';
+import { mount } from '@vue/test-utils';
 import Modal from './Modal';
 import before from './before';
 
@@ -34,7 +34,7 @@ describe('Modal.vue', () => {
         wrapper.vm.wrapClickFn();
         expect(wrapper.vm.cancelFn).toBeCalled();
         // watch
-        wrapper.vm.value = true;
+        wrapper.setProps({ value: true });
         setTimeout(() => {
           expect(wrapper.vm.status).toBeTruthy();
           done();
@@ -50,7 +50,7 @@ describe('Modal.vue', () => {
       try {
         const changeFn = jest.fn();
         wrapper1.vm.changeStatus = changeFn;
-        wrapper1.vm.loadingValue = false;
+        wrapper1.setProps({ loadingValue: false });
         wrapper1.vm.status = true;
         wrapper1.vm.keyUpFn({ keyCode: 27 });
         expect(wrapper1.vm.changeStatus).toBeCalled();
@@ -66,7 +66,7 @@ describe('Modal.vue', () => {
       try {
         const changeFn = jest.fn();
         wrapperBefore.vm.changeStatus = changeFn;
-        wrapperBefore.vm.before = before;
+        wrapperBefore.setProps({ before });
         const okElem = wrapperBefore.find('.w-modal-button-ok');
         okElem.trigger('click');
         setTimeout(() => {
@@ -131,7 +131,7 @@ describe('Modal.vue', () => {
     wrapperMaskClosable.vm.$nextTick(() => {
       try {
         const cancelFn = jest.fn();
-        wrapperMaskClosable.vm.maskClosable = false;
+        wrapperMaskClosable.setProps({ maskClosable: false });
         wrapperMaskClosable.vm.cancelFn = cancelFn;
         wrapperMaskClosable.vm.wrapClickFn();
         expect(cancelFn).not.toBeCalled();
@@ -146,7 +146,7 @@ describe('Modal.vue', () => {
     wrapperLoading.vm.$nextTick(() => {
       try {
         const changeFn = jest.fn();
-        wrapperLoading.vm.loading = true;
+        wrapperLoading.setProps({ loading: true });
         wrapperLoading.vm.changeStatus = changeFn;
         wrapperLoading.vm.cancelFn();
         expect(changeFn).not.toBeCalled();
@@ -161,7 +161,7 @@ describe('Modal.vue', () => {
     wrapperKeyUpFn.vm.$nextTick(() => {
       try {
         const changeFn = jest.fn();
-        wrapperKeyUpFn.vm.loading = true;
+        wrapperKeyUpFn.setProps({ loading: true });
         wrapperKeyUpFn.vm.changeStatus = changeFn;
         wrapperKeyUpFn.vm.keyUpFn({ keyCode: 27 });
         expect(changeFn).not.toBeCalled();

@@ -1,4 +1,4 @@
-import { mount } from 'vue-test-utils';
+import { mount } from '@vue/test-utils';
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
 
@@ -8,6 +8,7 @@ describe('Radio.vue', () => {
   let wrapperRadio99 = null;
   let wrapperRadio71 = null;
   let wrapperRadio65 = null;
+  let wrapperRadio59 = null;
   let wrapper = null;
 
   const createCmp = propsData => mount(RadioGroup, {
@@ -45,6 +46,9 @@ describe('Radio.vue', () => {
     wrapperRadio71 = createCmp({
       on: 1,
     });
+
+    wrapperRadio59 = createCmp({
+    });
   });
 
   it('测试 animationend', (done) => {
@@ -76,7 +80,9 @@ describe('Radio.vue', () => {
     wrapperRadioDisabled.vm.$nextTick(() => {
       try {
         // 是否触发 watch disabled
-        wrapperRadioDisabled.vm.$children[0].disabled = true;
+        const barArray = wrapperRadioDisabled.findAll(Radio);
+        // 设置子级的 prop 值
+        barArray.at(0).setProps({ disabled: true });
         wrapperRadioDisabled.vm.$children[0].setDisabledOneStatus(true);
         expect(wrapperRadioDisabled.vm.$children[0].disabled).toBeTruthy();
         expect(wrapperRadioDisabled.vm.$children[0].disabledStatus).toBeTruthy();
@@ -108,7 +114,6 @@ describe('Radio.vue', () => {
         wrapperRadio65.vm.loading = false;
         const childClickdFn = jest.fn();
         wrapperRadio65.vm.childClick = childClickdFn;
-        wrapperRadio65.update();
         switchElem.trigger('click');
         expect(wrapperRadio65.vm.$children[0].isClick).toBeFalsy();
         done();
@@ -123,6 +128,17 @@ describe('Radio.vue', () => {
       try {
         wrapperRadio71.vm.$children[0].status = true;
         expect(wrapperRadio71.vm.$children[0].clickFn({})).toBeFalsy();
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('测试 59 line', (done) => {
+    wrapperRadio59.vm.$nextTick(() => {
+      try {
+        expect(wrapperRadio59.vm.$children[0].status).toBeTruthy();
         done();
       } catch (err) {
         done.fail(err);

@@ -54,7 +54,7 @@ export default {
     },
     bodyOptional() {
       this.init();
-      return this.rowSelection ? this.data.filter(dataItem => !checkboxProps(this.rowSelection, dataItem, 'tbody').disabled) : this.data;
+      return this.data.filter(dataItem => !checkboxProps(this.rowSelection, dataItem, 'tbody').disabled);
     },
     scrollStyle() {
       const style = {};
@@ -93,11 +93,11 @@ export default {
   },
   methods: {
     init() {
-      this.bodyChecked = this.rowSelection ? this.data.filter(dataItem => checkboxProps(this.rowSelection, dataItem, 'tbody').on) : [];
+      this.bodyChecked = this.data.filter(dataItem => checkboxProps(this.rowSelection, dataItem, 'tbody').on);
     },
     checkboxTHeadChange(ev, status) {
       this.bodyChecked = status ? this.bodyOptional.slice() : [];
-      const { change = () => {} } = this.rowSelection || { change: () => {} };
+      const { change } = this.rowSelection;
       change(ev, status, this.bodyChecked);
     },
     checkboxTBodyChange(item, itemIdx, ev, status) {
@@ -107,7 +107,7 @@ export default {
         const index = this.bodyChecked.findIndex(check => check === item);
         this.bodyChecked.splice(index, 1);
       }
-      const { change = () => {} } = this.rowSelection || { change: () => {} };
+      const { change } = this.rowSelection;
       change(ev, status, this.bodyChecked, item, itemIdx);
     },
     headerChange(sorter, sortOrder, ev) {

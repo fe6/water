@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
 
@@ -6,7 +6,7 @@ describe('ButtonGroup.vue', () => {
   let wrapper = null;
 
   beforeEach(() => {
-    wrapper = shallow(ButtonGroup, {
+    wrapper = shallowMount(ButtonGroup, {
       slots: {
         default: [Button],
       },
@@ -33,8 +33,7 @@ describe('ButtonGroup.vue', () => {
     const updateChildFn = jest.fn();
     wrapper.vm.updateChild = updateChildFn;
     expect(wrapper.vm.$children[0].status).toBeTruthy();
-    wrapper.vm.on = 2;
-    wrapper.update();
+    wrapper.setProps({ on: 2 });
     expect(wrapper.vm.index).toBe(2);
     expect(wrapper.vm.updateChild).toBeCalled();
     done();

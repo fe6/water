@@ -1,4 +1,4 @@
-import { mount } from 'vue-test-utils';
+import { mount } from '@vue/test-utils';
 import Loadbar from './Loadbar';
 
 describe('Loadbar.vue', () => {
@@ -53,7 +53,6 @@ describe('Loadbar.vue', () => {
       try {
         const timerTrue = jest.fn();
         wrapper.vm.reset = timerTrue;
-        wrapper.update();
         wrapper.vm.start(20);
         tim = setInterval(() => {
           jest.useFakeTimers();
@@ -75,7 +74,6 @@ describe('Loadbar.vue', () => {
       try {
         const timerTrue = jest.fn();
         wrapper.vm.reset = timerTrue;
-        wrapper.update();
         wrapper.vm.timer = 1;
         wrapper.vm.start();
         expect(timerTrue).toBeCalled();

@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Number from './Number';
 
 
@@ -11,32 +11,32 @@ describe('Number.vue', () => {
   let wrapperReadValue = null;
 
   beforeEach(() => {
-    wrapperNumber = shallow(Number, {
+    wrapperNumber = shallowMount(Number, {
       propsData: {
         value: 1,
       },
     });
-    wrapperClickDisabled = shallow(Number, {
+    wrapperClickDisabled = shallowMount(Number, {
       propsData: {
         value: 10,
         max: 10,
         min: 10,
       },
     });
-    wrapperMore = shallow(Number, {
+    wrapperMore = shallowMount(Number, {
       propsData: {
         value: 1,
         max: 10,
         min: -2,
       },
     });
-    wrapperInput = shallow(Number);
-    wrapperAnimate = shallow(Number, {
+    wrapperInput = shallowMount(Number);
+    wrapperAnimate = shallowMount(Number, {
       propsData: {
         animate: true,
       },
     });
-    wrapperReadValue = shallow(Number, {
+    wrapperReadValue = shallowMount(Number, {
       propsData: {
         animate: true,
       },

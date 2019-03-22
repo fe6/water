@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Option from './Option';
 import Select from './Select';
 import before from './before';
@@ -6,7 +6,7 @@ import before from './before';
 const testTip = '李红星';
 const testObj = { value: testTip, new: true, disabled: false };
 
-const createSingle = shallow(Select, {
+const createSingle = shallowMount(Select, {
   propsData: {
     value: ['test'],
   },
@@ -15,7 +15,7 @@ const createSingle = shallow(Select, {
   },
 });
 
-const createTag = shallow(Select, {
+const createTag = shallowMount(Select, {
   propsData: {
     mode: 'tag',
     value: [],
@@ -49,7 +49,7 @@ describe('Select.vue', () => {
     testToggleNewTag = createTag;
     testFieldEnter = createTag;
     testFieldNoValueEnter = createTag;
-    testName = shallow(Select, {
+    testName = shallowMount(Select, {
       propsData: {
         value: 'tag',
         prefix: 'prefix ',
@@ -59,7 +59,7 @@ describe('Select.vue', () => {
         default: [Option],
       },
     });
-    testNoName = shallow(Select, {
+    testNoName = shallowMount(Select, {
       propsData: {
         mode: 'tag',
       },
@@ -67,7 +67,7 @@ describe('Select.vue', () => {
         default: [Option],
       },
     });
-    testSelectClick = shallow(Select, {
+    testSelectClick = shallowMount(Select, {
       propsData: {
         value: ['test'],
         async before() {
@@ -78,7 +78,7 @@ describe('Select.vue', () => {
         default: [Option],
       },
     });
-    testSelectDisabledClick = shallow(Select, {
+    testSelectDisabledClick = shallowMount(Select, {
       propsData: {
         value: ['test'],
         disabled: true,
@@ -90,7 +90,7 @@ describe('Select.vue', () => {
         default: [Option],
       },
     });
-    testFieldInput = shallow(Select, {
+    testFieldInput = shallowMount(Select, {
       propsData: {
         mode: 'tag',
         value: [],
@@ -100,7 +100,7 @@ describe('Select.vue', () => {
         default: [Option],
       },
     });
-    testSearchEnter = shallow(Select, {
+    testSearchEnter = shallowMount(Select, {
       propsData: {
         value: [],
         search: true,
@@ -109,7 +109,7 @@ describe('Select.vue', () => {
         default: [Option],
       },
     });
-    testSearchNoValueEnter = shallow(Select, {
+    testSearchNoValueEnter = shallowMount(Select, {
       propsData: {
         value: [],
         search: true,
@@ -166,13 +166,12 @@ describe('Select.vue', () => {
         expect(setStatusFn).toBeCalled();
         // test branch fieldDelete is false
         testFieldDelete.vm.nameTags = [];
-        testFieldDelete.vm.name = [];
+        testFieldDelete.setProps({ name: [] });
         testFieldDelete.vm.fieldDelete({
           target: {
             value: '',
           },
         });
-        testFieldDelete.update();
         expect(testFieldDelete.vm.fieldCanDelate).toBe(1);
         // disabled is true
         testFieldDelete.vm.nameTags = [{
@@ -197,7 +196,6 @@ describe('Select.vue', () => {
       try {
         testToggleNewTag.vm.fieldValue = testTip;
         testToggleNewTag.vm.slotsData = [testObj];
-        testToggleNewTag.update();
         testToggleNewTag.vm.toggleNewTag(testTip);
         expect(testToggleNewTag.vm.newTags).toEqual([testObj]);
         done();
@@ -212,11 +210,9 @@ describe('Select.vue', () => {
       try {
         testFieldEnter.vm.fieldValue = testTip;
         testFieldEnter.vm.slotsData = [testObj];
-        testFieldEnter.update();
         testFieldEnter.vm.resetHoverIndex();
         const resetHoverIndexFn = jest.fn();
         testFieldEnter.vm.resetHoverIndex = resetHoverIndexFn;
-        testFieldEnter.update();
         testFieldEnter.vm.fieldEnter({ target: { value: testTip } });
         testFieldEnter.vm.$nextTick(() => {
           expect(resetHoverIndexFn).toBeCalled();
@@ -235,7 +231,6 @@ describe('Select.vue', () => {
         const setFieldValueFn = jest.fn();
         testFieldNoValueEnter.vm.setFieldValue = setFieldValueFn;
         testFieldNoValueEnter.vm.optHoverIndex = -1;
-        testFieldNoValueEnter.update();
         testFieldNoValueEnter.vm.fieldEnter({ target: { value: '' } });
         testFieldNoValueEnter.vm.$nextTick(() => {
           expect(setFieldValueFn).not.toBeCalled();
@@ -292,7 +287,6 @@ describe('Select.vue', () => {
       try {
         testSearchEnter.vm.fieldValue = testTip;
         testSearchEnter.vm.slotsData = [testObj];
-        testSearchEnter.update();
         // 有移动索引的情况
         testSearchEnter.vm.resetHoverIndex();
         testSearchEnter.vm.searchEnter({ target: { value: testTip } });
@@ -303,7 +297,6 @@ describe('Select.vue', () => {
         testSearchEnter.vm.setStatus = setStatusFn;
         const resetHoverIndexFn = jest.fn();
         testSearchEnter.vm.resetHoverIndex = resetHoverIndexFn;
-        testSearchEnter.update();
         // test searchEnter
         testSearchEnter.vm.searchEnter({ target: { value: testTip } });
         expect(setFieldValueFn).toBeCalled();
@@ -332,7 +325,6 @@ describe('Select.vue', () => {
         const optionChangeFn = jest.fn();
         testSearchNoValueEnter.vm.optionChange = optionChangeFn;
         testSearchNoValueEnter.vm.optHoverIndex = -1;
-        testSearchNoValueEnter.update();
         testSearchNoValueEnter.vm.searchEnter({ target: { value: '' } });
         testSearchNoValueEnter.vm.$nextTick(() => {
           expect(optionChangeFn).not.toBeCalled();

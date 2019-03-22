@@ -19,7 +19,10 @@ export default {
   },
   bordered: Boolean,
   fixed: String,
-  rowSelection: Object,
+  rowSelection: {
+    type: Object,
+    default: () => ({ change: () => {} }),
+  },
   scroll: Object,
   expandedRowRender: Function,
 };

@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
 
@@ -6,7 +6,7 @@ describe('RadioGroup.vue', () => {
   let wrapper = null;
 
   beforeEach(() => {
-    wrapper = shallow(RadioGroup, {
+    wrapper = shallowMount(RadioGroup, {
       slots: {
         default: [Radio],
       },
@@ -34,22 +34,19 @@ describe('RadioGroup.vue', () => {
     // 是否触发 watch
     const updateChildFn = jest.fn();
     wrapper.vm.updateChild = updateChildFn;
-    wrapper.vm.on = 2;
-    wrapper.update();
+    wrapper.setProps({ on: 2 });
     expect(wrapper.vm.index).toBe(2);
     expect(wrapper.vm.updateChild).toBeCalled();
     // 是否触发 watch mode
     const setModeFn = jest.fn();
     wrapper.vm.setMode = setModeFn;
-    wrapper.vm.mode = 'vertical';
-    wrapper.update();
+    wrapper.setProps({ mode: 'vertical' });
     expect(wrapper.vm.mode).toBe('vertical');
     expect(wrapper.vm.setMode).toBeCalled();
     // 是否触发 watch disabled
     const setDisabledFn = jest.fn();
     wrapper.vm.setDisabled = setDisabledFn;
-    wrapper.vm.disabled = true;
-    wrapper.update();
+    wrapper.setProps({ disabled: true });
     expect(wrapper.vm.disabled).toBeTruthy();
     expect(wrapper.vm.setDisabled).toBeCalled();
     // 是否触发 watch loading
@@ -57,8 +54,7 @@ describe('RadioGroup.vue', () => {
     wrapper.vm.setLoading = setLoadingFn;
     const setLoadingStatusFn = jest.fn();
     wrapper.vm.$children[0].setLoadingStatus = setLoadingStatusFn;
-    wrapper.vm.loading = true;
-    wrapper.update();
+    wrapper.setProps({ loading: true });
     expect(wrapper.vm.loading).toBeTruthy();
     expect(wrapper.vm.setLoading).toBeCalled();
     setTimeout(() => {
