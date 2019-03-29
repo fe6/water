@@ -235,7 +235,6 @@ export default {
 };
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
 @import '../water/icon/style/icon.scss';
 @import '../water/tag/style/tag.scss';
 @import '../water/form/input/input.scss';

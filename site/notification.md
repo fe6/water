@@ -98,11 +98,7 @@ export default {
       notice.open({
         title: this.title,
         render: h => {
-          return h('p', [h(WIcon, {
-            props: {
-              type: 'heart',
-            },
-          }), ` ${this.text}`]);
+          return h('p', [h(WIcon), ` ${this.text}`]);
         },
       });
     },
@@ -118,7 +114,6 @@ export default {
 }
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
 @import '../water/icon/style/icon.scss';
 @import '../water/button/style/button.scss';
 @import '../water/notification/style/notification.scss';

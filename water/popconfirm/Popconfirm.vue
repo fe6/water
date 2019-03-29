@@ -14,7 +14,6 @@
 </template>
 <script>
 import Vue from 'vue';
-import WIcon from '../icon/Icon';
 import WButton from '../button/Button';
 import {
   setLeftFn,
@@ -171,7 +170,6 @@ export default {
     },
   },
   components: {
-    WIcon,
     WButton,
   },
   watch: {

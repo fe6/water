@@ -42,7 +42,6 @@
 |half|是否允许半选|Boolean|否|false|
 |color|高亮颜色|String|否|'#fadb14'|
 |character|自定义字符，支持字符串，不支持html格式|String|否|无|
-|icon|自定义 icon 类型|String|否|star|
 |prefix|样式的前缀|String|否|无|
 |change|选择时的回调|Function(value: number)|否|() => {}|
 |hover|鼠标经过时数值变化的回调|Function(value: number)|否|() => {}|
@@ -77,8 +76,6 @@ export default {
 };
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
 @import '../water/button/style/button.scss';
-@import '../water/icon/style/icon.scss';
 @import '../water/rate/style/rate.scss';
 </style>

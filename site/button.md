@@ -21,14 +21,22 @@
 <br>
 
 <p>
-  <w-button prefix="demo" type="primary" circle icon="loading3" />
+  <w-button prefix="demo" type="primary" circle>
+    <svg viewBox="64 64 896 896" slot="icon" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
+  </w-button>
   <w-button prefix="demo" type="primary" icon="loading3">Search</w-button>
-  <w-button prefix="demo" circle icon="loading3" />
+  <w-button prefix="demo" circle>
+    <svg viewBox="64 64 896 896" slot="icon" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
+  </w-button>
   <w-button prefix="demo" icon="loading3">Search</w-button>
   <br />
-  <w-button prefix="demo" type="danger" circle icon="loading3" />
+  <w-button prefix="demo" type="danger" circle>
+    <svg viewBox="64 64 896 896" slot="icon" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
+  </w-button>
   <w-button prefix="demo" type="danger" icon="loading3">Search</w-button>
-  <w-button prefix="demo" type="dashed" circle icon="loading3" />
+  <w-button prefix="demo" type="dashed" circle>
+    <svg viewBox="64 64 896 896" slot="icon" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
+  </w-button>
   <w-button prefix="demo" type="dashed" icon="loading3">Search</w-button>
 </p>
 
@@ -38,8 +46,8 @@
 <br>
 
 <p>
-  <w-button prefix="demo" :size="groupConfig[groupStatus]" :loading="loadStatus" @click="changeLoadStatus">点击加载中</w-button>
-  <w-button prefix="demo" :size="groupConfig[groupStatus]" :disabled="disableStatus" @click="changeDisableStatus">点击禁用</w-button>
+  <w-button prefix="demo" :size="groupConfig[groupStatus]" :loading="loadStatus" @click="changeLoadStatus">{{loadStatus?'':'点击'}}加载{{loadStatus?'中':''}}</w-button>
+  <w-button prefix="demo" :size="groupConfig[groupStatus]" :disabled="disableStatus" @click="changeDisableStatus">点击{{disableStatus?'起':'禁'}}用</w-button>
 </p>
 
 ## 按钮组合
@@ -58,8 +66,13 @@
 <p>
   <w-button-group>
     <w-button prefix="demo" :size="groupConfig[groupStatus]" :key="1">普通按钮</w-button>
-    <w-button prefix="demo" type="danger" :size="groupConfig[groupStatus]" icon="star" :key="2">图标按钮</w-button>
-    <w-button prefix="demo" type="dashed" :size="groupConfig[groupStatus]" icon="heart" circle :key="3" />
+    <w-button prefix="demo" type="danger" :size="groupConfig[groupStatus]" :key="2">
+      <svg slot="icon" viewBox="64 64 896 896" slot="icon" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
+      <span>图标按钮</span>
+    </w-button>
+    <w-button prefix="demo" type="dashed" :size="groupConfig[groupStatus]" circle :key="3">
+      <svg viewBox="64 64 896 896" slot="icon" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
+    </w-button>
   </w-button-group>
 </p>
 
@@ -69,9 +82,13 @@
 
 <p class="ghost">
   <w-button prefix="demo" ghost>普通按钮</w-button>
-  <w-button prefix="demo" type="danger" ghost icon="star">图标按钮</w-button>
-  <w-button prefix="demo" type="primary" ghost icon="heart" circle />
-  <w-button prefix="demo" type="dashed" ghost icon="heart" />
+  <w-button prefix="demo" type="danger" ghost>图标按钮</w-button>
+  <w-button prefix="demo" type="primary" ghost circle>
+    <svg viewBox="64 64 896 896" slot="icon" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
+  </w-button>
+  <w-button prefix="demo" type="dashed" ghost>
+    <svg viewBox="64 64 896 896" slot="icon" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
+  </w-button>
 </p>
 
 ## API
@@ -147,7 +164,5 @@ export default {
 };
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
-@import '../water/icon/style/icon.scss';
 @import '../water/button/style/button.scss';
 </style>

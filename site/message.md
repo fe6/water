@@ -40,7 +40,6 @@
 |close|关闭触发，返回当前弹框元素|Function|() => {}|
 
 <script>
-import WIcon from '../water/icon/Icon';
 import message from '../water/message/index';
 import WButton from '../water/button/Button';
 
@@ -50,7 +49,7 @@ export default {
     return {
       text,
       title: '这是标题',
-      content: `<p style="color: yellow; margin: 0;">${text}，详情请移步<a href="https://github.com/fe6/water" target="_blank" style="color: red;">水滴</a></p>`,
+      content: `<p style="color: yellow; margin: 0;">${text}，详情请移步<a href="https://github.com/fe6/water" target="_blank" style="color: purple;">水滴</a></p>`,
     };
   },
   methods: {
@@ -82,13 +81,10 @@ export default {
   components: {
     message,
     WButton,
-    WIcon,
   },
 }
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
-@import '../water/icon/style/icon.scss';
 @import '../water/button/style/button.scss';
 @import '../water/message/style/message.scss';
 </style>

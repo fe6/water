@@ -26,8 +26,8 @@
 
 <p>
 <w-input placeholder="前缀和后缀" >
-  <w-icon slot="prefix" type="heart" />
-  <w-icon slot="suffix" type="star" />
+  <w-icon slot="prefix" />
+  <w-icon slot="suffix" />
 </w-input>
 </p>
 
@@ -74,7 +74,5 @@ export default {
 };
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
-@import '../water/icon/style/icon.scss';
 @import '../water/form/input/input.scss';
 </style>

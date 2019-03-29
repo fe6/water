@@ -39,6 +39,8 @@
 
 ## 12方向
 
+<br>
+<br>
 
 <div class="demo">
   <div class="demo-popover-top">
@@ -139,7 +141,6 @@ export default {
 };
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
 @import '../water/icon/style/icon.scss';
 @import '../water/button/style/button.scss';
 @import '../water/switch/style/switch.scss';

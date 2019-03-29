@@ -181,7 +181,6 @@
 |mountEnd|初始化完成之后触发，返回当前状态，和当前元素|Function|否|()=>{}|
 
 <script>
-import WIcon from '../water/icon/Icon';
 import WSwitch from '../water/switch/Switch';
 import WButton from '../water/button/Button';
 import WPopover from '../water/popover/core';
@@ -196,7 +195,6 @@ export default {
   components: {
     WPopover,
     WButton,
-    WIcon,
     WSwitch,
   },
   methods: {
@@ -207,8 +205,6 @@ export default {
 };
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
-@import '../water/icon/style/icon.scss';
 @import '../water/button/style/button.scss';
 @import '../water/switch/style/switch.scss';
 @import '../water/popover/style/popover.scss';

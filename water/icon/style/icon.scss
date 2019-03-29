@@ -1,62 +1,22 @@
 @import '../../style/mixin/circle.scss';
 
-$font-name: "iconfont" !default;
-$font-version: 1551837788449 !default;
 $font-prefix: 'w-' !default;
-$font-path: '../font/' !default;
-
-@font-face {
-  font-family: $font-name;
-  src: url('#{$font-path}iconfont.eot?t=#{$font-version}');
-  src:
-    url('#{$font-path}iconfont.eot?t=#{$font-version}#iefix') format('embedded-opentype'),
-    url("#{$font-path}iconfont.woff?t=#{$font-version}") format("woff"),
-    url('#{$font-path}iconfont.ttf?t=#{$font-version}') format('truetype'),
-    url('#{$font-path}iconfont.svg?t=#{$font-version}#iconfont') format('svg');
-}
 
 .#{$font-prefix}font {
-  font-family: $font-name !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
+  vertical-align: middle;
   font-style: normal;
-  vertical-align: baseline;
   text-align: center;
   text-transform: none;
   line-height: 1;
   text-rendering: optimizeLegibility;
+  width: 16px;
+  height: 16px;
 }
 
-$font-list: "\e66a" "\e668" "\e669" "\e667";
-
-@each $font-item in $font-list {
-  .#{$font-prefix}loading#{index($font-list, $font-item)}::before {
-    content: $font-item;
-  }
-}
-
-.#{$font-prefix}spin::before {
-  display: inline-block;
+.#{$font-prefix}spin svg,
+.#{$font-prefix}spin img {
   animation: 'circle' 1s infinite linear;
-}
-
-.#{$font-prefix}forward::before {
-  content: '\e94d';
-}
-
-.#{$font-prefix}back::before {
-  content: '\e934';
-}
-
-.#{$font-prefix}heart::before {
-  content: "\e64e";
-}
-
-.#{$font-prefix}star::before {
-  content: "\e615";
-}
-
-.#{$font-prefix}filter::before {
-  content: "\e66e";
 }

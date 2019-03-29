@@ -195,8 +195,5 @@ export default {
 </script>
 
 <style lang="scss">
-$font-path: '../water/font/';
-@import '../water/icon/style/icon.scss';
-@import '../water/button/style/button.scss';
 @import '../water/modal/style/modal.scss';
 </style>
