@@ -16,7 +16,7 @@
   </w-badge>
   <w-badge class="demo-badge">
     <a href="#" class="demo-link" />
-    <w-icon slot="count" type="heart" style="color: #f5222d" />
+    <w-icon slot="count" />
   </w-badge>
 </div>
 <br>
@@ -81,10 +81,10 @@
 
 <div>
   <w-badge class="demo-badge" dot>
-    <w-icon type="heart" />
+    <w-icon />
   </w-badge>
   <w-badge class="demo-badge" :value="1" dot>
-    <w-icon type="heart" />
+    <w-icon />
   </w-badge>
   <w-badge class="demo-badge" :value="1" dot>
     <a href="#">Link something</a>
@@ -175,7 +175,6 @@ export default {
 };
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
 @import '../water/icon/style/icon.scss';
 @import '../water/badge/style/badge.scss';
 </style>

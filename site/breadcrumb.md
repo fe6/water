@@ -55,18 +55,14 @@
 <script>
 import WBreadcrumb from '../water/breadcrumb/Breadcrumb';
 import WBreadcrumbItem from '../water/breadcrumb/BreadcrumbItem';
-import WIcon from '../water/icon/Icon';
 
 export default {
   components: {
-    WIcon,
     WBreadcrumb,
     WBreadcrumbItem,
   },
 };
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
 @import '../water/breadcrumb/style/breadcrumb.scss';
-@import '../water/icon/style/icon.scss';
 </style>

@@ -20,8 +20,8 @@
 
 <p>
   <w-switch>
-    <span slot="open"><w-icon type="star"/></span>
-    <span slot="close"><w-icon type="heart"/></span>
+    <span slot="open"><w-icon /></span>
+    <span slot="close"><w-icon /></span>
   </w-switch>
 </p>
 
@@ -50,8 +50,8 @@
 <p>
   <span>效果：</span>
   <w-switch :disabled="disabled">
-    <span slot="open"><w-icon type="star"/></span>
-    <span slot="close"><w-icon type="heart"/></span>
+    <span slot="open"><w-icon /></span>
+    <span slot="close"><w-icon /></span>
   </w-switch>
 </p>
 <p>
@@ -124,7 +124,6 @@ export default {
 };
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
 @import '../water/icon/style/icon.scss';
 @import '../water/switch/style/switch.scss';
 </style>

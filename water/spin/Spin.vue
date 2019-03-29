@@ -4,11 +4,15 @@
       <slot></slot>
     </div>
     <div class="w-spin-mask" v-show="spinValue">
-      <w-icon class="w-spin-icon" :class="iconClasses" :type="loadingTypeValue" :spin="true" />
+      <w-icon class="w-spin-icon" :class="iconClasses" :spin="true">
+        <slot name="icon" v-if="!!$slots.icon"></slot>
+      </w-icon>
       <p class="w-spin-tip" :class="tipClasses" v-if="tipValue">{{tipValue}}</p>
     </div>
   </div>
-  <w-icon class="w-spin-icon" :class="iconClasses" :type="loadingTypeValue" v-else :spin="true" v-show="spinValue" />
+  <w-icon class="w-spin-icon" :class="iconClasses" v-else :spin="true" v-show="spinValue">
+    <slot name="icon" v-if="!!$slots.icon"></slot>
+  </w-icon>
 </template>
 <script>
 import WIcon from '../icon/Icon';
@@ -21,10 +25,6 @@ export default {
   },
   props: {
     value: Boolean,
-    type: {
-      type: String,
-      default: 'loading3',
-    },
     tip: String,
     size: String,
   },
@@ -52,9 +52,6 @@ export default {
     },
     spinValue() {
       return this.value;
-    },
-    loadingTypeValue() {
-      return this.type;
     },
     tipValue() {
       return this.tip;

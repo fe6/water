@@ -2,38 +2,26 @@
 > Vue.js 的 语义化的矢量图形。
 
 ## 如何使用
+> 图片任意格式，任意标签展示，内置 loading
 
-使用 `<w-icon />` 标签声明组件，指定图标对应的 type 属性，示例代码如下:
+<w-icon spin />
 
-## 水滴里面的 icon
+<br>
+<br>
 
-|示例|类型|代码|
-|---|---|---|
-|<w-icon type="forward" />|向前|`<w-icon type="forward" />`|
-|<w-icon type="back" />|向后|`<w-icon type="back" />`|
-|<w-icon type="loading1" />|加载中1|`<w-icon type="loading1" />`|
-|<w-icon type="loading2" />|加载中2|`<w-icon type="loading2" />`|
-|<w-icon type="loading3" />|加载中3|`<w-icon type="loading3" />`|
-|<w-icon type="loading4" />|加载中4|`<w-icon type="loading4" />`|
-|<w-icon type="heart" />|心|`<w-icon type="heart" />`|
-|<w-icon type="star" />|星星|`<w-icon type="star" />`|
-|<w-icon type="filter" />|过滤|`<w-icon type="filter" />`|
-
-## 本地部署
-
-图标默认托管在 [iconfont.cn](http://iconfont.cn) ，默认公网可访问。如需本地部署，可参考 [示例](https://github.com/fe6/vue-icon/tree/master/example) 。
-
-## API
-
-由于图标字体本质上还是文字，可以使用 `style` 和 `class` 设置图标的大小和颜色。
+## 自定义 icon
 
 <p>
-  <w-icon type="loading1" spin />
+  <w-icon>
+    <svg t="1553777155143" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1304" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16"><path d="M1009.562 454.103c-72.264 88.023-200.049 233.339-200.049 233.339s20.9 159.55 32.614 268.534c5.09 55.51-34.928 79.513-80.25 57.876-86.242-43.325-217.478-110.448-247-125.573-30.044 14.97-162.6 80.988-249.733 124.211-45.844 21.586-86.343-2.416-81.193-57.825 11.869-108.82 32.983-268.216 32.983-268.216S87.685 541.44 14.582 453.529c-25.836-31.928-9.247-77.311 41.697-85.657 103.885-19.64 264.909-50.944 264.909-50.944s88.074-162.335 143.8-261.755C495.657-5.325 516.874 1.66 520.5 3.441c9.452 3.256 24.371 15.022 43.848 51.783 55.091 99.574 142.172 262.124 142.172 262.124s159.13 31.304 261.806 50.995c50.33 8.397 66.765 53.832 41.237 85.76z" fill="" p-id="1305"></path></svg>
+  </w-icon>
 </p>
+
+<br>
+<br>
 
 |参数|说明|类型|是否必填|默认值|
 |---|----|---|-------|-----|
-|type|图标类型。如果为空则不显示|String|是|无|
 |spin|是否有旋转动画|Boolean|否|无|
 |prefix|样式的前缀|String|否|无|
 
@@ -47,6 +35,5 @@ export default {
 };
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
 @import '../water/icon/style/icon.scss';
 </style>

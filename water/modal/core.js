@@ -10,7 +10,7 @@ export default {
   },
   confirm(params) {
     const {
-      icon = 'heart',
+      icon = () => {},
       title,
       body = '',
       modalStyle,
@@ -42,10 +42,7 @@ export default {
         }, [
           h(WIcon, {
             class: ['w-modal-confirm-icon', iconName],
-            props: {
-              type: icon,
-            },
-          }),
+          }, [icon(h)]),
           h('div', {
             class: ['w-modal-confirm-title', confirmTitleName],
             domProps: {

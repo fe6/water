@@ -26,16 +26,19 @@
       :class="[
         prefix ? `${prefix}-button-icon` : '',
       ]"
-      v-show="loading || icon"
-      v-if="loading || icon"
-      :type="icon ? icon : 'loading1'"
-      :spin="loading || icon.indexOf('loading') > -1"
-    />
+      v-show="loading || !!$slots.icon"
+      v-if="loading || !!$slots.icon"
+      :color="iconColor"
+      :spin="loading"
+    >
+      <slot name="icon"></slot>
+    </w-icon>
     <span :class="{
-      [`${prefixCls}text`]: loading || icon,
+      [`${prefixCls}text`]: loading,
       [`${prefix}-button-text`]: prefix,
-      [`${prefixCls}text-lg`]: (loading || icon) && size === 'large',
-      [`${prefixCls}text-sm`]: (loading || icon) && size === 'small',
+      [`${prefixCls}primary-text`]: type === 'primary',
+      [`${prefixCls}text-lg`]: (loading) && size === 'large',
+      [`${prefixCls}text-sm`]: (loading) && size === 'small',
     }" v-if="$slots.default">
       <slot></slot>
     </span>
@@ -50,10 +53,23 @@ const prefixCls = `${name}-`;
 
 export default {
   name: 'WButton',
+  data() {
+    const { $parent, $vnode } = this;
+    const { key = 0 } = $vnode.data;
+    const { index = 0, $options } = $parent;
+
+    return {
+      name,
+      prefixCls,
+      clicked: false,
+      index,
+      /* eslint-disable no-underscore-dangle */
+      status: index === key && $options._componentTag === `${prefixCls}group`,
+    };
+  },
   props: {
     type: String,
     size: String,
-    icon: String,
     loading: Boolean,
     circle: Boolean,
     ghost: Boolean,
@@ -77,19 +93,24 @@ export default {
       default: () => {},
     },
   },
-  data() {
-    const { $parent, $vnode } = this;
-    const { key = 0 } = $vnode.data;
-    const { index = 0, $options } = $parent;
-
-    return {
-      name,
-      prefixCls,
-      clicked: false,
-      index,
-      /* eslint-disable no-underscore-dangle */
-      status: index === key && $options._componentTag === `${prefixCls}group`,
-    };
+  computed: {
+    iconColor() {
+      let color = '';
+      switch (this.type) {
+        case 'danger':
+          color = '#f5222d';
+          break;
+        case 'primary':
+          color = '#fff';
+          break;
+        case 'ghost':
+          color = '#fff';
+          break;
+        default:
+          color = 'rgba(0, 0, 0, 0.65)';
+      }
+      return color;
+    },
   },
   methods: {
     clickFn(evente) {

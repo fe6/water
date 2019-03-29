@@ -16,7 +16,7 @@
 <br>
 <w-link url="http://baidu.com" :loading="loading" :size="groupConfig[sizeStatus]">百度的超链</w-link>
 <br>
-<w-link url="http://qq.com" :loading="loading" target="_blonk" :size="groupConfig[sizeStatus]">外跳腾讯的超链</w-link>
+<w-link url="http://qq.com" :loading="loading" target="\_blonk" :size="groupConfig[sizeStatus]">外跳腾讯的超链</w-link>
 <br>
 <w-link :to="{path: '/'}" :loading="loading" :size="groupConfig[sizeStatus]">去首页</w-link>
 

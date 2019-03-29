@@ -17,7 +17,7 @@
   <w-popconfirm>
     <a href="javascript:;">Click me</a>
     <div slot="content">
-      <p style="margin: 0;">这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+      <p style="margin: 0;">这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
     </div>
   </w-popconfirm>
 </p>
@@ -30,7 +30,7 @@
   <w-popconfirm v-model="oneStatus" okText="知道了" cancelText="关闭">
     <a href="javascript:;">Click me</a>
     <div slot="content">
-      <p style="margin: 0;">这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+      <p style="margin: 0;">这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
     </div>
   </w-popconfirm>
 </p>
@@ -49,7 +49,7 @@
   <w-popconfirm :loading="isLoading" :before="before">
     <a href="javascript:;">Click me</a>
     <div slot="content">
-      <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+      <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
     </div>
   </w-popconfirm>
 </p>
@@ -67,19 +67,19 @@
     <w-popconfirm coreName="demo-popover-core" placement="topLeft">
       <w-button prefix="demo-tooltip">topLeft</w-button>
       <div slot="content">
-        <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+        <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
       </div>
     </w-popconfirm>
     <w-popconfirm coreName="demo-popover-core">
       <w-button prefix="demo-tooltip">top</w-button>
       <div slot="content">
-        <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+        <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
       </div>
     </w-popconfirm>
     <w-popconfirm coreName="demo-popover-core" placement="topRight">
       <w-button prefix="demo-tooltip">topRight</w-button>
       <div slot="content">
-        <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+        <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
       </div>
     </w-popconfirm>
   </div>
@@ -87,19 +87,19 @@
     <w-popconfirm coreName="demo-popover-core" placement="leftTop">
       <w-button prefix="demo-tooltip">leftTop</w-button>
       <div slot="content">
-        <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+        <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
       </div>
     </w-popconfirm>
     <w-popconfirm coreName="demo-popover-core" placement="left">
       <w-button prefix="demo-tooltip">left</w-button>
       <div slot="content">
-        <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+        <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
       </div>
     </w-popconfirm>
     <w-popconfirm coreName="demo-popover-core" placement="leftBottom">
       <w-button prefix="demo-tooltip">leftBottom</w-button>
       <div slot="content">
-        <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+        <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
       </div>
     </w-popconfirm>
   </div>
@@ -107,19 +107,19 @@
     <w-popconfirm coreName="demo-popover-core" placement="rightTop">
       <w-button prefix="demo-tooltip">rightTop</w-button>
       <div slot="content">
-        <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+        <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
       </div>
     </w-popconfirm>
     <w-popconfirm coreName="demo-popover-core" placement="right">
       <w-button prefix="demo-tooltip">right</w-button>
       <div slot="content">
-        <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+        <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
       </div>
     </w-popconfirm>
     <w-popconfirm coreName="demo-popover-core" placement="rightBottom">
       <w-button prefix="demo-tooltip">rightBottom</w-button>
       <div slot="content">
-        <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+        <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
       </div>
     </w-popconfirm>
   </div>
@@ -127,19 +127,19 @@
     <w-popconfirm coreName="demo-popover-core" placement="bottomLeft">
       <w-button prefix="demo-tooltip">bottomLeft</w-button>
       <div slot="content">
-        <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+        <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
       </div>
     </w-popconfirm>
     <w-popconfirm coreName="demo-popover-core" placement="bottom">
       <w-button prefix="demo-tooltip">Bottom</w-button>
       <div slot="content">
-        <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+        <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
       </div>
     </w-popconfirm>
     <w-popconfirm coreName="demo-popover-core" placement="bottomRight">
       <w-button prefix="demo-tooltip">bottomRight</w-button>
       <div slot="content">
-        <p style="margin: 0;"><w-icon type="heart" /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="_blank">水滴</a></p>
+        <p style="margin: 0;"><w-icon /> 这是确认框，更多弹框尽在<a href="https://github.com/fe6/water" target="\_blank">水滴</a></p>
       </div>
     </w-popconfirm>
   </div>
@@ -217,9 +217,6 @@ export default {
 };
 </script>
 <style lang="scss">
-$font-path: '../water/font/';
-@import '../water/icon/style/icon.scss';
-@import '../water/button/style/button.scss';
 @import '../water/switch/style/switch.scss';
 @import '../water/popconfirm/style/popconfirm.scss';
 </style>

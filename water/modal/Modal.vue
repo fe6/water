@@ -25,7 +25,6 @@
 </template>
 <script>
 import TransferDom from '../directives/transfer-dom';
-import WIcon from '../icon/Icon';
 import WButton from '../button/Button';
 
 export default {
@@ -202,7 +201,6 @@ export default {
   },
   directives: { TransferDom },
   components: {
-    WIcon,
     WButton,
   },
   watch: {
