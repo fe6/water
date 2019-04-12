@@ -1,0 +1,154 @@
+<template>
+  <div class="affix">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <Affix><span style="background: red">Affix</span></Affix>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <Affix :offsetBottom="10"><span style="background: green">Affix</span></Affix>
+    sss
+
+    <br>
+    <br>
+    <table>
+      <thead>
+        <tr>
+          <th>参数</th>
+          <th>说明</th>
+          <th>类型</th>
+          <th>是否必填</th>
+          <th>默认值</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>offsetTop</td>
+          <td>距离窗口<strong>顶</strong>部达到指定偏移量后触发</td>
+          <td>number</td>
+          <td>否</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>offsetBottom</td>
+          <td>距离窗口<strong>底</strong>部达到指定偏移量后触发</td>
+          <td>number</td>
+          <td>否</td>
+          <td>无</td>
+        </tr>
+        <tr>
+          <td>index</td>
+          <td>层级</td>
+          <td>number</td>
+          <td>否</td>
+          <td>无</td>
+        </tr>
+        <tr>
+          <td>change</td>
+          <td>固定状态改变时触发的回调函数</td>
+          <td>Function(affixed)</td>
+          <td>否</td>
+          <td>() => {}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <table>
+      <thead>
+        <tr>
+          <th>事件名</th>
+          <th>说明</th>
+          <th>返回值</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>change</td>
+          <td>固定状态改变时触发的回调函数</td>
+          <td>当前定位类型</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+  </div>
+</template>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Affix from '@/components/affix/Affix.vue';
+
+@Component({
+  components: {
+    Affix,
+  },
+})
+export default class AffixView extends Vue {
+}
+</script>
