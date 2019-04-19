@@ -52,7 +52,7 @@
     "babel-plugin-dynamic-import-node": "^2.0.0",
     "babel-plugin-dynamic-import-webpack": "^1.0.1",
     "babel-plugin-istanbul": "^5.1.1",
-    "cache-loader": "^2.0.1",
+    "cache-loader": "^3.0.0",
     "chalk": "^2.3.2",
     "codecov": "^3.0.0",
     "compression-webpack-plugin": "^2.0.0",
