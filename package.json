@@ -2,20 +2,19 @@
   "name": "@fe6/water",
   "version": "0.0.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:modern": "vue-cli-service build --modern",
-    "lint": "vue-cli-service lint",
+    "lint": "yarn jslint && yarn style",
+    "jslint": "vue-cli-service lint",
     "style": "stylelint ./src/**/*.scss --fix --config ./.stylelintrc",
-    "test:unit": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit"
   },
-  "dependencies": {
+  "devDependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
-    "vue-property-decorator": "^8.0.0"
-  },
-  "devDependencies": {
+    "vue-property-decorator": "^8.0.0",
     "@types/jest": "^23.1.4",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
@@ -44,8 +43,7 @@
     "vue-template-compiler": "^2.5.21"
   },
   "pre-commit": [
-    "style",
     "lint",
-    "test:unit"
+    "test"
   ]
 }

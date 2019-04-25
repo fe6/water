@@ -1,78 +1,27 @@
 <template>
   <div class="affix">
+    <Affix><div style="color: green;">普通 Affix</div></Affix>
+    <div class="affix-box">
+      <div class="affix-box-left">
+        普通原生 css 实现
+      </div>
+      <div class="affix-box-right">
+        <div style="position:sticky;top: 10px;">Affix</div>
+      </div>
+    </div>
     <br>
     <br>
     <br>
     <br>
     <br>
     <br>
-    <Affix><span style="background: red">Affix</span></Affix>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div class="affix-box">
+      <div class="affix-box-left">
+        使用 Affix 组件实现
+      </div>
+      <Affix position="sticky" :offsetTop="30"><div class="affix-box-right">Affix</div></Affix>
+    </div>
     <Affix :offsetBottom="10"><span style="background: green">Affix</span></Affix>
-    sss
-
     <br>
     <br>
     <table>
@@ -106,6 +55,13 @@
           <td>number</td>
           <td>否</td>
           <td>无</td>
+        </tr>
+        <tr>
+          <td>status</td>
+          <td>状态。为 false 的时候定位方式为 static 。</td>
+          <td>Boolean</td>
+          <td>否</td>
+          <td>true</td>
         </tr>
         <tr>
           <td>change</td>
@@ -152,3 +108,29 @@ import Affix from '@/components/affix/Affix.vue';
 export default class AffixView extends Vue {
 }
 </script>
+
+<style lang="scss">
+.affix {
+  &-box {
+    width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    &-left {
+      height: 2000px;
+      width: 760px;
+      margin-right: 20px;
+      background: #f00;
+      padding: 32px 20px 24px;
+      border-radius: 8px;
+      box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.06);
+    }
+
+    &-right {
+      position: relative;
+      width: 320px;
+    }
+  }
+}
+</style>

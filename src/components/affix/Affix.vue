@@ -41,6 +41,11 @@ export default class Affix extends Vue {
   }) private index!: number;
 
   @Prop({
+    type: Boolean,
+    default: true,
+  }) private status!: boolean;
+
+  @Prop({
     type: String,
     default: 'fixed',
   }) private position!: string;
@@ -81,7 +86,7 @@ export default class Affix extends Vue {
     const elOffset = getOffset(this.$el as HTMLElement);
     const elRect = getRect(this.$el as HTMLElement);
     const windowHeight = window.innerHeight;
-    const isStatic = (
+    const isStatic: Boolean = (
       type === 'top'
         && (elOffset.top - value) <= scrollTop
     )
@@ -91,12 +96,13 @@ export default class Affix extends Vue {
         elOffset.top + this.offsetBottom + offsetHeight) > (scrollTop + windowHeight
       )
     );
-    const position = isStatic ? `position: ${this.position}; zIndex: ${this.index};` : '';
-    const offset: string = isStatic ? `${type}: ${value}px; width: ${offsetWidth}px` : '';
+    const sticky: Boolean = this.status && isStatic;
+    const position = sticky ? `position: ${this.position}; zIndex: ${this.index};` : '';
+    const offset: string = sticky ? `${type}: ${value}px; width: ${offsetWidth}px` : '';
     this.affixStyle = `${position}${offset}`;
-    this.change(isStatic);
+    this.change(sticky);
 
-    return isStatic;
+    return sticky;
   }
 }
 </script>
