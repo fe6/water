@@ -8,13 +8,10 @@
     "lint": "yarn jslint && yarn style",
     "jslint": "vue-cli-service lint",
     "style": "stylelint ./src/**/*.scss --fix --config ./.stylelintrc",
-    "test": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit",
+    "codecov": "codecov ./coverage/clover.xml"
   },
   "devDependencies": {
-    "core-js": "^2.6.5",
-    "vue": "^2.6.6",
-    "vue-class-component": "^6.0.0",
-    "vue-property-decorator": "^8.0.0",
     "@types/jest": "^23.1.4",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
@@ -27,6 +24,8 @@
     "add-dom-event-listener": "^1.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "codecov": "^3.3.0",
+    "core-js": "^2.6.5",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "fibers": "^3.1.1",
@@ -39,6 +38,9 @@
     "stylelint": "^9.10.1",
     "ts-jest": "^23.0.0",
     "typescript": "^3.2.1",
+    "vue": "^2.6.6",
+    "vue-class-component": "^6.0.0",
+    "vue-property-decorator": "^8.0.0",
     "vue-router": "^3.0.2",
     "vue-template-compiler": "^2.5.21"
   },
