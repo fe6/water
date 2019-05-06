@@ -1,12 +1,11 @@
 import addDOMEventListener from 'add-dom-event-listener';
-import { Component, Prop, Vue } from 'vue-property-decorator';
 
 interface ObserverEntity {
   target: HTMLElement | Window | null;
-  eventList: Function[],
+  eventList: Function[];
   eventHandler: {
-    [eventName: string]: any
-  }
+    [eventName: string]: any,
+  };
 }
 
 export const OBSERVED_EVENT = ['scroll', 'resize'];

@@ -14,6 +14,7 @@ module.exports = {
       ts: 'never',
       js: 'never',
     }],
+    'no-unused-vars': 2,
     'spaced-comment': 'off',
     'no-dupe-keys': 'off',
     'no-console': 'always',
