@@ -18,5 +18,10 @@ export default new Router({
       name: 'Affix',
       component: () => import(/* webpackChunkName: "affix" */ './views/Affix.vue'),
     },
+    {
+      path: '/icon',
+      name: 'Icon',
+      component: () => import(/* webpackChunkName: "icon" */ './views/Icon.vue'),
+    },
   ],
 });
