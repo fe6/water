@@ -23,7 +23,7 @@ describe('Affix.vue', () => {
         setTimeout(() => {
           wrapperBottom.vm.updatePostion();
           expect(wrapperBottom.vm.affixStyle).toBe('');
-          expect(wrapperBottom.vm.offsetType).toEqual({ type: 'bottom', value: 10 });
+          expect(wrapperBottom.vm.offsetType).toBe('bottom');
           done();
         }, 0);
       } catch (err) {

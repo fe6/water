@@ -16,7 +16,7 @@ import {
 } from './helper';
 import getScroll from '../../helper/getscroll';
 import getOffset from '../../helper/getoffset';
-import { getRect, RectEntity } from '../../helper/getrect';
+import { isNumber } from '../../helper/type';
 
 interface AffixEntity {
   [offsetPlace: string]: number;
@@ -28,10 +28,7 @@ export default class Affix extends Vue {
 
   target: Window = window;
 
-  @Prop({
-    type: Number,
-    default: 10,
-  }) private offsetTop!: number;
+  @Prop(Number) private offsetTop!: number;
 
   @Prop(Number) private offsetBottom!: number;
 
@@ -55,17 +52,17 @@ export default class Affix extends Vue {
     default: () => {},
   }) private change!: Function;
 
-  get offsetType() {
-    if (typeof this.offsetBottom === 'number') {
-      return {
-        type: 'bottom',
-        value: this.offsetBottom,
-      };
-    }
-    return {
-      type: 'top',
-      value: this.offsetTop,
-    };
+  get offsetType(): string {
+    return isNumber(this.offsetBottom) ? 'bottom' : 'top';
+  }
+
+  get offsetValue(): number {
+    const valueDefault = 10;
+    return this.offsetBottom || this.offsetTop || valueDefault;
+  }
+
+  get offsetIsTop(): boolean {
+    return this.offsetType === 'top';
   }
 
   mounted() {
@@ -79,26 +76,24 @@ export default class Affix extends Vue {
 
   @Emit('change')
   updatePostion() {
-    const { type, value } = this.offsetType;
     const { offsetWidth, offsetHeight } = this.$el as HTMLElement;
 
     const scrollTop = getScroll(this.target, true);
     const elOffset = getOffset(this.$el as HTMLElement);
-    const elRect = getRect(this.$el as HTMLElement);
     const windowHeight = window.innerHeight;
     const isStatic: Boolean = (
-      type === 'top'
-        && (elOffset.top - value) <= scrollTop
+      this.offsetIsTop
+        && (elOffset.top - this.offsetValue) <= scrollTop
     )
     || (
-      type === 'bottom'
+      !this.offsetIsTop
       && (
         elOffset.top + this.offsetBottom + offsetHeight) > (scrollTop + windowHeight
       )
     );
     const sticky: Boolean = this.status && isStatic;
     const position = sticky ? `position: ${this.position}; zIndex: ${this.index};` : '';
-    const offset: string = sticky ? `${type}: ${value}px; width: ${offsetWidth}px` : '';
+    const offset: string = sticky ? `${this.offsetType}: ${this.offsetValue}px; width: ${offsetWidth}px` : '';
     this.affixStyle = `${position}${offset}`;
     this.change(sticky);
 
