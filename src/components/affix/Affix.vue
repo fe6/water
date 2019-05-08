@@ -22,6 +22,11 @@ interface AffixEntity {
   [offsetPlace: string]: number;
 }
 
+interface ChangeEntity {
+  affixStatus: boolean;
+  scrollStatus: boolean;
+}
+
 @Component
 export default class Affix extends Vue {
   affixStyle: String = '';
@@ -81,7 +86,7 @@ export default class Affix extends Vue {
     const scrollTop = getScroll(this.target, true);
     const elOffset = getOffset(this.$el as HTMLElement);
     const windowHeight = window.innerHeight;
-    const isStatic: Boolean = (
+    const isStatic: boolean = (
       this.offsetIsTop
         && (elOffset.top - this.offsetValue) <= scrollTop
     )
@@ -91,13 +96,19 @@ export default class Affix extends Vue {
         elOffset.top + this.offsetBottom + offsetHeight) > (scrollTop + windowHeight
       )
     );
-    const sticky: Boolean = this.status && isStatic;
+    const sticky: boolean = this.status && isStatic;
     const position = sticky ? `position: ${this.position}; zIndex: ${this.index};` : '';
     const offset: string = sticky ? `${this.offsetType}: ${this.offsetValue}px; width: ${offsetWidth}px` : '';
     this.affixStyle = `${position}${offset}`;
-    this.change(sticky);
 
-    return sticky;
+    const changeEmit: ChangeEntity = {
+      affixStatus: sticky,
+      scrollStatus: isStatic,
+    };
+
+    this.change(changeEmit);
+
+    return changeEmit;
   }
 }
 </script>

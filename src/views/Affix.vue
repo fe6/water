@@ -65,7 +65,7 @@
         </tr>
         <tr>
           <td>change</td>
-          <td>固定状态改变时触发的回调函数</td>
+          <td>固定状态改变时触发的回调函数，返回状态[组件状态(affixStatus), 滚动状态(scrollStatus)]</td>
           <td>Function(affixed)</td>
           <td>否</td>
           <td>() => {}</td>
@@ -87,7 +87,7 @@
         <tr>
           <td>change</td>
           <td>固定状态改变时触发的回调函数</td>
-          <td>当前定位类型</td>
+          <td>状态[组件状态(affixStatus), 滚动状态(scrollStatus)]</td>
         </tr>
       </tbody>
     </table>
