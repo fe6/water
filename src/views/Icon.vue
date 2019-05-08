@@ -3,7 +3,7 @@
     <Icon spin />
     <Icon color="#f00" />
     <icon>
-      <img src="https://fe6.github.io/water/logo.png">
+      <img src="https://fe6.github.io/water/logo.png" alt="水滴 logo">
     </icon>
     <br>
     <br>
