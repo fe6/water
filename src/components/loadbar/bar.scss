@@ -1,0 +1,18 @@
+.w-loadbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 0%;
+  transition: width 0.2s linear;
+  z-index: 999999;
+  height: 2px;
+
+  &-success {
+    background-color: #1996f9;
+  }
+
+  &-fail {
+    background-color: #f00;
+  }
+}

@@ -14,7 +14,7 @@ module.exports = {
       js: 'never',
     }],
     'class-methods-use-this': ['error', { exceptMethods: ['render'] }],
-    'no-unused-vars': ['error', { varsIgnorePattern: '^V' }],
+    'no-unused-vars': ['error', { varsIgnorePattern: '^V|Entity$' }],
     'no-underscore-dangle': ['error', { allow: ['_componentTag'] }],
     'spaced-comment': 'off',
     'no-dupe-keys': 'off',
