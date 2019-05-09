@@ -23,5 +23,10 @@ export default new Router({
       name: 'Icon',
       component: () => import(/* webpackChunkName: "icon" */ './views/Icon.vue'),
     },
+    {
+      path: '/grid',
+      name: 'Grid',
+      component: () => import(/* webpackChunkName: "grid" */ './views/Grid.vue'),
+    },
   ],
 });
