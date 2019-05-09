@@ -28,5 +28,10 @@ export default new Router({
       name: 'Grid',
       component: () => import(/* webpackChunkName: "grid" */ './views/Grid.vue'),
     },
+    {
+      path: '/loadbar',
+      name: 'Loadbar',
+      component: () => import(/* webpackChunkName: "loadbar" */ './views/Loadbar.vue'),
+    },
   ],
 });
