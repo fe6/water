@@ -28,9 +28,9 @@ describe('Col.vue', () => {
     wrapperRender.vm.$nextTick(() => {
       try {
         setTimeout(() => {
-          expect(wrapperRender.vm.$children[0].gutter).toBe(0);
-          expect(wrapperRender.vm.$children[0].basin).toBe(0);
-          expect(wrapperRender.vm.$children[0].type).toBe('');
+          expect(wrapperRender.vm.$children[0].gutter).toBe(undefined);
+          expect(wrapperRender.vm.$children[0].basin).toBe(undefined);
+          expect(wrapperRender.vm.$children[0].type).toBe(undefined);
           expect(wrapperProps.vm.$children[0].customize).toEqual([]);
           done();
         }, 0);
@@ -48,7 +48,7 @@ describe('Col.vue', () => {
           colArray.at(1).setProps({ xl: 3 });
           expect(wrapperProps.vm.$children[0].gutter).toBe(12);
           expect(wrapperProps.vm.$children[0].basin).toBe(2);
-          expect(wrapperProps.vm.$children[0].type).toBe('w-col-float');
+          expect(wrapperProps.vm.$children[0].type).toBe('float');
           expect(wrapperProps.vm.$children[0].customize).toEqual(['w-col-3-xl']);
           done();
         }, 0);
