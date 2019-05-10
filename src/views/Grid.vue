@@ -20,6 +20,9 @@
         >100%</w-col>
       </w-row> -->
       <w-row
+        :gutter="12"
+        :basin="2"
+        type = 'float'
         justify="center"
         align="middle"
         className="demo-grid-row"

@@ -1,12 +1,10 @@
 <script lang="ts">
 import { VNode } from 'vue';
 import {
-  Component, Vue, Prop,
+  Component, Vue, Prop, Inject,
 } from 'vue-property-decorator';
 import SPACE from './space';
 import getSpacing from './helper';
-import { isString, isNumber } from '../../helper/type';
-import { findUpNode } from '../../helper/node';
 
 interface colStyleEntity {
   paddingLeft?: string;
@@ -48,24 +46,11 @@ export default class Col extends Vue {
 
   @Prop(Number) private xxl!: number | object;
 
-  get parent(): any {
-    return findUpNode(this, 'Row');
-  }
+  @Inject() private basin!: number;
 
-  get gutter(): number {
-    const { gutter } = this.parent;
-    return isNumber(gutter) ? gutter : 0;
-  }
+  @Inject() private gutter!: number;
 
-  get basin(): number {
-    const { basin } = this.parent;
-    return isNumber(basin) ? basin : 0;
-  }
-
-  get type(): string {
-    const { type } = this.parent;
-    return isString(type) ? `${this.preName}-${type}` : '';
-  }
+  @Inject() private type!: string;
 
   get colStyle(): colStyleEntity {
     const gutter = getSpacing(this.gutter);
@@ -87,7 +72,9 @@ export default class Col extends Vue {
 
   render(h: Function): VNode {
     return h('div', {
-      class: [this.preName, this.type, this.customize, this.className],
+      class: [this.preName, {
+        [`w-col-${this.type}`]: !!this.type,
+      }, this.customize, this.className],
       style: this.colStyle,
     }, this.$slots.default);
   }

@@ -1,8 +1,14 @@
 <script lang="ts">
 import { VNode } from 'vue';
 import {
-  Component, Vue, Prop,
+  Component, Vue, Prop, Provide,
 } from 'vue-property-decorator';
+
+interface ProvideEntity {
+  basin: number;
+  gutter: number;
+  type: string;
+}
 
 @Component
 export default class Col extends Vue {
@@ -26,6 +32,12 @@ export default class Col extends Vue {
   @Prop(Number) private gutter!: number;
 
   @Prop(String) private type!: string;
+
+  @Provide('basin') rowBasin = this.basin;
+
+  @Provide('gutter') rowGutter = this.gutter;
+
+  @Provide('type') rowType = this.type;
 
   get classList(): object {
     return [
