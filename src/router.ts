@@ -33,5 +33,10 @@ export default new Router({
       name: 'Loadbar',
       component: () => import(/* webpackChunkName: "loadbar" */ './views/Loadbar.vue'),
     },
+    {
+      path: '/badge',
+      name: 'Badge',
+      component: () => import(/* webpackChunkName: "badge" */ './views/Badge.vue'),
+    },
   ],
 });
