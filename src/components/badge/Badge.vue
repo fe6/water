@@ -26,7 +26,6 @@
 import {
   Component, Prop, Model, Vue,
 } from 'vue-property-decorator';
-// import { isNumber } from '../../helper/type';
 
 @Component
 export default class Badge extends Vue {

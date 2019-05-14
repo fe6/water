@@ -38,5 +38,10 @@ export default new Router({
       name: 'Badge',
       component: () => import(/* webpackChunkName: "badge" */ './views/Badge.vue'),
     },
+    {
+      path: '/breadcrumb',
+      name: 'Breadcrumb',
+      component: () => import(/* webpackChunkName: "breadcrumb" */ './views/Breadcrumb.vue'),
+    },
   ],
 });
