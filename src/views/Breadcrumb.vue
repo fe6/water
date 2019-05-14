@@ -6,10 +6,17 @@
       separator=">"
       :to="{ name: 'Badge' }"
     >内部跳转到按钮</BreadcrumbItem>
+    <BreadcrumbItem>
+      <img slot="icon" src="https://fe6.github.io/water/logo.png" alt="水滴 logo">
+      <span>自定义 Icon</span>
+    </BreadcrumbItem>
     <BreadcrumbItem separator="<b class='breadcrumb-item'>|</b>">自定义间隔符号</BreadcrumbItem>
     <BreadcrumbItem open="https://qq.com">外跳qq</BreadcrumbItem>
     <BreadcrumbItem href="https://baidu.com">外跳baidu</BreadcrumbItem>
-    <BreadcrumbItem>now</BreadcrumbItem>
+    <BreadcrumbItem>
+      <img slot="icon" src="https://fe6.github.io/water/logo.png" alt="水滴 logo">
+      <span>now</span>
+    </BreadcrumbItem>
   </Breadcrumb>
   </div>
 </template>
