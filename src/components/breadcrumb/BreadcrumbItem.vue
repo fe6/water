@@ -1,5 +1,8 @@
 <template>
   <span class="w-breadcrumb-item">
+    <Icon class="w-breadcrumb-item-icon" v-if="$slots.icon">
+      <slot name="icon"></slot>
+    </Icon>
     <span :class="{
       'w-breadcrumb-item-link': to || href || open,
     }" @click="page">
@@ -13,12 +16,17 @@
 import {
   Component, Prop, Vue,
 } from 'vue-property-decorator';
+import Icon from '../icon/Icon.vue';
 
 interface VueRouterEntity {
   [key:string]: any;
 }
 
-@Component
+@Component({
+  components: {
+    Icon,
+  },
+})
 export default class BreadcrumbItem extends Vue {
   name: string = 'BreadcrumbItem';
 

@@ -1,25 +1,38 @@
-$breadcrumb-base-color: rgba(0, 0, 0, 0.45);
-$blue-6: #1890ff;
-$blue-7: #096dd9;
+@import '../../helper/config.scss';
+
+$base-color: #b4bac3;
 $breadcrumb-hover-color: #40a9ff;
-$breadcrumb-on-color: rgba(0, 0, 0, 0.65);
+$last-color: #60636C;
 
 .w-breadcrumb {
-  height: 22px;
-  line-height: 22px;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.45);
+  height: 12px;
+  line-height: 12px;
+  font-size: 12px;
   display: flex;
+  font-family: $family;
   align-items: center;
 
   &-item {
     display: flex;
     align-items: center;
-    color: $breadcrumb-base-color;
+    color: $base-color;
+
+    &-icon {
+      width: 12px;
+      height: 12px;
+      padding-right: 8px;
+
+      & img,
+      & svg {
+        font-size: 12px;
+        width: 12px;
+        height: 12px;
+      }
+    }
 
     &-link {
       cursor: pointer;
-      color: $breadcrumb-base-color !important;
+      color: $base-color !important;
       text-decoration: none !important;
 
       &:focus,
@@ -42,7 +55,7 @@ $breadcrumb-on-color: rgba(0, 0, 0, 0.65);
     }
 
     &:last-child {
-      color: $breadcrumb-on-color;
+      color: $last-color;
 
       > .w-breadcrumb-item-separator {
         display: none;
