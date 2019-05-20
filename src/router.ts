@@ -43,5 +43,10 @@ export default new Router({
       name: 'Breadcrumb',
       component: () => import(/* webpackChunkName: "breadcrumb" */ './views/Breadcrumb.vue'),
     },
+    {
+      path: '/button',
+      name: 'Button',
+      component: () => import(/* webpackChunkName: "button" */ './views/Button.vue'),
+    },
   ],
 });
