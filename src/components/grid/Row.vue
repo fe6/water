@@ -21,7 +21,7 @@ export default class Col extends Vue {
     default: 'div',
   }) private tag!: string;
 
-  @Prop([String, Object]) private className!: string | object;
+  @Prop([String, Object, Array]) private className!: string | object | any[];
 
   @Prop(String) private align!: string;
 

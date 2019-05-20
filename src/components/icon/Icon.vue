@@ -36,7 +36,7 @@ export default class Icon extends Vue {
 
   @Prop(Boolean) private spin!: boolean;
 
-  @Prop([String, Object]) private className!: string | object;
+  @Prop([String, Object, Array]) private className!: string | object | any[];
 
   @Prop({
     type: String,
