@@ -58,15 +58,11 @@ export default class Button extends Vue {
 
   colorDefult: string = colorDefult;
 
-  // status: boolean = false;
-
   clicked: boolean = false;
 
   @Prop(String) private type?: string;
 
   @Prop(String) private size?: string;
-
-  // @Prop(String) private value?: string;
 
   @Prop({
     type: String,
@@ -87,7 +83,9 @@ export default class Button extends Vue {
   }) private click?: Function;
 
   @Inject({
-    default: '',
+    default: {
+      value: '',
+    },
   }) private group!: any;
 
   get status(): boolean {
