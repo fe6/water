@@ -19,7 +19,7 @@
       }]"
       :style="colorStyle"
     >
-      <input type="checkbox" :class="[`${preName}input`]">
+      <input type="checkbox" aria-label="checkbox" :class="[`${preName}input`]">
     </div>
     <div :class="[`${preName}content`]" v-if="$slots.default">
       <slot></slot>

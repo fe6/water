@@ -27,7 +27,7 @@
         v-bind:change="changeGroup"
         format="value"
         formatValue="value"
-      ></CheckboxGroup><input v-show="groupMore" type="text">
+      ></CheckboxGroup><input v-show="groupMore" aria-label="more" type="text">
       <br>
       <CheckboxGroup
         aria-label="group"
