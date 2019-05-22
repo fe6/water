@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link :to="{name: 'Home'}">Home</router-link> |
+      <router-link :to="{name: 'Checkbox'}">Checkbox</router-link> |
       <router-link :to="{name: 'Button'}">Button</router-link> |
       <router-link :to="{name: 'Breadcrumb'}">Breadcrumb</router-link> |
       <router-link :to="{name: 'Badge'}">Badge</router-link> |

@@ -1,8 +1,10 @@
 $family: Helvetica, "PingFang SC", STHeiti, "Microsoft YaHei", 微软雅黑, Verdana,Arial, Tahoma, STXihei, 华文细黑, MicrosoftYaHeiUI, sans-serif;
 
-$normal-border: #d9d9d9;
-$normal-bg: #fff;
-$normal-color: #fff;
+$white: #fff;
+
+$normal-border: #dbdee9;
+$normal-bg: $white;
+$normal-color: $white;
 
 // Dust Red / 薄暮
 // 斗志、奔放
@@ -32,9 +34,9 @@ $green-6: #52c41a;
 $cyan-6: #13c2c2;
 // Daybreak Blue / 拂晓蓝
 // 包容、科技、普惠
-$blue-5: #1ba1fe;
+$blue-5: #34abfe;
 $blue-6: #0297fe;
-$blue-7: #1188f8;
+$blue-7: #1890ff;
 // Geek Blue / 极客蓝
 // 探索、钻研
 $geekblue-6: #2f54eb;
