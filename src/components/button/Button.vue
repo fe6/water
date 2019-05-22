@@ -13,7 +13,7 @@
       [`${preName}-icon${size?`-${size}`:''}`]: !$slots.default,
     },
     className,
-  ]" @animationend="removeClickName" @click="clickFn($event)">
+  ]" @animationend="removeClickName" @click="clickFn">
     <Icon
       v-show="loading || !!$slots.icon"
       :color="colors[type] || colorDefult"
