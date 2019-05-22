@@ -104,7 +104,7 @@
     "reqwest": "^2.0.5",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
-    "semver": "^5.5.0",
+    "semver": "^6.1.0",
     "shelljs": "^0.8.1",
     "stylelint": "^9.9.0",
     "stylelint-webpack-plugin": "^0.10.4",
