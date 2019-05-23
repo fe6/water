@@ -36,10 +36,18 @@ import {
   Watch,
   Vue,
 } from 'vue-property-decorator';
+import {
+  isBoolean,
+  isNumber,
+  isString,
+  isUndefined,
+} from '../../helper/type';
 
 interface ReturnParamsEntity {
   ev: Event;
-  status: boolean;
+  value: string | number | boolean;
+  label: string | number | boolean;
+  status: string | number | boolean;
   disabled: boolean;
   indeterminate: boolean;
 }
@@ -54,11 +62,16 @@ export default class Checkbox extends Vue {
 
   preName: string = 'w-checkbox-';
 
+  status: string | number | boolean = false;
+
   hoverStatus: boolean = false;
 
-  @Model('model', { type: Boolean, default: false }) readonly value!: boolean;
+  @Model('model', { type: [Boolean, Number, String], default: undefined }) readonly value!: boolean | number | string;
 
-  status: boolean = this.value;
+  @Prop({
+    type: [Boolean, Number, String],
+    default: undefined,
+  }) private label!: string | number | boolean;
 
   @Prop(Boolean) private disabled!: boolean;
 
@@ -74,6 +87,25 @@ export default class Checkbox extends Vue {
     type: Function,
     default: () => {},
   }) private change?: Function;
+
+  mounted() {
+    this.checkStatus();
+  }
+
+  @Watch('value')
+  checkStatus() {
+    if (
+      (isBoolean(this.value) && isBoolean(this.label))
+      || (isNumber(this.value) && isNumber(this.label))
+      || (isString(this.value) && isString(this.label))
+    ) {
+      this.status = this.value === this.label;
+    }
+
+    if (isBoolean(this.value) && isUndefined(this.label)) {
+      this.status = this.value;
+    }
+  }
 
   get colorStyle(): ColorStyleEntity {
     const colors: ColorStyleEntity = {};
@@ -97,6 +129,8 @@ export default class Checkbox extends Vue {
     const reParams: ReturnParamsEntity = {
       ev,
       status: this.status,
+      label: this.label,
+      value: this.value,
       disabled: this.disabled,
       indeterminate: this.indeterminate,
     };
@@ -107,20 +141,12 @@ export default class Checkbox extends Vue {
   }
 
   @Emit('model')
-  changeStatus(): boolean {
-    let newStatus = this.status;
-    if (!this.disabled) {
-      newStatus = !newStatus;
-      this.setValue(newStatus);
+  changeStatus(): string | number | boolean {
+    this.status = !this.status;
+    if (!isUndefined(this.label) && this.status) {
+      return this.label;
     }
-    return newStatus;
-  }
-
-  @Watch('value')
-  setValue(value: boolean): void {
-    if (this.status !== value) {
-      this.status = value;
-    }
+    return this.status;
   }
 }
 </script>
