@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link :to="{name: 'Home'}">Home</router-link> |
+      <router-link :to="{name: 'Radio'}">Radio</router-link> |
       <router-link :to="{name: 'Link'}">Link</router-link> |
       <router-link :to="{name: 'Input'}">Input</router-link> |
       <router-link :to="{name: 'Checkbox'}">Checkbox</router-link> |

@@ -63,5 +63,10 @@ export default new Router({
       name: 'Link',
       component: () => import(/* webpackChunkName: "link" */ './views/Link.vue'),
     },
+    {
+      path: '/radio',
+      name: 'Radio',
+      component: () => import(/* webpackChunkName: "radio" */ './views/Radio.vue'),
+    },
   ],
 });
