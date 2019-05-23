@@ -4,14 +4,42 @@ import CheckboxGroup from './CheckboxGroup.vue';
 
 describe('Checkbox.vue', () => {
   let cb: any = null;
+  let labelEmpty: any = null;
+  let label1: any = null;
+  let label2: any = null;
+  let label3: any = null;
   let color: any = null;
   let disabled: any = null;
-  let group: any = null;
+  let group1: any = null;
+  let group2: any = null;
   let groupEmpty: any = null;
   let groupDisabled: any = null;
 
   beforeEach(() => {
     cb = mount(Checkbox);
+    label1 = mount(Checkbox, {
+      propsData: {
+        value: 'true',
+        label: 'true',
+      },
+    });
+    label2 = mount(Checkbox, {
+      propsData: {
+        value: 1,
+        label: 1,
+      },
+    });
+    label3 = mount(Checkbox, {
+      propsData: {
+        value: true,
+        label: true,
+      },
+    });
+    labelEmpty = mount(Checkbox, {
+      propsData: {
+        value: true,
+      },
+    });
     color = mount(Checkbox, {
       propsData: {
         checkColor: '#f00',
@@ -23,11 +51,19 @@ describe('Checkbox.vue', () => {
         disabled: true,
       },
     });
-    group = mount(CheckboxGroup, {
+    group1 = mount(CheckboxGroup, {
       propsData: {
         options: [{
           value: 'Apple',
           label: 'Apple',
+          age: '18岁',
+        }],
+      },
+    });
+    group2 = mount(CheckboxGroup, {
+      propsData: {
+        options: [{
+          value: 'Apple',
           age: '18岁',
         }],
       },
@@ -51,12 +87,59 @@ describe('Checkbox.vue', () => {
         expect(cb.vm.colorStyle).toEqual({});
 
         cb.vm.status = true;
-        cb.vm.setValue(true);
         expect(cb.vm.status).toBe(true);
 
         const checkboxElem = cb.find('.w-checkbox');
         checkboxElem.trigger('click');
         expect(cb.vm.status).toBe(false);
+
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('test Checkbox label1', (done) => {
+    label1.vm.$nextTick(() => {
+      try {
+        expect(label1.vm.status).toBeTruthy();
+
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('test Checkbox label2', (done) => {
+    label2.vm.$nextTick(() => {
+      try {
+        expect(label2.vm.status).toBeTruthy();
+
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('test Checkbox label3', (done) => {
+    label3.vm.$nextTick(() => {
+      try {
+        expect(label3.vm.status).toBeTruthy();
+
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('test Checkbox label empty', (done) => {
+    labelEmpty.vm.$nextTick(() => {
+      try {
+        expect(labelEmpty.vm.status).toBeTruthy();
 
         done();
       } catch (err) {
@@ -87,7 +170,7 @@ describe('Checkbox.vue', () => {
       try {
         const checkboxElem = disabled.find('.w-checkbox');
         checkboxElem.trigger('click');
-        expect(disabled.vm.status).toBe(false);
+        expect(disabled.vm.status).toBe(true);
 
         done();
       } catch (err) {
@@ -97,11 +180,24 @@ describe('Checkbox.vue', () => {
   });
 
   it('test CheckboxGroup', (done) => {
-    group.vm.$nextTick(() => {
+    group1.vm.$nextTick(() => {
       try {
-        const checkboxElem = group.find('.w-checkbox');
+        const checkboxElem = group1.find('.w-checkbox');
         checkboxElem.trigger('click');
-        expect(checkboxElem.vm.status).toBe(true);
+        checkboxElem.trigger('click');
+
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('test CheckboxGroup', (done) => {
+    group2.vm.$nextTick(() => {
+      try {
+        const checkboxElem = group2.find('.w-checkbox');
+        checkboxElem.trigger('click');
         checkboxElem.trigger('click');
 
         done();
@@ -128,7 +224,7 @@ describe('Checkbox.vue', () => {
       try {
         const checkboxElem = groupDisabled.find('.w-checkbox');
         checkboxElem.trigger('click');
-        expect(checkboxElem.vm.status).toBe(false);
+        expect(checkboxElem.vm.status).toBe(true);
 
         done();
       } catch (err) {

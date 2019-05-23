@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>基本用法</h2>
+    <!-- <h2>基本用法</h2>
     <p>
       <Checkbox>通用多选</Checkbox>
       <Checkbox checkColor="#f00" hoverColor="#0f0">定制颜色</Checkbox>
@@ -15,28 +15,39 @@
       <Checkbox v-model="baseStatus" :disabled="disabledStatus">水滴</Checkbox>
     </p>
     <p>
+      {{baseStatus}}-
       <Button @click="changeDis">{{disabledStatus ? '禁' : '可'}}用</Button>
       <Button @click="changeBase">{{baseStatus ? '选中' : '未选'}}</Button>
-    </p>
+    </p> -->
+    <!-- <h2>label用法</h2>
+    <p>
+      {{labelStatus}}-
+      <Checkbox label="100015" v-model="labelStatus">重庆不插电</Checkbox>
+    </p> -->
     <h2>Checkbox 组用法</h2>
     <p>
+      {{groupList}}
       <CheckboxGroup
         aria-label="group"
         :options="groupOpts"
         v-model="groupList"
         v-bind:change="changeGroup"
-        format="value"
-        formatValue="value"
       ></CheckboxGroup><input v-show="groupMore" aria-label="more" type="text">
+      <br>
+      <!-- <CheckboxGroup
+        aria-label="group"
+        :options="groupOpts"
+        :fieldNames="{ value: 'age' }"
+      ></CheckboxGroup>
       <br>
       <CheckboxGroup
         aria-label="group"
         :disabled="true"
         :options="groupOpts"
         :fieldNames="{ value: 'age' }"
-      ></CheckboxGroup>
+      ></CheckboxGroup> -->
     </p>
-    <h2>全选</h2>
+    <!-- <h2>全选</h2>
     <table>
       <thead>
         <tr>
@@ -62,7 +73,7 @@
           <td>{{fItem.name}}</td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
 </template>
 
@@ -97,6 +108,8 @@ export default class CheckboxView extends Vue {
 
   disabledStatus: boolean = false;
 
+  labelStatus: string = '';
+
   groupList: string[] = ['Apple'];
 
   groupOpts: GroupOptsEntity[] = [
@@ -113,7 +126,7 @@ export default class CheckboxView extends Vue {
     },
     {
       value: 'more',
-      label: 'more',
+      label: 'mo1re',
       age: '68岁',
       more: true,
     },

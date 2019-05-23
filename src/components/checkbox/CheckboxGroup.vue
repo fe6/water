@@ -2,10 +2,14 @@
   <div class="w-checkbox-group" :class="className">
     <Checkbox
       v-for="(item, itemIndex) in options"
-      :key="item[fieldNames.label] || itemIndex"
+      :key="item[fieldNames.key] || itemIndex"
       @change="checkFn($event, item)"
       :disabled="disabled || item[fieldNames.disabled]"
-      :value="checkValue.includes(item[fieldNames.value])"
+      :value="checkValue.find(
+        cItem =>
+        cItem === item[fieldNames.label] || cItem === item[fieldNames.value]
+      )"
+      :label="item[fieldNames.label]||item[fieldNames.value]"
       :class="checkboxClassName"
     >{{item[fieldNames.value]}}</Checkbox>
   </div>
@@ -20,14 +24,16 @@ import {
   Vue,
 } from 'vue-property-decorator';
 import Checkbox from './Checkbox.vue';
+import { hasOwn } from '../../helper/o';
 
 interface OptionsEntity {
-  value: string;
   [propName: string]: any;
 }
 
-interface FieldNamesEntity extends OptionsEntity {
+interface FieldNamesEntity {
+  value: string;
   label: string;
+  key: string;
   disabled: string;
 }
 
@@ -59,6 +65,7 @@ export default class CheckboxGroup extends Vue {
     default: (): FieldNamesEntity => ({
       value: 'value',
       label: 'label',
+      key: 'key',
       disabled: 'disabled',
     }),
   }) private fieldNames!: FieldNamesEntity;
@@ -82,10 +89,14 @@ export default class CheckboxGroup extends Vue {
     const reParams: ReturnParamsEntity = {
       ev,
     };
-    const { disabled, value } = this.fieldNames;
+    const {
+      disabled,
+      value,
+      label,
+    } = this.fieldNames;
 
     if (!this.disabled && !item[disabled]) {
-      const checkValue: any = item[value];
+      const checkValue: any = hasOwn(item, label) ? item[label] : item[value];
       const valueIndex: number = (this.value as string[]).indexOf(checkValue);
       const checkStatus: boolean = valueIndex > -1;
 
