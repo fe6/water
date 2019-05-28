@@ -33,7 +33,7 @@
           :className="['demo-grid-col', 'demo-grid-text']"
         >100%</w-col>
       </w-row>
-      <!-- <w-row
+      <w-row
         justify="center"
         align="middle"
         className="demo-grid-row"
@@ -44,6 +44,13 @@
           :key="aIndex"
           :className="['demo-grid-col', 'demo-grid-text']"
         >50%</w-col>
+      </w-row>
+      <w-row>
+        <w-col
+          :span="8"
+          v-for="(a, aIndex) in 3"
+          :key="aIndex"
+        >33.33%-{{aIndex}}</w-col>
       </w-row>
       <w-row
         justify="center"
@@ -56,7 +63,7 @@
           :key="aIndex"
           :className="['demo-grid-col', 'demo-grid-text']"
         >33.33%-{{aIndex}}</w-col>
-      </w-row> -->
+      </w-row>
     </div>
   </div>
 </template>

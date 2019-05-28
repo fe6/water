@@ -181,8 +181,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Button from '../components/button/Button.vue';
-import ButtonGroup from '../components/button/ButtonGroup.vue';
+import Button from '@/components/button/Button.vue';
+import ButtonGroup from '@/components/button/ButtonGroup.vue';
 
 interface StatusEntity {
   ev: AnimationEvent;

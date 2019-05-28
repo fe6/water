@@ -79,9 +79,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Checkbox from '../components/checkbox/Checkbox.vue';
-import CheckboxGroup from '../components/checkbox/CheckboxGroup.vue';
-import Button from '../components/button/Button.vue';
+import Checkbox from '@/components/checkbox/Checkbox.vue';
+import CheckboxGroup from '@/components/checkbox/CheckboxGroup.vue';
+import Button from '@/components/button/Button.vue';
 
 interface GroupOptsEntity {
   value: string;
