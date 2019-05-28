@@ -187,8 +187,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import WLink from '../components/link/Link.vue';
-import Icon from '../components/icon/Icon.vue';
+import WLink from '@/components/link/Link.vue';
+import Icon from '@/components/icon/Icon.vue';
 
 @Component({
   components: {

@@ -1,43 +1,141 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link :to="{name: 'Home'}">Home</router-link> |
-      <router-link :to="{name: 'Radio'}">Radio</router-link> |
-      <router-link :to="{name: 'Link'}">Link</router-link> |
-      <router-link :to="{name: 'Input'}">Input</router-link> |
-      <router-link :to="{name: 'Checkbox'}">Checkbox</router-link> |
-      <router-link :to="{name: 'Button'}">Button</router-link> |
-      <router-link :to="{name: 'Breadcrumb'}">Breadcrumb</router-link> |
-      <router-link :to="{name: 'Badge'}">Badge</router-link> |
-      <router-link :to="{name: 'Loadbar'}">Loadbar</router-link> |
-      <router-link :to="{name: 'Grid'}">Grid</router-link> |
-      <router-link :to="{name: 'Icon'}">Icon</router-link> |
-      <router-link :to="{name: 'Affix'}">Affix</router-link>
+  <div id="app" class="layout">
+    <header class="layout-header">
+      <WRow>
+        <WCol :span="24">
+          <router-link :to="{ name: 'Home' }" class="layout-logo">水滴</router-link>
+        </WCol>
+      </WRow>
+    </header>
+    <div class="layout-main">
+      <WRow>
+        <WCol :span="4">
+          <section
+            class="layout-menu"
+            :style="menuStyle"
+          >
+            <div class="layout-menu-title" title="通用">通用</div>
+            <ul class="layout-menu-list">
+              <router-link
+                exact-active-class="layout-menu-on"
+                tag="li"
+                :to="{ name: 'Icon' }"
+                class="layout-menu-item"
+              >Icon 图标</router-link>
+              <router-link
+                exact-active-class="layout-menu-on"
+                tag="li"
+                :to="{ name: 'Button' }"
+                class="layout-menu-item"
+              >Button 按钮</router-link>
+            </ul>
+            <div class="layout-menu-title" title="布局">布局</div>
+            <ul class="layout-menu-list">
+              <router-link
+                exact-active-class="layout-menu-on"
+                tag="li"
+                :to="{ name: 'Grid' }"
+                class="layout-menu-item"
+              >Grid 栅格</router-link>
+            </ul>
+            <div class="layout-menu-title" title="导航">导航</div>
+            <ul class="layout-menu-list">
+              <router-link
+                exact-active-class="layout-menu-on"
+                tag="li"
+                :to="{ name: 'Affix' }"
+                class="layout-menu-item"
+              >Affix 固钉</router-link>
+              <router-link
+                exact-active-class="layout-menu-on"
+                tag="li"
+                :to="{ name: 'Breadcrumb' }"
+                class="layout-menu-item"
+              >Breadcrumb 面包屑</router-link>
+            </ul>
+            <div class="layout-menu-title" title="数据录入">数据录入</div>
+            <ul class="layout-menu-list">
+              <router-link
+                exact-active-class="layout-menu-on"
+                tag="li"
+                :to="{ name: 'Checkbox' }"
+                class="layout-menu-item"
+              >Checkbox 多选</router-link>
+              <router-link
+                exact-active-class="layout-menu-on"
+                tag="li"
+                :to="{ name: 'Input' }"
+                class="layout-menu-item"
+              >Input 输入框</router-link>
+              <router-link
+                exact-active-class="layout-menu-on"
+                tag="li"
+                :to="{ name: 'Radio' }"
+                class="layout-menu-item"
+              >Radio 单选</router-link>
+            </ul>
+            <div class="layout-menu-title" title="数据展示">数据展示</div>
+            <ul class="layout-menu-list">
+              <router-link
+                exact-active-class="layout-menu-on"
+                tag="li"
+                :to="{ name: 'Badge' }"
+                class="layout-menu-item"
+              >Badge 徽标数</router-link>
+            </ul>
+            <div class="layout-menu-title" title="反馈">反馈</div>
+            <ul class="layout-menu-list">
+              <router-link
+                exact-active-class="layout-menu-on"
+                tag="li"
+                :to="{ name: 'Loadbar' }"
+                class="layout-menu-item"
+              >Loadbar 加载进度</router-link>
+            </ul>
+          </section>
+        </WCol>
+        <WCol :span="20">
+          <article class="layout-cantainer">
+            <router-view/>
+          </article>
+        </WCol>
+      </WRow>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import WRow from '@/components/grid/Row.vue';
+import WCol from '@/components/grid/Col.vue';
+import WAffix, { ChangeEntity } from '@/components/affix/Affix.vue';
+
+interface MenuStyleEntity {
+  height?: string;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+
+@Component({
+  components: {
+    WRow,
+    WCol,
+    WAffix,
+  },
+})
+export default class LayoutView extends Vue {
+  menuStyle: MenuStyleEntity = {};
+
+  affixChange({ affixStatus }: ChangeEntity) {
+    if (affixStatus) {
+      this.menuStyle = {
+        height: `${window.innerHeight}px`,
+      };
+    } else {
+      this.menuStyle = {};
     }
   }
 }
+</script>
 
-table {
-  margin: 0 auto;
-}
+<style lang="scss">
+@import './assets/style/layout.scss';
 </style>

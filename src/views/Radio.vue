@@ -48,8 +48,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Radio from '../components/radio/Radio.vue';
-import RadioGroup from '../components/radio/RadioGroup.vue';
+import Radio from '@/components/radio/Radio.vue';
+import RadioGroup from '@/components/radio/RadioGroup.vue';
 
 interface GroupOptsEntity {
   value: string;

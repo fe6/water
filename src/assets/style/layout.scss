@@ -1,0 +1,116 @@
+@import '../../helper/config.scss';
+
+body,
+ul {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.layout {
+  &-header {
+    position: relative;
+    z-index: 10;
+    max-width: 100%;
+    background: $normal-bg;
+    -webkit-box-shadow: 0 2px 8px #f0f1f2;
+    box-shadow: 0 2px 8px #f0f1f2;
+  }
+
+  &-logo {
+    font-family: $family;
+    font-size: 20px;
+    height: 64px;
+    padding-left: 40px;
+    overflow: hidden;
+    line-height: 64px;
+    white-space: nowrap;
+    text-decoration: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &-main {
+    position: relative;
+    padding: 40px 0 0;
+    background: $normal-bg;
+  }
+
+  &-menu {
+    overflow: auto;
+    height: calc(100vh - 104px);
+    border-right: 1px solid #e8e8e8;
+
+    &-title {
+      padding: 8px 16px 8px 32px;
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 14px;
+      line-height: 1.5;
+      transition: all 0.3s;
+    }
+
+    &-item {
+      font-family: $family;
+      color: $text-color;
+      overflow: hidden;
+      font-size: 14px;
+      line-height: 40px;
+      text-overflow: ellipsis;
+      padding: 0 16px 0 56px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: color 0.15s;
+      position: relative;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-right: 3px solid #1890ff;
+        transform: scaleY(0.0001);
+        opacity: 0;
+        transition: transform 0.15s cubic-bezier(.215, .61, .355, 1),opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+        content: '';
+      }
+
+      &:hover {
+        color: $blue-6;
+      }
+    }
+
+    &-on {
+      background: #e6f7ff;
+      color: $blue-6;
+
+      &:after {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+
+    &-list {
+      &:last-child {
+        padding-bottom: 48px;
+      }
+    }
+  } // menu end
+
+  &-cantainer {
+    position: relative;
+    min-height: 500px;
+    padding: 0 170px 144px 64px;
+    background: $normal-bg;
+    overflow: auto;
+    height: calc(100vh - 248px);
+  }
+}

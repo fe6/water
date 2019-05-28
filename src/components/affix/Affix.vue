@@ -22,7 +22,7 @@ interface AffixEntity {
   [offsetPlace: string]: number;
 }
 
-interface ChangeEntity {
+export interface ChangeEntity {
   affixStatus: boolean;
   scrollStatus: boolean;
 }
@@ -48,6 +48,11 @@ export default class Affix extends Vue {
   }) private status!: boolean;
 
   @Prop({
+    type: Boolean,
+    default: true,
+  }) private destroy!: boolean;
+
+  @Prop({
     type: String,
     default: 'fixed',
   }) private position!: string;
@@ -62,8 +67,14 @@ export default class Affix extends Vue {
   }
 
   get offsetValue(): number {
-    const valueDefault = 10;
-    return this.offsetBottom || this.offsetTop || valueDefault;
+    let valueDefault = 10;
+    if (isNumber(this.offsetTop)) {
+      valueDefault = this.offsetTop;
+    }
+    if (isNumber(this.offsetBottom)) {
+      valueDefault = this.offsetBottom;
+    }
+    return valueDefault;
   }
 
   get offsetIsTop(): boolean {
@@ -76,7 +87,9 @@ export default class Affix extends Vue {
   }
 
   beforeDestroy() {
-    removeObserved(this.target);
+    if (this.destroy) {
+      removeObserved(this.target);
+    }
   }
 
   @Emit('change')
