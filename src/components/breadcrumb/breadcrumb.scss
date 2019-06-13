@@ -17,15 +17,15 @@ $last-color: #60636C;
     color: $base-color;
 
     &-icon {
-      width: 12px;
-      height: 12px;
+      width: 12px !important;
+      height: 12px !important;
       padding-right: 8px;
 
       & img,
       & svg {
-        font-size: 12px;
-        width: 12px;
-        height: 12px;
+        font-size: 12px !important;
+        width: 12px !important;
+        height: 12px !important;
       }
     }
 

@@ -14,6 +14,7 @@ $move-time: 0.5s;
   transition: opacity $move-time, padding-left $move-time;
   height: 14px;
   display: inline-block;
+  font-size: 0;
 
   &:visited {
     color: $blue-6;
@@ -31,27 +32,30 @@ $move-time: 0.5s;
   // 循环尺寸
   @each $size, $value in $link-font {
     &#{$size} {
-      font-size: $value + px;
+      & .w-link-text {
+        font-size: $value + px;
+      }
 
-      & .w-icon {
-        width:  $value + px;
-        height:  $value + px;
-        margin-right: 4px;
-        display: inline-block;
-        vertical-align: middle;
-    
+      & .w-link-icon,
+      &.w-link-loading {
+        & .w-icon,
         & img,
         & svg {
-          width:  $value + px;
-          height:  $value + px;
+          width: $value + px;
+          height: $value + px;
         }
       }
     }
   }
 
-  &-text {
+  &-text,
+  &-icon {
     display: inline-block;
     vertical-align: middle;
+  }
+
+  &-icon {
+    margin-right: 4px;
   }
 
   &-loading {

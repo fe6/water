@@ -21,7 +21,12 @@
     >
       <input type="checkbox" aria-label="checkbox" :class="[`${preName}input`]">
     </div>
-    <div :class="[`${preName}content`]" v-if="$slots.default">
+    <div :class="[
+      `${preName}content`,
+      {
+        [`${preName}content-disabled`]: disabled,
+      },
+    ]" v-if="$slots.default">
       <slot></slot>
     </div>
   </div>
@@ -142,6 +147,9 @@ export default class Checkbox extends Vue {
 
   @Emit('model')
   changeStatus(): string | number | boolean {
+    if (this.disabled) {
+      return this.status;
+    }
     this.status = !this.status;
     if (!isUndefined(this.label) && this.status) {
       return this.label;

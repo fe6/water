@@ -119,5 +119,9 @@ $checkbox-move-time: 0.5s;
     font-size: 14px;
     line-height: 16px;
     padding: 0 8px;
+
+    &-disabled {
+      color: $disabled-color;
+    }
   }
 }

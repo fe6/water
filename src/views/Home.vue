@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <router-link :to="{ name: 'Icon' }">去 Icon</router-link>
     这是{{msg}}
   </div>
 </template>

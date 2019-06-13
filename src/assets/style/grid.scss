@@ -27,4 +27,20 @@
     font-size: 30px;
     line-height: 1;
   }
+
+  &-box {
+    background: rgba(25, 150, 249, 0.8);
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 0;
+  }
+
+  &-box2 {
+    background: rgba(25, 150, 249, 0.4);
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 0;
+  }
 }

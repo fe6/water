@@ -2,13 +2,13 @@
   <a
     class="w-link"
     :class="classList"
-    :href="url"
+    :href="href"
     :target="target || '_self'"
-    v-if="url"
+    v-if="href"
   >
-    <Icon v-if="$slots.icon && !loading">
+    <span class="w-link-icon" v-if="$slots.icon && !loading">
       <slot name="icon"></slot>
-    </Icon>
+    </span>
     <Icon v-else-if="loading" color="#0297fe" spin />
     <span class="w-link-text">
       <slot></slot>
@@ -21,22 +21,26 @@
     :to="to"
     v-else-if="to"
   >
-    <Icon v-if="$slots.icon && !loading">
+    <span class="w-link-icon" v-if="$slots.icon && !loading">
       <slot name="icon"></slot>
-    </Icon>
+    </span>
     <Icon v-else-if="loading" color="#0297fe" spin />
-    <slot></slot>
+    <span class="w-link-text">
+      <slot></slot>
+    </span>
   </router-link>
   <span
     class="w-link"
     :class="classList"
     v-else
   >
-    <Icon v-if="$slots.icon && !loading">
+    <span class="w-link-icon" v-if="$slots.icon && !loading">
       <slot name="icon"></slot>
-    </Icon>
+    </span>
     <Icon v-else-if="loading" color="#0297fe" spin />
-    <slot></slot>
+    <span class="w-link-text">
+      <slot></slot>
+    </span>
   </span>
 </template>
 
@@ -59,7 +63,7 @@ export default class Link extends Vue {
     default: 'a',
   }) private tag!: string;
 
-  @Prop(String) private url!: string;
+  @Prop(String) private href!: string;
 
   @Prop(String) private target!: string;
 

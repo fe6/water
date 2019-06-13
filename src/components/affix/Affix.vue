@@ -42,10 +42,7 @@ export default class Affix extends Vue {
     default: 10,
   }) private index!: number;
 
-  @Prop({
-    type: Boolean,
-    default: true,
-  }) private status!: boolean;
+  @Prop(Boolean) private disabled!: boolean;
 
   @Prop({
     type: Boolean,
@@ -109,7 +106,7 @@ export default class Affix extends Vue {
         elOffset.top + this.offsetBottom + offsetHeight) > (scrollTop + windowHeight
       )
     );
-    const sticky: boolean = this.status && isStatic;
+    const sticky: boolean = !this.disabled && isStatic;
     const position = sticky ? `position: ${this.position}; zIndex: ${this.index};` : '';
     const offset: string = sticky ? `${this.offsetType}: ${this.offsetValue}px; width: ${offsetWidth}px` : '';
     this.affixStyle = `${position}${offset}`;

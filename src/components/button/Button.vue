@@ -110,7 +110,7 @@ export default class Button extends Vue {
 
     const reParams = {
       ev,
-      current: this.$vnode.key,
+      key: this.$vnode.key,
     };
 
     (this.click as Function)(reParams);

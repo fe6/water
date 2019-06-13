@@ -5,6 +5,8 @@
       :key="item[fieldNames.key] || itemIndex"
       @change="checkFn($event, item)"
       :disabled="disabled || item[fieldNames.disabled]"
+      :hoverColor="hoverColor"
+      :checkColor="checkColor"
       :value="checkValue.find(
         cItem =>
         cItem === item[fieldNames.label] || cItem === item[fieldNames.value]
@@ -55,6 +57,10 @@ export default class CheckboxGroup extends Vue {
   @Model('model', { type: Array, default: () => [] }) readonly value!: [];
 
   @Prop(Boolean) private disabled!: boolean;
+
+  @Prop(String) private hoverColor!: string;
+
+  @Prop(String) private checkColor!: string;
 
   @Prop([String, Object, Array]) private className!: string | object | any[];
 

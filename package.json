@@ -48,5 +48,12 @@
   "pre-commit": [
     "lint",
     "test"
-  ]
+  ],
+  "dependencies": {
+    "@types/codemirror": "^0.0.74",
+    "@types/lodash": "^4.14.133",
+    "codemirror": "^5.47.0",
+    "lodash": "^4.17.11",
+    "vue-codemirror": "^4.0.6"
+  }
 }

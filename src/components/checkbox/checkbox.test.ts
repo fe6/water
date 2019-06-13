@@ -170,7 +170,7 @@ describe('Checkbox.vue', () => {
       try {
         const checkboxElem = disabled.find('.w-checkbox');
         checkboxElem.trigger('click');
-        expect(disabled.vm.status).toBe(true);
+        expect(disabled.vm.status).toBeFalsy();
 
         done();
       } catch (err) {
@@ -224,7 +224,7 @@ describe('Checkbox.vue', () => {
       try {
         const checkboxElem = groupDisabled.find('.w-checkbox');
         checkboxElem.trigger('click');
-        expect(checkboxElem.vm.status).toBe(true);
+        expect(checkboxElem.vm.status).toBeFalsy();
 
         done();
       } catch (err) {

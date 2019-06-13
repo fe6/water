@@ -1,6 +1,6 @@
 <template>
   <div :class="[
-    'w-button-group',
+    'w-btn-group',
     className,
   ]">
     <slot></slot>
