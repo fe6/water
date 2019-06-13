@@ -49,7 +49,7 @@ import {
   Emit,
   Vue,
 } from 'vue-property-decorator';
-import Inp from './Inp';
+import Inp, { ReturnParamsEntity } from './Inp';
 
 @Component({
   components: {
@@ -132,11 +132,11 @@ export default class Input extends Vue {
   }
 
   @Emit('model')
-  changeValue(ev: Event, value: string): string {
-    this.$emit('change', value, ev);
-    (this.change as Function)(ev, value);
+  changeValue(params: ReturnParamsEntity): string {
+    this.$emit('change', params);
+    (this.change as Function)(params);
 
-    return value;
+    return params.value;
   }
 }
 </script>

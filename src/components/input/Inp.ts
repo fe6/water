@@ -6,6 +6,11 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
+export interface ReturnParamsEntity {
+  ev: Event;
+  value: string;
+}
+
 @Component
 export default class Inp extends Vue {
   name: string = 'Input';
@@ -47,6 +52,10 @@ export default class Inp extends Vue {
     ];
   }
 
+  mounted() {
+    this.beError = (this.error as Function)({}, this.value);
+  }
+
   render(h: Function): VNode {
     return h('input', {
       class: [
@@ -61,11 +70,16 @@ export default class Inp extends Vue {
       },
       on: {
         input: (ev: Event): void => {
-          const val = (ev.target as any).value;
-          this.beError = (this.error as Function)(ev, val);
-          this.$emit('model', val);
-          this.$emit('change', ev, val);
-          (this.change as Function)(ev, val);
+          const { value } = (ev.target as any);
+          const reParams: ReturnParamsEntity = {
+            ev,
+            value,
+          };
+
+          this.beError = (this.error as Function)(reParams);
+          this.$emit('model', value);
+          this.$emit('change', reParams);
+          (this.change as Function)(reParams);
         },
       },
     });

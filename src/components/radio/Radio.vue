@@ -47,10 +47,13 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
-export interface ReturnParamsEntity {
+export interface ChangeParamsEntity {
   ev: MouseEvent;
   value: string | number | boolean;
   label: string | number | boolean;
+}
+
+export interface ReturnParamsEntity extends ChangeParamsEntity {
   status: boolean;
 }
 
@@ -132,7 +135,12 @@ export default class Radio extends Vue {
   @Emit('model')
   clickFn(ev: MouseEvent): string | number | boolean {
     if (!this.disabled && !this.loading && !this.status) {
-      return (this.before as Function)().then(() => {
+      const reParams: ChangeParamsEntity = {
+        ev,
+        value: this.label,
+        label: this.label,
+      };
+      return (this.before as Function)(reParams).then(() => {
         this.emitChange(ev);
         return this.label;
       });

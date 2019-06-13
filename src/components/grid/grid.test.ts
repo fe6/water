@@ -45,7 +45,7 @@ describe('Col.vue', () => {
       try {
         setTimeout(() => {
           const colArray = wrapperProps.findAll(Col);
-          colArray.at(1).setProps({ xl: 3 });
+          colArray.at(0).setProps({ xl: 3 });
           expect(wrapperProps.vm.$children[0].gutter).toBe(12);
           expect(wrapperProps.vm.$children[0].basin).toBe(2);
           expect(wrapperProps.vm.$children[0].type).toBe('float');

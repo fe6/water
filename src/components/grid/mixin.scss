@@ -2,7 +2,7 @@
   &-#{$i}-#{$size} {
     display: block;
     position: relative;
-    width: percentage($percentage) !important;
+    width: percentage($percentage);
   }
 }
 
@@ -13,6 +13,7 @@
 
     &-span {
       width: percentage($percentage);
+      position: relative;
     }
 
     &-offset {
@@ -20,11 +21,11 @@
     }
 
     &-push {
-      right: percentage($percentage);
+      left: percentage($percentage);
     }
 
     &-pull {
-      left: percentage($percentage);
+      right: percentage($percentage);
     }
 
     &-order {

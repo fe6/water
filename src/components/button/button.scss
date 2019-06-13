@@ -97,7 +97,8 @@ $button-text-margin: ('': 8, '-large': 8, '-small': 4);
   }
   // 循环尺寸
   @each $size, $value in $button-list {
-    &#{$size} {
+    &#{$size},
+    &-wrap#{$size} {
       height: $value + px;
 
       & > .w-icon,
@@ -154,20 +155,6 @@ $button-text-margin: ('': 8, '-large': 8, '-small': 4);
     }
   }
 
-  &-disabled {
-    background: $disabled-bg;
-    color: $disabled-color;
-    border-color: $disabled-border;
-    cursor: not-allowed;
-
-    &:hover,
-    &:focus {
-      background: $disabled-bg;
-      color: $disabled-color;
-      border-color: $disabled-border;
-    }
-  }
-
   &-ghost {
     background: none;
     color: $blue-6;
@@ -202,6 +189,32 @@ $button-text-margin: ('': 8, '-large': 8, '-small': 4);
         border-color: $red-5;
         color: $red-5;
       }
+    }
+
+    &.#{$prefix}btn-disabled {
+      background: none;
+      color: $disabled-color;
+
+      &:hover,
+      &:focus {
+        background: none;
+        color: $disabled-color;
+        border-color: $disabled-border;
+      }
+    }
+  }
+
+  &-disabled {
+    background: $disabled-bg;
+    color: $disabled-color;
+    border-color: $disabled-border;
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus {
+      background: $disabled-bg;
+      color: $disabled-color;
+      border-color: $disabled-border;
     }
   }
 
@@ -311,5 +324,9 @@ $button-text-margin: ('': 8, '-large': 8, '-small': 4);
         box-shadow: none;
       }
     }
+  } // w-btn-wrap end
+
+  &-group {
+    font-size: 0;
   }
 }

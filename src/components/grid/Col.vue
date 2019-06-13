@@ -17,6 +17,8 @@ interface colStyleEntity {
 export default class Col extends Vue {
   preName: string = 'w-col';
 
+  name: string = 'Col';
+
   @Prop({
     type: String,
     default: 'div',
@@ -34,17 +36,17 @@ export default class Col extends Vue {
 
   @Prop(Number) private push!: number;
 
-  @Prop(Number) private xs!: number | object;
+  @Prop(Number) private xs!: number;
 
-  @Prop(Number) private sm!: number | object;
+  @Prop(Number) private sm!: number;
 
-  @Prop(Number) private md!: number | object;
+  @Prop(Number) private md!: number;
 
-  @Prop(Number) private lg!: number | object;
+  @Prop(Number) private lg!: number;
 
-  @Prop(Number) private xl!: number | object;
+  @Prop(Number) private xl!: number;
 
-  @Prop(Number) private xxl!: number | object;
+  @Prop(Number) private xxl!: number;
 
   @Inject() private basin!: number;
 

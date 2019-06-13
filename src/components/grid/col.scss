@@ -12,6 +12,7 @@ $gridColumns: 24 !default;
 
 .w-col {
   flex: 0 0 auto;
+  box-sizing: border-box;
 
   &-float {
     float: left;
@@ -28,26 +29,56 @@ $gridColumns: 24 !default;
     $percentage: (100 / (($gridColumns / $i)) / 100);
 
     @include colPositionMixin($percentage, $i);
+  }
 
-    @media (max-width: $screen-xs) {
+  @for $i from 1 through $gridColumns {
+    // 栅格公式
+    $percentage: (100 / (($gridColumns / $i)) / 100);
+
+    @media (min-width: $screen-xs) {
       @include colMixin($percentage, $i, 'xs');
     }
+  }
+
+  @for $i from 1 through $gridColumns {
+    // 栅格公式
+    $percentage: (100 / (($gridColumns / $i)) / 100);
 
     @media (min-width: $screen-sm) {
       @include colMixin($percentage, $i, 'sm');
     }
+  }
+
+  @for $i from 1 through $gridColumns {
+    // 栅格公式
+    $percentage: (100 / (($gridColumns / $i)) / 100);
 
     @media (min-width: $screen-md) {
       @include colMixin($percentage, $i, 'md');
     }
+  }
+
+  @for $i from 1 through $gridColumns {
+    // 栅格公式
+    $percentage: (100 / (($gridColumns / $i)) / 100);
 
     @media (min-width: $screen-lg) {
       @include colMixin($percentage, $i, 'lg');
     }
+  }
+
+  @for $i from 1 through $gridColumns {
+    // 栅格公式
+    $percentage: (100 / (($gridColumns / $i)) / 100);
 
     @media (min-width: $screen-xl) {
       @include colMixin($percentage, $i, 'xl');
     }
+  }
+
+  @for $i from 1 through $gridColumns {
+    // 栅格公式
+    $percentage: (100 / (($gridColumns / $i)) / 100);
 
     @media (min-width: $screen-xxl) {
       @include colMixin($percentage, $i, 'xxl');

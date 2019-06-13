@@ -17,7 +17,13 @@
     v-else-if="(!slotDefault && !showStatus) || showCount"
   >{{count}}</span>
   <div class="w-badge-status" v-else-if="!slotDefault && showStatus">
-    <span class="w-badge-status-dot" :class="[`w-badge-status-${status}`]"></span>
+    <span
+      class="w-badge-status-dot"
+      :class="{
+        [`w-badge-status-${status}`]: !statusIsColor,
+      }"
+      :style="dotColor"
+    ></span>
     <p class="w-badge-status-text" v-if="text">{{text}}</p>
   </div>
 </template>
@@ -26,6 +32,10 @@
 import {
   Component, Prop, Model, Vue,
 } from 'vue-property-decorator';
+
+interface ColorEntity {
+  background?: string,
+}
 
 @Component
 export default class Badge extends Vue {
@@ -48,6 +58,18 @@ export default class Badge extends Vue {
 
   @Prop(Boolean) private dot?: boolean;
 
+  get statusIsColor(): boolean {
+    return !!this.status && (this.status as string).indexOf('#') > -1;
+  }
+
+  get dotColor(): ColorEntity {
+    const color: ColorEntity = {};
+    if (this.statusIsColor) {
+      color.background = this.status;
+    }
+    return color;
+  }
+
   get showStatus(): boolean {
     return this.status !== '';
   }
@@ -61,7 +83,7 @@ export default class Badge extends Vue {
   }
 
   get count() {
-    return (this.overflowCount as number) > this.value ? this.value : `${this.overflowCount}+`;
+    return (this.overflowCount as number) >= this.value ? this.value : `${this.overflowCount}+`;
   }
 
   get zeroCount(): boolean {

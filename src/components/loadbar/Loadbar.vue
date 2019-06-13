@@ -6,6 +6,12 @@ import {
 
 import LoadBar from './bar';
 
+export interface DefaultEntity {
+  start: Function;
+  finish: Function;
+  fail: Function;
+}
+
 export interface InstanceEntity {
   start: Function;
   finish: Function;
@@ -30,7 +36,7 @@ const init = () => {
   loadlineInstance = loadlineInstance || newInstance();
 };
 
-export default {
+const loadbar: DefaultEntity = {
   start(): void {
     init();
     loadlineInstance.start();
@@ -44,6 +50,8 @@ export default {
     loadlineInstance.fail();
   },
 };
+
+export default loadbar;
 </script>
 
 <style lang="scss">
