@@ -22,7 +22,7 @@ const buildConf = {
     // 解决 wc-async 打包之后引入路径问题
     if (file === 'dist') {
       config.resolve.alias
-        .set('~root', resolve(file))
+        .set('~root', '');
     }
 
     return config;
