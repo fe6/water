@@ -89,7 +89,7 @@ export default class Button extends Vue {
   }) private group!: any;
 
   get status(): boolean {
-    return this.group.value === this.$attrs.value;
+    return this.hasGroup && this.group.value === this.$attrs.value;
   }
 
   get hasGroup(): boolean {
