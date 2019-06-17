@@ -1,6 +1,6 @@
 {
   "name": "@fe6/water",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "李梦龙 <649076408@qq.com>",
   "main": "dist/w.js",
   "unpkg": "dist/w.js",
@@ -23,7 +23,9 @@
     "prepublishOnly": "yarn build"
   },
   "devDependencies": {
+    "@types/codemirror": "^0.0.74",
     "@types/jest": "^23.1.4",
+    "@types/lodash": "^4.14.133",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-plugin-typescript": "^3.5.0",
@@ -36,11 +38,13 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "codecov": "^3.3.0",
+    "codemirror": "^5.47.0",
     "core-js": "^2.6.5",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "fibers": "^3.1.1",
     "jest-environment-jsdom-global": "^1.2.0",
+    "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
     "pre-commit": "^1.2.2",
     "register-service-worker": "^1.6.2",
@@ -51,14 +55,10 @@
     "typescript": "^3.2.1",
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
+    "vue-codemirror": "^4.0.6",
     "vue-property-decorator": "^8.0.0",
     "vue-router": "^3.0.2",
-    "vue-template-compiler": "^2.5.21",
-    "@types/codemirror": "^0.0.74",
-    "@types/lodash": "^4.14.133",
-    "codemirror": "^5.47.0",
-    "lodash": "^4.17.11",
-    "vue-codemirror": "^4.0.6"
+    "vue-template-compiler": "^2.5.21"
   },
   "pre-commit": [
     "lint",
