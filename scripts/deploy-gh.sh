@@ -1,4 +1,4 @@
-cd docs
+cd site
 git init
 git add -A
 git commit -m 'docs($site): deploy site'
