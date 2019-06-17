@@ -53,17 +53,15 @@
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^8.0.0",
     "vue-router": "^3.0.2",
-    "vue-template-compiler": "^2.5.21"
-  },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
-  "dependencies": {
+    "vue-template-compiler": "^2.5.21",
     "@types/codemirror": "^0.0.74",
     "@types/lodash": "^4.14.133",
     "codemirror": "^5.47.0",
     "lodash": "^4.17.11",
     "vue-codemirror": "^4.0.6"
-  }
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
 }
