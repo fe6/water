@@ -1,7 +1,7 @@
 @import '../../helper/config.scss';
 @import '../icon/icon.scss';
 
-$link-font: ('': 14, '-large': 16, '-small': 12);
+$link-font: ('': 12, '-large': 14);
 $move-time: 0.5s;
 
 .w-link {
@@ -54,8 +54,8 @@ $move-time: 0.5s;
     vertical-align: middle;
   }
 
-  &-icon {
-    margin-right: 4px;
+  &-text {
+    margin-left: 4px;
   }
 
   &-loading {

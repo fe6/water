@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "start": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:modern": "vue-cli-service build --modern",
+    "build": "vue-cli-service build --modern",
     "build:wc": "vue-cli-service build --target wc-async --name foo 'src/components/**/*.vue'",
+    "site": "yarn build && bash scripts/deploy-gh.sh",
     "lint": "yarn jslint && yarn style",
     "jslint": "vue-cli-service lint",
     "style": "stylelint ./src/**/*.scss --fix --config ./.stylelintrc",
