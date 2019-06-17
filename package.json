@@ -1,16 +1,26 @@
 {
   "name": "@fe6/water",
   "version": "0.0.0",
+  "author": "李梦龙 <649076408@qq.com>",
+  "main": "dist/w.js",
+  "unpkg": "dist/w.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "start": "vue-cli-service serve",
-    "build": "vue-cli-service build --modern",
-    "build:wc": "vue-cli-service build --target wc-async --name foo 'src/components/**/*.vue'",
-    "site": "yarn build && bash scripts/deploy-gh.sh",
+    "build": "yarn build:wc && yarn build:lib",
+    "build:site": "vue-cli-service build --modern --mode site",
+    "build:wc": "vue-cli-service build --target wc-async --name w 'src/components/**/*.vue' --mode wc",
+    "build:lib": "vue-cli-service build --target lib --name water 'src/components/index.ts' --mode lib",
+    "site": "yarn build:site && bash scripts/deploy-gh.sh",
     "lint": "yarn jslint && yarn style",
     "jslint": "vue-cli-service lint",
     "style": "stylelint ./src/**/*.scss --fix --config ./.stylelintrc",
     "test": "vue-cli-service test:unit",
-    "codecov": "codecov ./coverage/clover.xml"
+    "codecov": "codecov ./coverage/clover.xml",
+    "prepublishOnly": "yarn build"
   },
   "devDependencies": {
     "@types/jest": "^23.1.4",

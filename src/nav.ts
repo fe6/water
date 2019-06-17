@@ -73,13 +73,4 @@ export const nav = [
       },
     ],
   },
-  {
-    title: '反馈',
-    nav: [
-      {
-        to: { name: 'Loadbar' },
-        title: 'Loadbar 加载进度',
-      },
-    ],
-  },
 ];

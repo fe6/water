@@ -11,6 +11,8 @@ module.exports = {
       errors: true,
     },
   },
+  productionSourceMap: false,
+  outputDir: process.env.VUE_APP_FILE,
   chainWebpack: (config) => {
     config.resolve.alias
       .set('assets', resolve('src/assets'));

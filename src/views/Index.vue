@@ -9,7 +9,7 @@
     </header>
     <div class="layout-main">
       <WRow>
-        <WCol :xs="12" :sm="8" :md="6" :lg="4">
+        <WCol :xs="12" :sm="8" :md="7" :lg="6" :xl="4">
           <section
             class="layout-menu"
             :style="menuStyle"
@@ -33,7 +33,7 @@
             </template>
           </section>
         </WCol>
-        <WCol :xs="12" :sm="16" :md="18" :lg="20">
+        <WCol :xs="12" :sm="16" :md="17" :lg="18" :xl="20">
           <article class="layout-cantainer">
             <router-view/>
           </article>
@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Watch, Vue } from 'vue-property-decorator';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
 import { nav, NavEntity } from '@/nav';
@@ -63,6 +63,15 @@ export default class IndexView extends Vue {
   nav: NavEntity[] = nav;
 
   menuStyle: MenuStyleEntity = {};
+
+  mounted() {
+    this.setTitle(this.$route);
+  }
+
+  @Watch('$route')
+  setTitle(val: any) {
+    document.title = val.meta.title;
+  }
 }
 </script>
 
