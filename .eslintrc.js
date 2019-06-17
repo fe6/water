@@ -1,45 +1,42 @@
-// http://eslint.org/docs/user-guide/configuring
-
 module.exports = {
   root: true,
-  parser: "babel-eslint",
-  parserOptions: {
-    sourceType: "module"
-  },
   env: {
-    browser: true,
-    jest: true,
+    node: true,
   },
-  extends: "airbnb-base",
-  // required to lint *.vue files
-  plugins: [
-    "html",
+  extends: [
+    'plugin:vue/essential',
+    '@vue/airbnb',
+    '@vue/typescript',
   ],
-  // check if imports actually resolve
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "build/webpack.water.base.conf.js"
-      }
-    }
-  },
-  // add your custom rules here
-  "rules": {
-    // don"t require .vue extension when importing
-    "import/extensions": ["error", "always", {
-      "js": "never",
-      "vue": "never"
+  rules: {
+    'import/extensions': ['error', 'always', {
+      ts: 'never',
+      js: 'never',
     }],
-    "spaced-comment": "off",
-    "no-dupe-keys": "off",
-    "no-console": "off",
-    "no-plusplus": "off",
+    'class-methods-use-this': ['error', { exceptMethods: ['render', 'change', 'beforeHandle', 'setTitle'] }],
+    'no-unused-vars': ['error', { varsIgnorePattern: '^V|Entity$' }],
+    'no-underscore-dangle': ['error', { allow: ['_componentTag'] }],
+    'spaced-comment': 'off',
+    'no-dupe-keys': 'off',
+    'no-console': 'always',
+    'no-plusplus': 'off',
+    'max-len': ['error', {
+      code: 100,
+      ignoreTrailingComments: true,
+      ignoreComments: true,
+      ignoreUrls: true,
+      ignoreStrings: true,
+      ignoreTemplateLiterals: true,
+    }],
     // allow optionalDependencies
-    "import/no-extraneous-dependencies": ["error", {
-      "optionalDependencies": ["test/unit/index.js"]
+    'import/no-extraneous-dependencies': ['error', {
+      optionalDependencies: ['test/unit/index.js'],
     }],
-    "no-param-reassign": ["error", { "props": false }],
-    // allow debugger during development
-    "no-debugger": process.env.NODE_ENV === "production" ? 2 : 0
-  }
-}
+    'no-param-reassign': ['error', { props: false }],
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+  },
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+  },
+};
