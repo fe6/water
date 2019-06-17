@@ -29,6 +29,13 @@ import water from '@fe6/water/dist/lib/water.umd';
 import from '@fe6/water/dist/lib/water.css';
 ```
 
+- vue-cli 3.x 使用
+
+``` html
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/@fe6/water"></script>
+```
+
 ## 特性
 
 - 提炼自企业级中后台产品的交互语言和视觉风格。
