@@ -4,7 +4,9 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
-module.exports = {
+const file = process.env.VUE_APP_FILE;
+
+const buildConf = {
   devServer: {
     overlay: {
       warnings: true,
@@ -12,11 +14,17 @@ module.exports = {
     },
   },
   productionSourceMap: false,
-  outputDir: process.env.VUE_APP_FILE,
+  outputDir: file,
   chainWebpack: (config) => {
     config.resolve.alias
       .set('assets', resolve('src/assets'));
 
     return config;
   },
-};
+}
+
+if (file === 'dist') {
+  buildConf.baseUrl = '';
+}
+
+module.exports = buildConf;
