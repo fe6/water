@@ -21,7 +21,7 @@ const buildConf = {
 
     return config;
   },
-}
+};
 
 if (file === 'dist') {
   buildConf.baseUrl = '';
