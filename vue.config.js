@@ -19,12 +19,14 @@ const buildConf = {
     config.resolve.alias
       .set('assets', resolve('src/assets'));
 
+    // 解决 wc-async 打包之后引入路径问题
+    if (file === 'dist') {
+      config.resolve.alias
+        .set('~root', resolve(file))
+    }
+
     return config;
   },
 };
-
-if (file === 'dist') {
-  buildConf.baseUrl = '';
-}
 
 module.exports = buildConf;
