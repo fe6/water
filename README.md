@@ -22,14 +22,14 @@ $ yarn add @fe6/water
 
 ## 使用
 
-- vue-cli 2.x 使用
+-通过 npm 安装依赖，引入
 
 ``` js
 import water from '@fe6/water/dist/lib/water.umd';
-import from '@fe6/water/dist/lib/water.css';
+import '@fe6/water/dist/lib/water.css';
 ```
 
-- vue-cli 3.x 使用
+- CDN 外部引用
 
 ``` html
 <script src="https://unpkg.com/vue"></script>

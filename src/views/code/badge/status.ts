@@ -1,20 +1,21 @@
 import Badge from '@/components/badge/Badge.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
+import getTagName from '@/views/common/getTagName';
 
 const base: ApiEntity = {
   title: '小红点',
   desc: '没有具体的数字。设置 <code>status</code> 即可。',
-  code: `<${Badge.name} status="success" />
-<${Badge.name} status="error" />
-<${Badge.name} status="default" />
-<${Badge.name} status="processing" />
-<${Badge.name} status="warning" />
+  code: `<${getTagName(Badge.name)} status="success" />
+<${getTagName(Badge.name)} status="error" />
+<${getTagName(Badge.name)} status="default" />
+<${getTagName(Badge.name)} status="processing" />
+<${getTagName(Badge.name)} status="warning" />
 
-<${Badge.name} status="success" text="成功" />
-<${Badge.name} status="error" text="报错" />
-<${Badge.name} status="default" text="默认" />
-<${Badge.name} status="processing" text="进行中" />
-<${Badge.name} status="warning" text="提醒" />`,
+<${getTagName(Badge.name)} status="success" text="成功" />
+<${getTagName(Badge.name)} status="error" text="报错" />
+<${getTagName(Badge.name)} status="default" text="默认" />
+<${getTagName(Badge.name)} status="processing" text="进行中" />
+<${getTagName(Badge.name)} status="warning" text="提醒" />`,
   render: (h: Function) => h(
     'section',
     {

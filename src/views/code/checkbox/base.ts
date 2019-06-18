@@ -1,5 +1,6 @@
 import { ApiEntity } from '@/views/entity/demoentity';
 import Checkbox from '@/components/checkbox/Checkbox.vue';
+import getTagName from '@/views/common/getTagName';
 
 export interface DataEntity {
   value: string;
@@ -43,7 +44,7 @@ export interface CodeCommonParamsEntity {
  * @param attr {String} 额外添加的属性，适用于 loading ， ghost ， disabled 等类型为 boolean 的属性。
  * @return {string}
  */
-export const codeCommon = ({ attr }: CodeCommonParamsEntity = {}): string => myDatas.reduce((acc: string, data: DataEntity, index: number) => `${acc}<${Checkbox.name}${attr ? ` ${attr}` : ''} :label="${data.label}">${data.value}</${Checkbox.name}>${index < myDatas.length - 1 ? '\n' : ''}`, '');
+export const codeCommon = ({ attr }: CodeCommonParamsEntity = {}): string => myDatas.reduce((acc: string, data: DataEntity, index: number) => `${acc}<${getTagName(Checkbox.name)}${attr ? ` ${attr}` : ''} :label="${data.label}">${data.value}</${getTagName(Checkbox.name)}>${index < myDatas.length - 1 ? '\n' : ''}`, '');
 /**
  * demo 的现场预览， WDemo 的上面部分
  * @param h {Function} vue 自带的 VNode 方法
