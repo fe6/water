@@ -1,3 +1,3 @@
-export const IMAGE = 'https://fe6.github.io/water/logo.png';
+export const IMAGE = 'https://static2.evente.cn/static/img/icon.jpg';
 
 export const ALT = '水滴 logo';
