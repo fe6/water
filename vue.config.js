@@ -29,4 +29,8 @@ const buildConf = {
   },
 };
 
+if (file === 'site') {
+  buildConf.publicPath = process.env.VUE_APP_CDN;
+}
+
 module.exports = buildConf;
