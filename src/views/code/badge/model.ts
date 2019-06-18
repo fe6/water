@@ -1,10 +1,11 @@
 import Badge from '@/components/badge/Badge.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
+import getTagName from '@/views/common/getTagName';
 
 const base: ApiEntity = {
   title: '动态',
   desc: '展示动态变化的效果。',
-  code: `<a href="#">\n  <${Badge.name} class="badge" :value="99" />\n</a>`,
+  code: `<a href="#">\n  <${getTagName(Badge.name)} class="badge" :value="99" />\n</a>`,
   render: (h: Function, context: any) => {
     const { value, change } = context.props.data;
     return h(

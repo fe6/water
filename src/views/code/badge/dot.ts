@@ -1,11 +1,12 @@
 import Badge from '@/components/badge/Badge.vue';
 import Icon from '@/components/icon/Icon.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
+import getTagName from '@/views/common/getTagName';
 
 const base: ApiEntity = {
   title: '小红点',
   desc: '没有具体的数字。',
-  code: `<${Badge.name} :value="1" dot>\n  <a href="#" />\n</${Badge.name}>\n<${Badge.name} :value="1" dot>\n  <${Icon.name} />\n</${Badge.name}>\n<${Badge.name} :value="1" dot>\n  <a href="#" class="link">Link something</a>\n</${Badge.name}>`,
+  code: `<${getTagName(Badge.name)} :value="1" dot>\n  <a href="#" />\n</${getTagName(Badge.name)}>\n<${getTagName(Badge.name)} :value="1" dot>\n  <${getTagName(Icon.name)} />\n</${getTagName(Badge.name)}>\n<${getTagName(Badge.name)} :value="1" dot>\n  <a href="#" class="link">Link something</a>\n</${getTagName(Badge.name)}>`,
   render: (h: Function) => h(
     'section',
     {

@@ -1,5 +1,6 @@
 import Link from '@/components/link/Link.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
+import getTagName from '@/views/common/getTagName';
 
 interface PropEntity {
   to?: object;
@@ -27,7 +28,7 @@ export interface CodeCommonParamsEntity {
  * @param attr {String} 额外添加的属性，适用于 loading ， ghost ， disabled 等类型为 boolean 的属性。
  * @return {string}
  */
-export const codeCommon = ({ attr, content }: CodeCommonParamsEntity = {}): string => `<${Link.name}${attr ? ` ${attr}` : ''}>${content}</${Link.name}>`;
+export const codeCommon = ({ attr, content }: CodeCommonParamsEntity = {}): string => `<${getTagName(Link.name)}${attr ? ` ${attr}` : ''}>${content}</${getTagName(Link.name)}>`;
 
 /**
  * demo 的现场预览， WDemo 的上面部分

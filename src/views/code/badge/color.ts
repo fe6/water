@@ -1,12 +1,13 @@
 import Badge from '@/components/badge/Badge.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
+import getTagName from '@/views/common/getTagName';
 
 const base: ApiEntity = {
   title: '多彩徽标',
   desc: '当 <code>status</code> 为色值的时候可以自定义点的颜色。',
-  code: `<${Badge.name} status="#00f" />
+  code: `<${getTagName(Badge.name)} status="#00f" />
 
-<${Badge.name} status="#00f" text="自定义" />`,
+<${getTagName(Badge.name)} status="#00f" text="自定义" />`,
   render: (h: Function) => h(
     'section',
     {
