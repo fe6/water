@@ -16,7 +16,16 @@ export default new Router({
     {
       path: '/',
       name: 'Index',
+      redirect: { name: 'Agreement' },
       children: [
+        {
+          path: '/agreement',
+          name: 'Agreement',
+          meta: {
+            title: '开发约定',
+          },
+          component: () => import(/* webpackChunkName: "agreement" */ './views/Agreement.vue'),
+        },
         {
           path: '/affix',
           name: 'Affix',
@@ -99,7 +108,6 @@ export default new Router({
         },
       ],
       component: () => import(/* webpackChunkName: "index" */ './views/Index.vue'),
-      redirect: { name: 'Icon' },
     },
   ],
 });

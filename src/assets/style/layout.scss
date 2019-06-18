@@ -150,25 +150,40 @@ table {
     background: $normal-bg;
   }
 
+  &-mixin {
+    font-family: $family;
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 14px;
+    line-height: 1.5;
+    transition: all 0.3s;
+    padding: 8px 16px 8px 32px;
+  }
+
   &-menu {
     overflow: auto;
     min-height: calc(100vh - 104px);
     height: 100%;
     border-right: 1px solid #e8e8e8;
 
-    &-title {
-      padding: 8px 16px 8px 32px;
-      color: rgba(0, 0, 0, 0.45);
-      font-size: 14px;
-      line-height: 1.5;
-      transition: all 0.3s;
+    &-sub {
+      @extend .layout-mixin;
+    }
+
+    &-h2 {
+      @extend .layout-mixin;
+    }
+
+    &-h3 {
+      @extend .layout-mixin;
+
+      padding-left: 48px;
     }
 
     &-item {
-      font-family: $family;
+      @extend .layout-mixin;
+
       color: $text-color;
       overflow: hidden;
-      font-size: 14px;
       line-height: 40px;
       text-overflow: ellipsis;
       padding: 0 16px 0 56px;
@@ -196,6 +211,14 @@ table {
       &:hover {
         color: $blue-6;
       }
+    }
+
+    &-link {
+      @extend .layout-menu-item;
+
+      padding-left: 32px;
+      display: block;
+      text-decoration: none;
     }
 
     &-on {
