@@ -3,7 +3,7 @@
     <div class="w-empty-box">
       <img
         class="w-empty-image"
-        :src="image || require('../../assets/image/empty.png')"
+        :src="image || require('../../assets/image/empty.svg')"
         alt="empty"
       />
     </div>
