@@ -127,6 +127,12 @@ table {
     background: $normal-bg;
     -webkit-box-shadow: 0 2px 8px #f0f1f2;
     box-shadow: 0 2px 8px #f0f1f2;
+
+    &-col {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   &-logo {
@@ -244,5 +250,9 @@ table {
     padding: 0 170px 144px 64px;
     background: $normal-bg;
     min-height: calc(100vh - 248px);
+  }
+
+  &-npm {
+    padding-right: 40px;
   }
 }

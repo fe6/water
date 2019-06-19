@@ -1,6 +1,6 @@
 <template>
   <div class="affix">
-    <h1>Affix 固钉</h1>
+    <h1>{{ Affix }}</h1>
     <p>将页面元素钉在可视范围。</p>
     <h2>何时使用</h2>
     <p>当内容区域比较长，需要滚动页面时，这部分内容对应的操作或者导航需要在滚动范围内始终展现。常用于侧边菜单和按钮组合。</p>
@@ -42,6 +42,7 @@ import base from '@/views/code/affix/base';
 import offsettop from '@/views/code/affix/offsettop';
 import { props, methods } from '@/views/api/affix';
 import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import { TITLE } from '@/views/common/constant';
 
 @Component({
   components: {
@@ -53,6 +54,8 @@ import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
   },
 })
 export default class AffixView extends Vue {
+  Affix: string = TITLE.Affix;
+
   base: ApiEntity = base;
 
   offsettop: ApiEntity = offsettop;

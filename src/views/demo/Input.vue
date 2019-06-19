@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Input 输入框</h1>
+    <h1>{{ Input }}</h1>
     <p>通过鼠标或键盘输入内容，是最基础的表单域的包装。</p>
     <h2>何时使用</h2>
     <ul>
@@ -66,6 +66,7 @@ import error from '@/views/code/input/error';
 import disabled from '@/views/code/input/disabled';
 import { props, methods } from '@/views/api/input';
 import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import { TITLE } from '@/views/common/constant';
 
 @Component({
   components: {
@@ -77,6 +78,8 @@ import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
   },
 })
 export default class InputView extends Vue {
+  Input: string = TITLE.Input;
+
   base: ApiEntity = base;
 
   size: ApiEntity = size;

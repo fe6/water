@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Grid 栅格</h1>
+    <h1>{{ Grid }}</h1>
     <p>24 栅格系统。</p>
     <h2>概述</h2>
     <p>布局的栅格化系统，我们是基于行（row）和列（col）来定义信息区块的外部框架，以保证页面的每个区域能够稳健地排布起来。下面简单介绍一下它的工作原理：</p>
@@ -87,6 +87,7 @@ import order from '@/views/code/grid/order';
 import media from '@/views/code/grid/media';
 import { rowProps, colProps } from '@/views/api/grid';
 import { PropsEntity } from '@/views/entity/apientity';
+import { TITLE } from '@/views/common/constant';
 
 @Component({
   components: {
@@ -97,6 +98,8 @@ import { PropsEntity } from '@/views/entity/apientity';
   },
 })
 export default class GridView extends Vue {
+  Grid: string = TITLE.Grid;
+
   base: ApiEntity = base;
 
   gutter: ApiEntity = gutter;

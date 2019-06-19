@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Checkbox 多选框</h1>
+    <h1>{{ Checkbox }}</h1>
     <p>可以一次选择多个。</p>
     <h2>何时使用</h2>
     <ul>
@@ -78,6 +78,7 @@ import {
   groupMethods,
 } from '@/views/api/checkbox';
 import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import { TITLE } from '@/views/common/constant';
 
 @Component({
   components: {
@@ -89,6 +90,8 @@ import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
   },
 })
 export default class CheckboxView extends Vue {
+  Checkbox: string = TITLE.Checkbox;
+
   base: ApiEntity = base;
 
   disabled: ApiEntity = disabled;

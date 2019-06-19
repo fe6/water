@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Breadcrumb 面包屑</h1>
+    <h1>{{ Breadcrumb }}</h1>
     <p>显示当前页面在系统层级结构中的位置，并能向上返回。</p>
     <h2>何时使用</h2>
     <ul>
@@ -64,6 +64,7 @@ import href from '@/views/code/breadcrumb/href';
 import separator from '@/views/code/breadcrumb/separator';
 import { props } from '@/views/api/breadcrumb';
 import { PropsEntity } from '@/views/entity/apientity';
+import { TITLE } from '@/views/common/constant';
 
 @Component({
   components: {
@@ -74,6 +75,8 @@ import { PropsEntity } from '@/views/entity/apientity';
   },
 })
 export default class BreadcrumbView extends Vue {
+  Breadcrumb: string = TITLE.Breadcrumb;
+
   base: ApiEntity = base;
 
   icon: ApiEntity = icon;

@@ -1,10 +1,15 @@
 <template>
   <div>
-    <h1>{{ Icon }}</h1>
-    <p>语义化的矢量图形。</p>
+    <h1>{{ Empty }}</h1>
+    <p>空状态时的展示占位图。 <code>0.1.0</code> 新增。</p>
+    <h2>何时使用</h2>
+    <ul>
+      <li>当目前没有数据时，用于显式的用户提示。</li>
+      <li>初始化场景时的引导创建流程。</li>
+    </ul>
     <h2>代码演示</h2>
     <WRow :gutter="16">
-      <WCol :span="12">
+      <WCol :span="24">
         <WDemo
           :code="base.code"
           :render="base.render"
@@ -12,24 +17,10 @@
           :desc="base.desc"
         ></WDemo>
         <WDemo
-          :code="color.code"
-          :render="color.render"
-          :title="color.title"
-          :desc="color.desc"
-        ></WDemo>
-      </WCol>
-      <WCol :span="12">
-        <WDemo
-          :code="spin.code"
-          :render="spin.render"
-          :title="spin.title"
-          :desc="spin.desc"
-        ></WDemo>
-        <WDemo
-          :code="diy.code"
-          :render="diy.render"
-          :title="diy.title"
-          :desc="diy.desc"
+          :code="image.code"
+          :render="image.render"
+          :title="image.title"
+          :desc="image.desc"
         ></WDemo>
       </WCol>
     </WRow>
@@ -45,11 +36,9 @@ import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
 import WDemo from '@/views/components/Demo.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
-import base from '@/views/code/icon/base';
-import spin from '@/views/code/icon/spin';
-import color from '@/views/code/icon/color';
-import diy from '@/views/code/icon/diy';
-import { props } from '@/views/api/icon';
+import base from '@/views/code/empty/base';
+import image from '@/views/code/empty/image';
+import { props } from '@/views/api/empty';
 import { PropsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
@@ -61,16 +50,12 @@ import { TITLE } from '@/views/common/constant';
     WDemo,
   },
 })
-export default class IconView extends Vue {
-  Icon: string = TITLE.Icon;
+export default class EmptyView extends Vue {
+  Empty: string = TITLE.Empty;
 
   base: ApiEntity = base;
 
-  spin: ApiEntity = spin;
-
-  color: ApiEntity = color;
-
-  diy: ApiEntity = diy;
+  image: ApiEntity = image;
 
   props: PropsEntity[] = props;
 }

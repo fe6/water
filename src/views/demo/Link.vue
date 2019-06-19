@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Link 超链</h1>
+    <h1>{{ Link }}</h1>
     <p>全站通用的超级链接。</p>
     <h2>何时使用</h2>
     <p>用于跳转其他地方。</p>
@@ -81,6 +81,7 @@ import size from '@/views/code/link/size';
 import disabled from '@/views/code/link/disabled';
 import { props } from '@/views/api/link';
 import { PropsEntity } from '@/views/entity/apientity';
+import { TITLE } from '@/views/common/constant';
 
 @Component({
   components: {
@@ -91,6 +92,8 @@ import { PropsEntity } from '@/views/entity/apientity';
   },
 })
 export default class LinkView extends Vue {
+  Link: string = TITLE.Link;
+
   base: ApiEntity = base;
 
   to: ApiEntity = to;

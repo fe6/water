@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
+import Home from '@/views/Home.vue';
+import { TITLE } from '@/views/common/constant';
 
 Vue.use(Router);
 
@@ -22,7 +23,7 @@ export default new Router({
           path: '/agreement',
           name: 'Agreement',
           meta: {
-            title: '开发约定',
+            title: TITLE.Agreement,
           },
           component: () => import(/* webpackChunkName: "agreement" */ './views/Agreement.vue'),
         },
@@ -30,7 +31,7 @@ export default new Router({
           path: '/affix',
           name: 'Affix',
           meta: {
-            title: 'Affix 固钉',
+            title: TITLE.Affix,
           },
           component: () => import(/* webpackChunkName: "affix" */ './views/demo/Affix.vue'),
         },
@@ -38,7 +39,7 @@ export default new Router({
           path: '/icon',
           name: 'Icon',
           meta: {
-            title: 'Icon 图标',
+            title: TITLE.Icon,
           },
           component: () => import(/* webpackChunkName: "icon" */ './views/demo/Icon.vue'),
         },
@@ -46,7 +47,7 @@ export default new Router({
           path: '/grid',
           name: 'Grid',
           meta: {
-            title: 'Grid 栅格',
+            title: TITLE.Grid,
           },
           component: () => import(/* webpackChunkName: "grid" */ './views/demo/Grid.vue'),
         },
@@ -54,7 +55,7 @@ export default new Router({
           path: '/badge',
           name: 'Badge',
           meta: {
-            title: 'Badge 徽章',
+            title: TITLE.Badge,
           },
           component: () => import(/* webpackChunkName: "badge" */ './views/demo/Badge.vue'),
         },
@@ -62,7 +63,7 @@ export default new Router({
           path: '/breadcrumb',
           name: 'Breadcrumb',
           meta: {
-            title: 'Breadcrumb 面包屑',
+            title: TITLE.Breadcrumb,
           },
           component: () => import(/* webpackChunkName: "breadcrumb" */ './views/demo/Breadcrumb.vue'),
         },
@@ -70,7 +71,7 @@ export default new Router({
           path: '/button',
           name: 'Button',
           meta: {
-            title: 'Button 按钮',
+            title: TITLE.Button,
           },
           component: () => import(/* webpackChunkName: "button" */ './views/demo/Button.vue'),
         },
@@ -78,7 +79,7 @@ export default new Router({
           path: '/checkbox',
           name: 'Checkbox',
           meta: {
-            title: 'Checkbox 多选',
+            title: TITLE.Checkbox,
           },
           component: () => import(/* webpackChunkName: "checkbox" */ './views/demo/Checkbox.vue'),
         },
@@ -86,7 +87,7 @@ export default new Router({
           path: '/input',
           name: 'Input',
           meta: {
-            title: 'Input 徽章',
+            title: TITLE.Input,
           },
           component: () => import(/* webpackChunkName: "input" */ './views/demo/Input.vue'),
         },
@@ -94,7 +95,7 @@ export default new Router({
           path: '/link',
           name: 'Link',
           meta: {
-            title: 'Link 超链',
+            title: TITLE.Link,
           },
           component: () => import(/* webpackChunkName: "link" */ './views/demo/Link.vue'),
         },
@@ -102,9 +103,17 @@ export default new Router({
           path: '/radio',
           name: 'Radio',
           meta: {
-            title: 'Radio 单选',
+            title: TITLE.Radio,
           },
           component: () => import(/* webpackChunkName: "radio" */ './views/demo/Radio.vue'),
+        },
+        {
+          path: '/empty',
+          name: 'Empty',
+          meta: {
+            title: TITLE.Empty,
+          },
+          component: () => import(/* webpackChunkName: "empty" */ './views/demo/Empty.vue'),
         },
       ],
       component: () => import(/* webpackChunkName: "index" */ './views/Index.vue'),
