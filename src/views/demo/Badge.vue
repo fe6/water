@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Badge 徽标数</h1>
+    <h1>{{ Badge }}</h1>
     <p>图标右上角的圆形徽标数字。</p>
     <h2>何时使用</h2>
     <p>一般出现在通知图标或头像的右上角，用于显示需要处理的消息条数，通过醒目视觉形式吸引用户处理。</p>
@@ -83,6 +83,7 @@ import status from '@/views/code/badge/status';
 import color from '@/views/code/badge/color';
 import { props } from '@/views/api/badge';
 import { PropsEntity } from '@/views/entity/apientity';
+import { TITLE } from '@/views/common/constant';
 
 @Component({
   components: {
@@ -93,6 +94,8 @@ import { PropsEntity } from '@/views/entity/apientity';
   },
 })
 export default class BadgeView extends Vue {
+  Badge: string = TITLE.Badge;
+
   base: ApiEntity = base;
 
   number: ApiEntity = number;

@@ -22,7 +22,7 @@ $ yarn add @fe6/water
 
 ## 使用
 
--通过 npm 安装依赖，引入
+- 通过 npm 安装依赖，引入
 
 ``` js
 import water from '@fe6/water/dist/lib/water.umd';

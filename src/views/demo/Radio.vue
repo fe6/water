@@ -1,5 +1,13 @@
 <template>
   <div>
+    <h1>Radio</h1>
+    <p>单选框。</p>
+    <h2>何时使用</h2>
+    <ul>
+      <li>用于在多个备选项中选中单个状态。</li>
+      <li>和 <code>Select</code> 的区别是， <code>Radio</code> 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。</li>
+    </ul>
+    <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
         <WDemo
@@ -77,6 +85,7 @@ import {
   groupMethods,
 } from '@/views/api/radio';
 import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import { TITLE } from '@/views/common/constant';
 
 interface GroupOptsEntity {
   value: string;
@@ -96,6 +105,8 @@ interface GroupOptsEntity {
   },
 })
 export default class RadioView extends Vue {
+  Radio: string = TITLE.Radio;
+
   base: ApiEntity = base;
 
   disabled: ApiEntity = disabled;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Button 按钮</h1>
+    <h1>{{ Button }}</h1>
     <p>按钮用于开始一个即时操作。</p>
     <h2>何时使用</h2>
     <p>标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。</p>
@@ -77,6 +77,7 @@ import disabled from '@/views/code/button/disabled';
 import group from '@/views/code/button/group';
 import { props, methods } from '@/views/api/button';
 import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import { TITLE } from '@/views/common/constant';
 
 interface StatusEntity {
   ev: AnimationEvent;
@@ -93,6 +94,8 @@ interface StatusEntity {
   },
 })
 export default class ButtonView extends Vue {
+  Button: string = TITLE.Button;
+
   base: ApiEntity = base;
 
   size: ApiEntity = size;
