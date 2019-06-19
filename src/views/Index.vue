@@ -2,8 +2,21 @@
   <div class="layout">
     <header class="layout-header">
       <WRow>
-        <WCol :span="24">
+        <WCol :span="24" class="layout-header-col">
           <router-link :to="{ name: 'Home' }" class="layout-logo">水滴</router-link>
+          <a
+            href="https://www.npmjs.org/package/@fe6/water"
+            class="layout-npm"
+          >
+            <img
+              src="https://camo.githubusercontent.com/f520134cf8606447113265dbfd486a9dc6268156/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f406665362f77617465722e7376673f7374796c653d666c61742d737175617265"
+              class="layout-npm-img"
+              alt="@fe6/water"
+              data-canonical-src="https://img.shields.io/npm/v/@fe6/water.svg?style=flat-square"
+              style="max-width:100%;"
+              height="100%"
+            />
+          </a>
         </WCol>
       </WRow>
     </header>
