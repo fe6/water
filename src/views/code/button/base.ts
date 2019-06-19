@@ -35,7 +35,7 @@ const types = ['', 'info', 'border', 'dashed', 'danger'];
  * @return {string}
  */
 export const codeCommon = ({ attr, content }: CodeCommonParamsEntity = {}): string => types.reduce(
-  (acc: string, type: string, index: number) => `${acc}<${getTagName(Button.name)} class="button"${attr ? ` ${attr}` : ''} type="${type}">${content || (upperFirst(type) || 'Default')}</${getTagName(Button.name)}>${index < types.length - 1 ? '\n' : ''}`,
+  (acc: string, type: string, index: number) => `${acc}<${getTagName(Button.name)}${attr ? ` ${attr}` : ''} type="${type}">${content || (upperFirst(type) || 'Default')}</${getTagName(Button.name)}>${index < types.length - 1 ? '\n' : ''}`,
   '',
 );
 
