@@ -1,6 +1,5 @@
 import Empty from '@/components/empty/Empty.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
-import getTagName from '@/views/common/getTagName';
 
 const url = 'https://github.com/fe6/water';
 
@@ -11,7 +10,7 @@ const text = `<span style="color: #f0f">没有数据，</span>\n  <a class="link
 const base: ApiEntity = {
   title: '定制图片及文字',
   desc: '添加 <code>image</code> 属性设置图片。',
-  code: `<${getTagName(Empty.name)} image="${image}">\n  ${text}\n</${getTagName(Empty.name)}>`,
+  code: `<w-empty image="${image}">\n  ${text}\n</w-empty>`,
   render: (h: Function) => h(
     'section',
     {

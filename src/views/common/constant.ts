@@ -1,6 +1,6 @@
 export const IMAGE = 'https://static2.evente.cn/static/img/icon.jpg';
 
-export const ALT = '水滴 logo';
+export const ALT = '水滴';
 
 export const TITLE = {
   Agreement: '开发约定',
@@ -15,4 +15,5 @@ export const TITLE = {
   Grid: 'Grid 栅格',
   Link: 'Link 超链',
   Radio: 'Radio 单选',
+  Modal: 'Modal 对话框',
 };

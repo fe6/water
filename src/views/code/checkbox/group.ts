@@ -1,12 +1,11 @@
 import { ApiEntity } from '@/views/entity/demoentity';
 import CheckboxGroup from '@/components/checkbox/CheckboxGroup.vue';
 import { myDatas, DataEntity } from '@/views/code/checkbox/base';
-import getTagName from '@/views/common/getTagName';
 
 const base: ApiEntity = {
   title: 'Checkbox 组',
   desc: '方便的从数组生成 Checkbox 组。',
-  code: `<${getTagName(CheckboxGroup.name)} :options="${myDatas.map((data: DataEntity) => JSON.stringify(data))}"></${getTagName(CheckboxGroup.name)}>`,
+  code: `<w-checkbox-group :options="${myDatas.map((data: DataEntity) => JSON.stringify(data))}"></w-checkbox-group>`,
   render: (h: Function) => h(
     'section',
     {

@@ -13,7 +13,16 @@ module.exports = {
       ts: 'never',
       js: 'never',
     }],
-    'class-methods-use-this': ['error', { exceptMethods: ['render', 'change', 'beforeHandle', 'setTitle'] }],
+    'class-methods-use-this': ['error', {
+      exceptMethods: [
+        'render',
+        'change',
+        'beforeHandle',
+        'setTitle',
+        'bindKeyUp',
+        'setScroll',
+      ],
+    }],
     'no-unused-vars': ['error', { varsIgnorePattern: '^V|Entity$' }],
     'no-underscore-dangle': ['error', { allow: ['_componentTag'] }],
     'spaced-comment': 'off',

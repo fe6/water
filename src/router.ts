@@ -7,7 +7,7 @@ Vue.use(Router);
 
 export default new Router({
   mode: 'history',
-  base: process.env.NODE_ENV === 'development' ? '/' : '/water/',
+  // base: process.env.NODE_ENV === 'development' ? '/' : '/water/',
   routes: [
     {
       path: '/home',
@@ -114,6 +114,14 @@ export default new Router({
             title: TITLE.Empty,
           },
           component: () => import(/* webpackChunkName: "empty" */ './views/demo/Empty.vue'),
+        },
+        {
+          path: '/modal',
+          name: 'Modal',
+          meta: {
+            title: TITLE.Modal,
+          },
+          component: () => import(/* webpackChunkName: "modal" */ './views/demo/Modal.vue'),
         },
       ],
       component: () => import(/* webpackChunkName: "index" */ './views/Index.vue'),

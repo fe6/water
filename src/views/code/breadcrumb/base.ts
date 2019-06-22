@@ -2,7 +2,6 @@ import { ApiEntity } from '@/views/entity/demoentity';
 import Breadcrumb from '@/components/breadcrumb/Breadcrumb.vue';
 import BreadcrumbItem from '@/components/breadcrumb/BreadcrumbItem.vue';
 import { IMAGE, ALT } from '@/views/common/constant';
-import getTagName from '@/views/common/getTagName';
 
 interface PropEntity {
   to?: object;
@@ -27,11 +26,11 @@ export interface CodeCommonParamsEntity {
  * @param attr {String} 额外添加的属性，适用于 loading ， ghost ， disabled 等类型为 boolean 的属性。
  * @return {string}
  */
-export const codeCommon = ({ attr, content }: CodeCommonParamsEntity = {}): string => `<${getTagName(Breadcrumb.name)}>
-  <${getTagName(BreadcrumbItem.name)}>首页</${getTagName(BreadcrumbItem.name)}>
-  <${getTagName(BreadcrumbItem.name)}${attr ? ` ${attr}` : ''}>${content}</${getTagName(BreadcrumbItem.name)}>
-  <${getTagName(BreadcrumbItem.name)}>面包屑</${getTagName(BreadcrumbItem.name)}>
-</${getTagName(Breadcrumb.name)}>`;
+export const codeCommon = ({ attr, content }: CodeCommonParamsEntity = {}): string => `<w-breadcrumb>
+  <w-breadcrumb-item>首页</w-breadcrumb-item>
+  <w-breadcrumb-item${attr ? ` ${attr}` : ''}>${content}</w-breadcrumb-item>
+  <w-breadcrumb-item>面包屑</w-breadcrumb-item>
+</w-breadcrumb>`;
 /**
  * demo 的现场预览， WDemo 的上面部分
  * @param h {Function} vue 自带的 VNode 方法
