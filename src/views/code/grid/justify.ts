@@ -1,19 +1,18 @@
 import Row from '@/components/grid/Row.vue';
 import Col from '@/components/grid/Col.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
-import getTagName from '@/views/common/getTagName';
 
 const base: ApiEntity = {
   title: '左右对齐',
   desc: '使用 <code>justify</code> 可以设置列的对齐方式。',
-  code: `<${getTagName(Row.name)} justify="end">
-  <${getTagName(Col.name)} :span="4">
+  code: `<w-row justify="end">
+  <w-col :span="4">
     <div>col-4</div>
-  </${getTagName(Col.name)}>
-  <${getTagName(Col.name)} :span="4">
+  </w-col>
+  <w-col :span="4">
     <div>col-4</div>
-  </${getTagName(Col.name)}>
-</${getTagName(Row.name)}>`,
+  </w-col>
+</w-row>`,
   render: (h: Function) => h(
     'section',
     {

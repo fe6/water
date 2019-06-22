@@ -15,7 +15,7 @@
           :render="base.render"
           :title="base.title"
           :desc="base.desc"
-          :data="{ value: baseValue}"
+          :data="{ value: baseValue }"
           @change="baseChange"
         ></WDemo>
         <WDemo
@@ -23,7 +23,7 @@
           :render="color.render"
           :title="color.title"
           :desc="color.desc"
-          :data="{ value: colorValue}"
+          :data="{ value: colorValue }"
           @change="colorChange"
         ></WDemo>
         <WDemo
@@ -31,7 +31,7 @@
           :render="group.render"
           :title="group.title"
           :desc="group.desc"
-          :data="{ value: groupValue}"
+          :data="{ value: groupValue }"
           @change="groupChange"
         ></WDemo>
       </WCol>
@@ -41,7 +41,7 @@
           :render="disabled.render"
           :title="disabled.title"
           :desc="disabled.desc"
-          :data="{ value: baseValue}"
+          :data="{ value: baseValue }"
           @change="baseChange"
         ></WDemo>
         <WDemo
@@ -93,6 +93,12 @@ interface GroupOptsEntity {
   label: string;
   disabled?: boolean;
   more?: boolean;
+}
+
+interface ParamsEntity {
+  ev: MouseEvent;
+  value: string | number | boolean;
+  label: string | number | boolean;
 }
 
 @Component({
@@ -151,7 +157,7 @@ export default class RadioView extends Vue {
     this.beforeValue = params.value;
   }
 
-  beforeHandle(ev: MouseEvent, label: string | number | boolean) {
+  beforeHandle({ label }: ParamsEntity) {
     const opt = this.myLoadingDatas.find((data: any) => data.label === label);
     const optIndex = this.myLoadingDatas.findIndex((data: any) => data.label === label);
     /* eslint-disable no-alert */

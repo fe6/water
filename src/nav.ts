@@ -92,6 +92,15 @@ export const nav = [
           },
         ],
       },
+      {
+        title: '反馈',
+        nav: [
+          {
+            to: { name: 'Modal' },
+            title: TITLE.Modal,
+          },
+        ],
+      },
     ],
   },
 ];

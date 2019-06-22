@@ -1,11 +1,10 @@
 import Empty from '@/components/empty/Empty.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
-import getTagName from '@/views/common/getTagName';
 
 const base: ApiEntity = {
   title: '基本使用',
   desc: '基本使用。',
-  code: `<${getTagName(Empty.name)} />`,
+  code: '<w-empty />',
   render: (h: Function) => h(
     'section',
     {

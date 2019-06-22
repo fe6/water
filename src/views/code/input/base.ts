@@ -1,11 +1,10 @@
 import Input from '@/components/input/Input.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
-import getTagName from '@/views/common/getTagName';
 
 const base: ApiEntity = {
   title: '基本使用',
   desc: '基本使用。',
-  code: `<${getTagName(Input.name)} placeholder="基本使用" />`,
+  code: '<w-input placeholder="基本使用" />',
   render: (h: Function) => h(
     'section',
     {

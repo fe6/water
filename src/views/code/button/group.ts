@@ -2,17 +2,16 @@ import { upperFirst } from 'lodash/string';
 import { ApiEntity } from '@/views/entity/demoentity';
 import Button from '@/components/button/Button.vue';
 import ButtonGroup from '@/components/button/ButtonGroup.vue';
-import getTagName from '@/views/common/getTagName';
 
 const sizes = ['large', '', 'small'];
 
 const types = ['', 'border', 'danger'];
 
-const renderCode = (type: string): string => `<${getTagName(ButtonGroup.name)}>${sizes.reduce(
-  (acc: string, size: string, index: number): string => `${acc}${index < 1 ? '\n' : ''} <${getTagName(Button.name)} :key="${index}" :type="${type}">${upperFirst(size)}</${getTagName(Button.name)}>${index < types.length - 1 ? '\n' : ''}`,
+const renderCode = (type: string): string => `<w-button-group>${sizes.reduce(
+  (acc: string, size: string, index: number): string => `${acc}${index < 1 ? '\n' : ''}  <w-button :key="${index}"${type ? ` type="${type}"` : ''}>${upperFirst(size)}</w-button>${index < types.length - 1 ? '\n' : ''}`,
   '',
 )}
-</${getTagName(ButtonGroup.name)}>`;
+</w-button-group>`;
 
 const base: ApiEntity = {
   title: '按钮组合',
