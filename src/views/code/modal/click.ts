@@ -6,9 +6,9 @@ const base: ApiEntity = {
   title: '点击遮罩关闭',
   desc: '添加属性 <code>maskClosable</code> 即可。',
   code: `<w-modal :maskClosable="true" v-modal="clickStatus" title="Mask Click Modal">
-  <p>Some contents...</p>
-  <p>Some contents...</p>
-  <p>Some contents...</p>
+  <div>Some contents...</div>
+  <div>Some contents...</div>
+  <div>Some contents...</div>
 </w-modal>`,
   render: (
     h: Function,
@@ -46,9 +46,9 @@ const base: ApiEntity = {
             },
           },
         }, [
-          h('p', 'Some contents...'),
-          h('p', 'Some contents...'),
-          h('p', 'Some contents...'),
+          h('div', 'Some contents...'),
+          h('div', 'Some contents...'),
+          h('div', 'Some contents...'),
         ]),
       ],
     );

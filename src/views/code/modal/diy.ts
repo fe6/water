@@ -8,9 +8,9 @@ const base: ApiEntity = {
   title: '自定义',
   desc: '通过 <code>slot="title"</code> 自定义标题, <code>slot="footer"</code> 自定义页脚。',
   code: `<w-modal v-modal="diyStatus" title="Basic Modal">
-  <p>Some contents...</p>
+  <div>Some contents...</div>
   <w-button @click="diyTextStatus = !diyTextStatus">我想改下面的文案</w-button>
-  <p>{{ diyTextStatus ? '听说今年国安要夺冠' : '没错，国安就是冠军' }}</p>
+  <div>{{ diyTextStatus ? '听说今年国安要夺冠' : '没错，国安就是冠军' }}</div>
   <div slot="title">
     <a href="${href}">我想去看海!</a>
   </div>
@@ -53,7 +53,7 @@ const base: ApiEntity = {
             },
           },
         }, [
-          h('p', 'Some contents...'),
+          h('div', 'Some contents...'),
           h('div', {
             slot: 'title',
           }, [
@@ -75,7 +75,7 @@ const base: ApiEntity = {
               },
             },
           }, '我要改变下面的文案'),
-          h('p', textStatus ? '听说今年国安要夺冠' : '没错，国安就是冠军'),
+          h('div', textStatus ? '听说今年国安要夺冠' : '没错，国安就是冠军'),
           h('a', {
             class: 'link',
             attrs: {

@@ -38,11 +38,14 @@
             <slot name="footer">
               <Button
                 class="w-modal-button w-modal-button-cancel"
+                size="large"
+                type="border"
                 @click="cancelFn"
                 v-if="cancelable"
               >{{cancelText}}</Button>
               <Button
                 class="w-modal-button w-modal-button-ok"
+                size="large"
                 :type="okType"
                 :loading="loadingValue"
                 @click="okFn"

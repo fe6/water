@@ -2,12 +2,9 @@
 @import '../../helper/fade.scss';
 
 $move-time: 0.3s;
-// 对话框边框颜色
-$modal-border-color: #e8e8e8;
-$text-color-secondary: rgba(0, 0, 0, 0.45);
 
 .w-modal {
-  width: 520px;
+  width: 483px;
   position: relative;
   background: $normal-bg;
   border-radius: $border-radius-base;
@@ -38,10 +35,12 @@ $text-color-secondary: rgba(0, 0, 0, 0.45);
   &-header {
     font-family: $family;
     padding: 16px 24px;
+    font-size: 14px;
+    line-height: 1;
     border-radius: 4px 4px 0 0;
     background: $normal-bg;
     color: $text-color;
-    border-bottom: 1px solid $modal-border-color;
+    border-bottom: 1px solid $normal-border;
   }
 
   &-close {
@@ -65,7 +64,7 @@ $text-color-secondary: rgba(0, 0, 0, 0.45);
       width: 2px;
       height: 16px;
       border-radius: 2px;
-      background: $text-color-secondary;
+      background: #ccc;
       transition: background $move-time;
       position: absolute;
       left: 7px;
@@ -83,13 +82,13 @@ $text-color-secondary: rgba(0, 0, 0, 0.45);
 
   &-body {
     padding: 24px;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.5;
     word-wrap: break-word;
   }
 
   &-footer {
-    border-top: 1px solid $modal-border-color;
+    border-top: 1px solid $normal-border;
     padding: 10px 16px;
     text-align: right;
     border-radius: 0 0 4px 4px;

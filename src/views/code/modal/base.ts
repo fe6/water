@@ -6,9 +6,9 @@ const base: ApiEntity = {
   title: '基本使用',
   desc: '基本使用。',
   code: `<w-modal v-modal="baseStatus" title="Basic Modal">
-  <p>Some contents...</p>
-  <p>Some contents...</p>
-  <p>Some contents...</p>
+  <div>Some contents...</div>
+  <div>Some contents...</div>
+  <div>Some contents...</div>
 </w-modal>`,
   render: (
     h: Function,
@@ -45,9 +45,9 @@ const base: ApiEntity = {
             },
           },
         }, [
-          h('p', 'Some contents...'),
-          h('p', 'Some contents...'),
-          h('p', 'Some contents...'),
+          h('div', 'Some contents...'),
+          h('div', 'Some contents...'),
+          h('div', 'Some contents...'),
         ]),
       ],
     );

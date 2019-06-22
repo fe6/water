@@ -50,9 +50,9 @@ const base: ApiEntity = {
             },
           },
         }, [
-          h('p', 'Some contents...'),
-          h('p', 'Some contents...'),
-          h('p', 'Some contents...'),
+          h('div', 'Some contents...'),
+          h('div', 'Some contents...'),
+          h('div', 'Some contents...'),
         ]),
       ],
     );

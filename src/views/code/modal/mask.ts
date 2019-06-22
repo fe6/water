@@ -6,9 +6,9 @@ const base: ApiEntity = {
   title: '没有遮罩',
   desc: '让 <code>mask</code> 为 false 即可。',
   code: `<w-modal :mask="false" v-modal="maskStatus" title="没有遮罩的对话框">
-  <p>Some contents...</p>
-  <p>Some contents...</p>
-  <p>Some contents...</p>
+  <div>Some contents...</div>
+  <div>Some contents...</div>
+  <div>Some contents...</div>
 </w-modal>`,
   render: (
     h: Function,
@@ -46,9 +46,9 @@ const base: ApiEntity = {
             },
           },
         }, [
-          h('p', 'Some contents...'),
-          h('p', 'Some contents...'),
-          h('p', 'Some contents...'),
+          h('div', 'Some contents...'),
+          h('div', 'Some contents...'),
+          h('div', 'Some contents...'),
         ]),
       ],
     );
