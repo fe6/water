@@ -23,7 +23,7 @@
     "prepublishOnly": "yarn build"
   },
   "devDependencies": {
-    "@types/codemirror": "^0.0.74",
+    "@types/codemirror": "^0.0.75",
     "@types/jest": "^23.1.4",
     "@types/lodash": "^4.14.133",
     "@vue/cli-plugin-babel": "^3.5.0",
