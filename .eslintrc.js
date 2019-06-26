@@ -17,6 +17,7 @@ module.exports = {
       exceptMethods: [
         'render',
         'change',
+        'changeHandle',
         'beforeHandle',
         'setTitle',
         'bindKeyUp',

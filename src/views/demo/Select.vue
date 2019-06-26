@@ -16,7 +16,7 @@
           :title="base.title"
           :desc="base.desc"
           :data="{ value: baseValue }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="tag.code"
@@ -24,7 +24,7 @@
           :title="tag.title"
           :desc="tag.desc"
           :data="{ value: tagValue }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="diy.code"
@@ -32,7 +32,7 @@
           :title="diy.title"
           :desc="diy.desc"
           :data="{ value: diyValue, options: diyOptions }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="multiplesearch.code"
@@ -40,15 +40,15 @@
           :title="multiplesearch.title"
           :desc="multiplesearch.desc"
           :data="{ value: multiplesearchValue }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="loading.code"
           :render="loading.render"
           :title="loading.title"
           :desc="loading.desc"
-          :data="{ value: loadingValue, loading: loadingStatus , before: beforeHandle }"
-          @change="change"
+          :data="{ value: loadingValue, loading: loadingStatus , beforeHandle: beforeHandle }"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="basesize.code"
@@ -56,7 +56,7 @@
           :title="basesize.title"
           :desc="basesize.desc"
           :data="{ value: basesizeValue }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="basedisabled.code"
@@ -64,7 +64,7 @@
           :title="basedisabled.title"
           :desc="basedisabled.desc"
           :data="{ value: basedisabledValue }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
       </WCol>
       <WCol :span="12">
@@ -74,7 +74,7 @@
           :title="slot.title"
           :desc="slot.desc"
           :data="{ value: slotValue }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="multiple.code"
@@ -82,7 +82,7 @@
           :title="multiple.title"
           :desc="multiple.desc"
           :data="{ value: multipleValue }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="basesearch.code"
@@ -90,7 +90,7 @@
           :title="basesearch.title"
           :desc="basesearch.desc"
           :data="{ value: basesearchValue }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="tagsearch.code"
@@ -98,7 +98,7 @@
           :title="tagsearch.title"
           :desc="tagsearch.desc"
           :data="{ value: tagsearchValue }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="prefix.code"
@@ -106,7 +106,7 @@
           :title="prefix.title"
           :desc="prefix.desc"
           :data="{ value: prefixValue }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="multiplesize.code"
@@ -114,7 +114,7 @@
           :title="multiplesize.title"
           :desc="multiplesize.desc"
           :data="{ value: multiplesizeValue }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="tagdisabled.code"
@@ -122,13 +122,13 @@
           :title="tagdisabled.title"
           :desc="tagdisabled.desc"
           :data="{ value: tagdisabledValue }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
       </WCol>
     </WRow>
-    <h2>Radio API</h2>
+    <h2>Select API</h2>
     <ApiTable :data="props"></ApiTable>
-    <h2>Radio Method</h2>
+    <h2>Select Method</h2>
     <MethodTable :data="methods"></MethodTable>
   </div>
 </template>

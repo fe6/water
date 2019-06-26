@@ -13,15 +13,15 @@
           :title="base.title"
           :desc="base.desc"
           :data="{ value: baseStatus }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="before.code"
           :render="before.render"
           :title="before.title"
           :desc="before.desc"
-          :data="{ value: beforeStatus, loading: beforeLoading, before: beforeHandle }"
-          @change="change"
+          :data="{ value: beforeStatus, loading: beforeLoading, beforeHandle: beforeHandle }"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="content.code"
@@ -29,7 +29,7 @@
           :title="content.title"
           :desc="content.desc"
           :data="{ value: contentStatus }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="esc.code"
@@ -37,7 +37,7 @@
           :title="esc.title"
           :desc="esc.desc"
           :data="{ value: escStatus }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
       </WCol>
       <WCol :span="12">
@@ -47,7 +47,7 @@
           :title="diy.title"
           :desc="diy.desc"
           :data="{ value: diyStatus, textStatus: diyTextStatus }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="style.code"
@@ -55,7 +55,7 @@
           :title="style.title"
           :desc="style.desc"
           :data="{ value: styleStatus }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="mask.code"
@@ -63,7 +63,7 @@
           :title="mask.title"
           :desc="mask.desc"
           :data="{ value: maskStatus }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="click.code"
@@ -71,13 +71,13 @@
           :title="click.title"
           :desc="click.desc"
           :data="{ value: clickStatus }"
-          @change="change"
+          @changeHandle="change"
         ></WDemo>
       </WCol>
     </WRow>
-    <h2>API</h2>
+    <h2>Modal API</h2>
     <ApiTable :data="props"></ApiTable>
-    <h2>Method</h2>
+    <h2>Modal Method</h2>
     <MethodTable :data="methods"></MethodTable>
   </div>
 </template>

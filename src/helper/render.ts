@@ -4,11 +4,11 @@ export default {
   props: {
     render: Function,
     data: Object,
-    before: {
+    beforeHandle: {
       type: Function,
       default: () => {},
     },
-    change: {
+    changeHandle: {
       type: Function,
       default: () => {},
     },

@@ -24,7 +24,7 @@
         ></WDemo>
       </WCol>
     </WRow>
-    <h2>API</h2>
+    <h2>Empty API</h2>
     <ApiTable :data="props"></ApiTable>
   </div>
 </template>

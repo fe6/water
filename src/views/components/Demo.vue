@@ -1,6 +1,6 @@
 <template>
   <section class="demo-box">
-    <WRender :render="render" :data="data" :change="change" :before="before" />
+    <WRender :render="render" :data="data" :changeHandle="changeHandle" :before="before" />
     <section class="demo-meta">
       <a class="demo-title">{{title}}</a>
       <p class="demo-desc" v-html="desc"></p>
@@ -55,8 +55,8 @@ export default class Demo extends Vue {
 
   @Prop(Object) private data!: object;
 
-  @Emit('change')
-  change(params: any) {
+  @Emit('changeHandle')
+  changeHandle(params: any) {
     return params;
   }
 }

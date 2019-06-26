@@ -78,7 +78,7 @@ export const renderCommon = (
       },
       on: {
         change(ctx: any) {
-          context.props.change({
+          context.props.changeHandle({
             attr: 'slotValue',
             value: ctx.value,
           });

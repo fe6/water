@@ -77,7 +77,10 @@ export const renderCommon = (
         },
         on: {
           change(changeParams: any) {
-            context.props.change(changeParams);
+            context.props.changeHandle({
+              attr: 'beforeValue',
+              value: changeParams.value,
+            });
           },
         },
       }, data.value)),

@@ -89,7 +89,7 @@ export const renderCommon = (
       },
       on: {
         change(ctx: any) {
-          context.props.change({
+          context.props.changeHandle({
             attr: params.attr,
             value: ctx.value,
           });

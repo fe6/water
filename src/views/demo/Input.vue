@@ -44,9 +44,9 @@
         ></WDemo>
       </WCol>
     </WRow>
-    <h2>API</h2>
+    <h2>Input API</h2>
     <ApiTable :data="props"></ApiTable>
-    <h2>Method</h2>
+    <h2>Input Method</h2>
     <MethodTable :data="methods"></MethodTable>
   </div>
 </template>
