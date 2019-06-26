@@ -47,8 +47,8 @@ $move-time: 0.3s;
     width: 16px;
     height: 16px;
     position: absolute;
-    right: 22px;
-    top: 16px;
+    right: 12px;
+    top: 14px;
     cursor: pointer;
 
     &:hover {
@@ -84,12 +84,13 @@ $move-time: 0.3s;
     padding: 24px;
     font-size: 12px;
     line-height: 1.5;
+    color: #60636C;
     word-wrap: break-word;
   }
 
   &-footer {
     border-top: 1px solid $normal-border;
-    padding: 10px 16px;
+    padding: 12px 24px;
     text-align: right;
     border-radius: 0 0 4px 4px;
     font-size: 0;
@@ -100,37 +101,6 @@ $move-time: 0.3s;
 
     &:first-child {
       margin: 0;
-    }
-  }
-
-  &-confirm {
-    &-header {
-      position: relative;
-    }
-
-    &-icon {
-      position: absolute;
-      font-size: 22px;
-      left: 0;
-      top: 0;
-    }
-
-    &-title {
-      line-height: 22px;
-      font-size: 16px;
-      padding-left: 38px;
-      color: rgba(0, 0, 0, 0.85);
-    }
-
-    &-content {
-      padding: 8px 0 0 38px;
-      font-size: 14px;
-      color: $text-color;
-    }
-
-    &-footer {
-      border: none;
-      padding: 0 24px 24px;
     }
   }
 }
