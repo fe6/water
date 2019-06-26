@@ -20,7 +20,6 @@ $button-text-margin: ('': 8, '-large': 8, '-small': 4);
   cursor: pointer;
   border-radius: $border-radius-base;
   border: 1px solid transparent;
-  border-color: $normal-border;
   background: $blue-6;
   border-color: $blue-6;
   color: $normal-color;
@@ -122,11 +121,11 @@ $button-text-margin: ('': 8, '-large': 8, '-small': 4);
 
   &-loading {
     position: relative;
-    pointer-events: none;
 
     &::before {
       content: ' ';
       position: absolute;
+      cursor: not-allowed;
       top: -1px;
       left: -1px;
       bottom: -1px;
@@ -134,6 +133,36 @@ $button-text-margin: ('': 8, '-large': 8, '-small': 4);
       background: $normal-bg;
       border-radius: inherit;
       opacity: 0.5;
+    }
+
+    &:focus,
+    &:hover {
+      background: $blue-6;
+      border-color: $blue-6;
+      color: $normal-color;
+    }
+
+    &.#{$prefix}btn-info:focus,
+    &.#{$prefix}btn-info:hover,
+    &.#{$prefix}btn-dashed:focus,
+    &.#{$prefix}btn-dashed:hover {
+      background: $normal-bg;
+      color: $blue-6;
+      border-color: $blue-6;
+    }
+
+    &.#{$prefix}btn-border:focus,
+    &.#{$prefix}btn-border:hover {
+      background: $normal-bg;
+      border-color: $normal-border;
+      color: $text-color;
+    }
+
+    &.#{$prefix}btn-danger:focus,
+    &.#{$prefix}btn-danger:hover {
+      background: $danger-bg-color;
+      color: $red-6;
+      border-color: $danger-border-color;
     }
   }
 
