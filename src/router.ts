@@ -116,6 +116,14 @@ export default new Router({
           component: () => import(/* webpackChunkName: "select" */ './views/demo/Select.vue'),
         },
         {
+          path: '/switch',
+          name: 'Switch',
+          meta: {
+            title: TITLE.Switch,
+          },
+          component: () => import(/* webpackChunkName: "switch" */ './views/demo/Switch.vue'),
+        },
+        {
           path: '/empty',
           name: 'Empty',
           meta: {
