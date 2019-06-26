@@ -11,10 +11,7 @@ const base: ApiEntity = {
       class: 'demo-demo',
     },
     [
-      h(Empty, {
-        props: {
-        },
-      }),
+      h(Empty),
     ],
   ),
 };

@@ -1,1 +1,2 @@
-export default () => {};
+export const noopArray = () => [];
+export const noop = () => {};

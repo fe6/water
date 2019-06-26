@@ -71,7 +71,7 @@ import {
 import addDOMEventListener from 'add-dom-event-listener';
 import TransferDom from '@/directives/transfer-dom';
 import Button from '../button/Button.vue';
-import noop from '@/helper/noop';
+import { noop } from '@/helper/noop';
 
 Vue.directive('transfer-dom', (TransferDom as any));
 

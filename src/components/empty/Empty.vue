@@ -1,6 +1,6 @@
 <template>
   <div class="w-empty">
-    <div class="w-empty-box">
+    <div class="w-empty-box" :style="imageStyle">
       <img
         class="w-empty-image"
         :src="image || require('../../assets/image/empty.svg')"
@@ -26,6 +26,8 @@ export default class Empty extends Vue {
   name: string = 'Empty';
 
   @Prop(String) private image!: string;
+
+  @Prop(Object) private imageStyle!: object;
 }
 </script>
 

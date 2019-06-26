@@ -13,7 +13,9 @@
           <code>CheckboxGroup</code>、
           <code>Input</code>、
           <code>Radio</code>、
-          <code>RadioGroup</code>
+          <code>RadioGroup</code>、
+          <code>Modal</code>、
+          <code>Select</code>
         </p>
       </li>
     </ul>
@@ -24,6 +26,8 @@
       <li><code>size</code>： 设置大小。</li>
       <li><code>loading</code>： 设置载入状态。</li>
       <li><code>disabled</code>： 设置失效状态。</li>
+      <li><code>options</code>： 指定可选项， 每项具体设置参照 <code>fieldNames</code> 参数。</li>
+      <li><code>fieldNames</code>： 自定义属性的字段名。</li>
       <li><code>tag</code>： 实际渲染的标签。</li>
       <li><code>type</code>： 组件类型，不同类型可以是样式不同，可以是使用不同等。</li>
       <li><code>href</code>： 站外跳转。</li>

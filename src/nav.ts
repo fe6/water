@@ -77,6 +77,10 @@ export const nav = [
             to: { name: 'Radio' },
             title: TITLE.Radio,
           },
+          {
+            to: { name: 'Select' },
+            title: TITLE.Select,
+          },
         ],
       },
       {
