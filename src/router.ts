@@ -108,6 +108,14 @@ export default new Router({
           component: () => import(/* webpackChunkName: "radio" */ './views/demo/Radio.vue'),
         },
         {
+          path: '/select',
+          name: 'Select',
+          meta: {
+            title: TITLE.Select,
+          },
+          component: () => import(/* webpackChunkName: "select" */ './views/demo/Select.vue'),
+        },
+        {
           path: '/empty',
           name: 'Empty',
           meta: {

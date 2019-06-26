@@ -16,4 +16,5 @@ export const TITLE = {
   Link: 'Link 超链',
   Radio: 'Radio 单选',
   Modal: 'Modal 对话框',
+  Select: 'Select 选择器',
 };

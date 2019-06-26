@@ -21,6 +21,7 @@ module.exports = {
         'setTitle',
         'bindKeyUp',
         'setScroll',
+        'returnModel',
       ],
     }],
     'no-unused-vars': ['error', { varsIgnorePattern: '^V|Entity$' }],
