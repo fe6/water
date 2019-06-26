@@ -120,6 +120,7 @@ $move-time: 0.4s;
     @extend .w-ellipsis;
 
     max-width: 100%;
+    color: $text-color;
 
     &-small {
       line-height: 22px;
