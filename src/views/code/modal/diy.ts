@@ -33,7 +33,7 @@ const base: ApiEntity = {
         h(Button, {
           props: {
             click: () => {
-              context.props.change({
+              context.props.changeHandle({
                 attr: 'diyStatus',
                 status: true,
               });
@@ -46,7 +46,7 @@ const base: ApiEntity = {
           },
           on: {
             change: (status: boolean) => {
-              context.props.change({
+              context.props.changeHandle({
                 attr: 'diyStatus',
                 status,
               });
@@ -68,7 +68,7 @@ const base: ApiEntity = {
           h(Button, {
             on: {
               click: () => {
-                context.props.change({
+                context.props.changeHandle({
                   attr: 'diyTextStatus',
                   status: !textStatus,
                 });
@@ -92,7 +92,7 @@ const base: ApiEntity = {
               },
               on: {
                 click: () => {
-                  context.props.change({
+                  context.props.changeHandle({
                     attr: 'diyStatus',
                     status: false,
                   });

@@ -16,7 +16,7 @@
           :title="base.title"
           :desc="base.desc"
           :data="{ value: baseValue }"
-          @change="baseChange"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="color.code"
@@ -24,7 +24,7 @@
           :title="color.title"
           :desc="color.desc"
           :data="{ value: colorValue }"
-          @change="colorChange"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="group.code"
@@ -32,7 +32,7 @@
           :title="group.title"
           :desc="group.desc"
           :data="{ value: groupValue }"
-          @change="groupChange"
+          @changeHandle="change"
         ></WDemo>
       </WCol>
       <WCol :span="12">
@@ -42,15 +42,19 @@
           :title="disabled.title"
           :desc="disabled.desc"
           :data="{ value: baseValue }"
-          @change="baseChange"
+          @changeHandle="change"
         ></WDemo>
         <WDemo
           :code="before.code"
           :render="before.render"
           :title="before.title"
           :desc="before.desc"
-          :data="{ datas: myLoadingDatas, value: beforeValue, before: beforeHandle }"
-          @change="beforeChange"
+          :data="{
+            datas: myLoadingDatas,
+            value: beforeValue,
+            beforeHandle: beforeHandle,
+          }"
+          @changeHandle="change"
         ></WDemo>
       </WCol>
     </WRow>
@@ -101,6 +105,11 @@ interface ParamsEntity {
   label: string | number | boolean;
 }
 
+interface ChangeParamsEntity {
+  attr: string;
+  value: string;
+}
+
 @Component({
   components: {
     WRow,
@@ -141,20 +150,8 @@ export default class RadioView extends Vue {
 
   groupValue: string = '鸭梨';
 
-  baseChange(params: any) {
-    this.baseValue = params.value;
-  }
-
-  colorChange(params: any) {
-    this.colorValue = params.value;
-  }
-
-  groupChange(params: any) {
-    this.groupValue = params.value;
-  }
-
-  beforeChange(params: any) {
-    this.beforeValue = params.value;
+  change({ attr, value }: ChangeParamsEntity) {
+    (this as any)[attr] = value;
   }
 
   beforeHandle({ label }: ParamsEntity) {

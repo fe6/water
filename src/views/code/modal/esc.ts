@@ -24,7 +24,7 @@ const base: ApiEntity = {
         h(Button, {
           props: {
             click: () => {
-              context.props.change({
+              context.props.changeHandle({
                 attr: 'escStatus',
                 status: true,
               });
@@ -39,7 +39,7 @@ const base: ApiEntity = {
           },
           on: {
             change: (status: boolean) => {
-              context.props.change({
+              context.props.changeHandle({
                 attr: 'escStatus',
                 status,
               });

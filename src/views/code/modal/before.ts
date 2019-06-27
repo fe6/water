@@ -15,7 +15,7 @@ const base: ApiEntity = {
     h: Function,
     context: any,
   ) => {
-    const { value, loading, before } = context.props.data;
+    const { value, loading, beforeHandle } = context.props.data;
     return h(
       'section',
       {
@@ -25,7 +25,7 @@ const base: ApiEntity = {
         h(Button, {
           props: {
             click: () => {
-              context.props.change({
+              context.props.changeHandle({
                 attr: 'beforeStatus',
                 status: true,
               });
@@ -36,12 +36,12 @@ const base: ApiEntity = {
           props: {
             value,
             loading,
-            before,
+            before: beforeHandle,
             title: '确定之前',
           },
           on: {
             change: (status: boolean) => {
-              context.props.change({
+              context.props.changeHandle({
                 attr: 'beforeStatus',
                 status,
               });

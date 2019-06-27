@@ -8,7 +8,7 @@ const base: ApiEntity = {
   <w-badge :value="99" />
 </a>`,
   render: (h: Function, context: any) => {
-    const { value, change } = context.props.data;
+    const { value, changeHandle } = context.props.data;
     return h(
       'section',
       {
@@ -36,14 +36,14 @@ const base: ApiEntity = {
           },
           on: {
             click() {
-              change(1);
+              changeHandle(1);
             },
           },
         }, '+'),
         h('button', {
           on: {
             click() {
-              change(-1);
+              changeHandle(-1);
             },
           },
         }, '-'),

@@ -81,6 +81,10 @@ export const nav = [
             to: { name: 'Select' },
             title: TITLE.Select,
           },
+          {
+            to: { name: 'Switch' },
+            title: TITLE.Switch,
+          },
         ],
       },
       {

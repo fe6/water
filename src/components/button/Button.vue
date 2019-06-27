@@ -101,7 +101,7 @@ export default class Button extends Vue {
   }
 
   clickFn() {
-    this.clicked = true;
+    this.clicked = !this.loading;
   }
 
   @Emit('click')

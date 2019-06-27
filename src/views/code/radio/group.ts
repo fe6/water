@@ -22,7 +22,7 @@ const base: ApiEntity = {
             },
             on: {
               change(changeParams: any) {
-                context.props.change(changeParams);
+                context.props.changeHandle(changeParams);
               },
             },
           }),

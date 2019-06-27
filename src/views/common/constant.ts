@@ -17,4 +17,5 @@ export const TITLE = {
   Radio: 'Radio 单选',
   Modal: 'Modal 对话框',
   Select: 'Select 选择器',
+  Switch: 'Switch 开关',
 };

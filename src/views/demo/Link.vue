@@ -59,7 +59,7 @@
         ></WDemo>
       </WCol>
     </WRow>
-    <h2>API</h2>
+    <h2>Link API</h2>
     <ApiTable :data="props"></ApiTable>
   </div>
 </template>

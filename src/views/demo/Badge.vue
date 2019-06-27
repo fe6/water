@@ -24,8 +24,8 @@
           :render="model.render"
           :title="model.title"
           :desc="model.desc"
-          :data="{ value: clickValue, change: clickChange }"
-          :change="clickChange"
+          :data="{ value: clickValue, changeHandle: clickChange }"
+          :changeHandle="clickChange"
         ></WDemo>
         <WDemo
           :code="status.code"
@@ -61,7 +61,7 @@
         ></WDemo>
       </WCol>
     </WRow>
-    <h2>API</h2>
+    <h2>Badge API</h2>
     <ApiTable :data="props"></ApiTable>
   </div>
 </template>

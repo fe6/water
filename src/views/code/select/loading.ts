@@ -8,7 +8,7 @@ const base: ApiEntity = {
   render: (h: Function, context: any) => renderCommon(h, context, {
     props: {
       loading: context.props.data.loading,
-      before: context.props.data.before,
+      before: context.props.data.beforeHandle,
     },
     attr: 'loadingValue',
   }),
