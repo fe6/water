@@ -17,5 +17,6 @@ export const TITLE = {
   Radio: 'Radio 单选',
   Modal: 'Modal 对话框',
   Select: 'Select 选择器',
+  Spin: 'Spin 加载中',
   Switch: 'Switch 开关',
 };
