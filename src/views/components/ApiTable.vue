@@ -1,5 +1,5 @@
 <template>
-  <div class="table-box">
+  <div class="table-box" v-once>
     <table>
       <thead>
         <tr>

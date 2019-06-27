@@ -116,6 +116,14 @@ export default new Router({
           component: () => import(/* webpackChunkName: "select" */ './views/demo/Select.vue'),
         },
         {
+          path: '/spin',
+          name: 'Spin',
+          meta: {
+            title: TITLE.Spin,
+          },
+          component: () => import(/* webpackChunkName: "spin" */ './views/demo/Spin.vue'),
+        },
+        {
           path: '/switch',
           name: 'Switch',
           meta: {
