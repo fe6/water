@@ -172,5 +172,9 @@ $move-time: 0.3s;
     & .w-input-number-handle {
       display: none;
     }
+
+    &:hover {
+      border: 1px solid $normal-border;
+    }
   }
 }
