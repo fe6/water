@@ -92,6 +92,14 @@ export default new Router({
           component: () => import(/* webpackChunkName: "input" */ './views/demo/Input.vue'),
         },
         {
+          path: '/inputnumber',
+          name: 'InputNumber',
+          meta: {
+            title: TITLE.InputNumber,
+          },
+          component: () => import(/* webpackChunkName: "inputnumber" */ './views/demo/InputNumber.vue'),
+        },
+        {
           path: '/link',
           name: 'Link',
           meta: {

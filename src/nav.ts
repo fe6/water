@@ -74,6 +74,10 @@ export const nav = [
             title: TITLE.Input,
           },
           {
+            to: { name: 'InputNumber' },
+            title: TITLE.InputNumber,
+          },
+          {
             to: { name: 'Radio' },
             title: TITLE.Radio,
           },
