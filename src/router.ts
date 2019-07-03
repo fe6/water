@@ -76,6 +76,14 @@ export default new Router({
           component: () => import(/* webpackChunkName: "button" */ './views/demo/Button.vue'),
         },
         {
+          path: '/cascader',
+          name: 'Cascader',
+          meta: {
+            title: TITLE.Cascader,
+          },
+          component: () => import(/* webpackChunkName: "cascader" */ './views/demo/Cascader.vue'),
+        },
+        {
           path: '/checkbox',
           name: 'Checkbox',
           meta: {

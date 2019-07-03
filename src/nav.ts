@@ -66,6 +66,10 @@ export const nav = [
         title: '数据录入',
         nav: [
           {
+            to: { name: 'Cascader' },
+            title: TITLE.Cascader,
+          },
+          {
             to: { name: 'Checkbox' },
             title: TITLE.Checkbox,
           },

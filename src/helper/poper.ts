@@ -16,6 +16,9 @@ export const getScroll = (target: any, top?: boolean): number => {
 };
 
 export const setLeftFn = (self: any, render: Element, before = () => {}, after = () => {}) => {
+  if (!render) {
+    return new Promise((resolve) => { resolve(); });
+  }
   const { x, width }: any = render.getBoundingClientRect();
   const offsetLeft = x;
   before();
@@ -47,6 +50,9 @@ export const setLeftFn = (self: any, render: Element, before = () => {}, after =
 }; // end setLeftFn
 
 export const setTopFn = (self: any, render: Element, before = () => {}, after = () => {}) => {
+  if (!render) {
+    return new Promise((resolve) => { resolve(); });
+  }
   const { y, height }: any = render.getBoundingClientRect();
   const offsetTop = y;
   before();
@@ -81,10 +87,14 @@ export const setPostion = (self: any, refName: string) => {
   const { popElem } = self.$refs;
   if (hasOwn(self.$refs, refName) && hasOwn(self.$refs, 'popElem')) {
     setLeftFn(self, self.$refs[refName]).then((left) => {
-      popElem.style.left = `${left}px`;
+      if (left) {
+        popElem.style.left = `${left}px`;
+      }
     });
     setTopFn(self, self.$refs[refName]).then((top) => {
-      popElem.style.top = `${top}px`;
+      if (top) {
+        popElem.style.top = `${top}px`;
+      }
     });
   }
 };
