@@ -106,6 +106,7 @@ import {
   Emit,
   Vue,
 } from 'vue-property-decorator';
+import addDOMEventListener from 'add-dom-event-listener';
 import { mixins } from 'vue-class-component';
 import TransferDom from '@/directives/transfer-dom';
 import docClick from '@/directives/doclick';
@@ -156,6 +157,8 @@ export default class Select extends mixins(poperMixin) {
   optHoverIndex: number = -1;
 
   hideTimer: any = null;
+
+  resizeEvent: any = null;
 
   @Model('model', { type: [String, Array] }) readonly value!: [string, string[]];
 
@@ -309,6 +312,18 @@ export default class Select extends mixins(poperMixin) {
       : '';
   }
 
+  mounted() {
+    this.resizeEvent = addDOMEventListener(window, 'resize', this.resizeChange);
+  }
+
+  beforeDestroy() {
+    this.resizeEvent.remove();
+  }
+
+  resizeChange() {
+    setPostion(this, 'select');
+  }
+
   updateHock(slotsData: any, nameTags: string[]) {
     this.slotsData = slotsData;
 
@@ -352,7 +367,9 @@ export default class Select extends mixins(poperMixin) {
 
   setWidth() {
     const { select, popElem } = this.$refs;
-    (popElem as HTMLDivElement).style.width = `${(select as HTMLDivElement).offsetWidth}px`;
+    if (popElem) {
+      (popElem as HTMLDivElement).style.width = `${(select as HTMLDivElement).offsetWidth}px`;
+    }
   }
 
   setInputWidth() {

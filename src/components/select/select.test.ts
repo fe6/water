@@ -471,6 +471,8 @@ describe('Select.vue', () => {
         testOptions.vm.getFocus();
         testOptions.vm.selectClick({ stopPropagation: () => {} });
         testOptions.vm.optionChange('Apple', { type: 'keyUp' }, options);
+        testOptions.vm.resizeChange();
+        testOptions.destroy();
         done();
       } catch (err) {
         done.fail(err);
