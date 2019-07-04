@@ -11,7 +11,6 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        {{baseValue}}
         <WDemo
           :code="base.code"
           :render="base.render"
@@ -61,7 +60,7 @@
           :desc="size.desc"
           :data="{ value: sizeValue }"
           @changeHandle="change"
-        ></WDemo>{{searchValue}}
+        ></WDemo>
         <WDemo
           :code="search.code"
           :render="search.render"
