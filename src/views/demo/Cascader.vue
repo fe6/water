@@ -11,6 +11,7 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
+        {{baseValue}}
         <WDemo
           :code="base.code"
           :render="base.render"
@@ -43,6 +44,32 @@
           :data="{ value: renderValue }"
           @changeHandle="change"
         ></WDemo>
+      </WCol>
+      <WCol :span="12">
+        <WDemo
+          :code="def.code"
+          :render="def.render"
+          :title="def.title"
+          :desc="def.desc"
+          :data="{ value: defValue }"
+          @changeHandle="change"
+        ></WDemo>
+        <WDemo
+          :code="size.code"
+          :render="size.render"
+          :title="size.title"
+          :desc="size.desc"
+          :data="{ value: sizeValue }"
+          @changeHandle="change"
+        ></WDemo>{{searchValue}}
+        <WDemo
+          :code="search.code"
+          :render="search.render"
+          :title="search.title"
+          :desc="search.desc"
+          :data="{ value: searchValue }"
+          @changeHandle="change"
+        ></WDemo>
         <WDemo
           :code="loading.code"
           :render="loading.render"
@@ -55,40 +82,6 @@
             beforeHandle: beforeHandle,
           }"
           @changeHandle="loadingChange"
-        ></WDemo>
-      </WCol>
-      <WCol :span="12">
-        <WDemo
-          :code="def.code"
-          :render="def.render"
-          :title="def.title"
-          :desc="def.desc"
-          :data="{ value: defValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="changeonselect.code"
-          :render="changeonselect.render"
-          :title="changeonselect.title"
-          :desc="changeonselect.desc"
-          :data="{ value: changeonselectValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="size.code"
-          :render="size.render"
-          :title="size.title"
-          :desc="size.desc"
-          :data="{ value: sizeValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="search.code"
-          :render="search.render"
-          :title="search.title"
-          :desc="search.desc"
-          :data="{ value: searchValue }"
-          @changeHandle="change"
         ></WDemo>
       </WCol>
     </WRow>
@@ -110,7 +103,6 @@ import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/cascader/base';
 import def from '@/views/code/cascader/def';
 import diy from '@/views/code/cascader/diy';
-import changeonselect from '@/views/code/cascader/changeonselect';
 import disabled from '@/views/code/cascader/disabled';
 import size from '@/views/code/cascader/size';
 import render from '@/views/code/cascader/render';
@@ -149,10 +141,6 @@ export default class CascaderView extends Vue {
   diy: ApiEntity = diy;
 
   diyValue: string[] = [];
-
-  changeonselect: ApiEntity = changeonselect;
-
-  changeonselectValue: string[] = [];
 
   disabled: ApiEntity = disabled;
 
