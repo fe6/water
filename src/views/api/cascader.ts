@@ -35,13 +35,6 @@ export const props = [
     default: '无',
   },
   {
-    param: 'changeOnSelect',
-    desc: '当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示',
-    type: 'Boolean',
-    require: '否',
-    default: '无',
-  },
-  {
     param: 'transfer',
     desc: '是否转移到 body 下',
     type: 'Boolean',
@@ -60,7 +53,7 @@ export const props = [
     desc: '搜索模式，弹框的宽度',
     type: 'String',
     require: '否',
-    default: '220px',
+    default: '无',
   },
   {
     param: 'size',
@@ -106,14 +99,14 @@ export const props = [
   },
   {
     param: 'searchRender',
-    desc: '搜索模式，搜索后展示的渲染函数',
+    desc: '搜索模式，搜索后展示的渲染函数。 返回 {当前render方法的渲染函数， 搜索关键词，每条搜索结果的数据，所有搜索结果集合}(createElement,searchKeyWord,item,searchResult)',
     type: 'Function',
     require: '否',
     default: '无',
   },
   {
     param: 'displayRender',
-    desc: '选择后展示的渲染函数',
+    desc: '选择后展示的渲染函数。 返回{选到最后一级之后的数据，所有点击元素的数据，真正的value值，选择时候的value 值。所有下拉选项配置，当前点击选项的数据}(chooseResult, chooseAllItem, realValue, chooseValue, options, currentOption)',
     type: 'Function',
     require: '否',
     default: '无',

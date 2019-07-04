@@ -1,19 +1,27 @@
-import { noop } from '@/helper/noop';
+import { noop, noopArray } from '@/helper/noop';
 
 export default {
   name: 'WCascaderRender',
   functional: true,
   props: {
     render: Function,
-    data: {
+    chooseResult: {
       type: Array,
-      default: () => [],
+      default: noopArray,
     },
-    result: {
+    chooseAllItem: {
       type: Array,
-      default: () => [],
+      default: noopArray,
     },
-    option: {
+    realValue: {
+      type: Array,
+      default: noopArray,
+    },
+    chooseValue: {
+      type: Array,
+      default: noopArray,
+    },
+    options: {
       type: Array,
       default: noop,
     },

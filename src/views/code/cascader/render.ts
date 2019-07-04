@@ -9,26 +9,29 @@ const base: ApiEntity = {
   desc: '添加 <code>displayRender</code> 属性即可。',
   code: codeCommon({ attr: 'displayRender="() => {}"' }),
   render: (createElement: Function, context: any) => renderCommon(createElement, context, {
-    attr: 'changeonselectValue',
+    attr: 'renderValue',
     props: {
-      displayRender(h: Function, { data, currentOption, result }: any) {
-        const { item } = currentOption;
-        if (lastDiy.toString() !== result.toString()) {
-          lastDiy = result.slice();
+      displayRender(h: Function, {
+        chooseValue,
+        chooseAllItem,
+      }: any) {
+        if (lastDiy.toString() !== chooseValue.toString()) {
+          lastDiy = chooseValue.slice();
           lastVNode = h('div', {
             style: {
               overflow: 'hidden',
               'text-overflow': 'ellipsis',
             },
-          }, data.map((dataItem: any, dataIndex: number) => {
-            if (dataIndex === data.length - 1 && item.code) {
-              return h('span', [`${dataIndex > 0 ? ' / ' : ''}${dataItem}(`, h('span', {
+          }, chooseValue.map((chooseValueItem: any, chooseValueIndex: number) => {
+            const { code } = chooseAllItem[chooseAllItem.length - 1];
+            if (chooseValueIndex === chooseValue.length - 1 && code) {
+              return h('span', [`${chooseValueIndex > 0 ? ' / ' : ''}${chooseValueItem}(`, h('span', {
                 style: {
                   color: 'red',
                 },
-              }, item.code), ')']);
+              }, code), ')']);
             }
-            return h('span', `${dataIndex > 0 ? ' / ' : ''}${dataItem}`);
+            return h('span', `${chooseValueIndex > 0 ? ' / ' : ''}${chooseValueItem}`);
           }));
           return lastVNode;
         }

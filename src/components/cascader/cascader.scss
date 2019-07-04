@@ -270,6 +270,10 @@ $cascader-input-placeholder: #b4bac3;
       transition: all 0.3s;
       margin: 0;
       list-style: none;
+
+      &:hover {
+        background: $option-hover-bg;
+      }
     }
 
     &-disabled {
@@ -286,6 +290,7 @@ $cascader-input-placeholder: #b4bac3;
       @extend .w-cascader-search-disabled;
 
       padding: 32px 0;
+      width: 220px;
     }
 
     &-keyword {

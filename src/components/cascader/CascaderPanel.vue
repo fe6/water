@@ -1,6 +1,30 @@
 <template>
-  <div style="display: inline-block" v-doc-click="bodyClick">
-    <ul class="w-cascader-list">
+  <div style="display: inline-block">
+    <template
+      v-for="(optItem, optItemIndex) in optionMenu"
+    >
+      <ul class="w-cascader-list" :key="optItemIndex">
+        <w-option
+          mode="cascader"
+          :active="optItem.index === optOneIndex"
+          :class="{
+            ['w-cascader-last']:
+              !optOne[fieldNames.children]
+              || optOne[fieldNames.children].length < 1,
+            ['w-cascader-loading']: optOne[fieldNames.loading],
+          }"
+          :key="`${optOne[fieldNames.value]}_${floor}_${optOneIndex}`"
+          v-for="(optOne, optOneIndex) in optItem.options"
+          :optionChange="handleOptionChange.bind(this, optItemIndex, optOneIndex)"
+          :disabled="optOne.disabled || false"
+          :value="optOne.value"
+          :label="optOne.label"
+          :loading="optOne[fieldNames.loading]"
+          :fieldNames="fieldNames"
+        >{{optOne[fieldNames.value]}}</w-option>
+      </ul>
+    </template>
+    <!-- <ul class="w-cascader-list">
       <w-option
         mode="cascader"
         :active="panelIndex === optOneIndex"
@@ -12,15 +36,15 @@
         }"
         :key="`${optOne[fieldNames.value]}_${floor}_${optOneIndex}`"
         v-for="(optOne, optOneIndex) in option"
-        @optionChange="handleOptionChange"
+        :optionChange="handleOptionChange.bind(this, optOne)"
         :disabled="optOne.disabled || false"
         :value="optOne.value"
         :label="optOne.label"
         :loading="optOne[fieldNames.loading]"
         :fieldNames="fieldNames"
       >{{optOne[fieldNames.value]}}</w-option>
-    </ul>
-    <cascader-panel
+    </ul> -->
+    <!-- <cascader-panel
       :option="panelData"
       v-if="panelData.length > 0"
       :floor="floor + 1"
@@ -28,7 +52,7 @@
       v-model="value"
       :oldValue="value.slice()"
       :fieldNames="fieldNames"
-    ></cascader-panel>
+    ></cascader-panel> -->
   </div>
 </template>
 
@@ -42,7 +66,7 @@ import {
 } from 'vue-property-decorator';
 import docClick from '@/directives/doclick';
 import { noop, noopArray } from '@/helper/noop';
-import { hasOwn } from '@/helper/o';
+import { hasOwn, getChildOptions, getCascaderOptions } from '@/helper/o';
 import WOption from '../select/Option.vue';
 import {
   OptionsEntity,
@@ -53,17 +77,26 @@ import {
 
 Vue.directive('doc-click', (docClick as any));
 
+interface MenuItemEntity {
+  index: number;
+  options: any[];
+}
+
 @Component({
   components: {
     WOption,
   },
 })
 export default class CascaderPanel extends Vue {
-  panelData: any[] = [];
+  // panelData: any[] = [];
+
+  optionMenu: MenuItemEntity[] = [];
 
   currentOption: any = {};
 
-  panelIndex: number = -1;
+  // panelIndex: number = -1;
+
+  floor: number = 0;
 
   @Model('model', { type: Array }) readonly value!: string[];
 
@@ -82,23 +115,41 @@ export default class CascaderPanel extends Vue {
     default: (): FieldNamesEntity => fieldNamesDefault,
   }) private fieldNames!: FieldNamesEntity;
 
-  @Prop({
-    type: Number,
-    default: 0,
-  }) private floor!: number;
-
   mounted() {
-    this.optChange(this.value[this.floor], undefined, false);
+    getCascaderOptions({
+      origin: this.optionMenu,
+      fieldNames: this.fieldNames,
+      value: this.value,
+      options: this.option,
+    });
   }
 
-  handleOptionChange(current: ReturnParamsEntity, ev: MouseEvent | undefined) {
-    this.optChange(current[this.fieldNames.label], ev, false);
+  handleOptionChange(menuIndex: number, itemIndex: any, current: ReturnParamsEntity) {
+    if (
+      !hasOwn(current, this.fieldNames.disabled)
+      || (
+        hasOwn(current, this.fieldNames.disabled)
+          && !current[this.fieldNames.disabled]
+      )
+    ) {
+      this.optChange(current[this.fieldNames.label], current.ev, false, menuIndex, itemIndex);
+    } else {
+      current.ev!.stopPropagation();
+    }
   }
 
-  optChange(current: string, ev: MouseEvent | undefined, emit: boolean) {
+  optChange(
+    current: string,
+    ev: MouseEvent | undefined,
+    emit: boolean,
+    menuIndex: number,
+    itemIndex: number,
+  ) {
     if (current) {
       const { children, label } = this.fieldNames;
-      const newOption = this.option.find(optItem => optItem[label] === current);
+      const newOption = this.optionMenu[menuIndex].options.find(
+        (optItem: any) => optItem[label] === current,
+      );
 
       // 如果当前禁用
       if (newOption
@@ -109,25 +160,44 @@ export default class CascaderPanel extends Vue {
         return;
       }
 
+      this.floor = menuIndex;
+      // 更新选中高亮索引
+      this.optionMenu.splice(menuIndex, 1, {
+        index: itemIndex,
+        options: this.optionMenu[menuIndex].options,
+      });
+
       const hasChild = newOption && hasOwn(newOption, children) && newOption[children].length > 0;
 
       this.setValue(current, !!ev);
 
       if (!emit) {
-        this.panelData = hasChild ? newOption[children].slice() : [];
-        this.panelIndex = this.option.findIndex(optItem => optItem[label] === current);
+        // this.panelData = hasChild ? newOption[children].slice() : [];
+        // this.panelIndex = this.optionMenu[menuIndex].options.findIndex(
+        //   (optItem: any) => optItem[label] === current,
+        // );
         this.currentOption = {
           value: this.value,
           current,
-          option: newOption,
-          index: this.panelIndex,
+          item: newOption,
+          index: itemIndex,
           floor: this.floor,
-          nextPanel: this.panelData,
+          [children]: hasChild ? newOption[children].slice() : [],
         };
         this.$emit('panelChange', this.currentOption, ev);
       }
+
+      if (!hasChild) {
+        this.optionMenu.length = menuIndex + 1;
+      }
       // 如果是最后一个就关上下拉 or 当前不可选
       if (hasChild && ev) {
+        getChildOptions({
+          item: newOption[this.fieldNames.children],
+          origin: this.optionMenu,
+          index: menuIndex,
+        });
+
         ev.stopPropagation();
       }
     }
@@ -144,34 +214,50 @@ export default class CascaderPanel extends Vue {
   }
 
   reset() {
-    this.panelData = [];
-    this.panelIndex = -1;
+    // this.panelData = [];
+    this.optionMenu = this.optionMenu.map((menuItem: any) => {
+      menuItem.index = -1;
+      return menuItem;
+    });
+    this.optionMenu.length = 1;
+    // this.panelIndex = -1;
+    this.floor = 0;
   }
 
-  panelChange(currentOption: ReturnParamsEntity, ev: MouseEvent) {
-    this.$emit('panelChange', currentOption, ev);
-  }
+  // panelChange(currentOption: ReturnParamsEntity, ev: MouseEvent) {
+  //   this.$emit('panelChange', currentOption, ev);
+  // }
 
-  bodyClick() {
-    const { nextPanel = [] } = this.currentOption;
-    if (nextPanel.length) {
-      this.reset();
-      this.optChange(this.oldValue[this.floor], undefined, true);
-      this.currentOption = {};
-    }
+  // bodyClick() {
+  //   const { nextPanel = [] } = this.currentOption;
+  //   if (nextPanel.length) {
+  //     this.reset();
+  //     this.optChange(this.oldValue[this.floor], undefined, true, 0, -1);
+  //     this.currentOption = {};
+  //   }
+  // }
+
+  updataOptions() {
+    this.optionMenu = [];
+    getCascaderOptions({
+      origin: this.optionMenu,
+      fieldNames: this.fieldNames,
+      value: this.value,
+      options: this.option,
+    });
   }
 
   @Watch('option')
   watchOption() {
     this.reset();
-    this.optChange(this.value[this.floor], undefined, true);
+    this.updataOptions();
   }
 
   @Watch('value')
   watchValue(newValue: string[], oldValue: string[]) {
     // 如果有三条数据，选一个就关上，就恢复下拉
     if (newValue.toString() !== oldValue.toString()) {
-      this.optChange(this.value[this.floor], undefined, true);
+      this.updataOptions();
     }
     // 如果点击删除
     if (!newValue.length) {

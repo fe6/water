@@ -1,4 +1,8 @@
 import WEmpty from '../empty/Empty.vue';
+import {
+  FieldNamesEntity,
+  fieldNamesDefault,
+} from './entity';
 
 export default {
   name: 'WCascaderSearch',
@@ -11,10 +15,18 @@ export default {
     hoverIndex: Number,
     getSearchResult: Function,
     change: Function,
+    fieldNames: {
+      type: Object,
+      default: (): FieldNamesEntity => fieldNamesDefault,
+    },
     searchRender: {
       type: Function,
-      default: (createElement: Function, searchKeyWord: string, sResult: any) => {
-        const valueRes = sResult.path.split(searchKeyWord);
+      default: ({
+        createElement,
+        searchKeyWord,
+        item,
+      }: any) => {
+        const valueRes = item.path.split(searchKeyWord);
         let valueResLen = valueRes.length - 1;
         if (valueRes.length > 1) {
           while (valueResLen) {
@@ -37,12 +49,14 @@ export default {
       hoverIndex,
       getSearchResult,
       change,
+      fieldNames,
       searchRender,
     } = props;
-
     const searchResult = search.filter(
       (searchItem: any) => searchItem.path.indexOf(searchKeyWord) > -1,
     );
+
+    console.log(searchResult, search, '123 searchResult');
 
     getSearchResult(searchResult);
 
@@ -65,14 +79,18 @@ export default {
     if (searchResult.length) {
       liElem = searchResult.map((sResult: any, sResultIndex: number) => {
         const {
-          disabled,
           option,
-          nextPanel,
           index,
           floor,
-          value,
         } = sResult;
+        console.log(sResult, 'sResult');
 
+        const disabled = sResult[fieldNames.disabled];
+        const children = sResult[fieldNames.children];
+        const value = sResult[fieldNames.value];
+        const label = sResult[fieldNames.label];
+
+        console.log(searchResult, 'sResult');
         return createElement('li', {
           class: ['w-cascader-search-item', {
             'w-cascader-search-disabled': disabled,
@@ -82,19 +100,25 @@ export default {
             click: (ev: MouseEvent) => {
               if (!disabled) {
                 change({
-                  value,
+                  [fieldNames.value]: label.slice(),
+                  [fieldNames.label]: label,
                   current: value[value.length - 1],
                   option,
                   index,
                   floor,
-                  nextPanel,
+                  [fieldNames.children]: children,
                 }, ev);
               } else {
                 ev.stopPropagation();
               }
             },
           },
-        }, searchRender(createElement, searchKeyWord, sResult, searchResult));
+        }, searchRender({
+          createElement,
+          searchKeyWord,
+          item: sResult,
+          searchResult,
+        }));
       });
     }
 

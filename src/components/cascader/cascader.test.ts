@@ -25,15 +25,8 @@ describe('Cascader.vue', () => {
   let wrapperSearchFocus: any = null;
   let wrapperDisabled: any = null;
   let wrapperUpdataResult: any = null;
-  let wrapperChangeOnSelect: any = null;
 
   beforeEach(() => {
-    wrapperChangeOnSelect = shallowMount(Cascader, {
-      propsData: {
-        options,
-        changeOnSelect: true,
-      },
-    });
     wrapperUpdataResult = shallowMount(Cascader, {
       propsData: {
         options,
@@ -101,13 +94,18 @@ describe('Cascader.vue', () => {
             value:
             'xihu',
           },
-          nextPanel: [],
+          children: [],
           path:
           'zhejiang / hangzhou / xihu',
           value: [
             'zhejiang',
             'hangzhou',
             'xihu',
+          ],
+          label: [
+            'Zhejiang',
+            'Hangzhou',
+            'West Lake',
           ],
         }]);
         const searchResetStub = jest.fn();
@@ -118,7 +116,7 @@ describe('Cascader.vue', () => {
         wrapperModel.vm.searchReset = searchResetStub;
         wrapperModel.vm.panelChange = panelChangeStub;
         wrapperModel.vm.updateValue = updateValueStub;
-        wrapperModel.vm.searchChange({ value: [], nextPanel: [] }, {});
+        wrapperModel.vm.searchChange({ value: [], children: [] }, {});
         expect(searchResetStub).toBeCalled();
         expect(wrapperModel.vm.searchKeyWord).toBe('');
         expect(wrapperModel.vm.searchHoverIndex).toBe(-1);
@@ -141,11 +139,11 @@ describe('Cascader.vue', () => {
         wrapperModel.vm.clear({ stopPropagation: stopPropagationStub });
         expect(stopPropagationStub).toBeCalled();
         wrapperModel.vm.currentOption = {
-          nextPanel: ['xxx'],
+          children: ['xxx'],
         };
         wrapperModel.vm.reset();
         expect(updateValueStub).toBeCalled();
-        expect(wrapperModel.vm.result).toEqual([]);
+        expect(wrapperModel.vm.chooseResult).toEqual([]);
         wrapperModel.setProps({ search: true });
         wrapperModel.vm.searchKeyWord = 'zhejiang';
         wrapperModel.vm.clear({ stopPropagation: stopPropagationStub });
@@ -162,11 +160,11 @@ describe('Cascader.vue', () => {
     wrapperReset.vm.$nextTick(() => {
       try {
         wrapperReset.vm.currentOption = {
-          nextPanel: ['xxx'],
+          children: ['xxx'],
         };
-        wrapperReset.vm.result = ['zhejiang', 'hangzhou', 'xihu'];
+        wrapperReset.vm.chooseResult = ['zhejiang', 'hangzhou', 'xihu'];
         wrapperReset.vm.reset();
-        expect(wrapperReset.vm.result).toEqual(['zhejiang', 'hangzhou', 'xihu']);
+        expect(wrapperReset.vm.chooseResult).toEqual(['zhejiang', 'hangzhou', 'xihu']);
         const resetStub = jest.fn();
         wrapperReset.vm.optStatus = true;
         wrapperReset.vm.reset = resetStub;
@@ -183,10 +181,10 @@ describe('Cascader.vue', () => {
     wrapperPanelChange.vm.$nextTick(() => {
       try {
         wrapperPanelChange.vm.panelChange({
-          nextPanel: [],
+          children: [],
           value: ['zhejiang', 'hangzhou', 'xihu'],
         });
-        expect(wrapperPanelChange.vm.result).toEqual(['zhejiang', 'hangzhou', 'xihu']);
+        expect(wrapperPanelChange.vm.chooseResult).toEqual(['zhejiang', 'hangzhou', 'xihu']);
         done();
       } catch (err) {
         done.fail(err);
@@ -201,7 +199,7 @@ describe('Cascader.vue', () => {
         wrapperSearchReset.vm.optStatus = true;
         wrapperSearchReset.vm.panelChange = panelChangeStub;
         wrapperSearchReset.vm.searchKeyUp();
-        wrapperSearchReset.vm.searchChange({ value: [], nextPanel: [] }, {});
+        wrapperSearchReset.vm.searchChange({ value: [], children: [] }, {});
         expect(wrapperSearchReset.vm.searchHoverIndex).toBe(-1);
         wrapperSearchReset.vm.$refs.input = null;
         wrapperSearchReset.vm.searchEnter({});
@@ -270,23 +268,11 @@ describe('Cascader.vue', () => {
     });
   });
 
-  it('updata result', (done) => {
+  it('updata chooseResult', (done) => {
     wrapperUpdataResult.vm.$nextTick(() => {
       try {
-        wrapperUpdataResult.vm.panelChange({ value: [], nextPanel: ['xxx'] });
-        expect(wrapperUpdataResult.vm.result).toEqual([]);
-        done();
-      } catch (err) {
-        done.fail(err);
-      }
-    });
-  });
-
-  it('changeOnSelect', (done) => {
-    wrapperChangeOnSelect.vm.$nextTick(() => {
-      try {
-        wrapperChangeOnSelect.vm.panelChange({ value: ['zhejiang'], nextPanel: ['xxx'] });
-        expect(wrapperChangeOnSelect.vm.oldData).toEqual(['zhejiang']);
+        wrapperUpdataResult.vm.panelChange({ value: [], children: ['xxx'] });
+        expect(wrapperUpdataResult.vm.chooseResult).toEqual([]);
         done();
       } catch (err) {
         done.fail(err);

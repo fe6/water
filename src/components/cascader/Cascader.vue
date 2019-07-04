@@ -1,8 +1,14 @@
 <template>
-  <div class="w-cascader-wrap" :class="{
-    ['w-cascader-active']: !!result.length || searchKeyWord,
-    ['w-cascader-wrapdisabled']: disabledValue,
-    }" @click="cascaderClick($event)" ref="cascader" v-doc-click="bodyClick">
+  <div
+    class="w-cascader-wrap"
+    :class="{
+      ['w-cascader-active']: !!realValue.length || searchKeyWord,
+      ['w-cascader-wrapdisabled']: disabledValue,
+    }"
+    @click="cascaderClick($event)"
+    ref="cascader"
+    v-doc-click="bodyClick"
+  >
     <slot v-if="$slots.default"></slot>
     <div
       class="w-cascader"
@@ -14,7 +20,7 @@
       <div
         class="w-cascader-result"
         v-if="(
-          !search && (changeOnSelect ? newData.length : (result.length || resultValue.length))
+          !search && realValue.length
         )"
         :class="{
           [`w-cascader-result-${this.size}`]: this.size,
@@ -23,14 +29,16 @@
       >
         <w-cascader-render
           :render="displayRender"
-          :data="changeOnSelect ? newData : result"
-          :result="result"
-          :option="options"
+          :realValue="realValue"
+          :chooseAllItem="chooseAllItem"
+          :chooseValue="chooseValue"
+          :chooseResult="chooseResult.slice()"
+          :options="options"
           :currentOption="currentOption"
           v-if="displayRender"
         ></w-cascader-render>
         <template v-else>
-          {{changeOnSelect ? newData.join(' / ') : resultValue.join(' / ')}}
+          {{chooseValue.join(' / ')}}
         </template>
       </div>
       <input
@@ -38,18 +46,18 @@
         :class="{
           [`w-cascader-input-${this.size}`]: this.size,
           ['w-cascader-input-active']:
-            (changeOnSelect ? newData.length : result.length)
+            (realValue.length)
             && !optStatus,
           ['w-cascader-input-disabled']: disabledValue,
         }"
         type="text"
         ref="input"
-        :readonly="!search && !optStatus"
+        :readonly="!search"
         v-else
         autocomplete="off"
         aria-label="input"
         :placeholder="
-          (changeOnSelect ? newData.join(' / ') : resultValue.join(' / '))
+          (chooseValue.join(' / '))
           || placeholder
         "
         v-model="searchKeyWord"
@@ -63,7 +71,7 @@
         ['w-cascader-arrow-active']: !loading && optStatus,
       }"></i>
       <i class="w-cascader-remove" :class="{
-        ['w-cascader-remove-active']: (!!result.length && !loading) || searchKeyWord,
+        ['w-cascader-remove-active']: (!!realValue.length && !loading) || searchKeyWord,
       }" @click="clear($event)"></i>
     </div>
     <div
@@ -87,8 +95,8 @@
       <w-cascader-panel
         :option="options"
         @panelChange="panelChange"
-        v-model="newData"
-        :oldValue="oldData.slice()"
+        v-model="realValue"
+        :oldValue="defValue.slice()"
         :fieldNames="fieldNames"
         v-else
       ></w-cascader-panel>
@@ -108,7 +116,7 @@ import { mixins } from 'vue-class-component';
 import addDOMEventListener from 'add-dom-event-listener';
 import TransferDom from '@/directives/transfer-dom';
 import docClick from '@/directives/doclick';
-import { objToPath, getValueUseLabel } from '@/helper/o';
+import { hasOwn, objToPath, getValueByLabel } from '@/helper/o';
 import { findEnabled } from '@/helper/option';
 import { noop } from '@/helper/noop';
 import {
@@ -149,7 +157,11 @@ export default class Cascader extends mixins(poperMixin) {
   // 解决不传 v-model ， 点击选中三级 ， 再显示，不选再关上，删除之后的问题
   defValue: string[] = [];
 
-  result: any[] = [];
+  chooseResult: any[] = []; // 点击下拉选项，最后一级之后所得到的值
+
+  chooseAllItem: any[] = []; // 点击下拉选项每一级选择的数据
+
+  chooseItemResult: any[] = []; // 点击下拉选项每一级选择的数据
 
   currentOption: any = {};
 
@@ -169,7 +181,7 @@ export default class Cascader extends mixins(poperMixin) {
 
   @Prop({
     type: String,
-    default: '220px',
+    default: '',
   }) private searchWidth!: string;
 
   @Prop({
@@ -189,8 +201,6 @@ export default class Cascader extends mixins(poperMixin) {
   @Prop(Boolean) private disabled!: boolean;
 
   @Prop(Boolean) private search!: boolean;
-
-  @Prop(Boolean) private changeOnSelect!: boolean;
 
   @Prop({
     type: Boolean,
@@ -234,30 +244,25 @@ export default class Cascader extends mixins(poperMixin) {
     default: noop,
   }) private click!: Function;
 
-  get optData() {
-    return this.options.slice();
-  }
+  // get optData() {
+  //   return this.options.slice();
+  // }
 
   get searchData() {
-    return objToPath(this.optData, this.fieldNames).slice();
+    return objToPath(this.options.slice(), this.fieldNames).slice();
   }
 
   get hasValue() {
     return !!this.value;
   }
 
-  get resultValue() {
-    return getValueUseLabel(this.newData, this.options, this.fieldNames).slice();
+  get chooseValue() {
+    return getValueByLabel(this.realValue, this.options, this.fieldNames).slice();
   }
 
-  get newData() {
+  get realValue() {
     const value = this.hasValue ? this.value : this.defValue;
     return value.slice();
-  }
-
-  // 用于value 为空，点击一级然后关上想下拉的回复
-  get oldData() {
-    return this.changeOnSelect ? this.newData.slice() : this.result.slice();
   }
 
   get disabledValue() {
@@ -271,6 +276,7 @@ export default class Cascader extends mixins(poperMixin) {
   }
 
   mounted() {
+    this.defValue = this.realValue.slice();
     this.resizeEvent = addDOMEventListener(window, 'resize', this.resizeChange);
   }
 
@@ -291,31 +297,38 @@ export default class Cascader extends mixins(poperMixin) {
   }
 
   @Emit('change')
-  panelChange({
-    value, current, option, index, floor, nextPanel,
-  }: ReturnParamsEntity, ev: MouseEvent) {
+  panelChange(params: ReturnParamsEntity, ev: MouseEvent) {
+    const {
+      current, item, index, floor,
+    } = params;
+    const value = params[this.fieldNames.value];
+    const children = params[this.fieldNames.children];
     this.currentOption = {
-      value,
+      [this.fieldNames.value]: value,
       current,
       index,
       floor,
-      nextPanel,
+      [this.fieldNames.children]: children,
       ev,
-      item: option,
+      item,
       options: this.options,
     };
+
+    this.chooseAllItem.push(item);
+
     this.updateValue(value);
     this.change(this.currentOption, ev);
     // 如果到最后一个选项了就更新显示，在不及时显示选项的模式( changeOnSelect )下
-    if (!nextPanel.length) {
-      this.result = value.slice();
+    if (!children.length) {
+      this.chooseItemResult = this.chooseAllItem.slice();
+      this.chooseResult = value.slice();
     }
 
     return this.currentOption;
   }
 
   cascaderClick(ev: MouseEvent) {
-    if (!this.disabledValue) {
+    if (!this.disabledValue && !this.loading) {
       this.before().then(() => {
         this.setStatus(true);
         this.$nextTick(() => {
@@ -349,19 +362,26 @@ export default class Cascader extends mixins(poperMixin) {
   }
 
   reset() {
-    const { nextPanel = [] } = this.currentOption;
-    if (nextPanel.length && !this.changeOnSelect) {
+    if (
+      hasOwn(this.currentOption, this.fieldNames.children)
+      && this.currentOption[this.fieldNames.children].length
+    ) {
       const value = this.popValue();
-      // 恢复之前设置的
-      this.result.forEach((res) => {
+      const oldValue = this.chooseResult.length > 0 ? this.chooseResult : this.defValue;
+      // // 恢复之前设置的
+      oldValue.forEach((res) => {
         value.push(res);
       });
       this.updateValue(value);
+      this.chooseAllItem = this.chooseItemResult.slice();
+      this.chooseItemResult = [];
     }
   }
 
   clear(ev: MouseEvent) {
-    this.result = [];
+    this.chooseResult = [];
+    // 删除了就连原始已经有的默认值也删除
+    this.defValue = [];
     // 清除所有
     this.updateValue(this.popValue());
 
@@ -403,19 +423,24 @@ export default class Cascader extends mixins(poperMixin) {
   searchEnter(ev: MouseEvent) {
     if (this.searchResult.length) {
       const {
-        value,
-        option,
+        // value,
+        item,
         index,
         floor,
-        nextPanel,
+        // nextPanel,
       } = this.searchResult[Math.max(this.searchHoverIndex, 0)];
+      const searchResult = this.searchResult[Math.max(this.searchHoverIndex, 0)];
+      const value = searchResult[this.fieldNames.value];
+      const label = searchResult[this.fieldNames.label] || [];
+      const children = searchResult[this.fieldNames.children];
       const changeParams: ReturnParamsEntity = {
-        value,
+        value: label.slice(),
+        label,
         current: value[value.length - 1],
-        option,
+        item,
         index,
         floor,
-        nextPanel,
+        children,
       };
       this.panelChange(changeParams, ev);
     }
