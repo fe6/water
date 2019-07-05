@@ -110,6 +110,10 @@ export const nav = [
             to: { name: 'Empty' },
             title: TITLE.Empty,
           },
+          {
+            to: { name: 'Tooltip' },
+            title: TITLE.Tooltip,
+          },
         ],
       },
       {

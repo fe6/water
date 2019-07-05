@@ -98,3 +98,10 @@ export const setPostion = (self: any, refName: string) => {
     });
   }
 };
+
+export const getEventType = (type: string) => {
+  if (type === 'mouseenter' || type === 'mouseleave') {
+    return 'hover';
+  }
+  return type;
+};

@@ -163,6 +163,14 @@ export default new Router({
           },
           component: () => import(/* webpackChunkName: "modal" */ './views/demo/Modal.vue'),
         },
+        {
+          path: '/tooltip',
+          name: 'Tooltip',
+          meta: {
+            title: TITLE.Tooltip,
+          },
+          component: () => import(/* webpackChunkName: "tooltip" */ './views/demo/Tooltip.vue'),
+        },
       ],
       component: () => import(/* webpackChunkName: "index" */ './views/Index.vue'),
     },
