@@ -16,8 +16,8 @@ const base: ApiEntity = {
     [
       h('div', {
         style: {
-          width: '240px',
-          'margin-left': '70px',
+          width: '280px',
+          'margin-left': '80px',
           clear: 'both',
           'white-space': 'nowrap',
           height: '32px',
@@ -33,7 +33,7 @@ const base: ApiEntity = {
         }, [
           h(Button, {
             style: {
-              width: '70px',
+              width: '80px',
               'margin-right': '16px',
             },
           }, 'TL'),
@@ -46,7 +46,7 @@ const base: ApiEntity = {
         }, [
           h(Button, {
             style: {
-              width: '70px',
+              width: '80px',
               'margin-right': '16px',
             },
           }, 'Top'),
@@ -59,7 +59,7 @@ const base: ApiEntity = {
         }, [
           h(Button, {
             style: {
-              width: '70px',
+              width: '80px',
             },
           }, 'TR'),
         ]),
@@ -67,7 +67,7 @@ const base: ApiEntity = {
 
       h('div', {
         style: {
-          width: '70px',
+          width: '80px',
           float: 'left',
           height: '132px',
           display: 'flex',
@@ -83,7 +83,7 @@ const base: ApiEntity = {
         }, [
           h(Button, {
             style: {
-              width: '70px',
+              width: '80px',
             },
           }, 'LT'),
         ]),
@@ -95,7 +95,7 @@ const base: ApiEntity = {
         }, [
           h(Button, {
             style: {
-              width: '70px',
+              width: '80px',
             },
           }, 'Left'),
         ]),
@@ -107,7 +107,7 @@ const base: ApiEntity = {
         }, [
           h(Button, {
             style: {
-              width: '70px',
+              width: '80px',
             },
           }, 'LB'),
         ]),
@@ -115,8 +115,8 @@ const base: ApiEntity = {
 
       h('div', {
         style: {
-          width: '70px',
-          'margin-left': '310px',
+          width: '80px',
+          'margin-left': '360px',
           height: '132px',
           display: 'flex',
           'flex-flow': 'column',
@@ -131,7 +131,7 @@ const base: ApiEntity = {
         }, [
           h(Button, {
             style: {
-              width: '70px',
+              width: '80px',
             },
           }, 'RT'),
         ]),
@@ -143,7 +143,7 @@ const base: ApiEntity = {
         }, [
           h(Button, {
             style: {
-              width: '70px',
+              width: '80px',
             },
           }, 'Right'),
         ]),
@@ -155,7 +155,7 @@ const base: ApiEntity = {
         }, [
           h(Button, {
             style: {
-              width: '70px',
+              width: '80px',
             },
           }, 'RB'),
         ]),
@@ -163,8 +163,8 @@ const base: ApiEntity = {
 
       h('div', {
         style: {
-          width: '240px',
-          'margin-left': '70px',
+          width: '280px',
+          'margin-left': '80px',
           clear: 'both',
           'white-space': 'nowrap',
           height: '32px',
@@ -180,7 +180,7 @@ const base: ApiEntity = {
         }, [
           h(Button, {
             style: {
-              width: '70px',
+              width: '80px',
             },
           }, 'BL'),
         ]),
@@ -192,7 +192,7 @@ const base: ApiEntity = {
         }, [
           h(Button, {
             style: {
-              width: '70px',
+              width: '80px',
             },
           }, 'Bottom'),
         ]),
@@ -204,7 +204,7 @@ const base: ApiEntity = {
         }, [
           h(Button, {
             style: {
-              width: '70px',
+              width: '80px',
             },
           }, 'BR'),
         ]),
