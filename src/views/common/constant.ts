@@ -8,6 +8,7 @@ export const TITLE = {
   Badge: 'Badge 徽标数',
   Breadcrumb: 'Breadcrumb 面包屑',
   Button: 'Button 按钮',
+  Cascader: 'Cascader 联级选择',
   Checkbox: 'Checkbox 多选',
   Empty: 'Empty 空状态',
   Grid: 'Grid 栅格',

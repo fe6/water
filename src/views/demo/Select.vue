@@ -47,7 +47,7 @@
           :render="loading.render"
           :title="loading.title"
           :desc="loading.desc"
-          :data="{ value: loadingValue, loading: loadingStatus , beforeHandle: beforeHandle }"
+          :data="{ value: loadingValue, loading: loadingStatus, beforeHandle: beforeHandle }"
           @changeHandle="change"
         ></WDemo>
         <WDemo
