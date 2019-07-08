@@ -134,11 +134,9 @@ export default {
 
     if (slotsDefault.length) {
       liElem = slotsDefault.map((slot: any, slotIndex: number) => {
-        const {
-          value,
-          disabled,
-        } = slot;
         const label = slot[fieldNames.label] || slot.label || '';
+        const value = slot[fieldNames.value] || slot.value || '';
+        const disabled = slot[fieldNames.disabled] || slot.disabled || '';
         const singleActive: boolean = name ? label.indexOf(name) > -1 : false;
 
         return createElement(WOption, {
