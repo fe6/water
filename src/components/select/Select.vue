@@ -293,7 +293,7 @@ export default class Select extends mixins(poperMixin) {
       );
     }
 
-    const slotsDefault = this.$slots.default as any[];
+    const slotsDefault = this.$slots.default as any[] || [];
     if (this.options.length < 1 && hasOwn(this.$slots, 'default') && slotsDefault.length > 0) {
       const slotProps = slotsDefault.map((slot: any) => slot.componentOptions.propsData);
 
