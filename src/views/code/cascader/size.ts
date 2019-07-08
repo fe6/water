@@ -87,9 +87,9 @@ export interface CodeCommonParamsEntity {
  * @param attr {String} 额外添加的属性，适用于 loading ， ghost ， disabled 等类型为 boolean 的属性。
  * @return {string}
  */
-export const codeCommon = ({ datas = defaultDatas }: CodeCommonParamsEntity = {}): string => `<w-cascader size="small" :options="${datas.map(data => JSON.stringify(data))}"></w-cascader>
-<w-cascader :options="${datas.map(data => JSON.stringify(data))}"></w-cascader>
-<w-cascader size="large" :options="${datas.map(data => JSON.stringify(data))}"></w-cascader>`;
+export const codeCommon = ({ datas = defaultDatas }: CodeCommonParamsEntity = {}): string => `<w-cascader size="small" :options="[${datas.map(data => JSON.stringify(data))}]"></w-cascader>
+<w-cascader :options="[${datas.map(data => JSON.stringify(data))}]"></w-cascader>
+<w-cascader size="large" :options="[${datas.map(data => JSON.stringify(data))}]"></w-cascader>`;
 /**
  * demo 的现场预览， WDemo 的上面部分
  * @param h {Function} vue 自带的 VNode 方法
