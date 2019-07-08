@@ -16,6 +16,7 @@ import Input from './input/Input.vue';
 import InputNumber from './inputnumber/InputNumber.vue';
 import Link from './link/Link.vue';
 import Modal from './modal/Modal.vue';
+import Popconfirm from './popconfirm/Popconfirm.vue';
 import Radio from './radio/Radio.vue';
 import RadioGroup from './radio/RadioGroup.vue';
 import Select from './select/Select.vue';
@@ -41,6 +42,7 @@ const waterCpt = {
   InputNumber,
   Link,
   Modal,
+  Popconfirm,
   Radio,
   RadioGroup,
   Select,

@@ -123,6 +123,10 @@ export const nav = [
             to: { name: 'Modal' },
             title: TITLE.Modal,
           },
+          {
+            to: { name: 'Popconfirm' },
+            title: TITLE.Popconfirm,
+          },
         ],
       },
     ],

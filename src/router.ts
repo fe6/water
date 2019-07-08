@@ -164,6 +164,14 @@ export default new Router({
           component: () => import(/* webpackChunkName: "modal" */ './views/demo/Modal.vue'),
         },
         {
+          path: '/popconfirm',
+          name: 'Popconfirm',
+          meta: {
+            title: TITLE.Popconfirm,
+          },
+          component: () => import(/* webpackChunkName: "popconfirm" */ './views/demo/Popconfirm.vue'),
+        },
+        {
           path: '/tooltip',
           name: 'Tooltip',
           meta: {
