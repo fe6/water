@@ -56,8 +56,6 @@ export default {
       (searchItem: any) => searchItem.path.indexOf(searchKeyWord) > -1,
     );
 
-    console.log(searchResult, search, '123 searchResult');
-
     getSearchResult(searchResult);
 
     let liElem = [createElement('li', {
@@ -83,14 +81,12 @@ export default {
           index,
           floor,
         } = sResult;
-        console.log(sResult, 'sResult');
 
         const disabled = sResult[fieldNames.disabled];
         const children = sResult[fieldNames.children];
         const value = sResult[fieldNames.value];
         const label = sResult[fieldNames.label];
 
-        console.log(searchResult, 'sResult');
         return createElement('li', {
           class: ['w-cascader-search-item', {
             'w-cascader-search-disabled': disabled,
