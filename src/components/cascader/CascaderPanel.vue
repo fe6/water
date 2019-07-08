@@ -24,35 +24,6 @@
         >{{optOne[fieldNames.value]}}</w-option>
       </ul>
     </template>
-    <!-- <ul class="w-cascader-list">
-      <w-option
-        mode="cascader"
-        :active="panelIndex === optOneIndex"
-        :class="{
-          ['w-cascader-last']:
-            !optOne[fieldNames.children]
-            || optOne[fieldNames.children].length < 1,
-          ['w-cascader-loading']: optOne[fieldNames.loading],
-        }"
-        :key="`${optOne[fieldNames.value]}_${floor}_${optOneIndex}`"
-        v-for="(optOne, optOneIndex) in option"
-        :optionChange="handleOptionChange.bind(this, optOne)"
-        :disabled="optOne.disabled || false"
-        :value="optOne.value"
-        :label="optOne.label"
-        :loading="optOne[fieldNames.loading]"
-        :fieldNames="fieldNames"
-      >{{optOne[fieldNames.value]}}</w-option>
-    </ul> -->
-    <!-- <cascader-panel
-      :option="panelData"
-      v-if="panelData.length > 0"
-      :floor="floor + 1"
-      @panelChange="panelChange"
-      v-model="value"
-      :oldValue="value.slice()"
-      :fieldNames="fieldNames"
-    ></cascader-panel> -->
   </div>
 </template>
 

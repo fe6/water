@@ -41,6 +41,8 @@ describe('Tooltip.vue', () => {
         testFn.setProps({ trigger: 'mouseenter' });
         testFn.vm.mouseleave({ type: 'click' });
         jest.runOnlyPendingTimers();
+
+        testFn.destroy();
         done();
       } catch (err) {
         done.fail(err);

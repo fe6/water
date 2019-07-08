@@ -41,6 +41,7 @@ import {
   Watch,
 } from 'vue-property-decorator';
 import { mixins } from 'vue-class-component';
+import addDOMEventListener from 'add-dom-event-listener';
 import TransferDom from '@/directives/transfer-dom';
 import docClick from '@/directives/doclick';
 import {
@@ -65,7 +66,7 @@ interface ColorEntity {
 export default class Tooltip extends mixins(poperMixin) {
   status: boolean = false;
 
-  clickEvent: any = null;
+  resizeEvent: any = null;
 
   timer: any = null;
 
@@ -166,6 +167,18 @@ export default class Tooltip extends mixins(poperMixin) {
     ];
   }
 
+  mounted() {
+    this.resizeEvent = addDOMEventListener(window, 'resize', this.resizeChange);
+  }
+
+  beforeDestroy() {
+    this.resizeEvent.remove();
+  }
+
+  resizeChange() {
+    setPostion(this, 'tooltip');
+  }
+
   isTrigger(ev: MouseEvent): boolean {
     return getEventType(ev.type) === this.trigger;
   }
@@ -193,7 +206,7 @@ export default class Tooltip extends mixins(poperMixin) {
   setStatus(val: boolean, change: boolean, emit?: boolean) {
     if (change) {
       this.status = val;
-      setPostion(this, 'tooltip');
+      this.resizeChange();
     }
     if (change && emit) {
       this.change(this.status);
