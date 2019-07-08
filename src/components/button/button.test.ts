@@ -19,6 +19,8 @@ describe('Button.vue', () => {
     btn.vm.$nextTick(() => {
       try {
         expect(btn.vm.groupClass).toBe('');
+        btn.setProps({ stop: true });
+        btn.vm.clickFn({ stopPropagation: () => {} });
         done();
       } catch (err) {
         done.fail(err);

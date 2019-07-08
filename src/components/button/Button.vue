@@ -13,7 +13,7 @@
       [`${preName}-icon${size?`-${size}`:''}`]: !$slots.default,
     },
     className,
-  ]" @animationend="removeClickName" @click="clickFn">
+  ]" @animationend="removeClickName($event)" @click="clickFn($event)">
     <Icon
       v-show="loading || !!$slots.icon"
       :color="colors[type] || colorDefult"
@@ -71,6 +71,8 @@ export default class Button extends Vue {
 
   @Prop(Boolean) private loading?: boolean;
 
+  @Prop(Boolean) private stop?: boolean;
+
   @Prop(Boolean) private disabled?: boolean;
 
   @Prop(Boolean) private ghost?: boolean;
@@ -100,8 +102,11 @@ export default class Button extends Vue {
     return this.hasGroup ? '-wrap' : '';
   }
 
-  clickFn() {
+  clickFn(ev: MouseEvent) {
     this.clicked = !this.loading;
+    if (this.stop) {
+      ev.stopPropagation();
+    }
   }
 
   @Emit('click')
