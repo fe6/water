@@ -1,6 +1,6 @@
 {
   "name": "@fe6/water",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "author": "李梦龙 <649076408@qq.com>",
   "main": "dist/w.js",
   "unpkg": "dist/w.js",
