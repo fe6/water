@@ -150,6 +150,7 @@ export default {
             hover: slotIndex === optionHoverIndex,
             disabled,
             mode,
+            fieldNames,
           },
           on: {
             optionChange: (params: ReturnParamsEntity) => {
