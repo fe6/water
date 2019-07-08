@@ -75,7 +75,7 @@ export default class Option extends Vue {
 
   @Emit('model')
   returnModel(): string {
-    return this.value;
+    return this.label || this.value;
   }
 }
 </script>
