@@ -119,7 +119,6 @@ import {
   fieldNamesDefault,
 } from './entity';
 import RenderOption from './renderoption';
-import Option from './Option.vue';
 import {
   setPostion,
 } from '@/helper/poper';
@@ -134,7 +133,6 @@ Vue.directive('doc-click', (docClick as any));
 @Component({
   components: {
     RenderOption,
-    Option,
   },
 })
 export default class Select extends mixins(poperMixin) {

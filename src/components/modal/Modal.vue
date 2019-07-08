@@ -36,21 +36,21 @@
             v-if="(okable || cancelable) || $slots.footer"
           >
             <slot name="footer">
-              <Button
+              <w-button
                 class="w-modal-button w-modal-button-cancel"
                 size="large"
                 type="border"
                 @click="cancelFn"
                 v-if="cancelable"
-              >{{cancelText}}</Button>
-              <Button
+              >{{cancelText}}</w-button>
+              <w-button
                 class="w-modal-button w-modal-button-ok"
                 size="large"
                 :type="okType"
                 :loading="loadingValue"
                 @click="okFn"
                 v-if="okable"
-              >{{okText}}</Button>
+              >{{okText}}</w-button>
             </slot>
           </div>
         </div>
@@ -70,14 +70,14 @@ import {
 } from 'vue-property-decorator';
 import addDOMEventListener from 'add-dom-event-listener';
 import TransferDom from '@/directives/transfer-dom';
-import Button from '../button/Button.vue';
+import WButton from '../button/Button.vue';
 import { noop } from '@/helper/noop';
 
 Vue.directive('transfer-dom', (TransferDom as any));
 
 @Component({
   components: {
-    Button,
+    WButton,
   },
 })
 export default class Modal extends Vue {
