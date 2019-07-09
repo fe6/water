@@ -5,7 +5,7 @@ import { ApiEntity } from '@/views/entity/demoentity';
 const base: ApiEntity = {
   title: '受控',
   desc: '设置 <code>v-modal</code> 即可。',
-  code: `<w-tooltip title="文字提示" v-modal="status">
+  code: `<w-tooltip content="文字提示" v-modal="status">
   <span>鼠标移入时将显示 Tooltip 。</span>
 </w-tooltip>`,
   render: (h: Function, context: any) => {
@@ -19,7 +19,7 @@ const base: ApiEntity = {
         h(Tooltip, {
           props: {
             value,
-            title: '文字提示',
+            content: '文字提示',
             change: (val: boolean) => {
               context.props.changeHandle({
                 attr: 'modalValue',

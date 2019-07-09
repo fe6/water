@@ -7,7 +7,7 @@ describe('Tooltip.vue', () => {
   beforeEach(() => {
     testFn = shallowMount(Tooltip, {
       propsData: {
-        title: 'test',
+        content: 'test',
         value: false,
       },
     });

@@ -5,7 +5,7 @@ import { ApiEntity } from '@/views/entity/demoentity';
 const base: ApiEntity = {
   title: '位置',
   desc: '设置 <code>placement</code> 即可。',
-  code: `<w-tooltip placement="left" title="文字提示">
+  code: `<w-tooltip placement="left" content="文字提示">
   <span>left</span>
 </w-tooltip>`,
   render: (h: Function) => h(
@@ -27,7 +27,7 @@ const base: ApiEntity = {
       }, [
         h(Tooltip, {
           props: {
-            title: '文字提示',
+            content: '文字提示',
             placement: 'topLeft',
           },
         }, [
@@ -40,7 +40,7 @@ const base: ApiEntity = {
         ]),
         h(Tooltip, {
           props: {
-            title: '文字提示',
+            content: '文字提示',
             placement: 'top',
           },
         }, [
@@ -53,7 +53,7 @@ const base: ApiEntity = {
         ]),
         h(Tooltip, {
           props: {
-            title: '文字提示',
+            content: '文字提示',
             placement: 'topRight',
           },
         }, [
@@ -77,7 +77,7 @@ const base: ApiEntity = {
       }, [
         h(Tooltip, {
           props: {
-            title: '文字提示',
+            content: '文字提示',
             placement: 'leftTop',
           },
         }, [
@@ -89,7 +89,7 @@ const base: ApiEntity = {
         ]),
         h(Tooltip, {
           props: {
-            title: '文字提示',
+            content: '文字提示',
             placement: 'left',
           },
         }, [
@@ -101,7 +101,7 @@ const base: ApiEntity = {
         ]),
         h(Tooltip, {
           props: {
-            title: '文字提示',
+            content: '文字提示',
             placement: 'leftBottom',
           },
         }, [
@@ -125,7 +125,7 @@ const base: ApiEntity = {
       }, [
         h(Tooltip, {
           props: {
-            title: '文字提示',
+            content: '文字提示',
             placement: 'rightTop',
           },
         }, [
@@ -137,7 +137,7 @@ const base: ApiEntity = {
         ]),
         h(Tooltip, {
           props: {
-            title: '文字提示',
+            content: '文字提示',
             placement: 'right',
           },
         }, [
@@ -149,7 +149,7 @@ const base: ApiEntity = {
         ]),
         h(Tooltip, {
           props: {
-            title: '文字提示',
+            content: '文字提示',
             placement: 'rightBottom',
           },
         }, [
@@ -174,7 +174,7 @@ const base: ApiEntity = {
       }, [
         h(Tooltip, {
           props: {
-            title: '文字提示',
+            content: '文字提示',
             placement: 'bottomLeft',
           },
         }, [
@@ -186,7 +186,7 @@ const base: ApiEntity = {
         ]),
         h(Tooltip, {
           props: {
-            title: '文字提示',
+            content: '文字提示',
             placement: 'bottom',
           },
         }, [
@@ -198,7 +198,7 @@ const base: ApiEntity = {
         ]),
         h(Tooltip, {
           props: {
-            title: '文字提示',
+            content: '文字提示',
             placement: 'bottomRight',
           },
         }, [

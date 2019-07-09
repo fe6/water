@@ -15,12 +15,12 @@
         :class="tooltipClass"
         ref="popElem"
         v-show="status"
-        v-if="titleValue"
+        v-if="contentValue"
         v-transfer-dom="getContainer && getContainer()"
         :data-transfer="transfer"
       >
-        <div class="w-tooltip-title" :style="titleStyle">
-          {{title}}
+        <div class="w-tooltip-content" :style="contentStyle">
+          {{content}}
         </div>
         <i
           class="w-tooltip-arrow"
@@ -102,11 +102,11 @@ export default class Tooltip extends mixins(poperMixin) {
     default: 'hover',
   }) private trigger!: string;
 
-  @Prop(String) private title!: string;
+  @Prop(String) private content!: string;
 
   @Prop(String) private arrowColor!: string;
 
-  @Prop(Object) private titleStyle!: object;
+  @Prop(Object) private contentStyle!: object;
 
   @Prop(Function) private getContainer!: Function;
 
@@ -117,8 +117,8 @@ export default class Tooltip extends mixins(poperMixin) {
 
   @Prop([String, Object, Array]) private className!: string | object | any[];
 
-  get titleValue() {
-    return this.title;
+  get contentValue() {
+    return this.content;
   }
 
   get arrowStyle(): ColorEntity {
