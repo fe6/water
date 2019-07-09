@@ -30,53 +30,66 @@ interface RenderCommonParamsEntity {
 export const defaultDatas = [{
   value: 'zhejiang',
   label: 'Zhejiang',
+  id: 1,
   children: [{
     value: 'hangzhou',
     label: 'Hangzhou',
+    id: 11,
     children: [{
       value: 'xihu',
       label: 'West Lake',
+      id: 111,
       code: 453400,
       disabled: true,
     }, {
       value: 'zhonghuamen',
       label: 'Zhong',
+      id: 112,
       code: 900000,
     }],
   }],
 }, {
   value: 'jiangsu',
   label: 'Jiangsu',
+  id: 2,
   children: [{
     value: 'nanjing',
     label: 'Nanjing',
+    id: 21,
     children: [{
       value: 'zhonghuamen',
       label: 'Zhong Hua Men',
+      id: 211,
       code: 900000,
     }, {
       value: 'xihu2',
       label: 'West1 Lake',
+      id: 212,
       code: 100102,
     }],
   }, {
     value: 'xihu11',
     label: 'West3 Lake',
+    id: 22,
     code: 300392,
   }],
 }, {
   value: 'beijing',
   label: 'Beijing',
+  id: 3,
   code: 100000,
 }, {
   value: 'zhejiang',
   label: 'Zhejiang',
+  id: 4,
   disabled: true,
   children: [{
     value: 'hangzhou',
     label: 'Hangzhou',
+    id: 41,
     children: [{
       value: 'xihu',
+      id: 411,
       label: 'West Lake',
       code: 453400,
     }],
@@ -122,6 +135,13 @@ export const renderCommon = (
         value,
         placeholder: '请选择',
         options: datas,
+        fieldNames: {
+          value: 'value',
+          label: 'id',
+          children: 'children',
+          loading: 'loading',
+          disabled: 'disabled',
+        },
         ...params.props,
       },
       on: {

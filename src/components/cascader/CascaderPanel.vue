@@ -17,8 +17,8 @@
           v-for="(optOne, optOneIndex) in optItem.options"
           :optionChange="handleOptionChange.bind(this, optItemIndex, optOneIndex)"
           :disabled="optOne.disabled || false"
-          :value="optOne.value"
-          :label="optOne.label"
+          :value="optOne[fieldNames.value]"
+          :label="optOne[fieldNames.label]"
           :loading="optOne[fieldNames.loading]"
           :fieldNames="fieldNames"
         >{{optOne[fieldNames.value]}}</w-option>
@@ -59,13 +59,9 @@ interface MenuItemEntity {
   },
 })
 export default class CascaderPanel extends Vue {
-  // panelData: any[] = [];
-
   optionMenu: MenuItemEntity[] = [];
 
   currentOption: any = {};
-
-  // panelIndex: number = -1;
 
   floor: number = 0;
 
@@ -143,10 +139,6 @@ export default class CascaderPanel extends Vue {
       this.setValue(current, !!ev);
 
       if (!emit) {
-        // this.panelData = hasChild ? newOption[children].slice() : [];
-        // this.panelIndex = this.optionMenu[menuIndex].options.findIndex(
-        //   (optItem: any) => optItem[label] === current,
-        // );
         this.currentOption = {
           value: this.value,
           current,
@@ -185,28 +177,13 @@ export default class CascaderPanel extends Vue {
   }
 
   reset() {
-    // this.panelData = [];
     this.optionMenu = this.optionMenu.map((menuItem: any) => {
       menuItem.index = -1;
       return menuItem;
     });
     this.optionMenu.length = 1;
-    // this.panelIndex = -1;
     this.floor = 0;
   }
-
-  // panelChange(currentOption: ReturnParamsEntity, ev: MouseEvent) {
-  //   this.$emit('panelChange', currentOption, ev);
-  // }
-
-  // bodyClick() {
-  //   const { nextPanel = [] } = this.currentOption;
-  //   if (nextPanel.length) {
-  //     this.reset();
-  //     this.optChange(this.oldValue[this.floor], undefined, true, 0, -1);
-  //     this.currentOption = {};
-  //   }
-  // }
 
   updataOptions() {
     this.optionMenu = [];

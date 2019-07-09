@@ -244,10 +244,6 @@ export default class Cascader extends mixins(poperMixin) {
     default: noop,
   }) private click!: Function;
 
-  // get optData() {
-  //   return this.options.slice();
-  // }
-
   get searchData() {
     return objToPath(this.options.slice(), this.fieldNames).slice();
   }
@@ -423,11 +419,9 @@ export default class Cascader extends mixins(poperMixin) {
   searchEnter(ev: MouseEvent) {
     if (this.searchResult.length) {
       const {
-        // value,
         item,
         index,
         floor,
-        // nextPanel,
       } = this.searchResult[Math.max(this.searchHoverIndex, 0)];
       const searchResult = this.searchResult[Math.max(this.searchHoverIndex, 0)];
       const value = searchResult[this.fieldNames.value];
