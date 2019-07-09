@@ -30,6 +30,7 @@
             <w-button
               class="w-popconfirm-button"
               size="small"
+              type="border"
               @click="cancelFn($event)"
             >{{cancelText}}</w-button>
             <w-button
