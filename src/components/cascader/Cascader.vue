@@ -105,7 +105,6 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable */
 import {
   Component,
   Model,
@@ -258,7 +257,6 @@ export default class Cascader extends mixins(poperMixin) {
   }
 
   get chooseValue() {
-    console.log(this.realValue, this.options, this.fieldNames, 'sss');
     return getValueByLabel(this.realValue, this.options, this.fieldNames).slice();
   }
 

@@ -3,7 +3,6 @@
     class="w-popover-core"
     :class="className"
     @mouseenter="triggerHandle($event)"
-    @mouseleave="coreLeave($event)"
     @click="triggerHandle($event)"
     v-doc-click="bodyClick"
     ref="popover"
