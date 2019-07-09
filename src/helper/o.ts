@@ -1,4 +1,3 @@
-/* eslint-disable */
 import {
   FieldNamesEntity,
 } from '../components/cascader/entity';
@@ -45,19 +44,13 @@ export const objToPath = (arr: any, fieldNames: FieldNamesEntity) => {
 
 // 递归获取结果 通过 label
 export const getValueByLabel = (values: any[], options: any[], fieldNames: FieldNamesEntity) => {
-  console.log(options, 'options');
-  console.log(values, 'values');
   const newValue: string[] = [];
   let index: number = 0;
   const loopFind = (opts: any[]) => opts.find(
-    (opt: any) => {
-      console.log(opt[fieldNames.label], values[index], 'opt[fieldNames.label] === values[index]');
-      return opt[fieldNames.label] === values[index];
-    },
+    (opt: any) => opt[fieldNames.label] === values[index],
   );
   const loop = (opts: any[]) => {
     const Item = loopFind(opts);
-    console.log(Item, 'Item loop');
     if (Item) {
       newValue.push(Item[fieldNames.value]);
     }
@@ -68,7 +61,6 @@ export const getValueByLabel = (values: any[], options: any[], fieldNames: Field
   };
 
   loop(options);
-  console.log(newValue, 'newValue');
   return newValue;
 };
 
