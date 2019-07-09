@@ -18,6 +18,7 @@ export const TITLE = {
   Link: 'Link 超链',
   Modal: 'Modal 对话框',
   Popconfirm: 'Popconfirm 气泡确认框',
+  Popover: 'Popover 气泡卡片',
   Radio: 'Radio 单选',
   Select: 'Select 选择器',
   Spin: 'Spin 加载中',

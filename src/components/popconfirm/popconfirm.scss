@@ -32,12 +32,12 @@ $prefix: w-popconfirm;
     position: absolute;
     left: 0;
     top: 0;
-    width: 16px;
-    height: 16px;
+    width: 16px !important;
+    height: 16px !important;
 
     & img {
-      width: 16px;
-      height: 16px;
+      width: 16px !important;
+      height: 16px !important;
     }
   }
 

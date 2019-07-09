@@ -111,6 +111,10 @@ export const nav = [
             title: TITLE.Empty,
           },
           {
+            to: { name: 'Popover' },
+            title: TITLE.Popover,
+          },
+          {
             to: { name: 'Tooltip' },
             title: TITLE.Tooltip,
           },

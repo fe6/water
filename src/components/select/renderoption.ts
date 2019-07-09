@@ -137,7 +137,7 @@ export default {
         const label = slot[fieldNames.label] || slot.label || '';
         const value = slot[fieldNames.value] || slot.value || '';
         const disabled = slot[fieldNames.disabled] || slot.disabled || false;
-        const singleActive: boolean = name ? label.indexOf(name) > -1 : false;
+        const singleActive: boolean = name ? label === name : false;
 
         return createElement(WOption, {
           props: {

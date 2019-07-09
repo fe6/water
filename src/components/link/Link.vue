@@ -9,7 +9,7 @@
     <span class="w-link-icon" v-if="$slots.icon && !loading">
       <slot name="icon"></slot>
     </span>
-    <Icon v-else-if="loading" color="#0297fe" spin />
+    <Icon class="w-link-icon" v-else-if="loading" color="#0297fe" spin />
     <span class="w-link-text">
       <slot></slot>
     </span>
@@ -24,7 +24,7 @@
     <span class="w-link-icon" v-if="$slots.icon && !loading">
       <slot name="icon"></slot>
     </span>
-    <Icon v-else-if="loading" color="#0297fe" spin />
+    <Icon class="w-link-icon" v-else-if="loading" color="#0297fe" spin />
     <span class="w-link-text">
       <slot></slot>
     </span>
@@ -37,7 +37,7 @@
     <span class="w-link-icon" v-if="$slots.icon && !loading">
       <slot name="icon"></slot>
     </span>
-    <Icon v-else-if="loading" color="#0297fe" spin />
+    <Icon class="w-link-icon" v-else-if="loading" color="#0297fe" spin />
     <span class="w-link-text">
       <slot></slot>
     </span>

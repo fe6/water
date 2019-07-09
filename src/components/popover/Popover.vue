@@ -1,29 +1,46 @@
 <template>
   <div
-    class="w-tooltip-core"
+    class="w-popover-core"
     :class="className"
     @mouseenter="triggerHandle($event)"
-    @mouseleave="mouseleave($event)"
+    @mouseleave="coreLeave($event)"
     @click="triggerHandle($event)"
     v-doc-click="bodyClick"
-    ref="tooltip"
+    ref="popover"
   >
     <slot></slot>
     <transition name="fade">
       <div
-        class="w-tooltip"
-        :class="tooltipClass"
+        class="w-popover"
+        :class="popoverClass"
         ref="popElem"
         v-show="status"
-        v-if="contentValue"
+        v-if="hasSlots"
         v-transfer-dom="getContainer && getContainer()"
         :data-transfer="transfer"
+        @click="popoverClick($event)"
+        @mouseenter="popoverEnter($event)"
+        @mouseleave="popoverLeave($event)"
       >
-        <div class="w-tooltip-content" :style="contentStyle">
-          {{content}}
+        <div class="w-popover-main">
+          <div
+            class="w-popover-title"
+            :class="titleClass"
+            :style="titleStyle"
+            v-if="$slots.title"
+          >
+            <slot name="title"></slot>
+          </div>
+          <div
+            class="w-popover-content"
+            :style="contentStyle"
+            v-if="$slots.content"
+          >
+            <slot name="content"></slot>
+          </div>
         </div>
         <i
-          class="w-tooltip-arrow"
+          class="w-popover-arrow"
           :class="arrowClass"
           :style="arrowStyle"
         ></i>
@@ -63,7 +80,7 @@ interface ColorEntity {
 }
 
 @Component
-export default class Tooltip extends mixins(poperMixin) {
+export default class Popover extends mixins(poperMixin) {
   status: boolean = false;
 
   resizeEvent: any = null;
@@ -106,6 +123,8 @@ export default class Tooltip extends mixins(poperMixin) {
 
   @Prop(String) private arrowColor!: string;
 
+  @Prop(Object) private titleStyle!: object;
+
   @Prop(Object) private contentStyle!: object;
 
   @Prop(Function) private getContainer!: Function;
@@ -117,8 +136,15 @@ export default class Tooltip extends mixins(poperMixin) {
 
   @Prop([String, Object, Array]) private className!: string | object | any[];
 
-  get contentValue() {
-    return this.content;
+
+  get titleClass() {
+    return [{
+      'w-popover-title-border': this.$slots.content,
+    }];
+  }
+
+  get hasSlots() {
+    return this.$slots.title || this.$slots.content;
   }
 
   get arrowStyle(): ColorEntity {
@@ -138,13 +164,13 @@ export default class Tooltip extends mixins(poperMixin) {
     return color;
   }
 
-  get tooltipClass(): any[] {
+  get popoverClass(): any[] {
     return [
       {
-        'w-tooltip-horbottom': this.isHorBottom,
-        'w-tooltip-hortop': this.isHorTop,
-        'w-tooltip-horleft': this.isVerLeft,
-        'w-tooltip-horright': this.isVerRight,
+        'w-popover-horbottom': this.isHorBottom,
+        'w-popover-hortop': this.isHorTop,
+        'w-popover-horleft': this.isVerLeft,
+        'w-popover-horright': this.isVerRight,
       },
     ];
   }
@@ -152,17 +178,17 @@ export default class Tooltip extends mixins(poperMixin) {
   get arrowClass(): any[] {
     return [
       {
-        'w-tooltip-arrow-hortop': this.isHorTop,
-        'w-tooltip-arrow-horbottom': this.isHorBottom,
-        'w-tooltip-arrow-verendright': this.isVerEndRight,
-        'w-tooltip-arrow-verendleft': this.isVerEndLeft,
-        'w-tooltip-arrow-vercenter': this.isVerCenter,
+        'w-popover-arrow-hortop': this.isHorTop,
+        'w-popover-arrow-horbottom': this.isHorBottom,
+        'w-popover-arrow-verendright': this.isVerEndRight,
+        'w-popover-arrow-verendleft': this.isVerEndLeft,
+        'w-popover-arrow-vercenter': this.isVerCenter,
 
-        'w-tooltip-arrow-horleft': this.isVerLeft,
-        'w-tooltip-arrow-horright': this.isVerRight,
-        'w-tooltip-arrow-horendbottom': this.isHorEndBottom,
-        'w-tooltip-arrow-horendtop': this.isVerEndTop,
-        'w-tooltip-arrow-horcenter': this.isHorCenter,
+        'w-popover-arrow-horleft': this.isVerLeft,
+        'w-popover-arrow-horright': this.isVerRight,
+        'w-popover-arrow-horendbottom': this.isHorEndBottom,
+        'w-popover-arrow-horendtop': this.isVerEndTop,
+        'w-popover-arrow-horcenter': this.isHorCenter,
       },
     ];
   }
@@ -176,7 +202,7 @@ export default class Tooltip extends mixins(poperMixin) {
   }
 
   resizeChange() {
-    setPostion(this, 'tooltip');
+    setPostion(this, 'popover');
   }
 
   isTrigger(ev: MouseEvent): boolean {
@@ -185,21 +211,25 @@ export default class Tooltip extends mixins(poperMixin) {
 
   triggerHandle(ev: MouseEvent) {
     clearTimeout(this.timer);
-    this.timer = setTimeout(() => {
-      this.setStatus(!this.status, this.isTrigger(ev), true);
-    }, this.enterDelay);
+    this.coreShow(ev);
   }
 
   bodyClick(ev: MouseEvent) {
     if (this.status) {
-      this.triggerHandle(ev);
+      this.coreLeave(ev);
     }
   }
 
-  mouseleave(ev: MouseEvent) {
+  coreShow(ev: MouseEvent) {
+    this.timer = setTimeout(() => {
+      this.setStatus(true, this.isTrigger(ev), true);
+    }, this.enterDelay);
+  }
+
+  coreLeave(ev: MouseEvent) {
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
-      this.setStatus(!this.status, this.isTrigger(ev), true);
+      this.setStatus(false, this.isTrigger(ev), true);
     }, this.leaveDelay);
   }
 
@@ -215,6 +245,19 @@ export default class Tooltip extends mixins(poperMixin) {
     }
   }
 
+  popoverEnter() {
+    clearTimeout(this.timer);
+  }
+
+  popoverLeave(ev: MouseEvent) {
+    clearTimeout(this.timer);
+    this.coreLeave(ev);
+  }
+
+  popoverClick(ev: MouseEvent) {
+    ev.stopPropagation();
+  }
+
   @Watch('value')
   watchValue(val: boolean) {
     this.setStatus(val, true);
@@ -223,5 +266,5 @@ export default class Tooltip extends mixins(poperMixin) {
 </script>
 
 <style lang="scss">
-  @import "tooltip.scss";
+  @import "popover.scss";
 </style>

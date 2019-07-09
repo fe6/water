@@ -42,7 +42,7 @@ export const props = [
     default: 'hover',
   },
   {
-    param: 'title',
+    param: 'content',
     desc: '内容',
     type: 'String',
     require: '否',
@@ -56,7 +56,7 @@ export const props = [
     default: '无',
   },
   {
-    param: 'titleStyle',
+    param: 'contentStyle',
     desc: '内容的样式',
     type: 'Object',
     require: '否',

@@ -1,13 +1,33 @@
-import Tooltip from '@/components/tooltip/Tooltip.vue';
+import Popover from '@/components/popover/Popover.vue';
 import Button from '@/components/button/Button.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
+
+const title = (h: Function) => h('a', {
+  class: 'link',
+  attrs: {
+    href: 'https://github.com/fe6/water',
+  },
+  slot: 'title',
+}, '水滴');
+
+const content = (h: Function) => h('div', {
+  slot: 'content',
+}, [
+  h('div', '这是内容。'),
+  h('div', '这是内容。'),
+]);
 
 const base: ApiEntity = {
   title: '位置',
   desc: '设置 <code>placement</code> 即可。',
-  code: `<w-tooltip placement="left" content="文字提示">
+  code: `<w-popover placement="left">
   <span>left</span>
-</w-tooltip>`,
+  <w-link slot="title" href="https://github.com/fe6/water">水滴</w-link>
+  <div slot="content">
+    <div>这是内容。</div>
+    <div>这是内容。</div>
+  </div>
+</w-popover>`,
   render: (h: Function) => h(
     'section',
     {
@@ -25,7 +45,7 @@ const base: ApiEntity = {
           'justify-content': 'space-around',
         },
       }, [
-        h(Tooltip, {
+        h(Popover, {
           props: {
             content: '文字提示',
             placement: 'topLeft',
@@ -37,8 +57,10 @@ const base: ApiEntity = {
               'margin-right': '16px',
             },
           }, 'TL'),
+          title(h),
+          content(h),
         ]),
-        h(Tooltip, {
+        h(Popover, {
           props: {
             content: '文字提示',
             placement: 'top',
@@ -50,8 +72,10 @@ const base: ApiEntity = {
               'margin-right': '16px',
             },
           }, 'Top'),
+          title(h),
+          content(h),
         ]),
-        h(Tooltip, {
+        h(Popover, {
           props: {
             content: '文字提示',
             placement: 'topRight',
@@ -62,6 +86,8 @@ const base: ApiEntity = {
               width: '80px',
             },
           }, 'TR'),
+          title(h),
+          content(h),
         ]),
       ]),
 
@@ -75,7 +101,7 @@ const base: ApiEntity = {
           'justify-content': 'space-around',
         },
       }, [
-        h(Tooltip, {
+        h(Popover, {
           props: {
             content: '文字提示',
             placement: 'leftTop',
@@ -86,8 +112,10 @@ const base: ApiEntity = {
               width: '80px',
             },
           }, 'LT'),
+          title(h),
+          content(h),
         ]),
-        h(Tooltip, {
+        h(Popover, {
           props: {
             content: '文字提示',
             placement: 'left',
@@ -98,8 +126,10 @@ const base: ApiEntity = {
               width: '80px',
             },
           }, 'Left'),
+          title(h),
+          content(h),
         ]),
-        h(Tooltip, {
+        h(Popover, {
           props: {
             content: '文字提示',
             placement: 'leftBottom',
@@ -110,6 +140,8 @@ const base: ApiEntity = {
               width: '80px',
             },
           }, 'LB'),
+          title(h),
+          content(h),
         ]),
       ]),
 
@@ -123,7 +155,7 @@ const base: ApiEntity = {
           'justify-content': 'space-around',
         },
       }, [
-        h(Tooltip, {
+        h(Popover, {
           props: {
             content: '文字提示',
             placement: 'rightTop',
@@ -134,8 +166,10 @@ const base: ApiEntity = {
               width: '80px',
             },
           }, 'RT'),
+          title(h),
+          content(h),
         ]),
-        h(Tooltip, {
+        h(Popover, {
           props: {
             content: '文字提示',
             placement: 'right',
@@ -146,8 +180,10 @@ const base: ApiEntity = {
               width: '80px',
             },
           }, 'Right'),
+          title(h),
+          content(h),
         ]),
-        h(Tooltip, {
+        h(Popover, {
           props: {
             content: '文字提示',
             placement: 'rightBottom',
@@ -158,6 +194,8 @@ const base: ApiEntity = {
               width: '80px',
             },
           }, 'RB'),
+          title(h),
+          content(h),
         ]),
       ]),
 
@@ -172,7 +210,7 @@ const base: ApiEntity = {
           'justify-content': 'space-around',
         },
       }, [
-        h(Tooltip, {
+        h(Popover, {
           props: {
             content: '文字提示',
             placement: 'bottomLeft',
@@ -183,8 +221,10 @@ const base: ApiEntity = {
               width: '80px',
             },
           }, 'BL'),
+          title(h),
+          content(h),
         ]),
-        h(Tooltip, {
+        h(Popover, {
           props: {
             content: '文字提示',
             placement: 'bottom',
@@ -195,8 +235,10 @@ const base: ApiEntity = {
               width: '80px',
             },
           }, 'Bottom'),
+          title(h),
+          content(h),
         ]),
-        h(Tooltip, {
+        h(Popover, {
           props: {
             content: '文字提示',
             placement: 'bottomRight',
@@ -207,6 +249,8 @@ const base: ApiEntity = {
               width: '80px',
             },
           }, 'BR'),
+          title(h),
+          content(h),
         ]),
       ]),
     ],
