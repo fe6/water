@@ -6,7 +6,7 @@ const base: ApiEntity = {
   desc: '最简单的用法。',
   code: `<w-popover>
   <span>鼠标移入时将显示 Popover 。</span>
-  <w-link slot="title" href="https://github.com/fe6/water">水滴</w-link>
+  <span slot="title">水滴</span>
   <div slot="content">
     <div>这是内容。</div>
     <div>这是内容。</div>
@@ -20,11 +20,7 @@ const base: ApiEntity = {
     [
       h(Popover, [
         h('span', '鼠标移入时将显示 Popover 。'),
-        h('a', {
-          class: 'link',
-          attrs: {
-            href: 'https://github.com/fe6/water',
-          },
+        h('span', {
           slot: 'title',
         }, '水滴'),
         h('div', {
