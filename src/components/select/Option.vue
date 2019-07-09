@@ -28,7 +28,7 @@ export default class Option extends Vue {
 
   @Prop(Boolean) private disabled!: boolean;
 
-  @Prop(String) private label!: string;
+  @Prop([String, Number]) private label!: string | number;
 
   @Prop({
     type: Object,
@@ -74,7 +74,7 @@ export default class Option extends Vue {
   }
 
   @Emit('model')
-  returnModel(): string {
+  returnModel(): string | number {
     return this.label || this.value;
   }
 }
