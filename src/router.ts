@@ -172,6 +172,14 @@ export default new Router({
           component: () => import(/* webpackChunkName: "popconfirm" */ './views/demo/Popconfirm.vue'),
         },
         {
+          path: '/popover',
+          name: 'Popover',
+          meta: {
+            title: TITLE.Popover,
+          },
+          component: () => import(/* webpackChunkName: "popover" */ './views/demo/Popover.vue'),
+        },
+        {
           path: '/tooltip',
           name: 'Tooltip',
           meta: {

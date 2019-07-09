@@ -23,6 +23,7 @@ module.exports = {
         'bindKeyUp',
         'setScroll',
         'returnModel',
+        'popoverClick',
       ],
     }],
     'no-unused-vars': ['error', { varsIgnorePattern: '^V|Entity$' }],
