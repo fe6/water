@@ -20,7 +20,7 @@ import {
 export default class ButtonGroup extends Vue {
   name: string = 'ButtonGroup';
 
-  @Model('model', { type: String, default: '' }) readonly value!: string;
+  @Model('model', { type: [String, Number], default: '' }) readonly value!: string | number;
 
   @Prop([String, Object, Array]) private className!: string | object | any[];
 

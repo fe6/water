@@ -61,7 +61,7 @@ export default class Input extends Vue {
 
   preName: string = 'w-input-';
 
-  @Model('model', { type: String }) readonly value!: string;
+  @Model('model', { type: [String, Number] }) readonly value!: string | number;
 
   @Prop(String) private placeholder!: string;
 

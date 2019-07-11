@@ -4,6 +4,7 @@ import {
   Model,
   Prop,
   Vue,
+  Watch,
 } from 'vue-property-decorator';
 
 export interface ReturnParamsEntity {
@@ -19,7 +20,7 @@ export default class Inp extends Vue {
 
   beError: boolean = false;
 
-  @Model('model', { type: String }) readonly value!: string;
+  @Model('model', { type: [String, Number] }) readonly value!: string | number;
 
   @Prop(String) private placeholder!: string;
 
@@ -68,6 +69,7 @@ export default class Inp extends Vue {
         value: this.value,
         disabled: this.disabled,
       },
+      ref: 'inpEle',
       on: {
         input: (ev: Event): void => {
           const { value } = (ev.target as any);
@@ -83,5 +85,10 @@ export default class Inp extends Vue {
         },
       },
     });
+  }
+
+  @Watch('value')
+  getValue() {
+    (this.$refs.inpEle as any).value = this.value;
   }
 }
