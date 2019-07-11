@@ -60,6 +60,10 @@ export const nav = [
             to: { name: 'Breadcrumb' },
             title: TITLE.Breadcrumb,
           },
+          {
+            to: { name: 'Page' },
+            title: TITLE.Page,
+          },
         ],
       },
       {

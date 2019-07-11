@@ -18,6 +18,7 @@ interface PropEntity {
 
 interface RenderCommonParamsEntity {
   datas?: DataEntity[]; // 如果为 true 就用传进来的数据
+  attr?: string;
   props?: PropEntity;
 }
 
@@ -78,7 +79,7 @@ export const renderCommon = (
         on: {
           change(changeParams: any) {
             context.props.changeHandle({
-              attr: 'beforeValue',
+              attr: params.attr || 'baseValue',
               value: changeParams.value,
             });
           },

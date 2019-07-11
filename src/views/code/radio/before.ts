@@ -10,6 +10,7 @@ const base: ApiEntity = {
   code: codeCommon({ attr: 'value="鸭梨" :before="()=> new Promise((resolve) => {resolve();})"' }),
   render: (h: Function, context: any) => renderCommon(h, context, {
     datas: myLoadingDatas,
+    attr: 'beforeValue',
     props: {
       before: context.props.data.beforeHandle,
     },

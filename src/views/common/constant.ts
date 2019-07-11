@@ -17,6 +17,7 @@ export const TITLE = {
   InputNumber: 'InputNumber 数字输入框',
   Link: 'Link 超链',
   Modal: 'Modal 对话框',
+  Page: 'Page 分页',
   Popconfirm: 'Popconfirm 气泡确认框',
   Popover: 'Popover 气泡卡片',
   Radio: 'Radio 单选',
