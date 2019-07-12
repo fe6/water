@@ -44,6 +44,7 @@ describe('Checkbox.vue', () => {
       propsData: {
         checkColor: '#f00',
         hoverColor: '#0f0',
+        textColor: '#0f0',
       },
     });
     disabled = mount(Checkbox, {
@@ -152,6 +153,7 @@ describe('Checkbox.vue', () => {
     color.vm.$nextTick(() => {
       try {
         const checkboxElem = color.find('.w-checkbox');
+        expect(color.vm.textColorStyle).toEqual({ color: '#0f0' });
         checkboxElem.trigger('click');
         expect(color.vm.colorStyle).toEqual({ backgroundColor: '#f00', borderColor: '#f00' });
 

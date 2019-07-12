@@ -15,6 +15,7 @@ describe('Radio.vue', () => {
     borderColor = mount(Radio, {
       propsData: {
         hoverColor: '#f00',
+        textColor: '#f00',
       },
     });
     bgColor = mount(Radio, {
@@ -66,6 +67,7 @@ describe('Radio.vue', () => {
         const checkboxElem = borderColor.find('.w-radio');
         checkboxElem.trigger('mouseover');
         expect(borderColor.vm.borderColorStyle).toBe('border-color: #f00');
+        expect(borderColor.vm.textColorStyle).toBe('color: #f00');
 
         done();
       } catch (err) {
