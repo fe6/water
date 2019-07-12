@@ -51,7 +51,7 @@ export default class WSwitch extends Vue {
 
   @Prop({
     type: Function,
-    default: () => new Promise(resolve => resolve()),
+    default: () => (new Promise(resolve => resolve())),
   }) private before!: () => Promise<void>;
 
   @Prop({
