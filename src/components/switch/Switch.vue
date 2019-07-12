@@ -49,7 +49,16 @@ export default class WSwitch extends Vue {
 
   @Prop(String) private size!: string;
 
-  @Prop(Function) private before!: Function;
+  @Prop({
+    type: Function,
+    default() {
+      return new Promise((resolve) => {
+        (this as any).$nextTick(() => {
+          resolve();
+        });
+      });
+    },
+  }) private before!: Function;
 
   @Prop({
     type: Function,
@@ -65,17 +74,11 @@ export default class WSwitch extends Vue {
       const reParams: ReturnParamsEntity = {
         ev,
       };
-      if (this.before) {
-        this.before().then(() => {
-          this.setStatus(!this.status);
-          reParams.status = this.status;
-          this.$emit('change', reParams);
-        });
-      } else {
+      this.before().then(() => {
         this.setStatus(!this.status);
         reParams.status = this.status;
         this.$emit('change', reParams);
-      }
+      });
       this.change(this.status);
       if (this.stop) {
         ev.stopPropagation();

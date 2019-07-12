@@ -54,7 +54,7 @@ describe('Switch.vue', () => {
         wrapperBeforeDefault.setProps({ value: true });
         const switchElem = wrapperBeforeDefault.find('.w-switch');
         switchElem.trigger('click');
-        expect(wrapperBeforeDefault.vm.status).toBeFalsy();
+        expect(wrapperBeforeDefault.vm.status).toBeTruthy();
         done();
       } catch (err) {
         done.fail(err);
