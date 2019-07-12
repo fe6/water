@@ -21,6 +21,13 @@ export const props = [
     default: 'false',
   },
   {
+    param: 'textColor',
+    desc: '文字的颜色, <code>0.11.0</code> 新增',
+    type: 'String',
+    require: '否',
+    default: '无',
+  },
+  {
     param: 'hoverColor',
     desc: '鼠标移入的颜色',
     type: 'String',
