@@ -64,8 +64,11 @@ export default class WSwitch extends Vue {
   @Prop({
     // type: Function,
     // default: () => {},
-    validator: (value: any): boolean => isFunction(value),
-  }) private change!: (params: ReturnParamsEntity) => void;
+    validator: (value: any): boolean => {
+      console.log(value, 'value validator');
+      return isFunction(value);
+    },
+  }) private change!: any;
 
   mounted() {
     this.setStatus(this.value);
