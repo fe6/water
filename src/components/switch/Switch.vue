@@ -72,6 +72,7 @@ export default class WSwitch extends Vue {
 
   mounted() {
     this.setStatus(this.value);
+    console.log(this.before, typeof this.before, 's');
   }
 
   changeFn(ev: MouseEvent) {
