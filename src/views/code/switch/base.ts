@@ -6,6 +6,7 @@ interface PropEntity {
   loading?: boolean;
   disabled?: boolean;
   before?: Function;
+  change?: Function;
 }
 
 interface RenderCommonParamsEntity {
