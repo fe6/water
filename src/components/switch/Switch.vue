@@ -58,7 +58,7 @@ export default class WSwitch extends Vue {
         });
       });
     },
-  }) private before!: () => {};
+  }) private before!: () => Promise<void>;
 
   @Prop({
     type: Function,
