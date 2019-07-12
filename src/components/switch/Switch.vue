@@ -27,6 +27,7 @@ import {
   Watch,
   Vue,
 } from 'vue-property-decorator';
+import { isFunction } from '@/helper/type';
 
 export interface ReturnParamsEntity {
   ev: MouseEvent;
@@ -61,9 +62,10 @@ export default class WSwitch extends Vue {
   }) private before!: () => Promise<void>;
 
   @Prop({
-    type: Function,
-    default: () => {},
-  }) private change!: <T>(arg: T) => T;
+    // type: Function,
+    // default: () => {},
+    validator: (value: any): boolean => isFunction(value),
+  }) private change!: (params: ReturnParamsEntity) => void;
 
   mounted() {
     this.setStatus(this.value);
@@ -79,7 +81,9 @@ export default class WSwitch extends Vue {
         reParams.status = this.status;
         this.$emit('change', reParams);
         console.log(this.change, 'this.change');
-        (this.change as Function)(reParams);
+        if (this.change) {
+          this.change(reParams);
+        }
       });
       if (this.stop) {
         ev.stopPropagation();
