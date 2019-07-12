@@ -62,7 +62,7 @@ export default class WSwitch extends Vue {
 
   @Prop({
     type: Function,
-    default: () => {},
+    default() {},
   }) private change!: (status: boolean) => void;
 
   mounted() {
