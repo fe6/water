@@ -113,6 +113,6 @@ $switch-move-time: 0.3s;
 
   &-disabled {
     cursor: not-allowed;
-    opacity: 0.4;
+    background: $disabled-bg;
   }
 }
