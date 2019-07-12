@@ -27,13 +27,11 @@ import {
   Watch,
   Vue,
 } from 'vue-property-decorator';
-import { isFunction } from '../../helper/type';
 
 export interface ReturnParamsEntity {
   ev: MouseEvent;
   [propName: string]: any;
 }
-
 @Component
 export default class WSwitch extends Vue {
   name: string = 'Switch';
@@ -50,15 +48,12 @@ export default class WSwitch extends Vue {
 
   @Prop(String) private size!: string;
 
-  @Prop({
-    type: Function,
-    default: () => (() => {}),
-  }) private before!: <T>() => Promise<T>;
+  @Prop(Function) private before!: Function;
 
   @Prop({
     type: Function,
-    default: () => (() => {}),
-  }) private change!: (params: ReturnParamsEntity) => void;
+    default: () => {},
+  }) private change!: Function;
 
   mounted() {
     this.setStatus(this.value);
@@ -69,19 +64,18 @@ export default class WSwitch extends Vue {
       const reParams: ReturnParamsEntity = {
         ev,
       };
-
-      const afterBefore = () => {
+      if (this.before) {
+        this.before().then(() => {
+          this.setStatus(!this.status);
+          reParams.status = this.status;
+          this.$emit('change', reParams);
+        });
+      } else {
         this.setStatus(!this.status);
         reParams.status = this.status;
         this.$emit('change', reParams);
-        this.change(reParams);
-      };
-      const before = this.before();
-      if (isFunction(before.then)) {
-        before.then(afterBefore);
-      } else {
-        afterBefore();
       }
+      this.change(this.status);
       if (this.stop) {
         ev.stopPropagation();
       }
@@ -92,7 +86,6 @@ export default class WSwitch extends Vue {
   @Watch('value')
   setStatus(value: boolean): boolean {
     this.status = value;
-
     return this.status;
   }
 }
