@@ -61,9 +61,9 @@ export default class WSwitch extends Vue {
   }) private before!: () => Promise<void>;
 
   @Prop({
-    type: Function as () => {},
+    type: Function,
     default: () => {},
-  }) private change!: (status: boolean) => void;
+  }) private change!: <T>(arg: T) => T;
 
   mounted() {
     this.setStatus(this.value);
@@ -78,8 +78,8 @@ export default class WSwitch extends Vue {
         this.setStatus(!this.status);
         reParams.status = this.status;
         this.$emit('change', reParams);
+        this.change(reParams);
       });
-      this.change(this.status);
       if (this.stop) {
         ev.stopPropagation();
       }
