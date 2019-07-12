@@ -19,7 +19,7 @@ $move-time: 0.4s;
   }
 
   &-button {
-    padding: 0 8px;
+    padding: 0 8px !important;
     min-width: 32px;
     height: 32px;
     font-size: 12px;
@@ -41,16 +41,16 @@ $move-time: 0.4s;
   &-next,
   &-prev {
     &-sm {
-      padding: 0 4px;
+      padding: 0 4px !important;
       min-width: 24px;
       height: 24px;
     }
 
     &-disable {
-      background: none;
+      background: none !important;
 
       &:hover {
-        background: none;
+        background: none !important;
       }
 
       & .w-page-simple-arrow {

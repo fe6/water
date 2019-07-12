@@ -23,7 +23,7 @@
     @extend .w-page-jumper-text;
 
     width: 48px !important;
-    margin: 0 8px;
+    margin: 0 8px !important;
     color: $text-color;
   }
 }
