@@ -1,6 +1,12 @@
 <template>
   <div>
     <h1>{{ Page }}</h1>
+    <p>采用分页的形式分隔长列表，每次只加载一个页面。 <code>0.11.0</code> 新增。</p>
+    <h2>何时使用</h2>
+    <ul>
+      <li>当加载 / 渲染所有数据将花费很多时间时。</li>
+      <li>可切换页码浏览数据。</li>
+    </ul>
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="24">
@@ -56,9 +62,9 @@
     <ApiTable :data="props"></ApiTable>
     <h2>Page Method</h2>
     <MethodTable :data="methods"></MethodTable>
-    <h2>PageJumpGroup API</h2>
+    <h2>PageJump API</h2>
     <ApiTable :data="pageJumpProps"></ApiTable>
-    <h2>PageJumpGroup Method</h2>
+    <h2>PageJump Method</h2>
     <MethodTable :data="pageJumpMethods"></MethodTable>
   </div>
 </template>

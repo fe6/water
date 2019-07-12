@@ -16,7 +16,10 @@ import Input from './input/Input.vue';
 import InputNumber from './inputnumber/InputNumber.vue';
 import Link from './link/Link.vue';
 import Modal from './modal/Modal.vue';
+import Page from './page/Page.vue';
+import PageJump from './page/PageJump.vue';
 import Popconfirm from './popconfirm/Popconfirm.vue';
+import Popover from './popover/Popover.vue';
 import Radio from './radio/Radio.vue';
 import RadioGroup from './radio/RadioGroup.vue';
 import Select from './select/Select.vue';
@@ -42,7 +45,10 @@ const waterCpt = {
   InputNumber,
   Link,
   Modal,
+  Page,
+  PageJump,
   Popconfirm,
+  Popover,
   Radio,
   RadioGroup,
   Select,

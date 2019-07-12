@@ -11,6 +11,7 @@ interface PropEntity {
   disabled?: boolean;
   checkColor?: string;
   hoverColor?: string;
+  textColor?: string;
   indeterminate?: boolean;
   value?: string;
   before?: Function;

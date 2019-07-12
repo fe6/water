@@ -10,6 +10,7 @@ const base: ApiEntity = {
     props: {
       checkColor: '#f00',
       hoverColor: '#0f0',
+      textColor: '#1996f9',
     },
   }),
 };

@@ -32,7 +32,10 @@
         :style="bgColorStyle"
       ></i>
     </div>
-    <div class="w-radio-content">
+    <div
+      class="w-radio-content"
+      :style="textColorStyle"
+    >
       <slot></slot>
     </div>
   </div>
@@ -76,6 +79,8 @@ export default class Radio extends Vue {
 
   @Prop(Boolean) private loading!: boolean;
 
+  @Prop(String) private textColor!: string;
+
   @Prop(String) private hoverColor!: string;
 
   @Prop(String) private checkColor!: string;
@@ -106,6 +111,16 @@ export default class Radio extends Vue {
 
     if (this.status && this.checkColor) {
       colors = `${colorKey}${this.checkColor}`;
+    }
+
+    return colors;
+  }
+
+  get textColorStyle(): string {
+    let colors: string = '';
+
+    if (this.textColor) {
+      colors = `color: ${this.textColor}`;
     }
 
     return colors;

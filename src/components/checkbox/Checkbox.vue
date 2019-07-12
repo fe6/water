@@ -21,12 +21,16 @@
     >
       <input type="checkbox" aria-label="checkbox" :class="[`${preName}input`]">
     </div>
-    <div :class="[
+    <div
+    :class="[
       `${preName}content`,
       {
         [`${preName}content-disabled`]: disabled,
       },
-    ]" v-if="$slots.default">
+    ]"
+    :style="textColorStyle"
+    v-if="$slots.default"
+    >
       <slot></slot>
     </div>
   </div>
@@ -82,6 +86,8 @@ export default class Checkbox extends Vue {
 
   @Prop(Boolean) private indeterminate!: boolean;
 
+  @Prop(String) private textColor!: string;
+
   @Prop(String) private hoverColor!: string;
 
   @Prop(String) private checkColor!: string;
@@ -110,6 +116,16 @@ export default class Checkbox extends Vue {
     if (isBoolean(this.value) && isUndefined(this.label)) {
       this.status = this.value;
     }
+  }
+
+  get textColorStyle(): ColorStyleEntity {
+    const colors: ColorStyleEntity = {};
+
+    if (this.textColor) {
+      colors.color = this.textColor;
+    }
+
+    return colors;
   }
 
   get colorStyle(): ColorStyleEntity {
