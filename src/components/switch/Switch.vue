@@ -62,7 +62,7 @@ export default class WSwitch extends Vue {
 
   @Prop({
     type: Function,
-    default: ():void => {},
+    default: () => {},
   }) private change!: (status: boolean) => void;
 
   mounted() {
@@ -79,7 +79,7 @@ export default class WSwitch extends Vue {
         reParams.status = this.status;
         this.$emit('change', reParams);
       });
-      this.change(this.status);
+      (this.change as Function)(this.status);
       if (this.stop) {
         ev.stopPropagation();
       }
