@@ -9,9 +9,11 @@ describe('Switch.vue', () => {
   let wrapper: any = null;
   let wrapperBeforeDefault: any = null;
   let wrapperStop: any = null;
+  let wrapperChange: any = null;
   let wrapperDisabled: any = null;
 
   beforeEach(() => {
+    wrapperChange = shallowMount(Switch);
     wrapper = shallowMount(Switch, {
       propsData: {
         async before() {
@@ -41,6 +43,24 @@ describe('Switch.vue', () => {
         switchElem.trigger('click');
         expect(changeFn).not.toBeCalled();
         expect(wrapper.vm.status).toBe(false);
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('test change prop', (done) => {
+    wrapperChange.vm.$nextTick(() => {
+      try {
+        const changeFn = jest.fn();
+        wrapperChange.setProps({ change: true });
+        expect(wrapperChange.vm.change).toBe(true);
+        wrapperChange.vm.changeFn({});
+        wrapperChange.setProps({ change: changeFn });
+        expect(wrapperChange.vm.change).toBe(changeFn);
+        wrapperChange.vm.changeFn({});
+        expect(wrapperChange.vm.$options.props.change.validator(changeFn)).toBeTruthy();
         done();
       } catch (err) {
         done.fail(err);
