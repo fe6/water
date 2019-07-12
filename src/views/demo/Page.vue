@@ -62,9 +62,9 @@
     <ApiTable :data="props"></ApiTable>
     <h2>Page Method</h2>
     <MethodTable :data="methods"></MethodTable>
-    <h2>PageJumpGroup API</h2>
+    <h2>PageJump API</h2>
     <ApiTable :data="pageJumpProps"></ApiTable>
-    <h2>PageJumpGroup Method</h2>
+    <h2>PageJump Method</h2>
     <MethodTable :data="pageJumpMethods"></MethodTable>
   </div>
 </template>
