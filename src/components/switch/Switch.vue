@@ -27,6 +27,7 @@ import {
   Watch,
   Vue,
 } from 'vue-property-decorator';
+import { isFunction } from '../../helper/type';
 
 export interface ReturnParamsEntity {
   ev: MouseEvent;
@@ -51,8 +52,8 @@ export default class WSwitch extends Vue {
 
   @Prop({
     type: Function,
-    default: () => (new Promise(resolve => resolve())),
-  }) private before!: () => Promise<void>;
+    default: () => (() => {}),
+  }) private before!: Function;
 
   @Prop({
     type: Function,
@@ -68,14 +69,19 @@ export default class WSwitch extends Vue {
       const reParams: ReturnParamsEntity = {
         ev,
       };
-      this.before().then(() => {
-        this.$nextTick(() => {
-          this.setStatus(!this.status);
-          reParams.status = this.status;
-          this.$emit('change', reParams);
-          this.change(reParams);
-        });
-      });
+
+      const afterBefore = () => {
+        this.setStatus(!this.status);
+        reParams.status = this.status;
+        this.$emit('change', reParams);
+        this.change(reParams);
+      };
+      const before = this.before();
+      if (isFunction(before.then)) {
+        before.then(afterBefore);
+      } else {
+        afterBefore();
+      }
       if (this.stop) {
         ev.stopPropagation();
       }
