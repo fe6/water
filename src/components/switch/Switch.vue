@@ -78,7 +78,8 @@ export default class WSwitch extends Vue {
         this.setStatus(!this.status);
         reParams.status = this.status;
         this.$emit('change', reParams);
-        this.change(reParams);
+        console.log(this.change, 'this.change');
+        (this.change as Function)(reParams);
       });
       if (this.stop) {
         ev.stopPropagation();
