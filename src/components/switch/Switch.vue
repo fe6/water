@@ -51,13 +51,7 @@ export default class WSwitch extends Vue {
 
   @Prop({
     type: Function,
-    default() {
-      return new Promise((resolve) => {
-        (this as any).$nextTick(() => {
-          resolve();
-        });
-      });
-    },
+    default: () => new Promise(resolve => resolve()),
   }) private before!: () => Promise<void>;
 
   @Prop({
@@ -75,10 +69,12 @@ export default class WSwitch extends Vue {
         ev,
       };
       this.before().then(() => {
-        this.setStatus(!this.status);
-        reParams.status = this.status;
-        this.$emit('change', reParams);
-        this.change(reParams);
+        this.$nextTick(() => {
+          this.setStatus(!this.status);
+          reParams.status = this.status;
+          this.$emit('change', reParams);
+          this.change(reParams);
+        });
       });
       if (this.stop) {
         ev.stopPropagation();
