@@ -12,9 +12,6 @@ const base: ApiEntity = {
         value,
         loading,
         before: beforeHandle,
-        change: (aaa: any) => {
-          console.log(aaa);
-        },
       },
     });
   },

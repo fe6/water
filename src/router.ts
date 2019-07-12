@@ -188,14 +188,6 @@ export default new Router({
           component: () => import(/* webpackChunkName: "popover" */ './views/demo/Popover.vue'),
         },
         {
-          path: '/tag',
-          name: 'Tag',
-          meta: {
-            title: TITLE.Tag,
-          },
-          component: () => import(/* webpackChunkName: "tag" */ './views/demo/Tag.vue'),
-        },
-        {
           path: '/tooltip',
           name: 'Tooltip',
           meta: {
