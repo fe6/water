@@ -20,7 +20,24 @@
         <div class="w-popconfirm-main">
           <div class="w-popconfirm-core" v-if="$slots.content">
             <Icon className="w-popconfirm-icon">
-              <img src="~assets/image/warning.svg" alt="icon">
+              <svg
+                class="icon"
+                width="16px"
+                height="16px"
+                viewBox="0 0 16 16"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="活动易组件样式1" transform="translate(-1737.000000, -1538.000000)" fill="#FFA430">
+                    <g id="Group-Copy" transform="translate(1717.000000, 1518.000000)">
+                      <g id="Popconfirm">
+                        <path :d="warningPath" />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
             </Icon>
             <div class="w-popconfirm-content">
               <slot name="content"></slot>
@@ -60,6 +77,7 @@ import { mixins } from 'vue-class-component';
 import addDOMEventListener from 'add-dom-event-listener';
 import TransferDom from '@/directives/transfer-dom';
 import docClick from '@/directives/doclick';
+import warningPath from './warning';
 import WButton from '../button/Button.vue';
 import Icon from '../icon/Icon.vue';
 import {
@@ -87,6 +105,8 @@ interface ColorEntity {
   },
 })
 export default class Popconfirm extends mixins(poperMixin) {
+  warningPath: string = warningPath;
+
   status: boolean = false;
 
   resizeEvent: any = null;
