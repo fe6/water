@@ -28,15 +28,7 @@
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g id="活动易组件样式1" transform="translate(-1737.000000, -1538.000000)" fill="#FFA430">
-                    <g id="Group-Copy" transform="translate(1717.000000, 1518.000000)">
-                      <g id="Popconfirm">
-                        <path :d="warningPath" />
-                      </g>
-                    </g>
-                  </g>
-                </g>
+                <path :d="warningPath" fill="#ffa430" />
               </svg>
             </Icon>
             <div class="w-popconfirm-content">
