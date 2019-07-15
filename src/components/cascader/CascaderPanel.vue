@@ -37,7 +37,7 @@ import {
 } from 'vue-property-decorator';
 import docClick from '@/directives/doclick';
 import { noop, noopArray } from '@/helper/noop';
-import { hasOwn, getChildOptions, getCascaderOptions } from '@/helper/o';
+import { hasOwn } from '@/helper/o';
 import WOption from '../select/Option.vue';
 import {
   OptionsEntity,
@@ -45,6 +45,7 @@ import {
   ReturnParamsEntity,
   fieldNamesDefault,
 } from './entity';
+import { getChildOptions, getCascaderOptions } from './helper';
 
 Vue.directive('doc-click', (docClick as any));
 

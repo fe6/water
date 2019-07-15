@@ -3,7 +3,7 @@
     <div class="w-empty-box" :style="imageStyle">
       <img
         class="w-empty-image"
-        :src="image || require('../../assets/image/empty.svg')"
+        :src="image || emptyImage"
         alt="empty"
       />
     </div>
@@ -20,10 +20,13 @@ import {
   Prop,
   Vue,
 } from 'vue-property-decorator';
+import emptyImage from './emptyimage';
 
 @Component
 export default class Empty extends Vue {
   name: string = 'Empty';
+
+  emptyImage: string = emptyImage;
 
   @Prop(String) private image!: string;
 

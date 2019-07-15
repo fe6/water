@@ -116,7 +116,7 @@ import { mixins } from 'vue-class-component';
 import addDOMEventListener from 'add-dom-event-listener';
 import TransferDom from '@/directives/transfer-dom';
 import docClick from '@/directives/doclick';
-import { hasOwn, objToPath, getValueByLabel } from '@/helper/o';
+import { hasOwn } from '@/helper/o';
 import { findEnabled } from '@/helper/option';
 import { noop } from '@/helper/noop';
 import {
@@ -132,6 +132,7 @@ import poperMixin from '@/helper/popermixin';
 import WCascaderPanel from './CascaderPanel.vue';
 import WCascaderRender from './cascader-render';
 import WCascaderSearch from './cascader-search';
+import { objToPath, getValueByLabel } from './helper';
 
 Vue.directive('transfer-dom', (TransferDom as any));
 
