@@ -37,6 +37,7 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable */
 import {
   Component,
   Model,
