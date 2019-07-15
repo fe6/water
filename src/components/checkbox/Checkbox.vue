@@ -37,7 +37,6 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable */
 import {
   Component,
   Model,
@@ -111,13 +110,10 @@ export default class Checkbox extends Vue {
       || (isNumber(this.value) && isNumber(this.label))
       || (isString(this.value) && isString(this.label))
     ) {
-      console.log(this.value, 'water value 1');
       this.status = this.value === this.label;
     }
 
-    console.log(this.label, isUndefined(this.label), 'water value 2');
     if (isBoolean(this.value) && isUndefined(this.label)) {
-      console.log(this.value, 'water value 2');
       this.status = this.value;
     }
   }
@@ -167,7 +163,6 @@ export default class Checkbox extends Vue {
 
   @Emit('model')
   changeStatus(): string | number | boolean {
-    console.log(this.disabled, this.status, 'this.disabled');
     if (this.disabled) {
       return this.status;
     }
@@ -175,7 +170,6 @@ export default class Checkbox extends Vue {
     if (!isUndefined(this.label) && this.status) {
       return this.label;
     }
-    console.log(this.disabled, this.status, '111 this.disabled');
     return this.status;
   }
 }
