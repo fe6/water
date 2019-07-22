@@ -60,11 +60,15 @@ $placehoder-color: rgba(0, 0, 0, 0.25);
   }
 
   &-large {
+    @extend .w-input;
+
     padding: 10px 8px;
     height: 32px;
   }
 
   &-small {
+    @extend .w-input;
+
     padding: 6px 8px;
     height: 24px;
   }

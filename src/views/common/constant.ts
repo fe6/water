@@ -24,5 +24,6 @@ export const TITLE = {
   Select: 'Select 选择器',
   Spin: 'Spin 加载中',
   Switch: 'Switch 开关',
+  Tag: 'Tag 标签',
   Tooltip: 'Tooltip 文字提示',
 };
