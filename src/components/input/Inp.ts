@@ -59,10 +59,7 @@ export default class Inp extends Vue {
 
   render(h: Function): VNode {
     return h('input', {
-      class: [
-        'w-input',
-        this.classList,
-      ],
+      class: this.classList,
       attrs: {
         type: this.type,
         placeholder: this.placeholder,
