@@ -206,10 +206,7 @@ export default class Page extends Vue {
     default: noop,
   }) private change?: Function;
 
-  @Prop({
-    type: Function,
-    default(): void {},
-  }) private showTotal?: Function;
+  @Prop(Function) private showTotal?: Function;
 
   get isNormalMode(): boolean {
     return !this.simple;
@@ -269,7 +266,8 @@ export default class Page extends Vue {
   }
 
   get totalText(): number {
-    return (this.showTotal as Function)(
+    const showTotal = this.showTotal || noop;
+    return showTotal(
       {
         total: this.total,
         range: [
