@@ -151,7 +151,6 @@
 </template>
 
 <script lang="ts">
-import 'reflect-metadata';
 import {
   Component,
   Model,
@@ -207,9 +206,12 @@ export default class Page extends Vue {
     default: noop,
   }) private change?: Function;
 
-  @Prop()
-  @Reflect.metadata('design:type', Function)
-  private showTotal?: Function;
+  @Prop({
+    type: Function,
+    default() {
+      return noop;
+    },
+  }) private showTotal?: Function;
 
   get isNormalMode(): boolean {
     return !this.simple;
@@ -269,8 +271,7 @@ export default class Page extends Vue {
   }
 
   get totalText(): number {
-    const { showTotal = noop } = this;
-    return showTotal(
+    return (this.showTotal as Function)(
       {
         total: this.total,
         range: [
