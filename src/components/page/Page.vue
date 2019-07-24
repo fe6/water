@@ -151,6 +151,7 @@
 </template>
 
 <script lang="ts">
+import 'reflect-metadata';
 import {
   Component,
   Model,
@@ -206,6 +207,7 @@ export default class Page extends Vue {
     default: noop,
   }) private change?: Function;
 
+  @Reflect.metadata('design:type', Function)
   @Prop({
     type: Function,
     default: noop,
