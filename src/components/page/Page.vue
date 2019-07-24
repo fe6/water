@@ -209,7 +209,7 @@ export default class Page extends Vue {
   @Prop({
     type: Function,
     default() {
-      return noop;
+      return () => {};
     },
   }) private showTotal?: Function;
 
