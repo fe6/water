@@ -208,9 +208,7 @@ export default class Page extends Vue {
 
   @Prop({
     type: Function,
-    default() {
-      return () => {};
-    },
+    default(): void {},
   }) private showTotal?: Function;
 
   get isNormalMode(): boolean {
