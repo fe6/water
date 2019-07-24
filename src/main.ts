@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import Vue from 'vue';
 import VueCodemirror from 'vue-codemirror';
 
