@@ -79,8 +79,8 @@ describe('Page.vue', () => {
       try {
         wrapperTotal.setProps({ total: 100 });
         expect(wrapperTotal.vm.totalNumber).toBe(100);
-        wrapperTotal.setProps({ showTotal: {} });
-        wrapperTotal.setProps({ showTotal: { showTotal: () => '1' } });
+        wrapperTotal.setProps({ showTotal: () => 1 });
+        expect(wrapperTotal.vm.$options.props.showTotal.validator('showTotal')).toBeFalsy();
         done();
       } catch (err) {
         done.fail(err);
