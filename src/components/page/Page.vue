@@ -271,8 +271,7 @@ export default class Page extends Vue {
   }
 
   get totalText(): number {
-    const { showTotal = noop } = this;
-    return showTotal(
+    return (this.showTotal as Function)(
       {
         total: this.total,
         range: [
