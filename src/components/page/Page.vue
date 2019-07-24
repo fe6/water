@@ -207,8 +207,9 @@ export default class Page extends Vue {
     default: noop,
   }) private change?: Function;
 
+  @Prop()
   @Reflect.metadata('design:type', Function)
-  @Prop() private showTotal?: Function;
+  private showTotal?: Function;
 
   get isNormalMode(): boolean {
     return !this.simple;
