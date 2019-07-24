@@ -163,6 +163,11 @@ import { noop } from '@/helper/noop';
 import WInput from '../input/Input.vue';
 import WButton from '../button/Button.vue';
 import WButtonGroup from '../button/ButtonGroup.vue';
+import { isFunction } from '../../helper/type';
+
+interface ShowTotalEntity {
+  showTotal: Function;
+}
 
 @Component({
   components: {
@@ -206,7 +211,14 @@ export default class Page extends Vue {
     default: noop,
   }) private change?: Function;
 
-  @Prop(Function) private showTotal?: Function;
+  @Prop({
+    type: Object,
+    default() {
+      return {
+        showTotal() {},
+      };
+    },
+  }) private showTotal?: ShowTotalEntity;
 
   get isNormalMode(): boolean {
     return !this.simple;
@@ -265,9 +277,9 @@ export default class Page extends Vue {
             );
   }
 
-  get totalText(): number {
-    const showTotal = this.showTotal || noop;
-    return showTotal(
+  get totalText(): string {
+    const { showTotal } = (this.showTotal as any);
+    return isFunction(showTotal) ? showTotal(
       {
         total: this.total,
         range: [
@@ -275,7 +287,7 @@ export default class Page extends Vue {
           this.itemEnd,
         ],
       },
-    );
+    ) : '';
   }
 
   mounted() {
