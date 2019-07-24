@@ -208,10 +208,7 @@ export default class Page extends Vue {
   }) private change?: Function;
 
   @Reflect.metadata('design:type', Function)
-  @Prop({
-    type: Function,
-    default: noop,
-  }) private showTotal?: Function;
+  @Prop() private showTotal?: Function;
 
   get isNormalMode(): boolean {
     return !this.simple;
@@ -271,7 +268,8 @@ export default class Page extends Vue {
   }
 
   get totalText(): number {
-    return (this.showTotal as Function)(
+    const { showTotal = noop } = this;
+    return showTotal(
       {
         total: this.total,
         range: [
