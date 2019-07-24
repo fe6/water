@@ -214,7 +214,9 @@ export default class Page extends Vue {
   @Prop({
     type: Object,
     default() {
-      return {};
+      return {
+        showTotal() {},
+      };
     },
   }) private showTotal?: ShowTotalEntity;
 
