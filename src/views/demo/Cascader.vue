@@ -16,24 +16,28 @@
           :jsCode="base.js"
           :title="base.title"
           :desc="base.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="diy.code"
           :jsCode="diy.js"
           :title="diy.title"
           :desc="diy.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="disabled.code"
           :jsCode="disabled.js"
           :title="disabled.title"
           :desc="disabled.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="render.code"
           :jsCode="render.js"
           :title="render.title"
           :desc="render.desc"
+          iframeHeight="200px"
         ></OnlineReview>
       </WCol>
       <WCol :span="12">
@@ -42,24 +46,28 @@
           :jsCode="def.js"
           :title="def.title"
           :desc="def.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="size.code"
           :jsCode="size.js"
           :title="size.title"
           :desc="size.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="search.code"
           :jsCode="search.js"
           :title="search.title"
           :desc="search.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="loading.code"
           :jsCode="loading.js"
           :title="loading.title"
           :desc="loading.desc"
+          iframeHeight="200px"
         ></OnlineReview>
       </WCol>
     </WRow>

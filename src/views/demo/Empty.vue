@@ -15,12 +15,14 @@
           :render="base.render"
           :title="base.title"
           :desc="base.desc"
+          iframeHeight="240px"
         ></OnlineReview>
         <OnlineReview
           :temCode="image.code"
           :render="image.render"
           :title="image.title"
           :desc="image.desc"
+          iframeHeight="240px"
         ></OnlineReview>
       </WCol>
     </WRow>
