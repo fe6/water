@@ -19,13 +19,14 @@
           :temCode="loading.code"
           :title="loading.title"
           :desc="loading.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="newtag.code"
           :jsCode="newtag.js"
           :title="newtag.title"
           :desc="newtag.desc"
-          :data="{ newTags: newTags, newtagLoading: newtagLoading, beforeHandle: beforeHandle, }"
+          iframeHeight="200px"
         ></OnlineReview>
       </WCol>
       <WCol :span="12">
@@ -33,13 +34,13 @@
           :temCode="size.code"
           :title="size.title"
           :desc="size.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="color.code"
-          :jsCOde="color.js"
+          :jsCode="color.js"
           :title="color.title"
-          :desc="color.desc"
-          :data="{ allColors: allColors, sectionColors: sectionColors }"
+          iframeHeight="260px"
         ></OnlineReview>
       </WCol>
     </WRow>
@@ -111,59 +112,6 @@ export default class TagView extends Vue {
   loading: ApiEntity = loading;
 
   newtag: ApiEntity = newtag;
-
-  newtagLoading: boolean = false;
-
-  newTags: any[] = [{
-    value: '不可删除',
-    closable: false,
-  }];
-
-  sectionColors: any[] = [{
-    color: '#eb2f96',
-    loading: false,
-  },
-  {
-    color: '#f5222d',
-    loading: false,
-  },
-  {
-    color: '#fa541c',
-    loading: false,
-  },
-  {
-    color: '#fa8c16',
-    loading: false,
-  }];
-
-  allColors: any = [{
-    color: '#eb2f96',
-    loading: false,
-  }, {
-    color: '#f5222d',
-    loading: false,
-  }, {
-    color: '#fa8c16',
-    loading: false,
-  }, {
-    color: '#faad14',
-    loading: false,
-  }];
-
-  change({ attr, value }: ChangeParamsEntity) {
-    (this as any)[attr] = value;
-  }
-
-  beforeHandle() {
-    this.newtagLoading = true;
-
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        this.newtagLoading = false;
-        resolve();
-      }, 1000);
-    });
-  }
 
   props: PropsEntity[] = props;
 

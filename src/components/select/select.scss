@@ -36,10 +36,21 @@ $move-time: 0.4s;
 
     &-search {
       width: 100%;
-      height: 30px;
+      height: 26px;
+      line-height: 26px;
       padding: 0;
       border: none;
       display: block;
+
+      &-large {
+        height: 30px;
+        line-height: 30px;
+      }
+  
+      &-small {
+        height: 22px;
+        line-height: 22px;
+      }
 
       &:focus {
         outline: none;

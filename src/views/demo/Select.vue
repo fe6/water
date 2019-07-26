@@ -15,42 +15,49 @@
           :jsCode="base.js"
           :title="base.title"
           :desc="base.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="tag.code"
           :jsCode="tag.js"
           :title="tag.title"
           :desc="tag.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="diy.code"
           :jsCode="diy.js"
           :title="diy.title"
           :desc="diy.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="multiplesearch.code"
           :jsCode="multiplesearch.js"
           :title="multiplesearch.title"
           :desc="multiplesearch.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="loading.code"
           :jsCode="loading.js"
           :title="loading.title"
           :desc="loading.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="basesize.code"
           :jsCode="basesize.js"
           :title="basesize.title"
           :desc="basesize.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="basedisabled.code"
           :jsCode="basedisabled.js"
           :title="basedisabled.title"
           :desc="basedisabled.desc"
+          iframeHeight="200px"
         ></OnlineReview>
       </WCol>
       <WCol :span="12">
@@ -59,36 +66,42 @@
           :jsCode="multiple.js"
           :title="multiple.title"
           :desc="multiple.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="basesearch.code"
           :jsCode="basesearch.js"
           :title="basesearch.title"
           :desc="basesearch.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="tagsearch.code"
           :jsCode="tagsearch.js"
           :title="tagsearch.title"
           :desc="tagsearch.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="prefix.code"
           :jsCode="prefix.js"
           :title="prefix.title"
           :desc="prefix.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="multiplesize.code"
           :jsCode="multiplesize.js"
           :title="multiplesize.title"
           :desc="multiplesize.desc"
+          iframeHeight="200px"
         ></OnlineReview>
         <OnlineReview
           :temCode="tagdisabled.code"
           :jsCode="tagdisabled.js"
           :title="tagdisabled.title"
           :desc="tagdisabled.desc"
+          iframeHeight="200px"
         ></OnlineReview>
       </WCol>
     </WRow>
