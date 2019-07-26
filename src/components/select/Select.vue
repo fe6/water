@@ -8,6 +8,9 @@
   >
     <input
       class="w-select-single-search"
+      :class="{
+        [`w-select-single-search-${size}`]: size,
+      }"
       type="text"
       ref="single"
       :placeholder="result"
