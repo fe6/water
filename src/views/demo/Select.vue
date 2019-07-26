@@ -10,120 +10,86 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
+          :jsCode="base.js"
           :title="base.title"
           :desc="base.desc"
-          :data="{ value: baseValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="tag.code"
-          :render="tag.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="tag.code"
+          :jsCode="tag.js"
           :title="tag.title"
           :desc="tag.desc"
-          :data="{ value: tagValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="diy.code"
-          :render="diy.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="diy.code"
+          :jsCode="diy.js"
           :title="diy.title"
           :desc="diy.desc"
-          :data="{ value: diyValue, options: diyOptions }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="multiplesearch.code"
-          :render="multiplesearch.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="multiplesearch.code"
+          :jsCode="multiplesearch.js"
           :title="multiplesearch.title"
           :desc="multiplesearch.desc"
-          :data="{ value: multiplesearchValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="loading.code"
-          :render="loading.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="loading.code"
+          :jsCode="loading.js"
           :title="loading.title"
           :desc="loading.desc"
-          :data="{ value: loadingValue, loading: loadingStatus, beforeHandle: beforeHandle }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="basesize.code"
-          :render="basesize.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="basesize.code"
+          :jsCode="basesize.js"
           :title="basesize.title"
           :desc="basesize.desc"
-          :data="{ value: basesizeValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="basedisabled.code"
-          :render="basedisabled.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="basedisabled.code"
+          :jsCode="basedisabled.js"
           :title="basedisabled.title"
           :desc="basedisabled.desc"
-          :data="{ value: basedisabledValue }"
-          @changeHandle="change"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="slot.code"
-          :render="slot.render"
-          :title="slot.title"
-          :desc="slot.desc"
-          :data="{ value: slotValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="multiple.code"
-          :render="multiple.render"
+        <OnlineReview
+          :temCode="multiple.code"
+          :jsCode="multiple.js"
           :title="multiple.title"
           :desc="multiple.desc"
-          :data="{ value: multipleValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="basesearch.code"
-          :render="basesearch.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="basesearch.code"
+          :jsCode="basesearch.js"
           :title="basesearch.title"
           :desc="basesearch.desc"
-          :data="{ value: basesearchValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="tagsearch.code"
-          :render="tagsearch.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="tagsearch.code"
+          :jsCode="tagsearch.js"
           :title="tagsearch.title"
           :desc="tagsearch.desc"
-          :data="{ value: tagsearchValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="prefix.code"
-          :render="prefix.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="prefix.code"
+          :jsCode="prefix.js"
           :title="prefix.title"
           :desc="prefix.desc"
-          :data="{ value: prefixValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="multiplesize.code"
-          :render="multiplesize.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="multiplesize.code"
+          :jsCode="multiplesize.js"
           :title="multiplesize.title"
           :desc="multiplesize.desc"
-          :data="{ value: multiplesizeValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="tagdisabled.code"
-          :render="tagdisabled.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="tagdisabled.code"
+          :jsCode="tagdisabled.js"
           :title="tagdisabled.title"
           :desc="tagdisabled.desc"
-          :data="{ value: tagdisabledValue }"
-          @changeHandle="change"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Select API</h2>
@@ -135,15 +101,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import cloneDeep from 'lodash/cloneDeep';
 import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
-import base, { defaultDatas, DataEntity } from '@/views/code/select/base';
-import slot from '@/views/code/select/slot';
+import base from '@/views/code/select/base';
 import tag from '@/views/code/select/tag';
 import multiple from '@/views/code/select/multiple';
 import diy from '@/views/code/select/diy';
@@ -171,7 +135,7 @@ interface ParamsEntity {
     WCol,
     ApiTable,
     MethodTable,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class SelectView extends Vue {
@@ -179,83 +143,32 @@ export default class SelectView extends Vue {
 
   base: ApiEntity = base;
 
-  baseValue: string = ''; // 苹果
-
-  slot: ApiEntity = slot;
-
-  slotValue: string = '苹果';
-
   tag: ApiEntity = tag;
-
-  tagValue: string[] = ['苹果'];
 
   multiple: ApiEntity = multiple;
 
-  multipleValue: string[] = ['苹果'];
-
   diy: ApiEntity = diy;
-
-  diyOptions: DataEntity[] = cloneDeep(defaultDatas);
-
-  diyValue: string = '更多';
 
   basesearch: ApiEntity = basesearch;
 
-  basesearchValue: string = '更多';
-
   multiplesearch: ApiEntity = multiplesearch;
-
-  multiplesearchValue: string[] = ['更多'];
 
   tagsearch: ApiEntity = tagsearch;
 
-  tagsearchValue: string[] = ['更多'];
-
   loading: ApiEntity = loading;
-
-  loadingStatus: boolean = false;
-
-  loadingValue: string = '更多';
 
   prefix: ApiEntity = prefix;
 
-  prefixValue: string = '更多';
-
   basesize: ApiEntity = basesize;
-
-  basesizeValue: string = '';
 
   multiplesize: ApiEntity = multiplesize;
 
-  multiplesizeValue: string[] = ['苹果', '鸭梨'];
-
   basedisabled: ApiEntity = basedisabled;
 
-  basedisabledValue: string = '苹果';
-
   tagdisabled: ApiEntity = tagdisabled;
-
-  tagdisabledValue: string[] = ['苹果', '鸭梨'];
 
   props: PropsEntity[] = props;
 
   methods: MethodsEntity[] = methods;
-
-  change({ attr, value }: ParamsEntity) {
-    (this as any)[attr] = value;
-  }
-
-  beforeHandle() {
-    this.loadingStatus = true;
-    return new Promise((resolve) => {
-      /* eslint-disable no-alert */
-      setTimeout(() => {
-        this.loadingStatus = false;
-        if (window.confirm('你确定选择吗？')) {
-          resolve();
-        }
-      }, 1000);
-    });
-  }
 }
 </script>

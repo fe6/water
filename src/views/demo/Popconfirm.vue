@@ -7,36 +7,36 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
+          :jsCode="base.js"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="modal.code"
-          :render="modal.render"
+          iframeHeight="200px"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="modal.code"
+          :jsCode="modal.js"
           :title="modal.title"
           :desc="modal.desc"
-          :data="{ value: modalValue }"
-          @changeHandle="change"
-        ></WDemo>
+          iframeHeight="260px"
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="before.code"
-          :render="before.render"
+        <OnlineReview
+          :temCode="before.code"
+          :jsCode="before.js"
           :title="before.title"
           :desc="before.desc"
-          :data="{ value: beforeValue, loading: beforeStatus, beforeHandle: beforeHandle }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="pos.code"
-          :render="pos.render"
+          iframeHeight="200px"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="pos.code"
+          :jsCode="pos.js"
           :title="pos.title"
           :desc="pos.desc"
-        ></WDemo>
+          iframeHeight="200px"
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Popconfirm API</h2>
@@ -52,7 +52,7 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/popconfirm/base';
 import modal from '@/views/code/popconfirm/modal';
@@ -62,19 +62,13 @@ import { props, methods } from '@/views/api/popconfirm';
 import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
-interface ParamsEntity {
-  attr: string;
-  value: string;
-  ctx?: any;
-}
-
 @Component({
   components: {
     WRow,
     WCol,
     ApiTable,
     MethodTable,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class PopconfirmView extends Vue {
@@ -84,35 +78,12 @@ export default class PopconfirmView extends Vue {
 
   modal: ApiEntity = modal;
 
-  modalValue: boolean = false;
-
   before: ApiEntity = before;
-
-  beforeValue: boolean = true;
-
-  beforeStatus: boolean = false;
 
   pos: ApiEntity = pos;
 
   props: PropsEntity[] = props;
 
   methods: MethodsEntity[] = methods;
-
-  change({ attr, value }: ParamsEntity) {
-    (this as any)[attr] = value;
-  }
-
-  beforeHandle() {
-    this.beforeStatus = true;
-    return new Promise((resolve) => {
-      /* eslint-disable no-alert */
-      setTimeout(() => {
-        this.beforeStatus = false;
-        if (window.confirm('你确定选择吗？')) {
-          resolve();
-        }
-      }, 1000);
-    });
-  }
 }
 </script>

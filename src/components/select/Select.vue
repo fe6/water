@@ -64,6 +64,7 @@
       }" v-else-if="!name || name.length < 1">{{placeholder}}</div>
     <div class="w-select-result" :class="{
       [`w-select-result-${size}`]: size,
+      [`w-select-result-disabled`]: disabled,
       }" v-else>{{prefix}}{{result}}{{suffix}}</div>
     <i :class="{
       ['w-select-loading']: loading,

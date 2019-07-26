@@ -7,58 +7,49 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="cap.code"
-          :render="cap.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="cap.code"
           :title="cap.title"
           :desc="cap.desc"
-        ></WDemo>
-        <WDemo
-          :code="model.code"
-          :render="model.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="model.code"
+          :jsCode="model.js"
           :title="model.title"
           :desc="model.desc"
-          :data="{ value: clickValue, changeHandle: clickChange }"
-          :changeHandle="clickChange"
-        ></WDemo>
-        <WDemo
-          :code="status.code"
-          :render="status.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="status.code"
           :title="status.title"
           :desc="status.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="number.code"
-          :render="number.render"
+        <OnlineReview
+          :temCode="number.code"
           :title="number.title"
           :desc="number.desc"
-        ></WDemo>
-        <WDemo
-          :code="click.code"
-          :render="click.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="click.code"
           :title="click.title"
           :desc="click.desc"
-        ></WDemo>
-        <WDemo
-          :code="dot.code"
-          :render="dot.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="dot.code"
           :title="dot.title"
           :desc="dot.desc"
-        ></WDemo>
-        <WDemo
-          :code="color.code"
-          :render="color.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="color.code"
           :title="color.title"
           :desc="color.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Badge API</h2>
@@ -71,7 +62,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/badge/base';
 import number from '@/views/code/badge/number';
@@ -90,7 +81,7 @@ import { TITLE } from '@/views/common/constant';
     ApiTable,
     WRow,
     WCol,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class BadgeView extends Vue {
@@ -113,13 +104,6 @@ export default class BadgeView extends Vue {
   color: ApiEntity = color;
 
   props: PropsEntity[] = props;
-
-  clickValue: number = 2;
-
-  clickChange(step: number) {
-    console.log(step, 'type');
-    this.clickValue = this.clickValue + step;
-  }
 }
 </script>
 

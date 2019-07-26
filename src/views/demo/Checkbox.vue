@@ -13,38 +13,38 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
+          :jsCode="base.js"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="color.code"
-          :render="color.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="color.code"
+          :jsCode="color.js"
           :title="color.title"
           :desc="color.desc"
-        ></WDemo>
-        <WDemo
-          :code="group.code"
-          :render="group.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="group.code"
+          :jsCode="group.js"
           :title="group.title"
           :desc="group.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="disabled.code"
-          :render="disabled.render"
+        <OnlineReview
+          :temCode="disabled.code"
+          :jsCode="disabled.js"
           :title="disabled.title"
           :desc="disabled.desc"
-        ></WDemo>
-        <WDemo
-          :code="indeterminate.code"
-          :render="indeterminate.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="indeterminate.code"
+          :jsCode="indeterminate.js"
           :title="indeterminate.title"
           :desc="indeterminate.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Checkbox API</h2>
@@ -64,7 +64,7 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/checkbox/base';
 import disabled from '@/views/code/checkbox/disabled';
@@ -86,7 +86,7 @@ import { TITLE } from '@/views/common/constant';
     WCol,
     ApiTable,
     MethodTable,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class CheckboxView extends Vue {

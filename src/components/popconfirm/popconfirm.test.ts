@@ -18,18 +18,19 @@ describe('Popconfirm.vue', () => {
   it('test function', (done) => {
     testFn.vm.$nextTick(() => {
       try {
-        testFn.vm.bodyClick({ type: 'click' });
+        testFn.vm.bodyClick({ ev: { type: 'click' } });
         jest.runOnlyPendingTimers();
         testFn.setProps({ value: true });
-        testFn.vm.bodyClick({ type: 'click' });
+        testFn.vm.bodyClick({ ev: { type: 'click' } });
         jest.runOnlyPendingTimers();
-        testFn.vm.changeStatus({ type: 'click' }, 'ok');
-        testFn.vm.okFn({ type: 'click' });
-        testFn.vm.cancelFn({ type: 'click' }, 'cancel');
+        testFn.vm.changeStatus({ ev: { type: 'click' } }, 'ok');
+        testFn.vm.okFn({ ev: { type: 'click' } });
+        testFn.vm.cancelFn({ ev: { type: 'click' } }, 'cancel');
         testFn.setProps({ loading: true });
-        testFn.vm.cancelFn({ type: 'click' }, 'cancel');
+        testFn.vm.cancelFn({ ev: { type: 'click' } }, 'cancel');
         testFn.destroy();
         testFn.vm.setStatus(false, false);
+        testFn.vm.popoverClick({ stopPropagation: () => {} });
         done();
       } catch (err) {
         done.fail(err);

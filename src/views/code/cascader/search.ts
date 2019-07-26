@@ -1,16 +1,18 @@
 import { ApiEntity } from '@/views/entity/demoentity';
-import { codeCommon, renderCommon } from '@/views/code/cascader/base';
+import { codeCommon, defaultDatas } from '@/views/code/cascader/base';
 
 const base: ApiEntity = {
   title: '搜索',
   desc: '添加 <code>search</code> 属性即可。',
-  code: codeCommon({ attr: 'changeOnSelect :value="[]"' }),
-  render: (h: Function, context: any) => renderCommon(h, context, {
-    attr: 'searchValue',
-    props: {
-      search: true,
+  code: codeCommon({ attr: 'search ' }),
+  js: `
+  {
+    data() {
+      return {
+        defaultDatas: ${JSON.stringify(defaultDatas)}
+      };
     },
-  }),
+  }`,
 };
 
 export default base;

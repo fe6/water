@@ -10,40 +10,37 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="loading.code"
-          :render="loading.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="loading.code"
           :title="loading.title"
           :desc="loading.desc"
-        ></WDemo>
-        <WDemo
-          :code="newtag.code"
-          :render="newtag.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="newtag.code"
+          :jsCode="newtag.js"
           :title="newtag.title"
           :desc="newtag.desc"
           :data="{ newTags: newTags, newtagLoading: newtagLoading, beforeHandle: beforeHandle, }"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="size.code"
-          :render="size.render"
+        <OnlineReview
+          :temCode="size.code"
           :title="size.title"
           :desc="size.desc"
-        ></WDemo>
-        <WDemo
-          :code="color.code"
-          :render="color.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="color.code"
+          :jsCOde="color.js"
           :title="color.title"
           :desc="color.desc"
           :data="{ allColors: allColors, sectionColors: sectionColors }"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Tag API</h2>
@@ -65,7 +62,7 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/tag/base';
 import size from '@/views/code/tag/size';
@@ -99,7 +96,7 @@ interface ChangeParamsEntity {
     WCol,
     ApiTable,
     MethodTable,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class TagView extends Vue {

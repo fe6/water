@@ -60,6 +60,8 @@ export default class Button extends Vue {
 
   clicked: boolean = false;
 
+  clickEvent: any = null;
+
   @Prop(String) private type?: string;
 
   @Prop(String) private size?: string;
@@ -104,6 +106,7 @@ export default class Button extends Vue {
 
   clickFn(ev: MouseEvent) {
     this.clicked = !this.loading;
+    this.clickEvent = ev;
     if (this.stop) {
       ev.stopPropagation();
     }
@@ -114,11 +117,13 @@ export default class Button extends Vue {
     this.clicked = false;
 
     const reParams = {
-      ev,
+      ev: this.clickEvent,
+      animEvent: ev,
       key: this.$vnode.key,
     };
-
     (this.click as Function)(reParams);
+
+    this.clickEvent = null;
 
     return reParams;
   }

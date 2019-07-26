@@ -1,64 +1,18 @@
-import Badge from '@/components/badge/Badge.vue';
-import Icon from '@/components/icon/Icon.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
+import { linkStyle } from '@/views/code/badge/base';
 
 const base: ApiEntity = {
   title: '小红点',
   desc: '没有具体的数字。',
-  code: `<w-badge :value="1" dot>
-  <a href="#" />
+  code: `<w-badge dot :value="1" style="margin-right: 16px;">
+  <a href="#" style="${linkStyle}"></a>
 </w-badge>
-<w-badge :value="1" dot>
-  <w-icon />
+<w-badge dot :value="1" style="margin-right: 16px;">
+  <w-icon></w-icon>
 </w-badge>
-<w-badge :value="1" dot>
+<w-badge dot :value="1" style="margin-right: 16px;">
   <a href="#">Link something</a>
 </w-badge>`,
-  render: (h: Function) => h(
-    'section',
-    {
-      class: 'demo-demo',
-    },
-    [
-      h(Badge, {
-        class: 'badge',
-        props: {
-          value: 1,
-          dot: true,
-        },
-      }, [
-        h('a', {
-          class: 'badge-link',
-          attrs: {
-            href: '#',
-          },
-        }),
-      ]),
-      h(Badge, {
-        class: 'badge',
-        props: {
-          value: 1,
-          dot: true,
-        },
-      }, [
-        h(Icon),
-      ]),
-      h(Badge, {
-        class: 'badge',
-        props: {
-          value: 1,
-          dot: true,
-        },
-      }, [
-        h('a', {
-          class: 'link',
-          attrs: {
-            href: '#',
-          },
-        }, 'Link something'),
-      ]),
-    ],
-  ),
 };
 
 export default base;

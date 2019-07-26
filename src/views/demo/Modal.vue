@@ -6,73 +6,56 @@
     <p>需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 <code>Modal</code> 在当前页面正中打开一个浮层，承载相应的操作。</p>
     <h2>代码演示</h2>
     <WRow :gutter="16">
-      <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+      <WCol :span="24">
+        <OnlineReview
+          :temCode="base.code"
+          :jsCode="base.js"
           :title="base.title"
           :desc="base.desc"
-          :data="{ value: baseStatus }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="before.code"
-          :render="before.render"
+          iframeHeight="300px"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="before.code"
+          :jsCode="before.js"
           :title="before.title"
           :desc="before.desc"
-          :data="{ value: beforeStatus, loading: beforeLoading, beforeHandle: beforeHandle }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="content.code"
-          :render="content.render"
+          iframeHeight="300px"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="content.code"
+          :jsCode="content.js"
           :title="content.title"
           :desc="content.desc"
-          :data="{ value: contentStatus }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="esc.code"
-          :render="esc.render"
+          iframeHeight="300px"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="esc.code"
+          :jsCode="esc.js"
           :title="esc.title"
           :desc="esc.desc"
-          :data="{ value: escStatus }"
-          @changeHandle="change"
-        ></WDemo>
-      </WCol>
-      <WCol :span="12">
-        <WDemo
-          :code="diy.code"
-          :render="diy.render"
+          iframeHeight="300px"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="diy.code"
+          :jsCode="diy.js"
           :title="diy.title"
           :desc="diy.desc"
-          :data="{ value: diyStatus, textStatus: diyTextStatus }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="style.code"
-          :render="style.render"
+          iframeHeight="300px"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="style.code"
+          :jsCode="style.js"
           :title="style.title"
           :desc="style.desc"
-          :data="{ value: styleStatus }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="mask.code"
-          :render="mask.render"
+          iframeHeight="300px"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="mask.code"
+          :jsCode="mask.js"
           :title="mask.title"
           :desc="mask.desc"
-          :data="{ value: maskStatus }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="click.code"
-          :render="click.render"
-          :title="click.title"
-          :desc="click.desc"
-          :data="{ value: clickStatus }"
-          @changeHandle="change"
-        ></WDemo>
+          iframeHeight="300px"
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Modal API</h2>
@@ -88,7 +71,7 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/modal/base';
 import diy from '@/views/code/modal/diy';
@@ -97,7 +80,6 @@ import style from '@/views/code/modal/style';
 import content from '@/views/code/modal/content';
 import mask from '@/views/code/modal/mask';
 import esc from '@/views/code/modal/esc';
-import click from '@/views/code/modal/click';
 import { props, methods } from '@/views/api/modal';
 import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
@@ -113,7 +95,7 @@ interface ParamsEntity {
     MethodTable,
     WRow,
     WCol,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class ModalView extends Vue {
@@ -121,72 +103,20 @@ export default class ModalView extends Vue {
 
   base: ApiEntity = base;
 
-  baseStatus: boolean = false;
-
   diy: ApiEntity = diy;
-
-  diyStatus: boolean = false;
-
-  diyTextStatus: boolean = false;
 
   before: ApiEntity = before;
 
-  beforeStatus: boolean = false;
-
-  beforeLoading: boolean = false;
-
   style: ApiEntity = style;
-
-  styleStatus: boolean = false;
 
   content: ApiEntity = content;
 
-  contentStatus: boolean = false;
-
   mask: ApiEntity = mask;
 
-  maskStatus: boolean = false;
-
   esc: ApiEntity = esc;
-
-  escStatus: boolean = false;
-
-  click: ApiEntity = click;
-
-  clickStatus: boolean = false;
 
   props: PropsEntity[] = props;
 
   methods: MethodsEntity[] = methods;
-
-  change({ attr, status }: ParamsEntity) {
-    if (status) {
-      this.open(attr);
-    } else {
-      this.close(attr);
-    }
-  }
-
-  open(attr: string) {
-    (this as any)[attr] = true;
-  }
-
-  close(attr: string) {
-    (this as any)[attr] = false;
-  }
-
-  beforeHandle() {
-    /* eslint-disable no-alert */
-    this.beforeLoading = true;
-
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        this.beforeLoading = false;
-        if (window.confirm('你确定选择吗？')) {
-          resolve();
-        }
-      }, 1000);
-    });
-  }
 }
 </script>

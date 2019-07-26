@@ -10,34 +10,29 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="modal.code"
-          :render="modal.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="modal.code"
+          :jsCode="modal.js"
           :title="modal.title"
           :desc="modal.desc"
-          :data="{ value: modalValue }"
-          @changeHandle="change"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="diy.code"
-          :render="diy.render"
+        <OnlineReview
+          :temCode="diy.code"
           :title="diy.title"
           :desc="diy.desc"
-        ></WDemo>
-        <WDemo
-          :code="pos.code"
-          :render="pos.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="pos.code"
           :title="pos.title"
           :desc="pos.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Tooltip API</h2>
@@ -53,7 +48,7 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/tooltip/base';
 import diy from '@/views/code/tooltip/diy';
@@ -63,19 +58,13 @@ import { props, methods } from '@/views/api/tooltip';
 import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
-interface ParamsEntity {
-  attr: string;
-  value: string;
-  ctx?: any;
-}
-
 @Component({
   components: {
     WRow,
     WCol,
     ApiTable,
     MethodTable,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class TooltipView extends Vue {
@@ -87,17 +76,11 @@ export default class TooltipView extends Vue {
 
   modal: ApiEntity = modal;
 
-  modalValue: boolean = false;
-
   pos: ApiEntity = pos;
 
   props: PropsEntity[] = props;
 
   methods: MethodsEntity[] = methods;
-
-  change({ attr, value }: ParamsEntity) {
-    (this as any)[attr] = value;
-  }
 }
 </script>
 

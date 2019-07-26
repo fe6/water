@@ -10,18 +10,18 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="24">
-        <WDemo
-          :code="base.code"
+        <OnlineReview
+          :temCode="base.code"
           :render="base.render"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="image.code"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="image.code"
           :render="image.render"
           :title="image.title"
           :desc="image.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Empty API</h2>
@@ -34,7 +34,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/empty/base';
 import image from '@/views/code/empty/image';
@@ -47,7 +47,7 @@ import { TITLE } from '@/views/common/constant';
     ApiTable,
     WRow,
     WCol,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class EmptyView extends Vue {

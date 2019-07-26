@@ -10,38 +10,34 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="icon.code"
-          :render="icon.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="icon.code"
           :title="icon.title"
           :desc="icon.desc"
-        ></WDemo>
-        <WDemo
-          :code="disabled.code"
-          :render="disabled.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="disabled.code"
           :title="disabled.title"
           :desc="disabled.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="size.code"
-          :render="size.render"
+        <OnlineReview
+          :temCode="size.code"
           :title="size.title"
           :desc="size.desc"
-        ></WDemo>
-        <WDemo
-          :code="error.code"
-          :render="error.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="error.code"
+          :jsCode="error.js"
           :title="error.title"
           :desc="error.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Input API</h2>
@@ -57,7 +53,7 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/input/base';
 import size from '@/views/code/input/size';
@@ -74,7 +70,7 @@ import { TITLE } from '@/views/common/constant';
     WCol,
     ApiTable,
     MethodTable,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class InputView extends Vue {
