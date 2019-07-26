@@ -7,46 +7,40 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="color.code"
-          :render="color.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="color.code"
           :title="color.title"
           :desc="color.desc"
-        ></WDemo>
-        <WDemo
-          :code="basesize.code"
-          :render="basesize.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="basesize.code"
           :title="basesize.title"
           :desc="basesize.desc"
-        ></WDemo>
-        <WDemo
-          :code="tip.code"
-          :render="tip.render"
-          :title="tip.title"
-          :desc="tip.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="region.code"
-          :render="region.render"
+        <OnlineReview
+          :temCode="region.code"
+          :jsCode="region.js"
           :title="region.title"
           :desc="region.desc"
-        ></WDemo>
-        <WDemo
-          :code="regionsize.code"
-          :render="regionsize.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="regionsize.code"
+          :jsCode="regionsize.js"
           :title="regionsize.title"
           :desc="regionsize.desc"
-          :data="{ value: regionsizeStatus }"
-          @changeHandle="change"
-        ></WDemo>
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="tip.code"
+          :title="tip.title"
+          :desc="tip.desc"
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Spin API</h2>
@@ -60,7 +54,7 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/spin/base';
 import basesize from '@/views/code/spin/basesize';
@@ -78,7 +72,7 @@ import { TITLE } from '@/views/common/constant';
     WCol,
     ApiTable,
     MethodTable,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class SpinView extends Vue {
@@ -96,13 +90,6 @@ export default class SpinView extends Vue {
 
   regionsize: ApiEntity = regionsize;
 
-  regionsizeStatus: boolean = true;
-
   props: PropsEntity[] = props;
-
-  change(status: boolean) {
-    console.log(status, 'sss');
-    this.regionsizeStatus = status;
-  }
 }
 </script>

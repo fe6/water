@@ -9,7 +9,7 @@
   &-text {
     display: inline-block;
     vertical-align: middle;
-    line-height: 28px;
+    line-height: 32px;
     font-size: 12px;
     color: $text-color;
     font-family: $family;
@@ -24,6 +24,12 @@
 
     width: 48px !important;
     margin: 0 8px !important;
+    height: 32px;
     color: $text-color;
+
+    &-sm {
+      height: 24px;
+      line-height: 24px;
+    }
   }
 }

@@ -25,6 +25,9 @@ import RadioGroup from './radio/RadioGroup.vue';
 import Select from './select/Select.vue';
 import Spin from './spin/Spin.vue';
 import Switch from './switch/Switch.vue';
+import Tag from './tag/Tag.vue';
+import CheckTag from './tag/CheckTag.vue';
+import NewTag from './tag/NewTag.vue';
 import Tooltip from './tooltip/Tooltip.vue';
 
 const waterCpt = {
@@ -54,6 +57,9 @@ const waterCpt = {
   Select,
   Spin,
   Switch,
+  Tag,
+  CheckTag,
+  NewTag,
   Tooltip,
 };
 

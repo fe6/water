@@ -7,30 +7,30 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
+        <OnlineReview
+          :temCode="base.code"
           :render="base.render"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="href.code"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="href.code"
           :render="href.render"
           :title="href.title"
           :desc="href.desc"
-        ></WDemo>
-        <WDemo
-          :code="icon.code"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="icon.code"
           :render="icon.render"
           :title="icon.title"
           :desc="icon.desc"
-        ></WDemo>
-        <WDemo
-          :code="size.code"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="size.code"
           :render="size.render"
           :title="size.title"
           :desc="size.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
         <WDemo
@@ -39,24 +39,24 @@
           :title="to.title"
           :desc="to.desc"
         ></WDemo>
-        <WDemo
-          :code="target.code"
+        <OnlineReview
+          :temCode="target.code"
           :render="target.render"
           :title="target.title"
           :desc="target.desc"
-        ></WDemo>
-        <WDemo
-          :code="loading.code"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="loading.code"
           :render="loading.render"
           :title="loading.title"
           :desc="loading.desc"
-        ></WDemo>
-        <WDemo
-          :code="disabled.code"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="disabled.code"
           :render="disabled.render"
           :title="disabled.title"
           :desc="disabled.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Link API</h2>
@@ -70,6 +70,7 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
 import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/link/base';
 import to from '@/views/code/link/to';
@@ -89,6 +90,7 @@ import { TITLE } from '@/views/common/constant';
     WRow,
     WCol,
     WDemo,
+    OnlineReview,
   },
 })
 export default class LinkView extends Vue {

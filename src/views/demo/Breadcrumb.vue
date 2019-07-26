@@ -11,38 +11,28 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="open.code"
-          :render="open.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="open.code"
           :title="open.title"
           :desc="open.desc"
-        ></WDemo>
-        <WDemo
-          :code="separator.code"
-          :render="separator.render"
-          :title="separator.title"
-          :desc="separator.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="href.code"
-          :render="href.render"
-          :title="href.title"
-          :desc="href.desc"
-        ></WDemo>
-        <WDemo
-          :code="icon.code"
-          :render="icon.render"
+        <OnlineReview
+          :temCode="icon.code"
           :title="icon.title"
           :desc="icon.desc"
-        ></WDemo>
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="separator.code"
+          :title="separator.title"
+          :desc="separator.desc"
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Breadcrumb API</h2>
@@ -55,12 +45,11 @@ import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/breadcrumb/base';
 import icon from '@/views/code/breadcrumb/icon';
 import open from '@/views/code/breadcrumb/open';
-import href from '@/views/code/breadcrumb/href';
 import separator from '@/views/code/breadcrumb/separator';
 import { props } from '@/views/api/breadcrumb';
 import { PropsEntity } from '@/views/entity/apientity';
@@ -71,7 +60,7 @@ import { TITLE } from '@/views/common/constant';
     ApiTable,
     WRow,
     WCol,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class BreadcrumbView extends Vue {
@@ -82,8 +71,6 @@ export default class BreadcrumbView extends Vue {
   icon: ApiEntity = icon;
 
   open: ApiEntity = open;
-
-  href: ApiEntity = href;
 
   separator: ApiEntity = separator;
 

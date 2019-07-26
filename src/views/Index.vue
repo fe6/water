@@ -22,7 +22,7 @@
     </header>
     <div class="layout-main">
       <WRow>
-        <WCol :xs="12" :sm="8" :md="7" :lg="6" :xl="4">
+        <WCol :xs="12" :sm="10" :md="8" :lg="6" :xl="5" :xxl="4">
           <section
             class="layout-menu"
             :style="menuStyle"

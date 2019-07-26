@@ -129,6 +129,10 @@ $move-time: 0.4s;
     &-large {
       line-height: 30px;
     }
+
+    &-disabled {
+      color: $disabled-color;
+    }
   }
 
   &-arrow {
@@ -158,7 +162,7 @@ $move-time: 0.4s;
     &::before {
       width: 12px;
       height: 12px;
-      top: 9px;
+      top: 7px;
       right: 12px;
     }
   }

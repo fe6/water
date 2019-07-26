@@ -11,77 +11,56 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
+          :jsCode="base.js"
           :title="base.title"
           :desc="base.desc"
-          :data="{ value: baseValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="diy.code"
-          :render="diy.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="diy.code"
+          :jsCode="diy.js"
           :title="diy.title"
           :desc="diy.desc"
-          :data="{ value: diyValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="disabled.code"
-          :render="disabled.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="disabled.code"
+          :jsCode="disabled.js"
           :title="disabled.title"
           :desc="disabled.desc"
-          :data="{ value: disabledValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="render.code"
-          :render="render.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="render.code"
+          :jsCode="render.js"
           :title="render.title"
           :desc="render.desc"
-          :data="{ value: renderValue }"
-          @changeHandle="change"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="def.code"
-          :render="def.render"
+        <OnlineReview
+          :temCode="def.code"
+          :jsCode="def.js"
           :title="def.title"
           :desc="def.desc"
-          :data="{ value: defValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="size.code"
-          :render="size.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="size.code"
+          :jsCode="size.js"
           :title="size.title"
           :desc="size.desc"
-          :data="{ value: sizeValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="search.code"
-          :render="search.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="search.code"
+          :jsCode="search.js"
           :title="search.title"
           :desc="search.desc"
-          :data="{ value: searchValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="loading.code"
-          :render="loading.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="loading.code"
+          :jsCode="loading.js"
           :title="loading.title"
           :desc="loading.desc"
-          :data="{
-            value: loadingValue,
-            options: loadingOptions,
-            loading: loadingStatus,
-            beforeHandle: beforeHandle,
-          }"
-          @changeHandle="loadingChange"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Cascader API</h2>
@@ -97,7 +76,7 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/cascader/base';
 import def from '@/views/code/cascader/def';
@@ -123,7 +102,7 @@ interface ParamsEntity {
     WCol,
     ApiTable,
     MethodTable,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class CascaderView extends Vue {
@@ -131,104 +110,22 @@ export default class CascaderView extends Vue {
 
   base: ApiEntity = base;
 
-  baseValue: string[] = [];
-
   def: ApiEntity = def;
-
-  defValue: string[] = ['Jiangsu', 'Nanjing', 'West1 Lake'];
 
   diy: ApiEntity = diy;
 
-  diyValue: string[] = [];
-
   disabled: ApiEntity = disabled;
-
-  disabledValue: string[] = [];
 
   size: ApiEntity = size;
 
-  sizeValue: string[] = [];
-
   render: ApiEntity = render;
-
-  renderValue: string[] = [];
 
   search: ApiEntity = search;
 
-  searchValue: string[] = [];
-
   loading: ApiEntity = loading;
-
-  loadingStatus: boolean = false;
-
-  loadingOptions: any[] = [];
-
-  loadingValue: string[] = [];
-
-  loadingGetDataTime: number = 1;
 
   props: PropsEntity[] = props;
 
   methods: MethodsEntity[] = methods;
-
-  change({ attr, value }: ParamsEntity) {
-    (this as any)[attr] = value;
-  }
-
-  loadingChange({ attr, value, ctx }: ParamsEntity) {
-    const {
-      options,
-      item,
-      index,
-      ev,
-    } = ctx;
-    (this as any)[attr] = value;
-    if (this.loadingGetDataTime) {
-      this.loadingGetDataTime = 0;
-      options.splice(index, 1, {
-        ...item,
-        loading: true,
-      });
-      setTimeout(() => {
-        options.splice(index, 1, {
-          ...item,
-          loading: false,
-          children: [
-            {
-              value: 'dongcheng',
-              label: 'Dong Cheng',
-              code: 300392,
-            },
-          ],
-        });
-      }, 2000);
-      ev.stopPropagation();
-    }
-  }
-
-  beforeHandle() {
-    if (!this.loadingOptions.length) {
-      this.loadingStatus = true;
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          this.loadingOptions.push({
-            value: 'beijing',
-            label: 'Beijing',
-            code: 300392,
-          });
-          this.loadingOptions.push({
-            value: 'nanjing',
-            label: 'Nanjing',
-            code: 300392,
-          });
-          this.loadingStatus = false;
-          resolve();
-        }, 2000);
-      });
-    }
-    return new Promise((resolve) => {
-      resolve();
-    });
-  }
 }
 </script>

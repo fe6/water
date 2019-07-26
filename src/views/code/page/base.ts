@@ -3,7 +3,7 @@ import Page from '@/components/page/Page.vue';
 
 interface PropEntity {
   total?: number;
-  showTotal?: Function;
+  showTotal?: any;
   simple?: boolean;
 }
 

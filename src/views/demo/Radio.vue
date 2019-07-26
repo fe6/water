@@ -10,52 +10,38 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
+          :jsCode="base.js"
           :title="base.title"
           :desc="base.desc"
-          :data="{ value: baseValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="color.code"
-          :render="color.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="color.code"
+          :jsCode="color.js"
           :title="color.title"
           :desc="color.desc"
-          :data="{ value: colorValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="group.code"
-          :render="group.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="group.code"
+          :jsCode="group.js"
           :title="group.title"
           :desc="group.desc"
-          :data="{ value: groupValue }"
-          @changeHandle="change"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="disabled.code"
-          :render="disabled.render"
+        <OnlineReview
+          :temCode="disabled.code"
+          :jsCode="disabled.js"
           :title="disabled.title"
           :desc="disabled.desc"
-          :data="{ value: baseValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="before.code"
-          :render="before.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="before.code"
+          :jsCode="before.js"
           :title="before.title"
           :desc="before.desc"
-          :data="{
-            datas: myLoadingDatas,
-            value: beforeValue,
-            beforeHandle: beforeHandle,
-          }"
-          @changeHandle="change"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Radio API</h2>
@@ -75,11 +61,11 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
-import base, { DataEntity } from '@/views/code/radio/base';
+import base from '@/views/code/radio/base';
 import disabled from '@/views/code/radio/disabled';
-import before, { myLoadingDatas } from '@/views/code/radio/before';
+import before from '@/views/code/radio/before';
 import color from '@/views/code/radio/color';
 import group from '@/views/code/radio/group';
 import {
@@ -91,32 +77,13 @@ import {
 import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
-interface GroupOptsEntity {
-  value: string;
-  age: string;
-  label: string;
-  disabled?: boolean;
-  more?: boolean;
-}
-
-interface ParamsEntity {
-  ev: MouseEvent;
-  value: string | number | boolean;
-  label: string | number | boolean;
-}
-
-interface ChangeParamsEntity {
-  attr: string;
-  value: string;
-}
-
 @Component({
   components: {
     WRow,
     WCol,
     ApiTable,
     MethodTable,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class RadioView extends Vue {
@@ -132,8 +99,6 @@ export default class RadioView extends Vue {
 
   group: ApiEntity = group;
 
-  myLoadingDatas: DataEntity[] = myLoadingDatas;
-
   props: PropsEntity[] = props;
 
   methods: MethodsEntity[] = methods;
@@ -141,37 +106,5 @@ export default class RadioView extends Vue {
   groupProps: PropsEntity[] = groupProps;
 
   groupMethods: MethodsEntity[] = groupMethods;
-
-  baseValue: string = '苹果';
-
-  colorValue: string = '更多';
-
-  beforeValue: string = '鸭梨';
-
-  groupValue: string = '鸭梨';
-
-  change({ attr, value }: ChangeParamsEntity) {
-    (this as any)[attr] = value;
-  }
-
-  beforeHandle({ label }: ParamsEntity) {
-    const opt = this.myLoadingDatas.find((data: any) => data.label === label);
-    const optIndex = this.myLoadingDatas.findIndex((data: any) => data.label === label);
-    /* eslint-disable no-alert */
-    this.myLoadingDatas.splice(optIndex, 1, Object.assign(opt, {
-      loading: true,
-    }));
-
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        this.myLoadingDatas.splice(optIndex, 1, Object.assign(opt, {
-          loading: false,
-        }));
-        if (window.confirm('你确定选择吗？')) {
-          resolve();
-        }
-      }, 1000);
-    });
-  }
 }
 </script>

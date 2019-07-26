@@ -82,7 +82,7 @@ export default class WSwitch extends Vue {
     }
   }
 
-  @Emit('modal')
+  @Emit('model')
   @Watch('value')
   setStatus(value: boolean): boolean {
     this.status = value;

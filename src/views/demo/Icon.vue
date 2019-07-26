@@ -5,32 +5,32 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
+        <OnlineReview
+          :temCode="base.code"
           :render="base.render"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="color.code"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="color.code"
           :render="color.render"
           :title="color.title"
           :desc="color.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="spin.code"
+        <OnlineReview
+          :temCode="spin.code"
           :render="spin.render"
           :title="spin.title"
           :desc="spin.desc"
-        ></WDemo>
-        <WDemo
-          :code="diy.code"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="diy.code"
           :render="diy.render"
           :title="diy.title"
           :desc="diy.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Icon API</h2>
@@ -43,7 +43,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/icon/base';
 import spin from '@/views/code/icon/spin';
@@ -58,7 +58,7 @@ import { TITLE } from '@/views/common/constant';
     ApiTable,
     WRow,
     WCol,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class IconView extends Vue {

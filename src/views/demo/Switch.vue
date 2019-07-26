@@ -14,45 +14,39 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="disabled.code"
-          :render="disabled.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="disabled.code"
           :title="disabled.title"
           :desc="disabled.desc"
-        ></WDemo>
-        <WDemo
-          :code="size.code"
-          :render="size.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="size.code"
           :title="size.title"
           :desc="size.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="loading.code"
-          :render="loading.render"
+        <OnlineReview
+          :temCode="loading.code"
           :title="loading.title"
           :desc="loading.desc"
-        ></WDemo>
-        <WDemo
-          :code="icon.code"
-          :render="icon.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="icon.code"
           :title="icon.title"
           :desc="icon.desc"
-        ></WDemo>
-        <WDemo
-          :code="before.code"
-          :render="before.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="before.code"
+          :jsCode="before.js"
           :title="before.title"
           :desc="before.desc"
-          :data="{ value: beforeValue, loading: beforeStatus , beforeHandle: beforeHandle }"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Switch API</h2>
@@ -68,7 +62,7 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/switch/base';
 import loading from '@/views/code/switch/loading';
@@ -86,7 +80,7 @@ import { TITLE } from '@/views/common/constant';
     WCol,
     ApiTable,
     MethodTable,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class SwitchView extends Vue {
@@ -104,25 +98,8 @@ export default class SwitchView extends Vue {
 
   before: ApiEntity = before;
 
-  beforeValue: boolean = true;
-
-  beforeStatus: boolean = false;
-
   props: PropsEntity[] = props;
 
   methods: MethodsEntity[] = methods;
-
-  beforeHandle() {
-    this.beforeStatus = true;
-    return new Promise((resolve) => {
-      /* eslint-disable no-alert */
-      setTimeout(() => {
-        this.beforeStatus = false;
-        if (window.confirm('你确定选择吗？')) {
-          resolve();
-        }
-      }, 1000);
-    });
-  }
 }
 </script>

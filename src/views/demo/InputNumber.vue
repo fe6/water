@@ -7,69 +7,54 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="12">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
+          :jsCode="base.js"
           :title="base.title"
           :desc="base.desc"
-          :data="{ value: baseValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="size.code"
-          :render="size.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="size.code"
+          :jsCode="size.js"
           :title="size.title"
           :desc="size.desc"
-          :data="{ value: sizeValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="formatter.code"
-          :render="formatter.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="formatter.code"
+          :jsCode="formatter.js"
           :title="formatter.title"
           :desc="formatter.desc"
-          :data="{ value: formatterValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="animate.code"
-          :render="animate.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="animate.code"
           :title="animate.title"
           :desc="animate.desc"
-          :data="{ value: animateValue }"
-          @changeHandle="change"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
       <WCol :span="12">
-        <WDemo
-          :code="decimal.code"
-          :render="decimal.render"
+        <OnlineReview
+          :temCode="decimal.code"
+          :jsCode="decimal.js"
           :title="decimal.title"
           :desc="decimal.desc"
-          :data="{ value: decimalValue }"
-          @changeHandle="change"
-        ></WDemo>
-        <WDemo
-          :code="disabled.code"
-          :render="disabled.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="disabled.code"
           :title="disabled.title"
           :desc="disabled.desc"
-          :data="{ value: 1 }"
-        ></WDemo>
-        <WDemo
-          :code="readonly.code"
-          :render="readonly.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="readonly.code"
+          :jsCode="readonly.js"
           :title="readonly.title"
           :desc="readonly.desc"
-          :data="{ value: 1 }"
-        ></WDemo>
-        <WDemo
-          :code="precision.code"
-          :render="precision.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="precision.code"
+          :jsCode="precision.js"
           :title="precision.title"
           :desc="precision.desc"
-          :data="{ value: precisionValue }"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Input API</h2>
@@ -85,7 +70,7 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/inputnumber/base';
 import decimal from '@/views/code/inputnumber/decimal';
@@ -99,18 +84,13 @@ import { props, methods } from '@/views/api/inputnumber';
 import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
-interface ChangeParamsEntity {
-  attr: string;
-  value: string;
-}
-
 @Component({
   components: {
     WRow,
     WCol,
     ApiTable,
     MethodTable,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class InputNumberView extends Vue {
@@ -118,40 +98,22 @@ export default class InputNumberView extends Vue {
 
   base: ApiEntity = base;
 
-  baseValue: number = 1;
-
   decimal: ApiEntity = decimal;
 
-  decimalValue: number | string = '';
-
   size: ApiEntity = size;
-
-  sizeValue: number = 3;
 
   disabled: ApiEntity = disabled;
 
   formatter: ApiEntity = formatter;
 
-  formatterValue: number = 12345678;
-
   readonly: ApiEntity = readonly;
-
-  readonlyValue: number = 3;
 
   animate: ApiEntity = animate;
 
-  animateValue: number = 30;
-
   precision: ApiEntity = precision;
-
-  precisionValue: number = 15.123;
 
   props: PropsEntity[] = props;
 
   methods: MethodsEntity[] = methods;
-
-  change({ attr, value }: ChangeParamsEntity) {
-    (this as any)[attr] = value;
-  }
 }
 </script>

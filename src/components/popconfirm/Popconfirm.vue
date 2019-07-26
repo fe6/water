@@ -15,6 +15,7 @@
         v-show="status"
         v-transfer-dom="getContainer && getContainer()"
         :data-transfer="transfer"
+        @click="popoverClick($event)"
       >
         <i class="w-popconfirm-arrow" :class="arrowClass"></i>
         <div class="w-popconfirm-main">
@@ -39,6 +40,7 @@
             <w-button
               class="w-popconfirm-button"
               size="small"
+              :stop="true"
               type="border"
               @click="cancelFn($event)"
             >{{cancelText}}</w-button>
@@ -235,13 +237,13 @@ export default class Popconfirm extends mixins(poperMixin) {
     }
   }
 
-  cancelFn(ev: MouseEvent) {
+  cancelFn({ ev }: any) {
     if (!this.loading) {
       this.changeStatus(ev, 'cancel');
     }
   }
 
-  okFn(ev: MouseEvent) {
+  okFn({ ev }: any) {
     this.before().then(() => {
       this.$nextTick(() => {
         this.changeStatus(ev, 'ok');
@@ -253,6 +255,10 @@ export default class Popconfirm extends mixins(poperMixin) {
     this.triggerHandle(ev);
     ((this as any)[type] as Function)(this.status);
     this.$emit(type, this.status);
+  }
+
+  popoverClick(ev: MouseEvent) {
+    ev.stopPropagation();
   }
 
   @Watch('value')

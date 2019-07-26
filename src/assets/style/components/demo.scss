@@ -10,12 +10,16 @@
     border: 1px solid $normal-border;
     border-radius: 4px;
     transition: all 0.2s;
+
+    & iframe {
+      width: 100%;
+      border: none;
+    }
   }
 
   &-demo {
     padding: 42px 24px 50px;
     color: rgba(0, 0, 0, 0.65);
-    border-bottom: 1px solid $normal-border;
   }
 
   &-deep {
@@ -30,6 +34,7 @@
     line-height: 2;
     border-radius: 0 0 4px 4px;
     transition: background-color 0.4s;
+    border-top: 1px solid $normal-border;
   }
 
   &-title {
@@ -55,15 +60,59 @@
     opacity: 0.7;
     transition: opacity 0.3s;
     height: 40px;
+    position: relative;
+
+    &-on {
+      border-bottom: 1px solid $normal-border;
+    }
+
+    &-btn {
+      padding: 0 8px;
+    }
+
+    &-run {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $red-6
+    }
   }
 
   &-core {
     display: -none;
     overflow: auto;
     border-radius: 0 0 4px 4px;
+  }
 
-    &-inner {
-      border-top: 1px solid $normal-border;
+  &-nav {
+    height: 40px;
+    border-bottom: 1px solid $normal-border;
+    display: flex;
+    position: relative;
+
+    &-btn {
+      line-height: 40px;
+      font-size: 12px;
+      font-family: $family;
+      color: $text-color;
+      text-decoration: none;
+      padding: 0 24px;
+      border-right: 1px solid $normal-border;
+
+      &-on {
+        color: $blue-6;
+      }
+    }
+
+    &-run {
+      @extend .demo-nav-btn;
+
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-right: none;
+      color: $red-6
     }
   }
 }

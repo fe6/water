@@ -13,54 +13,46 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="24">
-        <WDemo
-          :code="base.code"
-          :render="base.render"
+        <OnlineReview
+          :temCode="base.code"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="gutter.code"
-          :render="gutter.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="gutter.code"
           :title="gutter.title"
           :desc="gutter.desc"
-        ></WDemo>
-        <WDemo
-          :code="offset.code"
-          :render="offset.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="offset.code"
           :title="offset.title"
           :desc="offset.desc"
-        ></WDemo>
-        <WDemo
-          :code="sort.code"
-          :render="sort.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="sort.code"
           :title="sort.title"
           :desc="sort.desc"
-        ></WDemo>
-        <WDemo
-          :code="justify.code"
-          :render="justify.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="justify.code"
           :title="justify.title"
           :desc="justify.desc"
-        ></WDemo>
-        <WDemo
-          :code="align.code"
-          :render="align.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="align.code"
           :title="align.title"
           :desc="align.desc"
-        ></WDemo>
-        <WDemo
-          :code="order.code"
-          :render="order.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="order.code"
           :title="order.title"
           :desc="order.desc"
-        ></WDemo>
-        <WDemo
-          :code="media.code"
-          :render="media.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="media.code"
           :title="media.title"
           :desc="media.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Row API</h2>
@@ -75,7 +67,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/grid/base';
 import gutter from '@/views/code/grid/gutter';
@@ -94,7 +86,7 @@ import { TITLE } from '@/views/common/constant';
     ApiTable,
     WRow,
     WCol,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class GridView extends Vue {

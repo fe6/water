@@ -10,52 +10,48 @@
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="24">
-        <WDemo
-          :code="base.code"
+        <OnlineReview
+          :temCode="base.code"
           :render="base.render"
           :title="base.title"
           :desc="base.desc"
-        ></WDemo>
-        <WDemo
-          :code="more.code"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="more.code"
           :render="more.render"
           :title="more.title"
           :desc="more.desc"
-        ></WDemo>
-        <WDemo
-          :code="change.code"
-          :render="change.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="change.code"
+          :jsCode="change.js"
           :title="change.title"
           :desc="change.desc"
-          :data="{ value: changeSize }"
-          @changeHandle="changeFn"
-        ></WDemo>
-        <WDemo
-          :code="jump.code"
-          :render="jump.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="jump.code"
+          :jsCode="jump.js"
           :title="jump.title"
           :desc="jump.desc"
-          :data="{ value: jumpNumber }"
-          @changeHandle="changeFn"
-        ></WDemo>
-        <WDemo
-          :code="size.code"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="size.code"
           :render="size.render"
           :title="size.title"
           :desc="size.desc"
-        ></WDemo>
-        <WDemo
-          :code="total.code"
-          :render="total.render"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="total.code"
+          :jsCode="total.js"
           :title="total.title"
           :desc="total.desc"
-        ></WDemo>
-        <WDemo
-          :code="simple.code"
+        ></OnlineReview>
+        <OnlineReview
+          :temCode="simple.code"
           :render="simple.render"
           :title="simple.title"
           :desc="simple.desc"
-        ></WDemo>
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Page API</h2>
@@ -75,7 +71,7 @@ import ApiTable from '@/views/components/ApiTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
+import OnlineReview from '@/views/components/OnlineReview.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 import base from '@/views/code/page/base';
 import more from '@/views/code/page/more';
@@ -104,7 +100,7 @@ interface ChangeParamsEntity {
     MethodTable,
     WRow,
     WCol,
-    WDemo,
+    OnlineReview,
   },
 })
 export default class PageView extends Vue {

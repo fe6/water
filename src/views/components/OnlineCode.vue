@@ -5,7 +5,9 @@
         ['code-mirror']: border,
         ['code-auto']: height,
       }"
-      v-model="code"
+      @ready="onCmReady"
+      @cursorActivity="onCmCursorActivity"
+      v-model="codeValue"
       :options="cmOptions"
     ></codemirror>
   </div>
@@ -16,6 +18,7 @@ import {
   Component,
   Model,
   Prop,
+  Emit,
   Vue,
 } from 'vue-property-decorator';
 import 'codemirror/mode/vue/vue';
@@ -26,16 +29,26 @@ import 'codemirror/theme/xq-light.css';
 interface CmOptionsEntity {
   mode: string;
   theme: string;
+  gutters: string[],
+  autoCloseTags: boolean,
+  autoCloseBrackets: boolean,
+  lint: boolean,
   lineNumbers: boolean;
   line: boolean;
   styleActiveLine: boolean;
-  readOnly: boolean;
   annotateScrollbar: boolean;
+  showToken: any;
+  matchTags: any;
+  tabSize: number;
   scrollbarStyle: string;
 }
 
 @Component
 export default class Code extends Vue {
+  codemirror: any = null;
+
+  codeValue: string = '';
+
   @Model('model', { type: String }) readonly code!: string;
 
   @Prop({ type: String, default: 'vue' }) private lang!: string;
@@ -63,13 +76,35 @@ export default class Code extends Vue {
     return {
       styleActiveLine: true,
       lineNumbers: true,
+      autoCloseTags: true,
+      autoCloseBrackets: true,
       line: true,
+      tabSize: 2,
       mode: `text/${this.getLang}`,
       theme: 'xq-light',
-      readOnly: true,
+      gutters: ['CodeMirror-lint-markers'],
+      lint: true,
+      showToken: /\w/,
       annotateScrollbar: true,
+      matchTags: { bothTags: true },
       scrollbarStyle: 'simple',
     };
+  }
+
+  created() {
+    this.codeValue = this.code;
+  }
+
+  @Emit('mounted')
+  onCmReady(codemirror: any) {
+    this.codemirror = codemirror;
+    return codemirror;
+  }
+
+  @Emit('change')
+  onCmCursorActivity(codemirror: any) {
+    this.codemirror = codemirror;
+    return codemirror;
   }
 }
 </script>
