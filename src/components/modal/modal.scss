@@ -111,3 +111,40 @@ $move-time: 0.3s;
     margin: 10px;
   }
 }
+
+.w-confirm {
+  position: absolute;
+
+  & .w-modal-body {
+    padding: 24px 24px 0;
+  }
+  & .w-modal-footer {
+    border-top: none;
+    padding: 20px 24px;
+  }
+
+  &-icon {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+  }
+
+  &-title,
+  &-content {
+    font-family: $family;
+    padding-left: 36px;
+  }
+
+  &-title {
+    color: $text-color;
+    font-size: 14px;
+    line-height: 20px;
+    padding-bottom: 8px;
+  }
+
+  &-content {
+    color: $text-color-light;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
