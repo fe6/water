@@ -30,6 +30,8 @@ import CheckTag from './tag/CheckTag.vue';
 import NewTag from './tag/NewTag.vue';
 import Tooltip from './tooltip/Tooltip.vue';
 
+import confirm from '@/components/modal/confirm';
+
 const waterCpt = {
   Affix,
   Badge,
@@ -69,6 +71,16 @@ const install = (Vue: any) => {
   Object.keys(waterCpt).forEach((key) => {
     Vue.component(`W${key}`, (waterCpt as any)[key]);
   });
+
+  if (!Vue.prototype.$WConfirm) {
+    Object.defineProperties(Vue.prototype, {
+      $WConfirm: {
+        get() {
+          return confirm;
+        },
+      },
+    });
+  }
 };
 
 
