@@ -162,7 +162,7 @@ export default class Select extends mixins(poperMixin) {
 
   resizeEvent: any = null;
 
-  @Model('model', { type: [String, Array] }) readonly value!: [string, string[]];
+  @Model('model', { type: [String, Number, Array] }) readonly value!: [string, number, string[]];
 
   @Prop({
     type: Array,
