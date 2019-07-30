@@ -214,6 +214,11 @@ export default class Select extends mixins(poperMixin) {
   }) private interval!: number;
 
   @Prop({
+    type: Number,
+    default: 1,
+  }) private zIndex!: number;
+
+  @Prop({
     type: Function,
     default() {
       return new Promise((resolve) => {
@@ -374,6 +379,13 @@ export default class Select extends mixins(poperMixin) {
     }
   }
 
+  setIndex() {
+    const { popElem } = this.$refs;
+    if (popElem) {
+      ((popElem as HTMLDivElement).style as any).zIndex = this.zIndex;
+    }
+  }
+
   setInputWidth() {
     this.$nextTick(() => {
       const { pre } = this.$refs;
@@ -390,6 +402,7 @@ export default class Select extends mixins(poperMixin) {
         this.$nextTick(() => {
           setPostion(this, 'select');
           this.setWidth();
+          this.setIndex();
           this.getFocus();
           this.$emit('click', ev);
           this.click(ev);
