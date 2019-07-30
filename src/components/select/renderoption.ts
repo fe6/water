@@ -10,7 +10,7 @@ import { noopArray, noop } from '@/helper/noop';
 export default {
   functional: true,
   props: {
-    name: [String, Array],
+    name: [String, Number, Array],
     slots: {
       type: Array,
       default: noopArray,
