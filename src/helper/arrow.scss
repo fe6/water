@@ -8,4 +8,5 @@
   top: 50%;
   transform: translateY(-6px) rotate(45deg);
   transition: transform 0.4s;
+  box-sizing: content-box;
 }
