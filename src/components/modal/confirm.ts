@@ -52,12 +52,14 @@ export default {
       title,
       cancelText,
       content,
+      okType,
     } = props || {
       cancelable: true,
       okText: '确定',
       cancelText: '取消',
       title: '',
       content: '',
+      okType: '',
     };
 
     const {
@@ -66,7 +68,7 @@ export default {
     } = config || { type: 'confirm', color: '#ffa430' };
 
     this.creatConfirm({
-      okType: '',
+      okType,
       cancelable,
       okText,
       title,
