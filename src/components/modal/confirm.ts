@@ -12,6 +12,12 @@ interface PropsEntity {
   icon: string | Function;
   content: string | Function;
   cancelable: boolean;
+  okable: boolean;
+  maskClosable: boolean;
+  ok: Function;
+  cancel: Function;
+  before: Function;
+  change: Function;
 }
 
 interface ConfigEntity {
@@ -48,18 +54,36 @@ export default {
   confirm(props: PropsEntity, config: ConfigEntity) {
     const {
       cancelable,
+      maskClosable,
+      okable,
       okText,
       title,
       cancelText,
       content,
       okType,
+      ok,
+      cancel,
+      before,
+      change,
     } = props || {
       cancelable: true,
+      maskClosable: true,
+      okable: true,
       okText: '确定',
       cancelText: '取消',
       title: '',
       content: '',
       okType: '',
+      ok() {},
+      cancel() {},
+      before() {
+        return new Promise((resolve) => {
+          (this as any).$nextTick(() => {
+            resolve();
+          });
+        });
+      },
+      change() {},
     };
 
     const {
@@ -69,8 +93,14 @@ export default {
 
     this.creatConfirm({
       okType,
+      okable,
+      maskClosable,
       cancelable,
       okText,
+      ok,
+      cancel,
+      before,
+      change,
       title,
       cancelText,
       icon(h: Function) {
@@ -100,20 +130,38 @@ export default {
   creatConfirm(props: PropsEntity) {
     const {
       okType,
+      okable,
+      maskClosable,
       cancelable,
       okText,
       title,
       cancelText,
       icon,
       content,
+      ok,
+      cancel,
+      before,
+      change,
     } = props || {
       okType: '',
+      okable: true,
+      maskClosable: true,
       cancelable: true,
       okText: '确定',
       cancelText: '取消',
       title: '',
       icon: '',
       content: '',
+      ok() {},
+      cancel() {},
+      before() {
+        return new Promise((resolve) => {
+          (this as any).$nextTick(() => {
+            resolve();
+          });
+        });
+      },
+      change() {},
     };
 
     const Instance = new Vue({
@@ -122,7 +170,13 @@ export default {
           class: 'w-confirm',
           props: {
             okType,
+            maskClosable,
             okText,
+            okable,
+            ok,
+            cancel,
+            before,
+            change,
             cancelable,
             cancelText,
           },

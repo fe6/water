@@ -46,11 +46,19 @@ $move-time: 0.4s;
       height: 24px !important;
     }
 
+    &:hover .w-page-simple-arrow {
+      border-color: $blue-6;
+    }
+
     &-disable {
       background: none !important;
 
       &:hover {
         background: none !important;
+
+        & .w-page-simple-arrow {
+          border-color: $disabled-border;
+        }
       }
 
       & .w-page-simple-arrow {
