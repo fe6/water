@@ -56,12 +56,31 @@
           :desc="mask.desc"
           iframeHeight="300px"
         ></OnlineReview>
+        <OnlineReview
+          :temCode="method.code"
+          :jsCode="method.js"
+          :title="method.title"
+          :desc="method.desc"
+          iframeHeight="300px"
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Modal API</h2>
     <ApiTable :data="props"></ApiTable>
     <h2>Modal Method</h2>
     <MethodTable :data="methods"></MethodTable>
+    <h2>Confirm API</h2>
+    <p>确认弹框 <code>0.13.0</code> 新增。</p>
+    <p>包括</p>
+    <ul>
+      <li><code>$WConfirm.info</code></li>
+      <li><code>$WConfirm.success</code></li>
+      <li><code>$WConfirm.error</code></li>
+      <li><code>$WConfirm.warning</code></li>
+      <li><code>$WConfirm.confirm</code></li>
+    </ul>
+    <p>以上均为一个函数，参数为 object，具体属性如下：</p>
+    <ApiTable :data="confirmProps"></ApiTable>
   </div>
 </template>
 
@@ -80,7 +99,12 @@ import style from '@/views/code/modal/style';
 import content from '@/views/code/modal/content';
 import mask from '@/views/code/modal/mask';
 import esc from '@/views/code/modal/esc';
-import { props, methods } from '@/views/api/modal';
+import method from '@/views/code/modal/method';
+import {
+  props,
+  confirmProps,
+  methods,
+} from '@/views/api/modal';
 import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
@@ -115,7 +139,11 @@ export default class ModalView extends Vue {
 
   esc: ApiEntity = esc;
 
+  method: ApiEntity = method;
+
   props: PropsEntity[] = props;
+
+  confirmProps: PropsEntity[] = confirmProps;
 
   methods: MethodsEntity[] = methods;
 }
