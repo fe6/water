@@ -43,6 +43,7 @@ $checkbox-move-time: 0.5s;
   }
 
   &-status {
+    box-sizing: content-box;
     position: relative;
     display: inline-block;
     vertical-align: middle;
