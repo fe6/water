@@ -12,7 +12,6 @@ $move-time: 0.5s;
   text-decoration: none;
   font-weight: normal;
   transition: opacity $move-time, padding-left $move-time;
-  height: 14px;
   display: inline-block;
   font-size: 0;
 
@@ -32,6 +31,8 @@ $move-time: 0.5s;
   // 循环尺寸
   @each $size, $value in $link-font {
     &#{$size} {
+      height: $value + px;
+
       & .w-link-text {
         font-size: $value + px;
       }
