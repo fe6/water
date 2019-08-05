@@ -2,7 +2,7 @@ import { upperFirst } from 'lodash/string';
 import { ApiEntity } from '@/views/entity/demoentity';
 import { IMAGE, ALT } from '@/views/common/constant';
 
-const sizes = ['', 'large'];
+const sizes = ['', 'large', '16', '18'];
 
 const base: ApiEntity = {
   title: '超链尺寸',
