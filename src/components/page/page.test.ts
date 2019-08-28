@@ -4,7 +4,6 @@ import Page from './Page.vue';
 describe('Page.vue', () => {
   let wrapperModel: any = null;
   let wrapperSimple: any = null;
-  let wrapperTotal: any = null;
   let wrapperSetNow: any = null;
   let wrapperItemEnd: any = null;
   let wrapperMidleSize: any = null;
@@ -19,11 +18,6 @@ describe('Page.vue', () => {
       propsData: {
         value: 1,
         simple: true,
-      },
-    });
-    wrapperTotal = shallowMount(Page, {
-      propsData: {
-        value: 1,
       },
     });
     wrapperSetNow = shallowMount(Page);
@@ -67,18 +61,6 @@ describe('Page.vue', () => {
         wrapperSimple.vm.prevPage();
         expect(wrapperSimple.vm.current).toBe(3);
         wrapperSimple.vm.resetCurrent();
-        done();
-      } catch (err) {
-        done.fail(err);
-      }
-    });
-  });
-
-  it('total', (done) => {
-    wrapperTotal.vm.$nextTick(() => {
-      try {
-        wrapperTotal.setProps({ total: 100 });
-        expect(wrapperTotal.vm.totalNumber).toBe(100);
         done();
       } catch (err) {
         done.fail(err);

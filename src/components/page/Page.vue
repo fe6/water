@@ -224,10 +224,6 @@ export default class Page extends Vue {
     return this.isNormalMode && this.size === 'small';
   }
 
-  get totalNumber(): number {
-    return this.total;
-  }
-
   get pageNumber(): number {
     return Math.ceil(this.total / this.pageSize);
   }
@@ -286,18 +282,18 @@ export default class Page extends Vue {
   }
 
   mounted() {
-    this.setNow(this.value);
+    this.setNow(this.value, false);
   }
 
-  @Emit('change')
-  setNow(value: number): number {
+  setNow(value: number, canEmit: boolean = true) {
     this.current = Math.min(value || 1, this.pageNumber);
     this.current = Math.max(this.current, 1);
 
-    (this.change as Function)(this.current);
-    this.returnModel();
-
-    return this.current;
+    if (canEmit) {
+      (this.change as Function)(this.current);
+      this.$emit('change', this.current);
+      this.returnModel();
+    }
   }
 
   @Emit('model')
@@ -319,14 +315,17 @@ export default class Page extends Vue {
 
   // 改变的时候当前页有可能超出总共页数，所以重置
   @Watch('pageSize')
+  @Watch('total')
   resetCurrent() {
     this.current = 1;
+    this.setNow(this.current, false);
+    this.returnModel();
   }
 
   // 改变的时候当前页有可能超出总共页数，所以重置
   @Watch('value')
   getValue(val: number) {
-    this.setNow(val);
+    this.setNow(val, false);
   }
 }
 </script>
