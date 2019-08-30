@@ -188,6 +188,14 @@ export default new Router({
           component: () => import(/* webpackChunkName: "popover" */ './views/demo/Popover.vue'),
         },
         {
+          path: '/table',
+          name: 'Table',
+          meta: {
+            title: TITLE.Table,
+          },
+          component: () => import(/* webpackChunkName: "table" */ './views/demo/Table.vue'),
+        },
+        {
           path: '/tag',
           name: 'Tag',
           meta: {

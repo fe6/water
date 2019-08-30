@@ -27,7 +27,7 @@ export const codeCommon = ({ attr, content }: CodeCommonParamsEntity = {}): stri
  * @param params {RenderCommonParamsEntity} 自定义配置
  * @return any[]
  */
-export const renderCommon = (h: Function, params: RenderCommonParamsEntity) => h(
+export const renderCommon = (h: Function, aaa: any, params: RenderCommonParamsEntity) => h(
   'section',
   {
     class: 'demo-demo',

@@ -10,4 +10,6 @@ export const isUndefined = (thing: any): boolean => type(thing) === '[object Und
 
 export const isArray = (thing: any): boolean => type(thing) === '[object Array]';
 
+export const isObject = (thing: any): boolean => type(thing) === '[object Object]';
+
 export const isFunction = (thing: any): boolean => type(thing) === '[object Function]';

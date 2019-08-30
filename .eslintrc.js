@@ -32,6 +32,7 @@ module.exports = {
     'no-dupe-keys': 'off',
     'no-console': 'always',
     'no-plusplus': 'off',
+    'import/no-unresolved': 'off',
     'max-len': ['error', {
       code: 100,
       ignoreTrailingComments: true,
