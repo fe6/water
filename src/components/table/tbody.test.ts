@@ -1,12 +1,12 @@
 import { shallowMount } from '@vue/test-utils';
 import { sortCol, sortOptions } from '@/views/code/table/options/sort';
-import TBody from './TBody.vue';
+import Tbody from './Tbody.vue';
 
-describe('TBody.vue', () => {
+describe('Tbody.vue', () => {
   let wrapperModel: any = null;
 
   beforeEach(() => {
-    wrapperModel = shallowMount(TBody, {
+    wrapperModel = shallowMount(Tbody, {
       propsData: {
         options: sortOptions,
         col: sortCol,

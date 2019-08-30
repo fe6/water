@@ -1,29 +1,29 @@
 import { shallowMount } from '@vue/test-utils';
 import { sortCol, sortOptions } from '@/views/code/table/options/sort';
 import { slotCol, slotOptions } from '@/views/code/table/options/slot';
-import THead from './THead.vue';
+import Thead from './Thead.vue';
 
-describe('THead.vue', () => {
+describe('Thead.vue', () => {
   let wrapperModel: any = null;
   let wrapperSlot: any = null;
   let wrapperNoColIndex: any = null;
 
   beforeEach(() => {
-    wrapperModel = shallowMount(THead, {
+    wrapperModel = shallowMount(Thead, {
       propsData: {
         options: sortOptions,
         col: sortCol,
         colIndex: sortCol,
       },
     });
-    wrapperSlot = shallowMount(THead, {
+    wrapperSlot = shallowMount(Thead, {
       propsData: {
         options: slotOptions,
         col: slotCol,
         colIndex: slotCol,
       },
     });
-    wrapperNoColIndex = shallowMount(THead, {
+    wrapperNoColIndex = shallowMount(Thead, {
       propsData: {
         options: slotOptions,
         col: slotCol,
