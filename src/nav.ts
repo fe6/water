@@ -119,6 +119,10 @@ export const nav = [
             title: TITLE.Popover,
           },
           {
+            to: { name: 'Table' },
+            title: TITLE.Table,
+          },
+          {
             to: { name: 'Tag' },
             title: TITLE.Tag,
           },

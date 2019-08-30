@@ -7,7 +7,7 @@ const base: ApiEntity = {
   title: '设置固定距离',
   desc: '可以获得是否固定的状态。',
   code: codeCommon({ attr: ':offsetTop="100"', content: defaultText }),
-  render: (h: Function) => renderCommon(h, {
+  render: (h: Function) => renderCommon(h, null, {
     defaultText,
     props: {
       offsetTop: 100,

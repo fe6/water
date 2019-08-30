@@ -10,12 +10,12 @@ $move-time: 0.3s;
 .w-spin {
   position: relative;
   transform-origin: center;
-  cursor: not-allowed;
   transition: opacity $move-time, color $move-time;
 
   &-active {
     opacity: 0.5;
     filter: blur(0.5px);
+    cursor: not-allowed;
   }
 
   &-icon {
