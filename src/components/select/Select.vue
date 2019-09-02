@@ -72,6 +72,7 @@
     <i :class="{
       ['w-select-loading']: loading,
       ['w-select-arrow']: !loading,
+      [`w-select-arrow-${size}`]: size,
       ['w-select-arrow-active']: !loading && optStatus,
       ['w-select-arrow-disabled']: disabledValue,
     }" v-if="isSingleMode"></i>
