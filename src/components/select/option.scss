@@ -162,8 +162,8 @@ $move-time: 0.4s;
       content: ' ';
       width: 6px;
       height: 6px;
-      border-top: 1px solid rgba(0, 0, 0, 0.45);
-      border-right: 1px solid rgba(0, 0, 0, 0.45);
+      border-top: 1px solid $disabled-color;
+      border-right: 1px solid $disabled-color;
       transform: translateY(-50%) rotate(45deg);
     }
 

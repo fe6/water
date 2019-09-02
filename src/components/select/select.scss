@@ -157,6 +157,18 @@ $move-time: 0.4s;
     transform: translateY(-6px) rotate(45deg);
     transition: transform $move-time;
 
+    &-small {
+      width: 4px;
+      height: 4px;
+      transform: translateY(-4px) rotate(45deg);
+    }
+
+    &-large {
+      width: 8px;
+      height: 8px;
+      transform: translateY(-8px) rotate(45deg);
+    }
+
     &-active {
       transform: translateY(-3px) rotate(-135deg);
     }
