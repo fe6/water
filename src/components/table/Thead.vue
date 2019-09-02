@@ -35,7 +35,7 @@
               height: colItem.rowSpan > 1 && fixed
                 ? `${colItem.rowSpan * height[size || 'default'] - lineHeight}px`
                 : 'auto',
-              textAlign: colItem.rowSpan > 1 ? 'left' : 'center'
+              textAlign: colItem.rowSpan > 0 ? 'left' : 'center'
             }"
             :rowspan="colItem.rowSpan"
             :colspan="colItem.colSpan"

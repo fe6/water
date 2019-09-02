@@ -1,7 +1,7 @@
 @import '../../helper/config.scss';
 
 // 表格边框颜色
-$table-border-color: #e8e8e8;
+$table-border-color: #eaeef5;
 $table-extend-bg: #fbfbfb;
 $td-hover-bg: #e6f7ff;
 $th-hover-bg: #fafafa;
@@ -100,6 +100,7 @@ $th-sorted-bg: #f5f5f5;
     font-size: 12px;
     line-height: 1;
     font-family: $family;
+    color: $text-color-light;
 
     &-small {
       padding: 8px;
@@ -109,6 +110,7 @@ $th-sorted-bg: #f5f5f5;
   &-td {
     border: none;
     transition: background 0.3s ease;
+    font-weight: normal;
 
     &-hover {
       background: $td-hover-bg;
@@ -122,11 +124,11 @@ $th-sorted-bg: #f5f5f5;
   &-th {
     @extend .w-table-td;
 
-    color: $text-color;
     font-weight: 500;
     text-align: left;
     background: $th-hover-bg;
     position: relative;
+    font-weight: bold;
   }
 
   &-sorter {
@@ -201,6 +203,7 @@ $th-sorted-bg: #f5f5f5;
   &-empty {
     padding: 16px 0;
     margin: 0 !important;
+    border-bottom: 1px solid $table-border-color;
 
     &-border {
       border-left: 1px solid $table-border-color;
