@@ -209,7 +209,7 @@ export default class Thead extends Vue {
       this.clearSort(colItem, colIndex);
     }
 
-    if (colItem.sorter && ev) {
+    if ((colItem.sorter || this.showSort) && ev) {
       this.$emit('change', {
         colItem,
         colIndex,
