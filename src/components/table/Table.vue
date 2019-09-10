@@ -44,10 +44,12 @@
                 optItem,
                 optIndex,
                 options,
+                colItem,
               }"
             >
               <slot
                 :name="`header-${slotItem}`"
+                :colItem="colItem"
                 :col="dataIndexCol"
                 :optItem="optItem"
                 :optIndex="optIndex"
@@ -117,14 +119,16 @@
             >
               <template
                 v-for="slotItem in Object.keys($scopedSlots)"
-                v-slot:[slotItem]="{
+                v-slot:[`header-${slotItem}`]="{
                   optItem,
                   optIndex,
                   options,
+                  colItem,
                 }"
               >
                 <slot
                   :name="`header-${slotItem}`"
+                  :colItem="colItem"
                   :col="dataIndexCol"
                   :optItem="optItem"
                   :optIndex="optIndex"
@@ -195,14 +199,16 @@
             >
               <template
                 v-for="slotItem in Object.keys($scopedSlots)"
-                v-slot:[slotItem]="{
+                v-slot:[`header-${slotItem}`]="{
                   optItem,
                   optIndex,
                   options,
+                  colItem,
                 }"
               >
                 <slot
                   :name="`header-${slotItem}`"
+                  :colItem="colItem"
                   :col="dataIndexCol"
                   :optItem="optItem"
                   :optIndex="optIndex"
@@ -419,10 +425,6 @@ export default class Table extends Vue {
       style.overflowY = 'auto';
     }
     return style;
-  }
-
-  mounted() {
-    console.log(this.$scopedSlots, Object.keys(this.$scopedSlots), 'Object.keys($scopedSlots)');
   }
 
   clearSort() {

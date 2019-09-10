@@ -44,6 +44,7 @@
             <span class="w-table-th-title" v-if="colItem.title">{{ colItem.title }}</span>
             <slot
               :optItem="options[colIndex]"
+              :colItem="colItem"
               :optIndex="colIndex"
               :options="options"
               :name="`header-${colItem.dataIndex}`"
