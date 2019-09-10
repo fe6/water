@@ -42,6 +42,13 @@
             @click="sortCol(colItem, colIndex, $event)"
           >
             <span class="w-table-th-title" v-if="colItem.title">{{ colItem.title }}</span>
+            <slot
+              :optItem="options[colIndex]"
+              :optIndex="colIndex"
+              :options="options"
+              :name="`header-${colItem.dataIndex}`"
+              v-else-if="$scopedSlots[`header-${colItem.dataIndex}`]"
+            ></slot>
             <w-render
               :render="colItem.headRender"
               v-if="isFunction(colItem.headRender)"
