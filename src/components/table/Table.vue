@@ -37,7 +37,24 @@
             :size="size"
             @change="theadChange"
             :style="scrollWidthStyle"
-          ></w-thead>
+          >
+            <template
+              v-for="slotItem in Object.keys($scopedSlots)"
+              v-slot:[`header-${slotItem}`]="{
+                optItem,
+                optIndex,
+                options,
+              }"
+            >
+              <slot
+                :name="`header-${slotItem}`"
+                :col="dataIndexCol"
+                :optItem="optItem"
+                :optIndex="optIndex"
+                :options="options"
+              ></slot>
+            </template>
+          </w-thead>
         </div>
         <div
           :class="{
@@ -97,7 +114,24 @@
               :border="border"
               :size="size"
               @change="theadChange"
-            ></w-thead>
+            >
+              <template
+                v-for="slotItem in Object.keys($scopedSlots)"
+                v-slot:[slotItem]="{
+                  optItem,
+                  optIndex,
+                  options,
+                }"
+              >
+                <slot
+                  :name="`header-${slotItem}`"
+                  :col="dataIndexCol"
+                  :optItem="optItem"
+                  :optIndex="optIndex"
+                  :options="options"
+                ></slot>
+              </template>
+            </w-thead>
           </div>
           <div
             :class="{
@@ -114,7 +148,24 @@
               :size="size"
               @changeHover="getHoverIndex"
               :hoverIndex="hoverIndex"
-            ></w-tbody>
+            >
+              <template
+                v-for="slotItem in Object.keys($scopedSlots)"
+                v-slot:[slotItem]="{
+                  optItem,
+                  optIndex,
+                  options,
+                }"
+              >
+                <slot
+                  :name="slotItem"
+                  :col="dataIndexCol"
+                  :optItem="optItem"
+                  :optIndex="optIndex"
+                  :options="options"
+                ></slot>
+              </template>
+            </w-tbody>
           </div>
         </div>
         <!-- fix left end -->
@@ -141,7 +192,24 @@
               :border="border"
               :size="size"
               @change="theadChange"
-            ></w-thead>
+            >
+              <template
+                v-for="slotItem in Object.keys($scopedSlots)"
+                v-slot:[slotItem]="{
+                  optItem,
+                  optIndex,
+                  options,
+                }"
+              >
+                <slot
+                  :name="`header-${slotItem}`"
+                  :col="dataIndexCol"
+                  :optItem="optItem"
+                  :optIndex="optIndex"
+                  :options="options"
+                ></slot>
+              </template>
+            </w-thead>
           </div>
           <div
             :class="{
@@ -158,7 +226,24 @@
               :size="size"
               @changeHover="getHoverIndex"
               :hoverIndex="hoverIndex"
-            ></w-tbody>
+            >
+              <template
+                v-for="slotItem in Object.keys($scopedSlots)"
+                v-slot:[slotItem]="{
+                  optItem,
+                  optIndex,
+                  options,
+                }"
+              >
+                <slot
+                  :name="slotItem"
+                  :col="dataIndexCol"
+                  :optItem="optItem"
+                  :optIndex="optIndex"
+                  :options="options"
+                ></slot>
+              </template>
+            </w-tbody>
           </div>
         </div>
         <!-- fix right end -->
@@ -334,6 +419,10 @@ export default class Table extends Vue {
       style.overflowY = 'auto';
     }
     return style;
+  }
+
+  mounted() {
+    console.log(this.$scopedSlots, Object.keys(this.$scopedSlots), 'Object.keys($scopedSlots)');
   }
 
   clearSort() {
