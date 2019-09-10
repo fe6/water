@@ -25,6 +25,7 @@ import RadioGroup from './radio/RadioGroup.vue';
 import Select from './select/Select.vue';
 import Spin from './spin/Spin.vue';
 import Switch from './switch/Switch.vue';
+import Table from './table/Table.vue';
 import Tag from './tag/Tag.vue';
 import CheckTag from './tag/CheckTag.vue';
 import NewTag from './tag/NewTag.vue';
@@ -59,6 +60,7 @@ const waterCpt = {
   Select,
   Spin,
   Switch,
+  Table,
   Tag,
   CheckTag,
   NewTag,
