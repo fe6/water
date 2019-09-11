@@ -461,8 +461,11 @@ export default class Table extends Vue {
     }
 
     const { scrollTop } = target;
+    const scrollElement = this.$refs[targetName] as any;
 
-    (this.$refs[targetName] as any).scrollTop = scrollTop;
+    if (scrollElement) {
+      scrollElement.scrollTop = scrollTop;
+    }
   }
 
   scrollingTHeadFn(ev: MouseEvent) {

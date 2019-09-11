@@ -40,8 +40,12 @@
             :rowspan="colItem.rowSpan"
             :colspan="colItem.colSpan"
             @click="sortCol(colItem, colIndex, $event)"
+            v-if="!hasOwn(colItem, 'colSpan') || colItem.colSpan > 0"
           >
-            <span class="w-table-th-title" v-if="colItem.title">{{ colItem.title }}</span>
+            <span
+              class="w-table-th-title"
+              v-if="colItem.title"
+            >{{ colItem.title }}</span>
             <slot
               :optItem="options[colIndex]"
               :colItem="colItem"

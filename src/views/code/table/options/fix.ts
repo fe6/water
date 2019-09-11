@@ -66,6 +66,33 @@ export const fixCol = [
   },
 ];
 
+export const fixTopCol = [
+  {
+    title: 'Full Name',
+    width: 220,
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: 'Age',
+    width: 220,
+    dataIndex: 'age',
+    key: 'age',
+  },
+  {
+    title: 'Column 1',
+    dataIndex: 'address',
+    key: '1',
+    width: 220,
+  },
+  {
+    title: 'Column 2',
+    dataIndex: 'address',
+    key: '2',
+    width: 220,
+  },
+];
+
 const data = [];
 
 for (let i = 0; i < 100; i++) {

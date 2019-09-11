@@ -1,12 +1,13 @@
 import { shallowMount } from '@vue/test-utils';
 import { sizeCol, sizeOptions } from '@/views/code/table/options/size';
-import { fixCol, fixOptions } from '@/views/code/table/options/fix';
+import { fixCol, fixTopCol, fixOptions } from '@/views/code/table/options/fix';
 import { slotCol, slotOptions } from '@/views/code/table/options/slot';
 import Table from './Table.vue';
 
 describe('Table.vue', () => {
   let wrapperModel: any = null;
   let wrapperFix: any = null;
+  let wrapperFixTop: any = null;
   let wrapperScroll: any = null;
 
   const target: any = {
@@ -44,6 +45,15 @@ describe('Table.vue', () => {
       propsData: {
         options: fixOptions,
         col: fixCol,
+      },
+    });
+    wrapperFixTop = shallowMount(Table, {
+      propsData: {
+        options: fixOptions,
+        col: fixTopCol,
+        scroll: {
+          y: 400,
+        },
       },
     });
     wrapperScroll = shallowMount(Table, {
@@ -96,6 +106,17 @@ describe('Table.vue', () => {
         wrapperScroll.vm.getHoverIndex();
         expect(wrapperScroll.vm.hoverIndex).toBe(-1);
         wrapperScroll.vm.clearSort();
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('scroll top with fix', (done) => {
+    wrapperFixTop.vm.$nextTick(() => {
+      try {
+        wrapperFixTop.vm.scrollingTBodyFn(ev);
         done();
       } catch (err) {
         done.fail(err);
