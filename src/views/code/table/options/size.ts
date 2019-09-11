@@ -2,7 +2,6 @@ export const sizeCol = [
   {
     title: 'Name',
     dataIndex: 'name',
-    key: 'name',
     width: 100,
     fixed: 'left',
   },
@@ -12,7 +11,6 @@ export const sizeCol = [
       {
         title: 'Age',
         dataIndex: 'age',
-        key: 'age',
         width: 200,
       },
       {
@@ -21,7 +19,6 @@ export const sizeCol = [
           {
             title: 'Street',
             dataIndex: 'street',
-            key: 'street',
             width: 200,
           },
           {
@@ -30,13 +27,11 @@ export const sizeCol = [
               {
                 title: 'Building',
                 dataIndex: 'building',
-                key: 'building',
                 width: 100,
               },
               {
                 title: 'Door No.',
                 dataIndex: 'number',
-                key: 'number',
                 width: 100,
               },
             ],
@@ -51,20 +46,17 @@ export const sizeCol = [
       {
         title: 'Company Address',
         dataIndex: 'companyAddress',
-        key: 'companyAddress',
         width: 200,
       },
       {
         title: 'Company Name',
         dataIndex: 'companyName',
-        key: 'companyName',
       },
     ],
   },
   {
     title: 'Gender',
     dataIndex: 'gender',
-    key: 'gender',
     width: 80,
     fixed: 'right',
   },
@@ -73,7 +65,6 @@ export const sizeCol = [
 const data = [];
 for (let i = 0; i < 100; i++) {
   data.push({
-    key: i,
     name: 'John Brown',
     age: i + 1,
     street: 'Lake Park',

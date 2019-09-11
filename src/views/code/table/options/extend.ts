@@ -4,11 +4,9 @@ const detailCol = [
   {
     title: 'Name',
     dataIndex: 'name',
-    key: 'name',
   }, {
     title: 'Age',
     dataIndex: 'age',
-    key: 'age',
   },
 ];
 
@@ -18,10 +16,8 @@ let extendStatus = 1;
 export const extendCol = [{
   title: 'Name',
   dataIndex: 'name',
-  key: 'name',
 }, {
   title: 'Action',
-  key: 'action',
   dataIndex: 'action',
   render(createElement: Function, { optIndex }: any) {
     return createElement('div', [
@@ -79,55 +75,41 @@ export const extendCol = [{
 }];
 
 export const extendOptions = [{
-  key: '1',
   name: 'John Brown',
   action: 'delete',
   extend1: [
     {
-      key: '1',
       name: 'John Brown',
       age: 32,
     },
   ],
   extend2: [
     {
-      key: '1',
       name: '立刻多',
       age: 1,
     },
   ],
 }, {
-  key: '2',
   name: 'Jim Green',
   action: 'add',
-  extend1: [
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-    },
-  ],
+  extend1: [],
   extend2: [
     {
-      key: '1',
       name: '下落',
       age: 1,
     },
   ],
 }, {
-  key: '3',
   name: 'Joe Black',
   action: 'delete',
   extend1: [
     {
-      key: '2',
-      name: 'Joe Black',
+      name: 'Black Zhou',
       age: 56,
     },
   ],
   extend2: [
     {
-      key: '1',
       name: '阳光',
       age: 1,
     },
