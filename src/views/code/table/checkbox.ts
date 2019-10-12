@@ -34,7 +34,7 @@ const base: ApiEntity = {
     checkAll(options, params) {
       options.forEach(optItem => {
         Object.assign(optItem, {
-          checked: !optItem.checked,
+          checked: params.status,
         });
       });
     },
