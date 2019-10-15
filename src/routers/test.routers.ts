@@ -9,4 +9,20 @@ export default [
     },
     component: () => import(/* webpackChunkName: "input" */ '@/views/test/Input.vue'),
   },
+  {
+    path: '/tmodal',
+    name: 'TestModal',
+    meta: {
+      title: TITLE.Modal,
+    },
+    component: () => import(/* webpackChunkName: "modal" */ '@/views/test/Modal.vue'),
+  },
+  {
+    path: '/tpopconfirm',
+    name: 'TestPopconfirm',
+    meta: {
+      title: TITLE.Popconfirm,
+    },
+    component: () => import(/* webpackChunkName: "popconfirm" */ '@/views/test/Popconfirm.vue'),
+  },
 ];
