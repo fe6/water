@@ -2,6 +2,20 @@ const url = 'https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5
 
 export const props = [
   {
+    param: 'maxLength',
+    desc: '最大输入长度。 <code>0.15.0</code> 新增。',
+    type: 'String|Number',
+    require: '否',
+    default: '无',
+  },
+  {
+    param: 'showWordLimit',
+    desc: '是否显示输入字数统计。 <code>0.15.0</code> 新增。',
+    type: 'Boolean',
+    require: '否',
+    default: '无',
+  },
+  {
     param: 'placeholder',
     desc: '输入框占位文本',
     type: 'String',

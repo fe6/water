@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-if="env === 'development'">
+      <router-link :to="{ name: 'TestInput' }">输入框</router-link>
+    </div>
     <h1>开发约定</h1>
     <p>由于组件库未来也许会有很多人参与，所以在这里我们来约定一些事情。</p>
     <h2>v-model 参数的约定</h2>
@@ -43,5 +46,6 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class AgreementView extends Vue {
+  env: string = process.env.NODE_ENV;
 }
 </script>

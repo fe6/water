@@ -138,6 +138,16 @@ $placehoder-color: rgba(0, 0, 0, 0.25);
 
     &-suffix {
       right: 8px;
+
+      &-limit {
+        width: auto;
+        height: 100%;
+
+        & .w-icon {
+          position: static;
+          transform: translate(0);
+        }
+      }
     }
   }
 
@@ -151,4 +161,15 @@ $placehoder-color: rgba(0, 0, 0, 0.25);
     }
   }
   // slot end
+
+  &-count {
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    height: 100%;
+
+    &-suffix {
+      padding-left: 8px;
+    }
+  }
 }
