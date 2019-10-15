@@ -1,8 +1,8 @@
 import { ApiEntity } from '@/views/entity/demoentity';
 
 const base: ApiEntity = {
-  title: '内容验证错误的状态',
-  desc: '将属性 <code>error</code> 设置为方法并返回为 true 即可。',
+  title: '输入长度限制',
+  desc: '<code>maxLength</code> 是原生属性，用来限制输入框的字符长度，其中字符长度是用 <code>Javascript</code> 的字符串长度统计的。对在使用 <code>maxLength</code> 属性限制最大输入长度的同时，可通过设置 <code>showWordLimit</code> 属性来展示字数统计。。',
   code: '<w-input show-word-limit max-length="10" v-model="value" />',
   js: `{
   data() {

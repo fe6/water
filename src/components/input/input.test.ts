@@ -29,7 +29,7 @@ describe('Input.vue', () => {
       try {
         cb.vm.changeValue({}, 'sss');
         expect(cb.vm.prefixClass).toEqual([{ 'w-input-wraper-prefix-undefined': undefined }]);
-        expect(cb.vm.suffixClass).toEqual([{"w-input-wraper-suffix-limit": false, "w-input-wraper-suffix-limit-undefined": undefined, "w-input-wraper-suffix-undefined": undefined}]);
+        expect(cb.vm.suffixClass).toEqual([{ 'w-input-wraper-suffix-limit': false, 'w-input-wraper-suffix-limit-undefined': undefined, 'w-input-wraper-suffix-undefined': undefined }]);
         expect(cb.vm.inputClass).toEqual([{
           'w-input-slot-prefix': false,
           'w-input-slot-prefix-undefined': false,
