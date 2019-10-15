@@ -7,6 +7,7 @@ import {
   Watch,
 } from 'vue-property-decorator';
 import { getMaxLengthValue } from '@/components/input/helpers';
+import { isKorean } from '@/helper/type';
 
 export interface ReturnParamsEntity {
   ev: Event;
@@ -21,6 +22,8 @@ export default class Inp extends Vue {
   preName: string = 'w-input-';
 
   beError: boolean = false;
+
+  isWriting: boolean = false;
 
   @Model('model', { type: [String, Number] }) readonly value!: string | number;
 
@@ -61,7 +64,29 @@ export default class Inp extends Vue {
     this.beError = (this.error as Function)({}, this.value);
   }
 
+  handleCompositionStart() {
+    this.isWriting = true;
+  }
+
+  handleCompositionUpdate(ev: Event) {
+    const text = (ev.target as any).value;
+    const lastCharacter = text[text.length - 1] || '';
+    this.isWriting = !isKorean(lastCharacter);
+  }
+
+  handleCompositionEnd(ev: Event) {
+    if (this.isWriting) {
+      this.isWriting = false;
+      this.inputHandle(ev);
+    }
+  }
+
   inputHandle(ev: Event): void {
+    // 如果中文正在输入，不及时更新 v-model ，输入之后再更新
+    if (this.isWriting) {
+      return;
+    }
+
     const target = (ev.target as any);
     const { value } = target;
     const reParams: ReturnParamsEntity = {
@@ -94,6 +119,9 @@ export default class Inp extends Vue {
       },
       ref: 'inpEle',
       on: {
+        compositionstart: this.handleCompositionStart,
+        compositionupdate: this.handleCompositionUpdate,
+        compositionend: this.handleCompositionEnd,
         input: this.inputHandle.bind(this),
       },
     });

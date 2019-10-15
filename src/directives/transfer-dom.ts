@@ -68,8 +68,9 @@ const directive = {
           target: getTarget(value),
         },
       );
-    } else if (value) {
+    } else if (value && value.nodeName !== 'BODY') {
       // already moved, going somewhere else
+      // 并且 不是 body 元素，就继续添加，修复 w-modal 中有 w-input 的时候输入内容会自定失去焦点
       getTarget(value).appendChild(el);
     }
     return false;
