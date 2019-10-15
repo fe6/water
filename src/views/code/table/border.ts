@@ -21,8 +21,8 @@ const border: ApiEntity = {
   js: `{
   data() {
     return {
-      borderCol: ${JSON.stringify(borderCol)},
-      borderOptions: ${JSON.stringify(borderOptions)},
+      borderCol: ${borderCol},
+      borderOptions: ${borderOptions},
     };
   },
 }`,

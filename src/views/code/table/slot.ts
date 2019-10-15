@@ -22,8 +22,8 @@ const slot: ApiEntity = {
   js: `{
   data() {
     return {
-      slotCol: ${JSON.stringify(slotCol)},
-      slotOptions: ${JSON.stringify(slotOptions)},
+      slotCol: ${slotCol},
+      slotOptions: ${slotOptions},
     };
   },
 }`,

@@ -15,8 +15,8 @@ const base: ApiEntity = {
   js: `{
   data() {
     return {
-      baseCol: ${JSON.stringify(baseCol)},
-      baseOptions: ${JSON.stringify(baseOptions)},
+      baseCol: ${baseCol},
+      baseOptions: ${baseOptions},
     };
   },
 }`,

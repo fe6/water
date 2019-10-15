@@ -28,22 +28,22 @@ export const loadingCol = [{
   width: '30px',
 }];
 
-export const loadingOptions = [{
-  name: 'John Brown',
-  age: 32,
-  address: 'New York No. 1 Lake Park',
-  tags: ['loser', 'cool'],
-  action: 'delete',
-}, {
-  name: 'Jim Green',
-  age: 42,
-  address: 'London No. 1 Lake Park',
-  tags: ['good', 'big', 'sun'],
-  action: 'add',
-}, {
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  tags: ['红星'],
-  action: 'delete',
-}];
+export const loadingOptions = `[{
+        "name": "John Brown",
+        "age": "32",
+        "address": "New York No. 1 Lake Park",
+        "tags": ["loser", "cool"],
+        "action": "delete",
+      }, {
+        "name": "Jim Green",
+        "age": "42",
+        "address": "London No. 1 Lake Park",
+        "tags": ["good", "big", "sun"],
+        "action": "add",
+      }, {
+        "name": "Joe Black",
+        "age": "32",
+        "address": "Sidney No. 1 Lake Park",
+        "tags": ["红星"],
+        "action": "delete",
+      }]`;

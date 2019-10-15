@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import { sortCol, sortOptions } from '@/views/code/table/options/sort';
-import { slotCol, slotOptions } from '@/views/code/table/options/slot';
+import { slotColArray, slotOptionsArray } from '@/views/code/table/options/slot';
 import Thead from './Thead.vue';
 
 describe('Thead.vue', () => {
@@ -18,15 +18,15 @@ describe('Thead.vue', () => {
     });
     wrapperSlot = shallowMount(Thead, {
       propsData: {
-        options: slotOptions,
-        col: slotCol,
-        colIndex: slotCol,
+        options: slotOptionsArray,
+        col: slotColArray,
+        colIndex: slotColArray,
       },
     });
     wrapperNoColIndex = shallowMount(Thead, {
       propsData: {
-        options: slotOptions,
-        col: slotCol,
+        options: slotOptionsArray,
+        col: slotColArray,
         border: true,
       },
     });
@@ -54,9 +54,9 @@ describe('Thead.vue', () => {
   it('no sort', (done) => {
     wrapperSlot.vm.$nextTick(() => {
       try {
-        wrapperSlot.vm.sortCol(slotCol[1], 1, {});
-        wrapperSlot.vm.sortCol(slotCol[1], 1, {});
-        wrapperSlot.vm.sortCol(slotCol[1], 1, {});
+        wrapperSlot.vm.sortCol(slotColArray[1], 1, {});
+        wrapperSlot.vm.sortCol(slotColArray[1], 1, {});
+        wrapperSlot.vm.sortCol(slotColArray[1], 1, {});
         expect(wrapperNoColIndex.vm.lineHeight).toBe(1);
         done();
       } catch (err) {
@@ -68,7 +68,7 @@ describe('Thead.vue', () => {
   it('no colIndex', (done) => {
     wrapperNoColIndex.vm.$nextTick(() => {
       try {
-        expect(wrapperNoColIndex.vm.colGroup).toBe(slotCol);
+        expect(wrapperNoColIndex.vm.colGroup).toBe(slotColArray);
         expect(wrapperNoColIndex.vm.lineHeight).toBe(1);
         done();
       } catch (err) {

@@ -9,14 +9,14 @@ import { emptyCol, emptyOptions } from '@/views/code/table/options/empty';
 export const codeCommon = (): string => '<w-table :col="emptyCol" :options="emptyOptions"></w-table>';
 
 const empty: ApiEntity = {
-  title: '基本使用',
-  desc: '最简单的用法。',
+  title: '空状态',
+  desc: '数据为空自动为空状态',
   code: codeCommon(),
   js: `{
   data() {
     return {
-      emptyCol: ${JSON.stringify(emptyCol)},
-      emptyOptions: ${JSON.stringify(emptyOptions)},
+      emptyCol: ${emptyCol},
+      emptyOptions: ${emptyOptions},
     };
   },
 }`,

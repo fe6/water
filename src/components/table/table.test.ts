@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
-import { sizeCol, sizeOptions } from '@/views/code/table/options/size';
+import { sizeColArray, sizeOptionsArray } from '@/views/code/table/options/size';
 import { fixCol, fixTopCol, fixOptions } from '@/views/code/table/options/fix';
-import { slotCol, slotOptions } from '@/views/code/table/options/slot';
+import { slotColArray, slotOptionsArray } from '@/views/code/table/options/slot';
 import Table from './Table.vue';
 
 describe('Table.vue', () => {
@@ -36,8 +36,8 @@ describe('Table.vue', () => {
   beforeEach(() => {
     wrapperModel = shallowMount(Table, {
       propsData: {
-        options: sizeOptions,
-        col: sizeCol,
+        options: sizeOptionsArray,
+        col: sizeColArray,
         loading: true,
       },
     });
@@ -58,8 +58,8 @@ describe('Table.vue', () => {
     });
     wrapperScroll = shallowMount(Table, {
       propsData: {
-        options: slotOptions,
-        col: slotCol,
+        options: slotOptionsArray,
+        col: slotColArray,
         scroll: {
           x: '130%',
           y: 400,

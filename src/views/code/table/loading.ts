@@ -55,7 +55,7 @@ const loading: ApiEntity = {
         dataIndex: 'action',
         width: '30px',
       }],
-      loadingOptions: ${JSON.stringify(loadingOptions)},
+      loadingOptions: ${loadingOptions},
     };
   },
   methods: {
