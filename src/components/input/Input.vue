@@ -2,7 +2,7 @@
   <div
     class="w-input-wraper"
     :class="wraperClass"
-    v-if="beSlot"
+    v-if="beSlot || showWordLimit"
   >
     <span
       class="w-input-wraper-prefix"
@@ -19,14 +19,29 @@
       :size="size"
       :placeholder="placeholder"
       :error="error"
+      :maxLength="maxLength"
       @change="changeValue"
+      :style="suffixStyle"
     />
     <span
       class="w-input-wraper-suffix"
       :class="suffixClass"
-      v-if="beSuffix"
+      v-if="beSuffix || showWordLimit"
+      ref="suffix"
     >
-      <slot name="suffix"></slot>
+      <slot
+        name="suffix"
+        v-if="beSuffix"
+      ></slot>
+      <span
+        class="w-input-count"
+        :class="{
+          ['w-input-count-suffix']: beSuffix,
+        }"
+        v-if="maxLength > 0 && showWordLimit"
+      >
+        {{String(value).length}} / {{maxLength}}
+      </span>
     </span>
   </div>
   <Inp
@@ -37,6 +52,7 @@
     :placeholder="placeholder"
     :error="error"
     :value="value"
+    :maxLength="maxLength"
     @change="changeValue"
   />
 </template>
@@ -49,7 +65,8 @@ import {
   Emit,
   Vue,
 } from 'vue-property-decorator';
-import Inp, { ReturnParamsEntity } from './Inp';
+import Inp, { ReturnParamsEntity } from '@/components/input/Inp';
+import { getMaxLengthValue } from '@/components/input/helpers';
 
 @Component({
   components: {
@@ -61,7 +78,11 @@ export default class Input extends Vue {
 
   preName: string = 'w-input-';
 
+  suffixStyle: string = '';
+
   @Model('model', { type: [String, Number] }) readonly value!: string | number;
+
+  @Prop([String, Number]) private maxLength!: string | number;
 
   @Prop(String) private placeholder!: string;
 
@@ -73,6 +94,10 @@ export default class Input extends Vue {
   }) private type!: string;
 
   @Prop(Boolean) private disabled!: boolean;
+
+  @Prop({
+    type: Boolean,
+  }) private showWordLimit!: boolean;
 
   @Prop({
     type: Function,
@@ -107,6 +132,8 @@ export default class Input extends Vue {
     return [
       {
         [`w-input-wraper-suffix-${this.size}`]: this.size,
+        'w-input-wraper-suffix-limit': this.showWordLimit,
+        [`w-input-wraper-suffix-limit-${this.size}`]: this.size && this.showWordLimit,
       },
     ];
   }
@@ -131,12 +158,26 @@ export default class Input extends Vue {
     return !!this.beSuffix || !!this.bePrefix;
   }
 
+  mounted() {
+    this.setPaddingRight();
+  }
+
+  setPaddingRight() {
+    const { suffix } = this.$refs;
+    const space = suffix ? 16 : 0;
+    const width = suffix ? `${(suffix as any).offsetWidth + space}px` : '';
+    const paddingRightValue = this.showWordLimit && this.value ? `padding-right: ${width}` : '';
+    this.suffixStyle = paddingRightValue;
+  }
+
   @Emit('model')
-  changeValue(params: ReturnParamsEntity): string {
+  changeValue(params: ReturnParamsEntity): string | number {
+    this.setPaddingRight();
+
     this.$emit('change', params);
     (this.change as Function)(params);
 
-    return params.value;
+    return getMaxLengthValue(params.value, this.maxLength);
   }
 }
 </script>

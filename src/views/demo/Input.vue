@@ -38,6 +38,12 @@
           :title="error.title"
           :desc="error.desc"
         ></OnlineReview>
+        <OnlineReview
+          :temCode="limit.code"
+          :jsCode="limit.js"
+          :title="limit.title"
+          :desc="limit.desc"
+        ></OnlineReview>
       </WCol>
     </WRow>
     <h2>Input API</h2>
@@ -60,6 +66,7 @@ import size from '@/views/code/input/size';
 import icon from '@/views/code/input/icon';
 import error from '@/views/code/input/error';
 import disabled from '@/views/code/input/disabled';
+import limit from '@/views/code/input/limit';
 import { props, methods } from '@/views/api/input';
 import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
@@ -85,6 +92,8 @@ export default class InputView extends Vue {
   error: ApiEntity = error;
 
   disabled: ApiEntity = disabled;
+
+  limit: ApiEntity = limit;
 
   props: PropsEntity[] = props;
 
