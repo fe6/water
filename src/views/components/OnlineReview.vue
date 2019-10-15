@@ -3,16 +3,24 @@
     <section class="demo-meta" ref="meta">
       <a class="demo-title">{{title}}</a>
       <p class="demo-desc" v-html="desc"></p>
-      <div class="demo-actions" :class="expendStatus ? 'demo-actions-on' : ''">
-        <WLink
-          class="demo-actions-btn"
-          @click.native="expendStatus = !expendStatus"
-        >{{expendStatus ? '收起' : '展开'}}代码</WLink>
-        <WLink
-          class="demo-actions-run"
-          v-if="expendStatus && !jsCode"
-          @click.native="updateIframe"
-        >运行</WLink>
+      <div class="demo-actions-panel">
+        <WAffix
+          :disabled="!expendStatus || isUsed"
+          :offsetTop="0"
+          @change="affixChange"
+        >
+          <div class="demo-actions" :class="expendStatus ? 'demo-actions-on' : ''">
+              <WLink
+                class="demo-actions-btn"
+                @click.native="handleExpendStatus"
+              >{{expendStatus ? '收起' : '展开'}}代码</WLink>
+            <WLink
+              class="demo-actions-run"
+              v-if="expendStatus && !jsCode"
+              @click.native="updateIframe"
+            >运行</WLink>
+          </div>
+        </WAffix>
       </div>
     </section>
     <section
@@ -24,13 +32,13 @@
           class="demo-nav-btn"
           :class="codeStatus === 'html' ? 'demo-nav-btn-on' : ''"
           href="javascript:;"
-          @click="codeStatus = 'html'"
+          @click="changeCodeStatus('html')"
         >Html</a>
         <a
           class="demo-nav-btn"
           :class="codeStatus === 'js' ? 'demo-nav-btn-on' : ''"
           href="javascript:;"
-          @click="codeStatus = 'js'"
+          @click="changeCodeStatus('js')"
         >JavaScript</a>
         <a class="demo-nav-run" href="javascript:;" @click="updateIframe">运行</a>
       </nav>
@@ -61,6 +69,7 @@ import {
 } from 'vue-property-decorator';
 import WCode from '@/views/components/OnlineCode.vue';
 import WLink from '@/components/link/Link.vue';
+import WAffix from '@/components/affix/Affix.vue';
 import WRender from '@/helper/render';
 import temString from './tem';
 
@@ -69,6 +78,7 @@ import temString from './tem';
     WCode,
     WLink,
     WRender,
+    WAffix,
   },
 })
 export default class Demo extends Vue {
@@ -81,6 +91,8 @@ export default class Demo extends Vue {
   iframe: any = null;
 
   codeStatus: string = 'html';
+
+  isUsed: boolean = false;
 
   @Prop(Function) private render!: Function;
 
@@ -144,6 +156,28 @@ export default class Demo extends Vue {
     iframeEle.style.height = this.iframeHeight || '';
 
     this.iframe = iframeEle;
+  }
+
+  changeCodeStatus(type: string) {
+    this.codeStatus = type;
+    this.testAffixUsed();
+  }
+
+  handleExpendStatus() {
+    this.expendStatus = !this.expendStatus;
+    this.testAffixUsed();
+  }
+
+  testAffixUsed() {
+    this.$nextTick(() => {
+      const boxRect = (this.$refs.box as any).getBoundingClientRect();
+      this.isUsed = boxRect.y + boxRect.height - window.innerHeight < 0;
+    });
+  }
+
+  affixChange() {
+    const boxRect = (this.$refs.box as any).getBoundingClientRect();
+    this.isUsed = boxRect.y < 40 - boxRect.height;
   }
 }
 </script>

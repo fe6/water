@@ -26,8 +26,8 @@ const base: ApiEntity = {
   js: `{
   data() {
     return {
-      checkboxCol: ${JSON.stringify(checkboxCol)},
-      checkboxOptions: ${JSON.stringify(checkboxOptions)},
+      checkboxCol: ${checkboxCol},
+      checkboxOptions: ${checkboxOptions},
     };
   },
   methods: {

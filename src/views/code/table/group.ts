@@ -20,8 +20,8 @@ const group: ApiEntity = {
   js: `{
   data() {
     return {
-      groupCol: ${JSON.stringify(groupCol)},
-      groupOptions: ${JSON.stringify(groupOptions)},
+      groupCol: ${groupCol},
+      groupOptions: ${groupOptions},
     };
   },
 }`,
