@@ -45,10 +45,10 @@ export const props = [
   },
   {
     param: 'error',
-    desc: '当返回为 true 的时候，输入框为错误状态。',
+    desc: '当返回为 true 的时候，输入框为错误状态。该函数返回的参数(params)： Event对象(ev)， 输入的值(value)， 最大长度(maxLength)，触发的事件或阶段(eventType 0.16.0 新增)',
     type: 'Function',
     require: '否',
-    default: '() => false',
+    default: '(params) => false',
   },
   {
     param: 'change',
