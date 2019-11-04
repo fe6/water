@@ -26,7 +26,7 @@ module.exports = {
       babelConfig: true,
     },
   },
-  testRegex: 'progresscircle\\.test\\.(ts)$',
+  testRegex: '\\.test\\.(ts)$',
   collectCoverage: true,
   collectCoverageFrom: [
     'src/components/**/*.vue',
