@@ -13,6 +13,7 @@ export interface ReturnParamsEntity {
   ev: Event;
   value: string;
   maxLength: string | number;
+  eventType: string,
 }
 
 @Component
@@ -61,7 +62,12 @@ export default class Inp extends Vue {
   }
 
   mounted() {
-    this.beError = (this.error as Function)({}, this.value);
+    this.beError = (this.error as Function)({
+      ev: undefined,
+      value: this.value,
+      maxLength: this.maxLength,
+      eventType: 'init',
+    });
   }
 
   handleCompositionStart() {
@@ -93,6 +99,7 @@ export default class Inp extends Vue {
       ev,
       value,
       maxLength: this.maxLength,
+      eventType: 'input',
     };
 
     target.value = getMaxLengthValue(value, this.maxLength);
@@ -123,6 +130,14 @@ export default class Inp extends Vue {
         compositionupdate: this.handleCompositionUpdate,
         compositionend: this.handleCompositionEnd,
         input: this.inputHandle.bind(this),
+        blur: () => {
+          this.beError = (this.error as Function)({
+            ev: undefined,
+            value: this.value,
+            maxLength: this.maxLength,
+            eventType: 'blur',
+          });
+        },
       },
     });
   }
