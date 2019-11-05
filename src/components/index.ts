@@ -8,6 +8,7 @@ import ButtonGroup from './button/ButtonGroup.vue';
 import Cascader from './cascader/Cascader.vue';
 import Checkbox from './checkbox/Checkbox.vue';
 import CheckboxGroup from './checkbox/CheckboxGroup.vue';
+import DatePicker from './datepicker/DatePicker.vue';
 import Empty from './empty/Empty.vue';
 import Row from './grid/Row.vue';
 import Col from './grid/Col.vue';
@@ -20,6 +21,7 @@ import Page from './page/Page.vue';
 import PageJump from './page/PageJump.vue';
 import Popconfirm from './popconfirm/Popconfirm.vue';
 import Popover from './popover/Popover.vue';
+import Progress from './progress/Progress.vue';
 import Radio from './radio/Radio.vue';
 import RadioGroup from './radio/RadioGroup.vue';
 import Select from './select/Select.vue';
@@ -43,6 +45,7 @@ const waterCpt = {
   Cascader,
   Checkbox,
   CheckboxGroup,
+  DatePicker,
   Empty,
   Row,
   Col,
@@ -55,6 +58,7 @@ const waterCpt = {
   PageJump,
   Popconfirm,
   Popover,
+  Progress,
   Radio,
   RadioGroup,
   Select,
