@@ -25,4 +25,12 @@ export default [
     },
     component: () => import(/* webpackChunkName: "popconfirm" */ '@/views/test/Popconfirm.vue'),
   },
+  {
+    path: '/tdatepicker',
+    name: 'TestDatePicker',
+    meta: {
+      title: TITLE.DatePicker,
+    },
+    component: () => import(/* webpackChunkName: "datepicker" */ '@/views/test/DatePicker.vue'),
+  },
 ];

@@ -41,6 +41,8 @@ export default class Inp extends Vue {
 
   @Prop(Boolean) private disabled!: boolean;
 
+  @Prop(Boolean) private readonly!: boolean;
+
   @Prop({
     type: Function,
     default: (): boolean => false,
@@ -57,6 +59,7 @@ export default class Inp extends Vue {
       {
         'w-input-disabled': this.disabled,
         'w-input-error': this.inputError() || this.beError,
+        'w-input-readonly': this.readonly,
       },
     ];
   }
@@ -123,6 +126,7 @@ export default class Inp extends Vue {
         placeholder: this.placeholder,
         value: this.value,
         disabled: this.disabled,
+        readonly: this.readonly,
       },
       ref: 'inpEle',
       on: {

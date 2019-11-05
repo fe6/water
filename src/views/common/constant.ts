@@ -27,4 +27,5 @@ export const TITLE = {
   Tag: 'Tag 标签',
   Table: 'Table 表格',
   Tooltip: 'Tooltip 文字提示',
+  DatePicker: 'DatePicker 日期选择框',
 };
