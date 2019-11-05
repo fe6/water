@@ -6,9 +6,10 @@
       class="test-input"
       maxLength="10"
       show-word-limit
+      :error="errorFn"
       size="small"
     ></WInput>
-    <WInput
+    <!-- <WInput
       v-model="value1"
       class="test-input"
       maxLength="10"
@@ -104,7 +105,7 @@
     >
       <WIcon slot="prefix"></WIcon>
       <WIcon slot="suffix"></WIcon>
-    </WInput>
+    </WInput> -->
   </div>
 </template>
 
@@ -126,6 +127,11 @@ export default class TestInput extends Vue {
   value1: string = '这是个输入框';
 
   value2: string = '这是个输入框内容很长很长很长很长很长很长很长很长';
+
+  errorFn(ev: any) {
+    console.log(this, ev, 'safd');
+    return !ev.value;
+  }
 }
 </script>
 

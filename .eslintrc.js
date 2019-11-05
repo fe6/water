@@ -26,7 +26,7 @@ module.exports = {
         'popoverClick',
       ],
     }],
-    'no-unused-vars': ['error', { varsIgnorePattern: '^V|Entity$' }],
+    'no-unused-vars': ['error', { varsIgnorePattern: '^V|Moment|Entity$' }],
     'no-underscore-dangle': ['error', { allow: ['_componentTag'] }],
     'spaced-comment': 'off',
     'no-dupe-keys': 'off',

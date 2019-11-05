@@ -17,6 +17,7 @@
       :value="value"
       :disabled="disabled"
       :size="size"
+      :readonly="readonly"
       :placeholder="placeholder"
       :error="error"
       :maxLength="maxLength"
@@ -95,9 +96,9 @@ export default class Input extends Vue {
 
   @Prop(Boolean) private disabled!: boolean;
 
-  @Prop({
-    type: Boolean,
-  }) private showWordLimit!: boolean;
+  @Prop(Boolean) private showWordLimit!: boolean;
+
+  @Prop(Boolean) private readonly!: boolean;
 
   @Prop({
     type: Function,
