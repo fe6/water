@@ -5,7 +5,7 @@
       'w-progress-circle': noLine,
     }"
   >
-    <WProgressLink
+    <WProgressLine
       v-model="percentValue"
       :strokeWidth="lineWidth"
       :strokeLinecap="strokeLinecap"
@@ -14,6 +14,7 @@
       :format="format"
       :inside="inside"
       v-if="type === 'line'"
+      :showInfo="showInfo"
     />
     <WProgressCircle
       v-model="percentValue"
@@ -26,37 +27,15 @@
       :width="width"
       v-else
     />
-    <div
-      :class="[`w-progress-text${inside ? '-inner' : ''}`, {
-        'w-progress-text-circle': noLine,
-      }]"
-      v-if="showInfo"
-      v-transfer-dom="getContainer()"
-      :data-transfer="inside"
-    >
-      <span
-        :style="fontStyle"
-        v-if="!hasStatus || inside"
-      >{{ percentText }}</span>
-      <WIcon
-        class="w-progress-icon"
-        :style="`color: ${iconList[status].color}`"
-        v-else
-      >
-        <svg
-          viewBox="64 64 896 896"
-          focusable="false"
-          class=""
-          data-icon="close-circle"
-          width="1em"
-          height="1em"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path :d="iconList[status].icon"></path>
-        </svg>
-      </WIcon>
-    </div>
+    <WProgressText
+      v-model="percentValue"
+      :format="format"
+      :strokeWidth="lineWidth"
+      :type="type"
+      :status="status"
+      :inside="inside"
+      v-if="showInfo && !inside"
+    />
   </div>
 </template>
 
@@ -65,34 +44,25 @@ import {
   Component,
   Model,
   Prop,
-  // Emit,
   Watch,
   Vue,
 } from 'vue-property-decorator';
-import TransferDom from '@/directives/transfer-dom';
-import WProgressLink from '@/components/progress/ProgressLine.vue';
+import WProgressLine from '@/components/progress/ProgressLine.vue';
 import WProgressCircle from '@/components/progress/ProgressCircle.vue';
+import WProgressText from '@/components/progress/ProgressText.vue';
 import {
-  iconList,
-  IconListEntity,
-  statusList,
   ColorItemEntity,
 } from '@/components/progress/helper';
-import WIcon from '@/components/icon/Icon.vue';
-
-Vue.directive('transfer-dom', (TransferDom as any));
 
 @Component({
   components: {
-    WProgressLink,
+    WProgressLine,
     WProgressCircle,
-    WIcon,
+    WProgressText,
   },
 })
 export default class WProgress extends Vue {
   name: string = 'Progress';
-
-  iconList: IconListEntity = iconList;
 
   percentValue: number = 0;
 
@@ -112,7 +82,7 @@ export default class WProgress extends Vue {
 
   @Prop({
     type: String,
-    default: 'line', // circle
+    default: 'line', // circle, dashbroad
   }) private type!: string;
 
   @Prop({
@@ -124,10 +94,7 @@ export default class WProgress extends Vue {
 
   @Prop([String, Array, Function]) private color!: string | ColorItemEntity[] | Function;
 
-  @Prop({
-    type: Function,
-    default: (percent: Number) => `${percent}%`,
-  }) private format!: Function;
+  @Prop(Function) private format!: Function;
 
   @Prop({
     type: Boolean,
@@ -135,21 +102,6 @@ export default class WProgress extends Vue {
   }) private showInfo!: boolean;
 
   @Prop(Boolean) private inside!: boolean;
-
-  get fontStyle() {
-    return {
-      height: `${this.strokeWidth}px`,
-      'line-height': `${this.strokeWidth}px`,
-    };
-  }
-
-  get hasStatus(): boolean {
-    return !!this.status && statusList.some((statusItem: string) => statusItem === this.status);
-  }
-
-  get percentText() {
-    return this.format(this.percentValue);
-  }
 
   get noLine(): boolean {
     return this.type !== 'line';
@@ -168,14 +120,6 @@ export default class WProgress extends Vue {
   })
   getValue() {
     this.percentValue = this.value > 100 ? 100 : this.value;
-  }
-
-  getContainer() {
-    return new Promise((resolve) => {
-      this.$nextTick(() => {
-        resolve(this.$refs.inner);
-      });
-    });
   }
 }
 </script>

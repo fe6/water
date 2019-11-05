@@ -20,8 +20,17 @@
           :style="[{
             width: `${this.value}%`,
           }, radiusStyle, lineStyle]"
-          ref="inner"
-        ></div>
+        >
+          <WProgressText
+            v-model="value"
+            :format="format"
+            :strokeWidth="strokeWidth"
+            type="line"
+            :status="status"
+            :inside="true"
+            v-if="showInfo && inside"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -34,8 +43,8 @@ import {
   Prop,
   Vue,
 } from 'vue-property-decorator';
-import TransferDom from '@/directives/transfer-dom';
 import WIcon from '@/components/icon/Icon.vue';
+import WProgressText from '@/components/progress/ProgressText.vue';
 import {
   statusList,
   ColorItemEntity,
@@ -43,11 +52,10 @@ import {
 } from '@/components/progress/helper';
 import { isString, isArray, isFunction } from '@/helper/type';
 
-Vue.directive('transfer-dom', (TransferDom as any));
-
 @Component({
   components: {
     WIcon,
+    WProgressText,
   },
 })
 export default class WProgressLine extends Vue {
@@ -64,6 +72,8 @@ export default class WProgressLine extends Vue {
   @Prop(String) private status!: string;
 
   @Prop(Function) private format!: Function;
+
+  @Prop(Boolean) private showInfo!: boolean;
 
   @Prop(Boolean) private inside!: boolean;
 
