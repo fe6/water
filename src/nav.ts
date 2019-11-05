@@ -143,6 +143,10 @@ export const nav = [
             to: { name: 'Popconfirm' },
             title: TITLE.Popconfirm,
           },
+          {
+            to: { name: 'Progress' },
+            title: TITLE.Progress,
+          },
         ],
       },
     ],

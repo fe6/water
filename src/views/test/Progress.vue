@@ -1,20 +1,34 @@
 <template>
   <div>
-    <!-- <WProgress v-model="value1" inside :strokeWidth="26" />
-    <WProgress v-model="value1" inside status="warning" :strokeWidth="26" /> -->
+    <w-progress strokeLinecap="square" v-model="value1"></w-progress>
+    <div>
+      <w-progress strokeLinecap="square" v-model="value1" type="circle"></w-progress>
+      <w-progress strokeLinecap="square" v-model="value1" type="dashboard"></w-progress>
+    </div>1111
+    <WProgress v-model="value1" inside :strokeWidth="26" />
+    <WProgress v-model="value1" inside status="warning" :strokeWidth="26" />
     <!-- <WProgress v-model="value1" color="#00f" />
     <WProgress v-model="value1" :color="customColors" />
     <WProgress v-model="value1" :color="customColorMethod" />
     <WProgress v-model="value1" :strokeWidth="26" inside :color="customColors" />
     <WProgress v-model="value1" :strokeWidth="26" inside :color="customColorMethod" /> -->
-    <!-- <WProgress v-model="value1" color="#00f" />
-    <WProgress v-model="value1" strokeLinecap="square" status="error" />
-    <WProgress v-model="value1" status="error" />
-    <WProgress v-model="value1" status="warning" />
-    <WProgress v-model="value1" status="success" />
-    <WProgress v-model="value1" :showInfo="false" />
-    <WProgress v-model="value1" />
-    <WProgress v-model="value1" :format="format" /> -->
+    <WProgress inside v-model="value1" color="#00f" />
+    <WProgress inside v-model="value1" strokeLinecap="square" status="error" />
+    <WProgress inside v-model="value1" status="error" />
+    <WProgress inside v-model="value1" status="warning" />
+    <WProgress v-model="value1" :status="status" />111
+    <div @click="status = 'error'">asdf</div>
+    <WProgress inside v-model="value1" status="success" />0
+    <WProgress inside v-model="value1" :showInfo="false" />
+    <WProgress inside v-model="value1" />
+    <WProgress inside v-model="value1" :format="format" />
+    <w-progress inside v-model="value1"></w-progress>
+<w-progress v-model="value1" status="success"></w-progress>
+<w-progress v-model="value1" status="error"></w-progress>
+<w-progress v-model="value1" status="warning"></w-progress>
+<w-progress v-model="value1"></w-progress>
+<w-progress v-model="value1" :showInfo="false"></w-progress>
+12
     <WProgress v-model="value1" />
     <WProgress type="circle" :width="300" v-model="value1" />
     <WProgress type="dashboard" v-model="value1" />
@@ -41,6 +55,8 @@ export default class TestInput extends Vue {
 
   value3: number = 10;
 
+  status: string = '';
+
   modalStatus: boolean = false;
 
   customColors: any[] = [
@@ -53,7 +69,6 @@ export default class TestInput extends Vue {
 
   format(p: number) {
     this.value3 = 0;
-    console.log(p, p < 100, 999);
     return p < 100 ? p : '慢';
   }
 

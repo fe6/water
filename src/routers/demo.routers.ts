@@ -162,6 +162,14 @@ export default [
     component: () => import(/* webpackChunkName: "popover" */ '@/views/demo/Popover.vue'),
   },
   {
+    path: '/progress',
+    name: 'Progress',
+    meta: {
+      title: TITLE.Progress,
+    },
+    component: () => import(/* webpackChunkName: "progress" */ '@/views/demo/Progress.vue'),
+  },
+  {
     path: '/table',
     name: 'Table',
     meta: {

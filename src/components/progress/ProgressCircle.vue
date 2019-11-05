@@ -68,8 +68,6 @@ export default class WProgressCircle extends Vue {
     default: 'line', // circle
   }) private type!: string;
 
-  @Prop(Function) private format!: Function;
-
   get relativeStrokeWidth() {
     return (this.strokeWidth / this.width * 100).toFixed(1);
   }
