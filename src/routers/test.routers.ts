@@ -25,4 +25,12 @@ export default [
     },
     component: () => import(/* webpackChunkName: "popconfirm" */ '@/views/test/Popconfirm.vue'),
   },
+  {
+    path: '/tprogress',
+    name: 'TestProgress',
+    meta: {
+      title: TITLE.Progress,
+    },
+    component: () => import(/* webpackChunkName: "progress" */ '@/views/test/Progress.vue'),
+  },
 ];

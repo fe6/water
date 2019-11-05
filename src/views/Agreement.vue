@@ -2,6 +2,7 @@
   <div>
     <div v-if="env === 'development'">
       <router-link :to="{ name: 'TestInput' }">输入框</router-link> |
+      <router-link :to="{ name: 'TestProgress' }">进度条</router-link> |
       <router-link :to="{ name: 'TestModal' }">对话框</router-link> |
       <router-link :to="{ name: 'TestPopconfirm' }">气泡确认框</router-link>
     </div>
