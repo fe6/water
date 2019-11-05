@@ -14,6 +14,8 @@ export const isObject = (thing: any): boolean => type(thing) === '[object Object
 
 export const isFunction = (thing: any): boolean => type(thing) === '[object Function]';
 
+export const isPromise = (thing: any): boolean => type(thing) === '[object Promise]';
+
 // 是否是韩语
 export const isKorean = (text: string): boolean => {
   const reg = /([(\uAC00-\uD7AF)|(\u3130-\u318F)])+/gi;

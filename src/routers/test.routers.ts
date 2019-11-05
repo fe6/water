@@ -33,4 +33,12 @@ export default [
     },
     component: () => import(/* webpackChunkName: "datepicker" */ '@/views/test/DatePicker.vue'),
   },
+  {
+    path: '/tprogress',
+    name: 'TestProgress',
+    meta: {
+      title: TITLE.Progress,
+    },
+    component: () => import(/* webpackChunkName: "progress" */ '@/views/test/Progress.vue'),
+  },
 ];

@@ -28,4 +28,5 @@ export const TITLE = {
   Table: 'Table 表格',
   Tooltip: 'Tooltip 文字提示',
   DatePicker: 'DatePicker 日期选择框',
+  Progress: 'Progress',
 };
