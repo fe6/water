@@ -117,7 +117,6 @@
           v-if="tableType === 'date' || tableType === 'month'"
         >{{ nowMonth }}{{ DATE_UNIT_TEXT[1] }}</span>
       </div>
-      --{{tableType}}--{{isWeekOrDate}}-
       <div class="w-picker-body">
         <DatePcikerTable
           :type="tableType"

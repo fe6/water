@@ -8,7 +8,7 @@ import ButtonGroup from './button/ButtonGroup.vue';
 import Cascader from './cascader/Cascader.vue';
 import Checkbox from './checkbox/Checkbox.vue';
 import CheckboxGroup from './checkbox/CheckboxGroup.vue';
-import DatePicker from './datepicker/DatePicker.vue';
+import Datepicker from './datepicker/DatePicker.vue';
 import Empty from './empty/Empty.vue';
 import Row from './grid/Row.vue';
 import Col from './grid/Col.vue';
@@ -45,7 +45,7 @@ const waterCpt = {
   Cascader,
   Checkbox,
   CheckboxGroup,
-  DatePicker,
+  Datepicker,
   Empty,
   Row,
   Col,
