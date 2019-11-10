@@ -732,8 +732,10 @@ export default class DatePicker extends mixins(poperMixin) {
   }
 
   openPicker() {
-    this.pickerStatus = true;
-    this.resizeChange();
+    if (!this.disabled) {
+      this.pickerStatus = true;
+      this.resizeChange();
+    }
   }
 
   closePicker() {

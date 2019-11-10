@@ -8,6 +8,7 @@ const testDate = '2019-10-10';
 
 describe('DatePicker.vue', () => {
   let pickerDate: any = null;
+  let pickerDisabled: any = null;
   let pickerAge: any = null;
   let pickerYear: any = null;
   let pickerMonth: any = null;
@@ -19,6 +20,12 @@ describe('DatePicker.vue', () => {
     pickerDate = mount(DatePicker, {
       propsData: {
         value: testDateValue,
+      },
+    });
+    pickerDisabled = mount(DatePicker, {
+      propsData: {
+        value: testDateValue,
+        disabled: true,
       },
     });
     pickerAge = mount(DatePicker, {
@@ -251,6 +258,18 @@ describe('DatePicker.vue', () => {
     const { vm } = pickerTypeIsTest;
     vm.$nextTick(() => {
       try {
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('test format', (done) => {
+    const { vm } = pickerDisabled;
+    vm.$nextTick(() => {
+      try {
+        vm.openPicker();
         done();
       } catch (err) {
         done.fail(err);
