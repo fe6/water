@@ -14,7 +14,7 @@ export default {
     searchKeyWord: String,
     hoverIndex: Number,
     getSearchResult: Function,
-    change: Function,
+    sreachChange: Function,
     fieldNames: {
       type: Object,
       default: (): FieldNamesEntity => fieldNamesDefault,
@@ -48,7 +48,7 @@ export default {
       searchKeyWord,
       hoverIndex,
       getSearchResult,
-      change,
+      sreachChange,
       fieldNames,
       searchRender,
     } = props;
@@ -95,7 +95,7 @@ export default {
           on: {
             click: (ev: MouseEvent) => {
               if (!disabled) {
-                change({
+                sreachChange({
                   [fieldNames.value]: label.slice(),
                   [fieldNames.label]: label,
                   current: value[value.length - 1],

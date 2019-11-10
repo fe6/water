@@ -87,7 +87,7 @@
         :emptyText="emptyText"
         :width="searchWidth"
         :searchKeyWord="searchKeyWord"
-        :change="searchChange"
+        :sreachChange="searchChange"
         :hoverIndex="searchHoverIndex"
         :searchRender="searchRender"
         v-if="searchKeyWord"
