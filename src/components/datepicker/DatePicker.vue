@@ -9,6 +9,7 @@
       @mouseout="handleMouseOut"
       @click="openPicker"
     >
+      <slot v-if="$slots.default"></slot>
       <WInput
         v-model="inputValue"
         :readonly="editable"
@@ -16,6 +17,7 @@
         :disabled="disabled"
         :placeholder="placeholder"
         :size="size"
+        v-else
       >
         <WIcon
           slot="suffix"
@@ -181,6 +183,7 @@ import { isString, isUndefined } from '@/helper/type';
 import {
   setPostion,
 } from '@/helper/poper';
+import { noop } from '@/helper/noop';
 
 Vue.directive('transfer-dom', (TransferDom as any));
 
@@ -298,6 +301,11 @@ export default class DatePicker extends mixins(poperMixin) {
   @Prop(Function) private disabledRender!: Function;
 
   @Prop(Function) private getContainer!: Function;
+
+  @Prop({
+    type: Function,
+    default: noop,
+  }) private change!: Function;
 
   @Prop({
     type: Boolean,
@@ -578,14 +586,18 @@ export default class DatePicker extends mixins(poperMixin) {
     }
 
     if (!isUndefined(this.value)) {
-      this.returnModel({
+      const params: PickerTableChangeEntity = {
         type,
         value,
         trueValue,
         item,
         dateWeek,
         ev,
-      });
+      };
+
+      this.returnModel(params);
+      this.$emit('change', params);
+      this.change(params);
 
       // 非当前页面自动跳转到当前页面
       this.$nextTick(() => {
