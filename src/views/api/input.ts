@@ -73,3 +73,39 @@ export const methods = [
     return: '{Event对象,输入的值}({ev,value})',
   },
 ];
+
+export const errorProps = [
+  {
+    desc: 'Event对象',
+    type: 'Event',
+    key: 'ev',
+  },
+  {
+    desc: '输入的值',
+    type: 'String',
+    key: 'value',
+  },
+  {
+    desc: '最大长度',
+    type: 'String|Number',
+    key: 'maxLength',
+  },
+  {
+    desc: '触发的事件或阶段 <code>0.16.0</code> 新增',
+    type: 'String',
+    key: 'eventType',
+  },
+];
+
+export const changeProps = [
+  {
+    desc: 'Event对象',
+    type: 'Event',
+    key: 'ev',
+  },
+  {
+    desc: '输入的值',
+    type: 'String',
+    key: 'value',
+  },
+];

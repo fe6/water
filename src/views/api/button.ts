@@ -73,3 +73,21 @@ export const methods = [
     return: '{event, key}',
   },
 ];
+
+export const clickProps = [
+  {
+    desc: 'Event对象',
+    type: 'Event',
+    key: 'ev',
+  },
+  {
+    desc: '组件传入的 key 属性',
+    type: 'String',
+    key: 'key',
+  },
+  {
+    desc: '动画的Event对象',
+    type: 'String',
+    key: 'animEvent',
+  },
+];

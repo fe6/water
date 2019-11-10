@@ -103,6 +103,12 @@
     <ApiTable :data="colProps"></ApiTable>
     <h2>Table Method</h2>
     <MethodTable :data="methods"></MethodTable>
+    <h2>change 函数返回的参数</h2>
+    <ChangeTable :data="changeProps"></ChangeTable>
+    <h2>render 函数返回的参数</h2>
+    <ChangeTable :data="renderProps"></ChangeTable>
+    <h2>extendRowRender 函数返回的参数</h2>
+    <ChangeTable :data="extendRowRenderProps"></ChangeTable>
     <!-- <h3>size</h3>
     <w-table
       :col="sizeCol"
@@ -167,6 +173,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
+import ChangeTable from '@/views/components/ChangeTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
@@ -184,8 +191,15 @@ import group from '@/views/code/table/group';
 import empty from '@/views/code/table/empty';
 import loading from '@/views/code/table/loading';
 import slot from '@/views/code/table/slot';
-import { props, colProps, methods } from '@/views/api/table';
-import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import {
+  props,
+  colProps,
+  methods,
+  changeProps,
+  extendRowRenderProps,
+  renderProps,
+} from '@/views/api/table';
+import { PropsEntity, ChangePropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 import WTable from '@/components/table/Table.vue';
 import WCheckbox from '@/components/checkbox/Checkbox.vue';
@@ -212,6 +226,7 @@ import { loadingCol, loadingOptions } from '@/views/code/table/options/loading';
     WRow,
     WCol,
     ApiTable,
+    ChangeTable,
     MethodTable,
     OnlineReview,
     WTable,
@@ -248,6 +263,12 @@ export default class TableView extends Vue {
   props: PropsEntity[] = props;
 
   colProps: PropsEntity[] = colProps;
+
+  changeProps: ChangePropsEntity[] = changeProps;
+
+  extendRowRenderProps: ChangePropsEntity[] = extendRowRenderProps;
+
+  renderProps: ChangePropsEntity[] = renderProps;
 
   methods: MethodsEntity[] = methods;
 

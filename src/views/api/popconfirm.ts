@@ -50,7 +50,7 @@ export const props = [
   },
   {
     param: 'getContainer',
-    desc: '浮层渲染父节点，默认渲染到 body 上',
+    desc: '浮层渲染父节点，默认渲染到 body 上。支持返回 <code> Promise </code>',
     type: 'Function',
     require: '否',
     default: '无',

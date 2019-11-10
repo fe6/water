@@ -53,12 +53,15 @@
     <ApiTable :data="props"></ApiTable>
     <h2>Switch Method</h2>
     <MethodTable :data="methods"></MethodTable>
+    <h2>change 函数返回的参数</h2>
+    <ChangeTable :data="changeProps"></ChangeTable>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
+import ChangeTable from '@/views/components/ChangeTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
@@ -70,8 +73,8 @@ import disabled from '@/views/code/switch/disabled';
 import icon from '@/views/code/switch/icon';
 import size from '@/views/code/switch/size';
 import before from '@/views/code/switch/before';
-import { props, methods } from '@/views/api/switch';
-import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import { props, changeProps, methods } from '@/views/api/switch';
+import { PropsEntity, ChangePropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
 @Component({
@@ -79,6 +82,7 @@ import { TITLE } from '@/views/common/constant';
     WRow,
     WCol,
     ApiTable,
+    ChangeTable,
     MethodTable,
     OnlineReview,
   },
@@ -99,6 +103,8 @@ export default class SwitchView extends Vue {
   before: ApiEntity = before;
 
   props: PropsEntity[] = props;
+
+  changeProps: ChangePropsEntity[] = changeProps;
 
   methods: MethodsEntity[] = methods;
 }

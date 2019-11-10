@@ -5,12 +5,12 @@ import { ApiEntity } from '@/views/entity/demoentity';
  * @param attr {String} 额外添加的属性，适用于 loading ， ghost ， disabled 等类型为 boolean 的属性。
  * @return {string}
  */
-export const codeCommon = (): string => `<w-progress inside stroke-width="20" v-model="valueDefault" style="margin-bottom: 8px"></w-progress>
-<w-progress inside stroke-width="20" status="success" v-model="valueSuccess" style="margin-bottom: 8px"></w-progress>
-<w-progress inside stroke-width="20" status="error" v-model="valueError" style="margin-bottom: 8px"></w-progress>
-<w-progress inside stroke-width="20" status="warning" v-model="valueWarning" style="margin-bottom: 8px"></w-progress>
-<w-progress inside stroke-width="20" :format="format" v-model="value100" style="margin-bottom: 8px"></w-progress>
-<w-progress inside stroke-width="20" :show-info="false" v-model="valueDefault" style="margin-bottom: 8px"></w-progress>`;
+export const codeCommon = (): string => `<w-progress inside :stroke-width="20" v-model="valueDefault" style="margin-bottom: 8px"></w-progress>
+<w-progress inside :stroke-width="20" status="success" v-model="valueSuccess" style="margin-bottom: 8px"></w-progress>
+<w-progress inside :stroke-width="20" status="error" v-model="valueError" style="margin-bottom: 8px"></w-progress>
+<w-progress inside :stroke-width="20" status="warning" v-model="valueWarning" style="margin-bottom: 8px"></w-progress>
+<w-progress inside :stroke-width="20" :format="format" v-model="value100" style="margin-bottom: 8px"></w-progress>
+<w-progress inside :stroke-width="20" :show-info="false" v-model="valueDefault" style="margin-bottom: 8px"></w-progress>`;
 
 const base: ApiEntity = {
   title: '百分比内显',

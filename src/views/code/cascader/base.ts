@@ -57,23 +57,21 @@ export const defaultDatas = [{
   }],
 }];
 
-/**
- * demo 的代码部分， WDemo 的下面部分
- * @param attr {String} 额外添加的属性，适用于 loading ， ghost ， disabled 等类型为 boolean 的属性。
- * @return {string}
- */
-export const codeCommon = ({ attr }: CodeCommonParamsEntity = {}): string => `<w-cascader${attr ? ` ${attr}` : ''} :options="defaultDatas"></w-cascader>`;
-
 const base: ApiEntity = {
   title: '基本使用',
   desc: '最简单的用法。',
-  code: codeCommon(),
+  code: '<w-cascader @change="changeFn" :options="defaultDatas"></w-cascader>',
   js: `
   {
     data() {
       return {
         defaultDatas: ${JSON.stringify(defaultDatas)}
       };
+    },
+    methods: {
+      changeFn(params) {
+        console.log(params, 'change');
+      },
     },
   }
 `,

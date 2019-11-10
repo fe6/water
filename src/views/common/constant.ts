@@ -10,6 +10,7 @@ export const TITLE = {
   Button: 'Button 按钮',
   Cascader: 'Cascader 联级选择',
   Checkbox: 'Checkbox 多选',
+  DatePicker: 'DatePicker 日历选择器',
   Empty: 'Empty 空状态',
   Grid: 'Grid 栅格',
   Icon: 'Icon 图标',
@@ -27,6 +28,5 @@ export const TITLE = {
   Tag: 'Tag 标签',
   Table: 'Table 表格',
   Tooltip: 'Tooltip 文字提示',
-  DatePicker: 'DatePicker 日期选择框',
   Progress: 'Progress 进度条',
 };

@@ -62,12 +62,15 @@
     <ApiTable :data="pageJumpProps"></ApiTable>
     <h2>PageJump Method</h2>
     <MethodTable :data="pageJumpMethods"></MethodTable>
+    <h2>change 函数返回的参数</h2>
+    <ChangeTable :data="showTotalProps"></ChangeTable>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
+import ChangeTable from '@/views/components/ChangeTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
@@ -85,8 +88,9 @@ import {
   methods,
   pageJumpProps,
   pageJumpMethods,
+  showTotalProps,
 } from '@/views/api/page';
-import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import { PropsEntity, ChangePropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
 interface ChangeParamsEntity {
@@ -97,6 +101,7 @@ interface ChangeParamsEntity {
 @Component({
   components: {
     ApiTable,
+    ChangeTable,
     MethodTable,
     WRow,
     WCol,
@@ -131,6 +136,8 @@ export default class PageView extends Vue {
   pageJumpProps: PropsEntity[] = pageJumpProps;
 
   pageJumpMethods: MethodsEntity[] = pageJumpMethods;
+
+  showTotalProps: ChangePropsEntity[] = showTotalProps;
 
   changeFn({ attr, value }: ChangeParamsEntity) {
     (this as any)[attr] = value;

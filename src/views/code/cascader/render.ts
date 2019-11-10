@@ -1,10 +1,10 @@
 import { ApiEntity } from '@/views/entity/demoentity';
-import { codeCommon, defaultDatas } from '@/views/code/cascader/base';
+import { defaultDatas } from '@/views/code/cascader/base';
 
 const base: ApiEntity = {
   title: '自定义已选项',
   desc: '添加 <code>displayRender</code> 属性即可。',
-  code: codeCommon({ attr: ':displayRender="displayRender"' }),
+  code: '<w-cascader :displayRender="displayRender" :options="defaultDatas"></w-cascader>',
   js: `
     {
       data() {

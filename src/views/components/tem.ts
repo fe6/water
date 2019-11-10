@@ -3,9 +3,9 @@ export default (tem: string, js: string) => `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://unpkg.com/vue"></script>
-  <script src="https://unpkg.com/@fe6/water@0.17.1/dist/lib/water.umd.js"></script>
-  <link href="https://unpkg.com/@fe6/water@0.17.1/dist/lib/water.css" rel="stylesheet">
+  <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+  <script src="https://unpkg.com/@fe6/water@0.17.7/dist/lib/water.umd.js"></script>
+  <link href="https://unpkg.com/@fe6/water@0.17.7/dist/lib/water.css" rel="stylesheet">
 </head>
 <body style="margin: 36px 24px;">
   <div id="app">

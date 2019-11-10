@@ -73,6 +73,12 @@
     </WRow>
     <h2>Cascader API</h2>
     <ApiTable :data="props"></ApiTable>
+    <h2>searchRender 函数返回的参数 API</h2>
+    <ChangeTable :data="searchRenderProps"></ChangeTable>
+    <h2>displayRender 函数返回的参数 API</h2>
+    <ChangeTable :data="displayRenderProps"></ChangeTable>
+    <h2>change 函数返回的参数 API</h2>
+    <ChangeTable :data="changeProps"></ChangeTable>
     <h2>Cascader Method</h2>
     <MethodTable :data="methods"></MethodTable>
   </div>
@@ -81,6 +87,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
+import ChangeTable from '@/views/components/ChangeTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
@@ -94,8 +101,14 @@ import size from '@/views/code/cascader/size';
 import render from '@/views/code/cascader/render';
 import search from '@/views/code/cascader/search';
 import loading from '@/views/code/cascader/loading';
-import { props, methods } from '@/views/api/cascader';
-import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import {
+  props,
+  methods,
+  changeProps,
+  searchRenderProps,
+  displayRenderProps,
+} from '@/views/api/cascader';
+import { PropsEntity, ChangePropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
 interface ParamsEntity {
@@ -109,6 +122,7 @@ interface ParamsEntity {
     WRow,
     WCol,
     ApiTable,
+    ChangeTable,
     MethodTable,
     OnlineReview,
   },
@@ -133,6 +147,12 @@ export default class CascaderView extends Vue {
   loading: ApiEntity = loading;
 
   props: PropsEntity[] = props;
+
+  changeProps: ChangePropsEntity[] = changeProps;
+
+  searchRenderProps: ChangePropsEntity[] = searchRenderProps;
+
+  displayRenderProps: ChangePropsEntity[] = displayRenderProps;
 
   methods: MethodsEntity[] = methods;
 }
