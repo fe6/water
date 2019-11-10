@@ -37,9 +37,9 @@
         ></OnlineReview>
       </WCol>
     </WRow>
-    <h2>Tooltip API</h2>
+    <h2>Popover API</h2>
     <ApiTable :data="props"></ApiTable>
-    <h2>Tooltip Method</h2>
+    <h2>Popover Method</h2>
     <MethodTable :data="methods"></MethodTable>
   </div>
 </template>

@@ -109,12 +109,15 @@
     <ApiTable :data="props"></ApiTable>
     <h2>Select Method</h2>
     <MethodTable :data="methods"></MethodTable>
+    <h2>change 函数返回的参数</h2>
+    <ChangeTable :data="changeProps"></ChangeTable>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
+import ChangeTable from '@/views/components/ChangeTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
@@ -133,8 +136,8 @@ import basesize from '@/views/code/select/basesize';
 import multiplesize from '@/views/code/select/multiplesize';
 import basedisabled from '@/views/code/select/basedisabled';
 import tagdisabled from '@/views/code/select/tagdisabled';
-import { props, methods } from '@/views/api/select';
-import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import { props, changeProps, methods } from '@/views/api/select';
+import { PropsEntity, ChangePropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
 interface ParamsEntity {
@@ -147,6 +150,7 @@ interface ParamsEntity {
     WRow,
     WCol,
     ApiTable,
+    ChangeTable,
     MethodTable,
     OnlineReview,
   },
@@ -181,6 +185,8 @@ export default class SelectView extends Vue {
   tagdisabled: ApiEntity = tagdisabled;
 
   props: PropsEntity[] = props;
+
+  changeProps: ChangePropsEntity[] = changeProps;
 
   methods: MethodsEntity[] = methods;
 }

@@ -99,3 +99,16 @@ export const methods = [
     return: '{当前的值，原始值}({value, original})',
   },
 ];
+
+export const changeProps = [
+  {
+    desc: '当前的值',
+    type: 'Number | String',
+    key: 'value',
+  },
+  {
+    desc: '原始值',
+    type: 'Number | String',
+    key: 'original',
+  },
+];

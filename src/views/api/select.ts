@@ -106,7 +106,7 @@ export const props = [
   },
   {
     param: 'getContainer',
-    desc: '浮层渲染父节点，默认渲染到 body 上',
+    desc: '浮层渲染父节点，默认渲染到 body 上。支持返回 <code> Promise </code>',
     type: 'Function',
     require: '否',
     default: '无',
@@ -161,5 +161,28 @@ export const methods = [
     name: 'click',
     desc: '点击选择框触发',
     return: 'Event 对象',
+  },
+];
+
+export const changeProps = [
+  {
+    desc: 'Event对象',
+    type: 'Event',
+    key: 'ev',
+  },
+  {
+    desc: '选中的值',
+    type: 'String',
+    key: 'value',
+  },
+  {
+    desc: '当前数据',
+    type: 'Array',
+    key: 'item',
+  },
+  {
+    desc: '所有数据',
+    type: 'Array',
+    key: 'options',
   },
 ];

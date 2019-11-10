@@ -6,6 +6,12 @@ export interface PropsEntity {
   default: string;
 }
 
+export interface ChangePropsEntity {
+  type: string;
+  desc: string;
+  key: string;
+}
+
 export interface MethodsEntity {
   name: string;
   desc: string;

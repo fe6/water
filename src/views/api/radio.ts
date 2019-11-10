@@ -145,3 +145,44 @@ export const groupMethods = [
     return: '{Event对象,选中的label,选中的值,当前状态}({ev,label,value,status})',
   },
 ];
+
+export const beforeProps = [
+  {
+    desc: 'Event对象',
+    type: 'Event',
+    key: 'ev',
+  },
+  {
+    desc: '选中的值',
+    type: 'String | Number | Boolean',
+    key: 'value',
+  },
+  {
+    desc: '选中的 label',
+    type: 'String | Number | Boolean',
+    key: 'label',
+  },
+];
+
+export const changeProps = [
+  {
+    desc: 'Event对象',
+    type: 'Event',
+    key: 'ev',
+  },
+  {
+    desc: '选中的值',
+    type: 'String | Number | Boolean',
+    key: 'value',
+  },
+  {
+    desc: '选中的 label',
+    type: 'String | Number | Boolean',
+    key: 'label',
+  },
+  {
+    desc: '当前状态',
+    type: 'String | Number | Boolean',
+    key: 'status',
+  },
+];

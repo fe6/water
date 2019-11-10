@@ -34,6 +34,14 @@ export default [
     component: () => import(/* webpackChunkName: "datepicker" */ '@/views/test/DatePicker.vue'),
   },
   {
+    path: '/tcascader',
+    name: 'TestCascader',
+    meta: {
+      title: TITLE.Cascader,
+    },
+    component: () => import(/* webpackChunkName: "cascader" */ '@/views/test/Cascader.vue'),
+  },
+  {
     path: '/tprogress',
     name: 'TestProgress',
     meta: {

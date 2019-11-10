@@ -57,7 +57,7 @@ export const props = [
   },
   {
     param: 'inside',
-    desc: '进度条显示文字内置在进度条内（只在 type=line 时可用）',
+    desc: '进度条显示文字内置在进度条内（只在 <code>type="line"</code> 时可用）',
     type: 'Boolean',
     require: '否',
     default: '无',

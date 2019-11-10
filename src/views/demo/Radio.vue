@@ -52,12 +52,17 @@
     <ApiTable :data="groupProps"></ApiTable>
     <h2>RadioGroup Method</h2>
     <MethodTable :data="groupMethods"></MethodTable>
+    <h2>before 函数返回的参数</h2>
+    <ChangeTable :data="beforeProps"></ChangeTable>
+    <h2>change 函数返回的参数</h2>
+    <ChangeTable :data="changeProps"></ChangeTable>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
+import ChangeTable from '@/views/components/ChangeTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
@@ -73,8 +78,10 @@ import {
   methods,
   groupProps,
   groupMethods,
+  changeProps,
+  beforeProps,
 } from '@/views/api/radio';
-import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import { PropsEntity, ChangePropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
 @Component({
@@ -82,6 +89,7 @@ import { TITLE } from '@/views/common/constant';
     WRow,
     WCol,
     ApiTable,
+    ChangeTable,
     MethodTable,
     OnlineReview,
   },
@@ -106,5 +114,9 @@ export default class RadioView extends Vue {
   groupProps: PropsEntity[] = groupProps;
 
   groupMethods: MethodsEntity[] = groupMethods;
+
+  beforeProps: ChangePropsEntity[] = beforeProps;
+
+  changeProps: ChangePropsEntity[] = changeProps;
 }
 </script>

@@ -193,4 +193,12 @@ export default [
     },
     component: () => import(/* webpackChunkName: "tooltip" */ '@/views/demo/Tooltip.vue'),
   },
+  {
+    path: '/datepicker',
+    name: 'DatePicker',
+    meta: {
+      title: TITLE.DatePicker,
+    },
+    component: () => import(/* webpackChunkName: "datepicker" */ '@/views/demo/DatePicker.vue'),
+  },
 ];

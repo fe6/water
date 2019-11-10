@@ -89,3 +89,16 @@ export const pageJumpMethods = [
     return: '当前页数',
   },
 ];
+
+export const showTotalProps = [
+  {
+    desc: '总数',
+    type: 'Number',
+    key: 'total',
+  },
+  {
+    desc: '区间',
+    type: 'Array',
+    key: 'range',
+  },
+];

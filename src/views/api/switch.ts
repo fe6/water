@@ -50,3 +50,16 @@ export const methods = [
     return: '{Event对象,当前状态}({ev,status})',
   },
 ];
+
+export const changeProps = [
+  {
+    desc: 'Event对象',
+    type: 'Event',
+    key: 'ev',
+  },
+  {
+    desc: '当前状态',
+    type: 'Boolean',
+    key: 'status',
+  },
+];

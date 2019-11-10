@@ -55,6 +55,8 @@
     </WRow>
     <h2>Button API</h2>
     <ApiTable :data="props"></ApiTable>
+    <h2>Button 点击事件( click )返回的参数 API</h2>
+    <ChangeTable :data="clickProps"></ChangeTable>
     <h2>Button Method</h2>
     <MethodTable :data="methods"></MethodTable>
   </div>
@@ -63,6 +65,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
+import ChangeTable from '@/views/components/ChangeTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
@@ -76,8 +79,8 @@ import ghost from '@/views/code/button/ghost';
 import icon from '@/views/code/button/icon';
 import disabled from '@/views/code/button/disabled';
 import group from '@/views/code/button/group';
-import { props, methods } from '@/views/api/button';
-import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import { props, methods, clickProps } from '@/views/api/button';
+import { PropsEntity, ChangePropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
 interface StatusEntity {
@@ -90,6 +93,7 @@ interface StatusEntity {
     WRow,
     WCol,
     ApiTable,
+    ChangeTable,
     MethodTable,
     WDemo,
     OnlineReview,
@@ -113,6 +117,8 @@ export default class ButtonView extends Vue {
   group: ApiEntity = group;
 
   props: PropsEntity[] = props;
+
+  clickProps: ChangePropsEntity[] = clickProps;
 
   methods: MethodsEntity[] = methods;
 }

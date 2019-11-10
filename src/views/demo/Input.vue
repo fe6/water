@@ -50,12 +50,17 @@
     <ApiTable :data="props"></ApiTable>
     <h2>Input Method</h2>
     <MethodTable :data="methods"></MethodTable>
+    <h2>error 函数返回的参数</h2>
+    <ChangeTable :data="errorProps"></ChangeTable>
+    <h2>change 函数返回的参数</h2>
+    <ChangeTable :data="changeProps"></ChangeTable>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
+import ChangeTable from '@/views/components/ChangeTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
@@ -67,8 +72,13 @@ import icon from '@/views/code/input/icon';
 import error from '@/views/code/input/error';
 import disabled from '@/views/code/input/disabled';
 import limit from '@/views/code/input/limit';
-import { props, methods } from '@/views/api/input';
-import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import {
+  props,
+  changeProps,
+  errorProps,
+  methods,
+} from '@/views/api/input';
+import { PropsEntity, ChangePropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
 @Component({
@@ -76,6 +86,7 @@ import { TITLE } from '@/views/common/constant';
     WRow,
     WCol,
     ApiTable,
+    ChangeTable,
     MethodTable,
     OnlineReview,
   },
@@ -96,6 +107,10 @@ export default class InputView extends Vue {
   limit: ApiEntity = limit;
 
   props: PropsEntity[] = props;
+
+  errorProps: ChangePropsEntity[] = errorProps;
+
+  changeProps: ChangePropsEntity[] = changeProps;
 
   methods: MethodsEntity[] = methods;
 }

@@ -78,6 +78,10 @@ export const nav = [
             title: TITLE.Checkbox,
           },
           {
+            to: { name: 'DatePicker' },
+            title: TITLE.DatePicker,
+          },
+          {
             to: { name: 'Input' },
             title: TITLE.Input,
           },

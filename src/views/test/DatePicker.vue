@@ -79,8 +79,14 @@
     <WDatePicker type="year" />
     <WDatePicker type="age" /> -->
 
+    <!-- <WDatePicker disabled type="month" v-model="value2" /> -->
+
+    <!-- <WDatePicker @change="change" v-model="value1" /> -->
     <!-- <WDatePicker v-model="value1" /> -->
     <!-- <WDatePicker defaultPickerValue="1997-12-12" /> -->
+    <WDatePicker style="width: 1000px" @change="change" v-model="value1">
+      <div>123{{value1}}</div>
+    </WDatePicker>
   </div>
 </template>
 
@@ -152,6 +158,11 @@ export default class DatePickerView extends Vue {
     this.value3 = '1999++01++01++';
     const { start } = a.item;
     return start.years < 2050;
+  }
+
+  change(params: any) {
+    this.value3 = '1999++01++01++';
+    console.log(params, 'params');
   }
 }
 </script>

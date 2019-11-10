@@ -55,12 +55,17 @@
     <ApiTable :data="groupProps"></ApiTable>
     <h2>CheckboxGroup Method</h2>
     <MethodTable :data="groupMethods"></MethodTable>
+    <h2>Checkbox change 函数出发的参数 API</h2>
+    <ChangeTable :data="changeCheckboxProps"></ChangeTable>
+    <h2>CheckboxGroup change 函数出发的参数 API</h2>
+    <ChangeTable :data="changeCheckboxGroupProps"></ChangeTable>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ApiTable from '@/views/components/ApiTable.vue';
+import ChangeTable from '@/views/components/ChangeTable.vue';
 import MethodTable from '@/views/components/MethodTable.vue';
 import WRow from '@/components/grid/Row.vue';
 import WCol from '@/components/grid/Col.vue';
@@ -76,8 +81,10 @@ import {
   methods,
   groupProps,
   groupMethods,
+  changeCheckboxProps,
+  changeCheckboxGroupProps,
 } from '@/views/api/checkbox';
-import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+import { PropsEntity, ChangePropsEntity, MethodsEntity } from '@/views/entity/apientity';
 import { TITLE } from '@/views/common/constant';
 
 @Component({
@@ -85,6 +92,7 @@ import { TITLE } from '@/views/common/constant';
     WRow,
     WCol,
     ApiTable,
+    ChangeTable,
     MethodTable,
     OnlineReview,
   },
@@ -103,6 +111,10 @@ export default class CheckboxView extends Vue {
   group: ApiEntity = group;
 
   props: PropsEntity[] = props;
+
+  changeCheckboxProps: ChangePropsEntity[] = changeCheckboxProps;
+
+  changeCheckboxGroupProps: ChangePropsEntity[] = changeCheckboxGroupProps;
 
   methods: MethodsEntity[] = methods;
 

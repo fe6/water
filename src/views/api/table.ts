@@ -151,3 +151,77 @@ export const colProps = [
     default: '无',
   },
 ];
+
+export const renderProps = [
+  {
+    desc: '当前文案',
+    type: 'String',
+    key: 'text',
+  },
+  {
+    desc: '行col',
+    type: 'Object',
+    key: 'col',
+  },
+  {
+    desc: '所有数据',
+    type: 'Object',
+    key: 'options',
+  },
+  {
+    desc: '行数据',
+    type: 'Object',
+    key: 'optItem',
+  },
+  {
+    desc: '行索引',
+    type: 'Number',
+    key: 'optIndex',
+  },
+];
+
+export const extendRowRenderProps = [
+  {
+    desc: '行col',
+    type: 'Object',
+    key: 'col',
+  },
+  {
+    desc: '所有数据',
+    type: 'Object',
+    key: 'options',
+  },
+  {
+    desc: '行数据',
+    type: 'Object',
+    key: 'optItem',
+  },
+  {
+    desc: '行索引',
+    type: 'Number',
+    key: 'optIndex',
+  },
+];
+
+export const changeProps = [
+  {
+    desc: '当前表头的配置',
+    type: 'Object',
+    key: 'col',
+  },
+  {
+    desc: 'Event对象',
+    type: 'Event',
+    key: 'ev',
+  },
+  {
+    desc: '排序类型',
+    type: 'String',
+    key: 'sortType',
+  },
+  {
+    desc: '当前表头的索引',
+    type: 'Number',
+    key: 'colIndex',
+  },
+];
