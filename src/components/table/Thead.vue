@@ -215,7 +215,7 @@ export default class Thead extends Vue {
 
     if ((colItem.sorter || this.showSort) && ev) {
       this.$emit('change', {
-        colItem,
+        col: colItem,
         colIndex,
         sortType: this.colSort[colIndex],
         ev,
