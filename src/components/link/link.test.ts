@@ -17,12 +17,14 @@ describe('Link.vue', () => {
   it('test Link', (done) => {
     cb.vm.$nextTick(() => {
       try {
-        expect(cb.vm.classList).toEqual([{
-          'w-link-disabled': false,
-          'w-link-loading': false,
-          'w-link-loading-undefined': false,
-          'w-link-undefined': undefined,
-        }]);
+        expect(cb.vm.classList).toEqual([
+          {
+            'w-link-disabled': false,
+            'w-link-loading': false,
+            'w-link-loading-undefined': false,
+            'w-link-undefined': undefined,
+          },
+        ]);
 
         done();
       } catch (err) {
@@ -34,12 +36,14 @@ describe('Link.vue', () => {
   it('test Link loading', (done) => {
     loading.vm.$nextTick(() => {
       try {
-        expect(loading.vm.classList).toEqual([{
-          'w-link-disabled': false,
-          'w-link-loading': true,
-          'w-link-loading-undefined': undefined,
-          'w-link-undefined': undefined,
-        }]);
+        expect(loading.vm.classList).toEqual([
+          {
+            'w-link-disabled': false,
+            'w-link-loading': true,
+            'w-link-loading-undefined': undefined,
+            'w-link-undefined': undefined,
+          },
+        ]);
 
         done();
       } catch (err) {

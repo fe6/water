@@ -54,29 +54,35 @@ describe('Checkbox.vue', () => {
     });
     group1 = mount(CheckboxGroup, {
       propsData: {
-        options: [{
-          value: 'Apple',
-          label: 'Apple',
-          age: '18岁',
-        }],
+        options: [
+          {
+            value: 'Apple',
+            label: 'Apple',
+            age: '18岁',
+          },
+        ],
       },
     });
     group2 = mount(CheckboxGroup, {
       propsData: {
-        options: [{
-          value: 'Apple',
-          age: '18岁',
-        }],
+        options: [
+          {
+            value: 'Apple',
+            age: '18岁',
+          },
+        ],
       },
     });
     groupEmpty = mount(CheckboxGroup);
     groupDisabled = mount(CheckboxGroup, {
       propsData: {
-        options: [{
-          value: 'Apple',
-          label: 'Apple',
-          age: '18岁',
-        }],
+        options: [
+          {
+            value: 'Apple',
+            label: 'Apple',
+            age: '18岁',
+          },
+        ],
         disabled: true,
       },
     });
@@ -155,10 +161,16 @@ describe('Checkbox.vue', () => {
         const checkboxElem = color.find('.w-checkbox');
         expect(color.vm.textColorStyle).toEqual({ color: '#0f0' });
         checkboxElem.trigger('click');
-        expect(color.vm.colorStyle).toEqual({ backgroundColor: '#f00', borderColor: '#f00' });
+        expect(color.vm.colorStyle).toEqual({
+          backgroundColor: '#f00',
+          borderColor: '#f00',
+        });
 
         checkboxElem.trigger('mouseover');
-        expect(color.vm.colorStyle).toEqual({ backgroundColor: '#f00', borderColor: '#f00' });
+        expect(color.vm.colorStyle).toEqual({
+          backgroundColor: '#f00',
+          borderColor: '#f00',
+        });
 
         done();
       } catch (err) {

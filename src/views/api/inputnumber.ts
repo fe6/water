@@ -57,7 +57,8 @@ export const props = [
   },
   {
     param: 'size',
-    desc: '设置输入框大小，可选值为 <code>small</code> <code>large</code> 或者不设',
+    desc:
+      '设置输入框大小，可选值为 <code>small</code> <code>large</code> 或者不设',
     type: 'String',
     require: '否',
     default: '无',
@@ -78,7 +79,8 @@ export const props = [
   },
   {
     param: 'parser',
-    desc: '指定从 formatter 里转换回数字的方式，和 formatter 搭配使用，用于输入的时候',
+    desc:
+      '指定从 formatter 里转换回数字的方式，和 formatter 搭配使用，用于输入的时候',
     type: 'Function',
     require: '否',
     default: 'input => input',

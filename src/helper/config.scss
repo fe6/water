@@ -1,4 +1,5 @@
-$family: Helvetica, "PingFang SC", STHeiti, "Microsoft YaHei", 微软雅黑, Verdana,Arial, Tahoma, STXihei, 华文细黑, MicrosoftYaHeiUI, sans-serif;
+$family: Helvetica, 'PingFang SC', STHeiti, 'Microsoft YaHei', 微软雅黑, Verdana,
+  Arial, Tahoma, STXihei, 华文细黑, MicrosoftYaHeiUI, sans-serif;
 
 $white: #fff;
 
@@ -58,8 +59,18 @@ $disabled-border: #dbdee9;
 // 圆角
 $border-radius-base: 4px;
 // 阴影
-$shadow: rgba(0, 0, 0, 0.15);
+$shadow: rgba(
+  0,
+  0,
+  0,
+  0.15
+);
 // 遮罩颜色
-$mask: rgba(0, 0, 0, 0.65);
+$mask: rgba(
+  0,
+  0,
+  0,
+  0.65
+);
 // 分割线
 $dividing: #eaeef5;

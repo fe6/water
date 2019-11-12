@@ -11,88 +11,88 @@
     <WRow :gutter="16">
       <WCol :span="24">
         <OnlineReview
-          :temCode="base.code"
-          :jsCode="base.js"
+          :tem-code="base.code"
+          :js-code="base.js"
           :title="base.title"
           :desc="base.desc"
-          iframeHeight="300px"
+          iframe-height="300px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="checkbox.code"
-          :jsCode="checkbox.js"
+          :tem-code="checkbox.code"
+          :js-code="checkbox.js"
           :title="checkbox.title"
           :desc="checkbox.desc"
-          iframeHeight="300px"
+          iframe-height="300px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="sort.code"
-          :jsCode="sort.js"
+          :tem-code="sort.code"
+          :js-code="sort.js"
           :title="sort.title"
           :desc="sort.desc"
-          iframeHeight="300px"
+          iframe-height="300px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="size.code"
-          :jsCode="size.js"
+          :tem-code="size.code"
+          :js-code="size.js"
           :title="size.title"
           :desc="size.desc"
-          iframeHeight="500px"
+          iframe-height="500px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="border.code"
-          :jsCode="border.js"
+          :tem-code="border.code"
+          :js-code="border.js"
           :title="border.title"
           :desc="border.desc"
-          iframeHeight="360px"
+          iframe-height="360px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="extend.code"
-          :jsCode="extend.js"
+          :tem-code="extend.code"
+          :js-code="extend.js"
           :title="extend.title"
           :desc="extend.desc"
-          iframeHeight="400px"
+          iframe-height="400px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="merge.code"
-          :jsCode="merge.js"
+          :tem-code="merge.code"
+          :js-code="merge.js"
           :title="merge.title"
           :desc="merge.desc"
-          iframeHeight="360px"
+          iframe-height="360px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="fix.code"
-          :jsCode="fix.js"
+          :tem-code="fix.code"
+          :js-code="fix.js"
           :title="fix.title"
           :desc="fix.desc"
-          iframeHeight="360px"
+          iframe-height="360px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="group.code"
-          :jsCode="group.js"
+          :tem-code="group.code"
+          :js-code="group.js"
           :title="group.title"
           :desc="group.desc"
-          iframeHeight="440px"
+          iframe-height="440px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="empty.code"
-          :jsCode="empty.js"
+          :tem-code="empty.code"
+          :js-code="empty.js"
           :title="empty.title"
           :desc="empty.desc"
-          iframeHeight="280px"
+          iframe-height="280px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="loading.code"
-          :jsCode="loading.js"
+          :tem-code="loading.code"
+          :js-code="loading.js"
           :title="loading.title"
           :desc="loading.desc"
-          iframeHeight="340px"
+          iframe-height="340px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="slot.code"
-          :jsCode="slot.js"
+          :tem-code="slot.code"
+          :js-code="slot.js"
           :title="slot.title"
           :desc="slot.desc"
-          iframeHeight="340px"
+          iframe-height="340px"
         ></OnlineReview>
       </WCol>
     </WRow>
@@ -171,165 +171,179 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import ApiTable from '@/views/components/ApiTable.vue';
-import ChangeTable from '@/views/components/ChangeTable.vue';
-import MethodTable from '@/views/components/MethodTable.vue';
-import WRow from '@/components/grid/Row.vue';
-import WCol from '@/components/grid/Col.vue';
-import OnlineReview from '@/views/components/OnlineReview.vue';
-import { ApiEntity } from '@/views/entity/demoentity';
-import base from '@/views/code/table/base';
-import checkbox from '@/views/code/table/checkbox';
-import sort from '@/views/code/table/sort';
-import size from '@/views/code/table/size';
-import border from '@/views/code/table/border';
-import extend from '@/views/code/table/extend';
-import merge from '@/views/code/table/merge';
-import fix from '@/views/code/table/fix';
-import group from '@/views/code/table/group';
-import empty from '@/views/code/table/empty';
-import loading from '@/views/code/table/loading';
-import slot from '@/views/code/table/slot';
-import {
-  props,
-  colProps,
-  methods,
-  changeProps,
-  extendRowRenderProps,
-  renderProps,
-} from '@/views/api/table';
-import { PropsEntity, ChangePropsEntity, MethodsEntity } from '@/views/entity/apientity';
-import { TITLE } from '@/views/common/constant';
-import WTable from '@/components/table/Table.vue';
-import WCheckbox from '@/components/checkbox/Checkbox.vue';
-import { baseCol, baseOptions } from '@/views/code/table/options/base';
-import { checkboxCol, checkboxOptions } from '@/views/code/table/options/checkbox';
-import { extendCol, extendOptions } from '@/views/code/table/options/extend';
-import { showSortCol, sortCol, sortOptions } from '@/views/code/table/options/sort';
-import {
-  borderCol,
-  borderOptions,
-  header,
-  footer,
-} from '@/views/code/table/options/border';
-import { fixCol, fixOptions } from '@/views/code/table/options/fix';
-import { emptyCol, emptyOptions } from '@/views/code/table/options/empty';
-import { slotCol, slotOptions } from '@/views/code/table/options/slot';
-import { mergeCol, mergeOptions } from '@/views/code/table/options/merge';
-import { groupCol, groupOptions } from '@/views/code/table/options/group';
-import { sizeCol, sizeOptions } from '@/views/code/table/options/size';
-import { loadingCol, loadingOptions } from '@/views/code/table/options/loading';
+  import { Component, Vue } from 'vue-property-decorator';
+  import ApiTable from '@/views/components/ApiTable.vue';
+  import ChangeTable from '@/views/components/ChangeTable.vue';
+  import MethodTable from '@/views/components/MethodTable.vue';
+  import WRow from '@/components/grid/Row.vue';
+  import WCol from '@/components/grid/Col.vue';
+  import OnlineReview from '@/views/components/OnlineReview.vue';
+  import { ApiEntity } from '@/views/entity/demoentity';
+  import base from '@/views/code/table/base';
+  import checkbox from '@/views/code/table/checkbox';
+  import sort from '@/views/code/table/sort';
+  import size from '@/views/code/table/size';
+  import border from '@/views/code/table/border';
+  import extend from '@/views/code/table/extend';
+  import merge from '@/views/code/table/merge';
+  import fix from '@/views/code/table/fix';
+  import group from '@/views/code/table/group';
+  import empty from '@/views/code/table/empty';
+  import loading from '@/views/code/table/loading';
+  import slot from '@/views/code/table/slot';
+  import {
+    props,
+    colProps,
+    methods,
+    changeProps,
+    extendRowRenderProps,
+    renderProps,
+  } from '@/views/api/table';
+  import {
+    PropsEntity,
+    ChangePropsEntity,
+    MethodsEntity,
+  } from '@/views/entity/apientity';
+  import { TITLE } from '@/views/common/constant';
+  import WTable from '@/components/table/Table.vue';
+  import WCheckbox from '@/components/checkbox/Checkbox.vue';
+  import { baseCol, baseOptions } from '@/views/code/table/options/base';
+  import {
+    checkboxCol,
+    checkboxOptions,
+  } from '@/views/code/table/options/checkbox';
+  import { extendCol, extendOptions } from '@/views/code/table/options/extend';
+  import {
+    showSortCol,
+    sortCol,
+    sortOptions,
+  } from '@/views/code/table/options/sort';
+  import {
+    borderCol,
+    borderOptions,
+    header,
+    footer,
+  } from '@/views/code/table/options/border';
+  import { fixCol, fixOptions } from '@/views/code/table/options/fix';
+  import { emptyCol, emptyOptions } from '@/views/code/table/options/empty';
+  import { slotCol, slotOptions } from '@/views/code/table/options/slot';
+  import { mergeCol, mergeOptions } from '@/views/code/table/options/merge';
+  import { groupCol, groupOptions } from '@/views/code/table/options/group';
+  import { sizeCol, sizeOptions } from '@/views/code/table/options/size';
+  import {
+    loadingCol,
+    loadingOptions,
+  } from '@/views/code/table/options/loading';
 
-@Component({
-  components: {
-    WRow,
-    WCol,
-    ApiTable,
-    ChangeTable,
-    MethodTable,
-    OnlineReview,
-    WTable,
-    WCheckbox,
-  },
-})
-export default class TableView extends Vue {
-  Table: string = TITLE.Table;
+  @Component({
+    components: {
+      WRow,
+      WCol,
+      ApiTable,
+      ChangeTable,
+      MethodTable,
+      OnlineReview,
+      WTable,
+      WCheckbox,
+    },
+  })
+  export default class TableView extends Vue {
+    Table: string = TITLE.Table;
 
-  base: ApiEntity = base;
+    base: ApiEntity = base;
 
-  checkbox: ApiEntity = checkbox;
+    checkbox: ApiEntity = checkbox;
 
-  sort: ApiEntity = sort;
+    sort: ApiEntity = sort;
 
-  size: ApiEntity = size;
+    size: ApiEntity = size;
 
-  border: ApiEntity = border;
+    border: ApiEntity = border;
 
-  extend: ApiEntity = extend;
+    extend: ApiEntity = extend;
 
-  merge: ApiEntity = merge;
+    merge: ApiEntity = merge;
 
-  fix: ApiEntity = fix;
+    fix: ApiEntity = fix;
 
-  group: ApiEntity = group;
+    group: ApiEntity = group;
 
-  empty: ApiEntity = empty;
+    empty: ApiEntity = empty;
 
-  loading: ApiEntity = loading;
+    loading: ApiEntity = loading;
 
-  slot: ApiEntity = slot;
+    slot: ApiEntity = slot;
 
-  props: PropsEntity[] = props;
+    props: PropsEntity[] = props;
 
-  colProps: PropsEntity[] = colProps;
+    colProps: PropsEntity[] = colProps;
 
-  changeProps: ChangePropsEntity[] = changeProps;
+    changeProps: ChangePropsEntity[] = changeProps;
 
-  extendRowRenderProps: ChangePropsEntity[] = extendRowRenderProps;
+    extendRowRenderProps: ChangePropsEntity[] = extendRowRenderProps;
 
-  renderProps: ChangePropsEntity[] = renderProps;
+    renderProps: ChangePropsEntity[] = renderProps;
 
-  methods: MethodsEntity[] = methods;
+    methods: MethodsEntity[] = methods;
 
-  baseCol: any = baseCol;
+    baseCol: any = baseCol;
 
-  baseOptions: any = baseOptions;
+    baseOptions: any = baseOptions;
 
-  checkboxCol: any = checkboxCol;
+    checkboxCol: any = checkboxCol;
 
-  checkboxOptions: any = checkboxOptions;
+    checkboxOptions: any = checkboxOptions;
 
-  extendCol: any = extendCol;
+    extendCol: any = extendCol;
 
-  extendOptions: any = extendOptions;
+    extendOptions: any = extendOptions;
 
-  sortCol: any = sortCol;
+    sortCol: any = sortCol;
 
-  showSortCol: any = showSortCol;
+    showSortCol: any = showSortCol;
 
-  sortOptions: any = sortOptions;
+    sortOptions: any = sortOptions;
 
-  borderCol: any = borderCol;
+    borderCol: any = borderCol;
 
-  borderOptions: any = borderOptions;
+    borderOptions: any = borderOptions;
 
-  header: Function = header;
+    header: Function = header;
 
-  footer: Function = footer;
+    footer: Function = footer;
 
-  fixCol: any = fixCol;
+    fixCol: any = fixCol;
 
-  fixOptions: any = fixOptions;
+    fixOptions: any = fixOptions;
 
-  emptyCol: any = emptyCol;
+    emptyCol: any = emptyCol;
 
-  emptyOptions: any = emptyOptions;
+    emptyOptions: any = emptyOptions;
 
-  slotCol: any = slotCol;
+    slotCol: any = slotCol;
 
-  slotOptions: any = slotOptions;
+    slotOptions: any = slotOptions;
 
-  mergeCol: any = mergeCol;
+    mergeCol: any = mergeCol;
 
-  mergeOptions: any = mergeOptions;
+    mergeOptions: any = mergeOptions;
 
-  groupCol: any = groupCol;
+    groupCol: any = groupCol;
 
-  groupOptions: any = groupOptions;
+    groupOptions: any = groupOptions;
 
-  sizeCol: any = sizeCol;
+    sizeCol: any = sizeCol;
 
-  sizeOptions: any = sizeOptions;
+    sizeOptions: any = sizeOptions;
 
-  loadingCol: any = loadingCol;
+    loadingCol: any = loadingCol;
 
-  loadingOptions: any = loadingOptions;
+    loadingOptions: any = loadingOptions;
 
-  loadingStatus: boolean = true;
+    loadingStatus = true;
 
-  clearSort() {
-    (this.$refs.sortTable as any).clearSort();
+    clearSort() {
+      (this.$refs.sortTable as any).clearSort();
+    }
   }
-}
 </script>

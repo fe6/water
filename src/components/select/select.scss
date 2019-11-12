@@ -24,7 +24,10 @@ $move-time: 0.4s;
   border: 1px solid $normal-border;
   padding: 0 21px 0 12px;
   min-width: 120px;
-  transition: border-color $move-time, line-height $move-time, padding $move-time;
+  transition:
+    border-color $move-time,
+    line-height $move-time,
+    padding $move-time;
 
   &-search {
     cursor: text;
@@ -46,7 +49,7 @@ $move-time: 0.4s;
         height: 30px;
         line-height: 30px;
       }
-  
+
       &-small {
         height: 22px;
         line-height: 22px;
@@ -56,15 +59,18 @@ $move-time: 0.4s;
         outline: none;
       }
 
-      &::-webkit-input-placeholder { /* WebKit browsers */
+      &::-webkit-input-placeholder {
+        /* WebKit browsers */
         color: $select-search-placeholder;
       }
 
-      &::-moz-placeholder { /* Mozilla Firefox 19+ */
+      &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
         color: $select-search-placeholder;
       }
 
-      &::-ms-input-placeholder { /* Internet Explorer 10+ */
+      &::-ms-input-placeholder {
+        /* Internet Explorer 10+ */
         color: $select-search-placeholder;
       }
     }
@@ -209,7 +215,31 @@ $move-time: 0.4s;
       max-width: 99%;
       position: relative;
       overflow: hidden;
-      transition: padding $move-time cubic-bezier(0.645, 0.045, 0.355, 1), height $move-time cubic-bezier(0.645, 0.045, 0.355, 1), line-height $move-time cubic-bezier(0.645, 0.045, 0.355, 1), font-size $move-time cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition:
+        padding $move-time cubic-bezier(
+          0.645,
+          0.045,
+          0.355,
+          1
+        ),
+        height $move-time cubic-bezier(
+          0.645,
+          0.045,
+          0.355,
+          1
+        ),
+        line-height $move-time cubic-bezier(
+          0.645,
+          0.045,
+          0.355,
+          1
+        ),
+        font-size $move-time cubic-bezier(
+          0.645,
+          0.045,
+          0.355,
+          1
+        );
       padding: 0 20px 0 8px;
       margin: 0 4px 0 0;
       height: 18px;

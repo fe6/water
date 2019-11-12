@@ -89,7 +89,6 @@ const install = (Vue: any) => {
   }
 };
 
-
 if (typeof window !== 'undefined' && (window as any).Vue) {
   install((window as any).Vue);
 }

@@ -1,22 +1,24 @@
 <template>
-  <div class="w-badge" v-if="slotDefault">
+  <div v-if="slotDefault" class="w-badge">
     <sup
+      v-if="showCount && !slotCount && !dot"
       class="w-badge-sup"
       :title="titleValue"
-      v-if="showCount && !slotCount && !dot"
-    >{{count}}</sup>
-    <i class="w-badge-dot" v-else-if="!zeroCount && dot"></i>
-    <span class="w-badge-custom" v-if="slotCount">
+      >{{ count }}</sup
+    >
+    <i v-else-if="!zeroCount && dot" class="w-badge-dot"></i>
+    <span v-if="slotCount" class="w-badge-custom">
       <slot name="count"></slot>
     </span>
     <slot></slot>
   </div>
   <span
+    v-else-if="(!slotDefault && !showStatus) || showCount"
     class="w-badge-sup w-badge-count"
     :title="titleValue"
-    v-else-if="(!slotDefault && !showStatus) || showCount"
-  >{{count}}</span>
-  <div class="w-badge-status" v-else-if="!slotDefault && showStatus">
+    >{{ count }}</span
+  >
+  <div v-else-if="!slotDefault && showStatus" class="w-badge-status">
     <span
       class="w-badge-status-dot"
       :class="{
@@ -24,82 +26,83 @@
       }"
       :style="dotColor"
     ></span>
-    <p class="w-badge-status-text" v-if="text">{{text}}</p>
+    <p v-if="text" class="w-badge-status-text">{{ text }}</p>
   </div>
 </template>
 
 <script lang="ts">
-import {
-  Component, Prop, Model, Vue,
-} from 'vue-property-decorator';
+  import { Component, Prop, Model, Vue } from 'vue-property-decorator';
 
-interface ColorEntity {
-  background?: string,
-}
-
-@Component
-export default class Badge extends Vue {
-  name: string = 'Badge';
-
-  @Model('model', { type: Number, default: 0 }) readonly value!: number;
-
-  @Prop({
-    type: Number,
-    default: 99,
-  }) private overflowCount?: number;
-
-  @Prop(String) private status?: string;
-
-  @Prop(String) private text?: string;
-
-  @Prop(String) private title?: string;
-
-  @Prop(Boolean) private showZero?: boolean;
-
-  @Prop(Boolean) private dot?: boolean;
-
-  get statusIsColor(): boolean {
-    return !!this.status && (this.status as string).indexOf('#') > -1;
+  interface ColorEntity {
+    background?: string;
   }
 
-  get dotColor(): ColorEntity {
-    const color: ColorEntity = {};
-    if (this.statusIsColor) {
-      color.background = this.status;
+  @Component
+  export default class Badge extends Vue {
+    name = 'Badge';
+
+    @Model('model', { type: Number, default: 0 }) readonly value!: number;
+
+    @Prop({
+      type: Number,
+      default: 99,
+    })
+    private overflowCount?: number;
+
+    @Prop(String) private status?: string;
+
+    @Prop(String) private text?: string;
+
+    @Prop(String) private title?: string;
+
+    @Prop(Boolean) private showZero?: boolean;
+
+    @Prop(Boolean) private dot?: boolean;
+
+    get statusIsColor(): boolean {
+      return !!this.status && (this.status as string).indexOf('#') > -1;
     }
-    return color;
-  }
 
-  get showStatus(): boolean {
-    return this.status !== '';
-  }
+    get dotColor(): ColorEntity {
+      const color: ColorEntity = {};
+      if (this.statusIsColor) {
+        color.background = this.status;
+      }
+      return color;
+    }
 
-  get slotDefault(): boolean {
-    return !!this.$slots.default;
-  }
+    get showStatus(): boolean {
+      return this.status !== '';
+    }
 
-  get slotCount(): boolean {
-    return !!this.$slots.count;
-  }
+    get slotDefault(): boolean {
+      return !!this.$slots.default;
+    }
 
-  get count() {
-    return (this.overflowCount as number) >= this.value ? this.value : `${this.overflowCount}+`;
-  }
+    get slotCount(): boolean {
+      return !!this.$slots.count;
+    }
 
-  get zeroCount(): boolean {
-    return this.count < 1;
-  }
+    get count() {
+      return (this.overflowCount as number) >= this.value
+        ? this.value
+        : `${this.overflowCount}+`;
+    }
 
-  get showCount(): boolean {
-    return !this.zeroCount || !!this.showZero;
-  }
+    get zeroCount(): boolean {
+      return this.count < 1;
+    }
 
-  get titleValue(): string | number {
-    return this.title || this.count;
+    get showCount(): boolean {
+      return !this.zeroCount || !!this.showZero;
+    }
+
+    get titleValue(): string | number {
+      return this.title || this.count;
+    }
   }
-}
 </script>
 
 <style lang="scss">
-  @import "badge.scss";
+  @import 'badge.scss';
 </style>

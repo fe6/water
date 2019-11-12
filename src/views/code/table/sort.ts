@@ -16,7 +16,8 @@ export const codeCommon = (): string => `<w-table
 
 const base: ApiEntity = {
   title: '排序',
-  desc: '在 <code>col</code> 中配置 sorter 参数即可实现前端处理排序。<code>showSort</code> 参数是只出发 <code>change</code> 方法可通过后端配合进行排序。清除排序可 ref 表格调用 <code>sortTable</code> 方法。',
+  desc:
+    '在 <code>col</code> 中配置 sorter 参数即可实现前端处理排序。<code>showSort</code> 参数是只出发 <code>change</code> 方法可通过后端配合进行排序。清除排序可 ref 表格调用 <code>sortTable</code> 方法。',
   code: codeCommon(),
   js: `{
   data() {

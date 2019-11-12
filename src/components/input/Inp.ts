@@ -1,11 +1,5 @@
 import { VNode } from 'vue';
-import {
-  Component,
-  Model,
-  Prop,
-  Vue,
-  Watch,
-} from 'vue-property-decorator';
+import { Component, Model, Prop, Vue, Watch } from 'vue-property-decorator';
 import { getMaxLengthValue } from '@/components/input/helpers';
 import { isKorean } from '@/helper/type';
 
@@ -13,18 +7,18 @@ export interface ReturnParamsEntity {
   ev: Event;
   value: string;
   maxLength: string | number;
-  eventType: string,
+  eventType: string;
 }
 
 @Component
 export default class Inp extends Vue {
-  name: string = 'Input';
+  name = 'Input';
 
-  preName: string = 'w-input-';
+  preName = 'w-input-';
 
-  beError: boolean = false;
+  beError = false;
 
-  isWriting: boolean = false;
+  isWriting = false;
 
   @Model('model', { type: [String, Number] }) readonly value!: string | number;
 
@@ -37,7 +31,8 @@ export default class Inp extends Vue {
   @Prop({
     type: String,
     default: 'text',
-  }) private type!: string;
+  })
+  private type!: string;
 
   @Prop(Boolean) private disabled!: boolean;
 
@@ -46,12 +41,14 @@ export default class Inp extends Vue {
   @Prop({
     type: Function,
     default: (): boolean => false,
-  }) private error?: Function;
+  })
+  private error?: Function;
 
   @Prop({
     type: Function,
     default: () => {},
-  }) private change?: Function;
+  })
+  private change?: Function;
 
   get classList(): any[] {
     return [
@@ -96,7 +93,7 @@ export default class Inp extends Vue {
       return;
     }
 
-    const target = (ev.target as any);
+    const target = ev.target as any;
     const { value } = target;
     const reParams: ReturnParamsEntity = {
       ev,

@@ -1,5 +1,5 @@
 <template>
-  <div class="table-box" v-once>
+  <div v-once class="table-box">
     <table>
       <thead>
         <tr>
@@ -10,9 +10,9 @@
       </thead>
       <tbody>
         <tr v-for="(source, sourceIndex) in data" :key="sourceIndex">
-          <td>{{source.name}}</td>
-          <td>{{source.desc}}</td>
-          <td>{{source.return}}</td>
+          <td>{{ source.name }}</td>
+          <td>{{ source.desc }}</td>
+          <td>{{ source.return }}</td>
         </tr>
       </tbody>
     </table>
@@ -20,14 +20,10 @@
 </template>
 
 <script lang="ts">
-import {
-  Component,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
+  import { Component, Prop, Vue } from 'vue-property-decorator';
 
-@Component
-export default class MethodTable extends Vue {
-  @Prop() private data!: any[];
-}
+  @Component
+  export default class MethodTable extends Vue {
+    @Prop() private data!: any[];
+  }
 </script>

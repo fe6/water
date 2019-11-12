@@ -1,7 +1,18 @@
 # css 规范
 # 规范官网 https://stylelint.io/user-guide/rules/
 {
+  "extends": ["stylelint-prettier/recommended"],
+  "plugins": ["stylelint-prettier"],
   "rules": {
+    "prettier/prettier": [true, {
+      "printWidth": 80,
+      "tabWidth": 2,
+      "singleQuote": true,
+      "semi": true,
+      bracketSpacing: true,
+      "jsxBracketSameLine": true,
+      "arrowParens": 'always',
+    }],
     "at-rule-empty-line-before": [
       "always",
       {
@@ -92,8 +103,8 @@
     "font-family-name-quotes": "always-unless-keyword",
     "font-family-no-duplicate-names": true,
     "function-calc-no-unspaced-operator": true,
-    "function-comma-newline-after": "always-multi-line",
-    "function-comma-newline-before": "always-multi-line",
+    "function-comma-newline-after": "always",
+    "function-comma-newline-before": "never-multi-line",
     "function-comma-space-after": "always-single-line",
     "function-comma-space-before": "never",
     "function-linear-gradient-no-nonstandard-direction": true,

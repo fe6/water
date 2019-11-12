@@ -58,7 +58,10 @@ describe('Popover.vue', () => {
         testFn.vm.coreLeave({ type: 'click' });
         jest.runOnlyPendingTimers();
         testFn.vm.popoverClick({ stopPropagation: () => {} });
-        testFn.vm.popoverLeave({ type: 'mouseleave', stopPropagation: () => {} });
+        testFn.vm.popoverLeave({
+          type: 'mouseleave',
+          stopPropagation: () => {},
+        });
         testFn.vm.popoverEnter();
 
         testFn.destroy();

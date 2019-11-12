@@ -124,7 +124,6 @@ $th-sorted-bg: #f5f5f5;
   &-th {
     @extend .w-table-td;
 
-    font-weight: 500;
     text-align: left;
     background: $th-hover-bg;
     position: relative;
@@ -159,46 +158,6 @@ $th-sorted-bg: #f5f5f5;
   &-scroll {
     overflow: auto;
   }
-
-  &-sort {
-    position: absolute;
-    top: 50%;
-    right: 6px;
-    width: 14px;
-    height: 12px;
-    margin-top: -6px;
-    text-align: center;
-
-    &-icon {
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-color: transparent;
-      border-style: solid;
-      left: 50%;
-      margin-left: -4px;
-    }
-
-    &-up {
-      border-width: 0 4px 4px;
-      border-bottom-color: $th-sort-bg;
-      top: 0;
-
-      &.w-table-sort-on {
-        border-bottom-color: $blue-6;
-      }
-    }
-
-    &-down {
-      border-width: 4px 4px 0;
-      border-top-color: $th-sort-bg;
-      bottom: 0;
-
-      &.w-table-sort-on {
-        border-top-color: $blue-6;
-      }
-    }
-  } // w-table-sort
 
   &-empty {
     padding: 16px 0;

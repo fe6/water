@@ -7,7 +7,8 @@ export default [
     meta: {
       title: TITLE.Input,
     },
-    component: () => import(/* webpackChunkName: "input" */ '@/views/test/Input.vue'),
+    component: () =>
+      import(/* webpackChunkName: "input" */ '@/views/test/Input.vue'),
   },
   {
     path: '/tmodal',
@@ -15,7 +16,8 @@ export default [
     meta: {
       title: TITLE.Modal,
     },
-    component: () => import(/* webpackChunkName: "modal" */ '@/views/test/Modal.vue'),
+    component: () =>
+      import(/* webpackChunkName: "modal" */ '@/views/test/Modal.vue'),
   },
   {
     path: '/tpopconfirm',
@@ -23,7 +25,10 @@ export default [
     meta: {
       title: TITLE.Popconfirm,
     },
-    component: () => import(/* webpackChunkName: "popconfirm" */ '@/views/test/Popconfirm.vue'),
+    component: () =>
+      import(
+        /* webpackChunkName: "popconfirm" */ '@/views/test/Popconfirm.vue'
+      ),
   },
   {
     path: '/tdatepicker',
@@ -31,7 +36,10 @@ export default [
     meta: {
       title: TITLE.DatePicker,
     },
-    component: () => import(/* webpackChunkName: "datepicker" */ '@/views/test/DatePicker.vue'),
+    component: () =>
+      import(
+        /* webpackChunkName: "datepicker" */ '@/views/test/DatePicker.vue'
+      ),
   },
   {
     path: '/tcascader',
@@ -39,7 +47,8 @@ export default [
     meta: {
       title: TITLE.Cascader,
     },
-    component: () => import(/* webpackChunkName: "cascader" */ '@/views/test/Cascader.vue'),
+    component: () =>
+      import(/* webpackChunkName: "cascader" */ '@/views/test/Cascader.vue'),
   },
   {
     path: '/tprogress',
@@ -47,6 +56,7 @@ export default [
     meta: {
       title: TITLE.Progress,
     },
-    component: () => import(/* webpackChunkName: "progress" */ '@/views/test/Progress.vue'),
+    component: () =>
+      import(/* webpackChunkName: "progress" */ '@/views/test/Progress.vue'),
   },
 ];

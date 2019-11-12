@@ -1,19 +1,25 @@
 import { shallowMount } from '@vue/test-utils';
 import Cascader from './Cascader.vue';
 
-const options = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
-  children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
-    children: [{
-      value: 'xihu',
-      label: 'West Lake',
-      code: 100800,
-    }],
-  }],
-}];
+const options = [
+  {
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [
+      {
+        value: 'hangzhou',
+        label: 'Hangzhou',
+        children: [
+          {
+            value: 'xihu',
+            label: 'West Lake',
+            code: 100800,
+          },
+        ],
+      },
+    ],
+  },
+];
 
 describe('Cascader.vue', () => {
   let wrapperModel: any = null;
@@ -83,31 +89,22 @@ describe('Cascader.vue', () => {
   it('render', (done) => {
     wrapperModel.vm.$nextTick(() => {
       try {
-        expect(wrapperModel.vm.searchData).toEqual([{
-          disabled: false,
-          floor: 2,
-          index: 0,
-          item: {
-            code: 100800,
-            label:
-            'West Lake',
-            value:
-            'xihu',
+        expect(wrapperModel.vm.searchData).toEqual([
+          {
+            disabled: false,
+            floor: 2,
+            index: 0,
+            item: {
+              code: 100800,
+              label: 'West Lake',
+              value: 'xihu',
+            },
+            children: [],
+            path: 'zhejiang / hangzhou / xihu',
+            value: ['zhejiang', 'hangzhou', 'xihu'],
+            label: ['Zhejiang', 'Hangzhou', 'West Lake'],
           },
-          children: [],
-          path:
-          'zhejiang / hangzhou / xihu',
-          value: [
-            'zhejiang',
-            'hangzhou',
-            'xihu',
-          ],
-          label: [
-            'Zhejiang',
-            'Hangzhou',
-            'West Lake',
-          ],
-        }]);
+        ]);
         const searchResetStub = jest.fn();
         const panelChangeStub = jest.fn();
         const stopPropagationStub = jest.fn();
@@ -122,16 +119,18 @@ describe('Cascader.vue', () => {
         expect(wrapperModel.vm.searchHoverIndex).toBe(-1);
         wrapperModel.vm.searchKeyUp();
         wrapperModel.vm.searchKeyDown();
-        wrapperModel.vm.getSearchResult([{
-          value: 'xihu',
-          options: {
+        wrapperModel.vm.getSearchResult([
+          {
             value: 'xihu',
-            label: 'West Lake',
-            code: 100800,
+            options: {
+              value: 'xihu',
+              label: 'West Lake',
+              code: 100800,
+            },
+            floor: 2,
+            index: 0,
           },
-          floor: 2,
-          index: 0,
-        }]);
+        ]);
         wrapperModel.vm.searchEnter();
         expect(searchResetStub).toBeCalled();
         expect(panelChangeStub).toBeCalled();
@@ -164,7 +163,11 @@ describe('Cascader.vue', () => {
         };
         wrapperReset.vm.chooseResult = ['zhejiang', 'hangzhou', 'xihu'];
         wrapperReset.vm.reset();
-        expect(wrapperReset.vm.chooseResult).toEqual(['zhejiang', 'hangzhou', 'xihu']);
+        expect(wrapperReset.vm.chooseResult).toEqual([
+          'zhejiang',
+          'hangzhou',
+          'xihu',
+        ]);
         const resetStub = jest.fn();
         wrapperReset.vm.optStatus = true;
         wrapperReset.vm.reset = resetStub;
@@ -184,7 +187,11 @@ describe('Cascader.vue', () => {
           children: [],
           value: ['zhejiang', 'hangzhou', 'xihu'],
         });
-        expect(wrapperPanelChange.vm.chooseResult).toEqual(['zhejiang', 'hangzhou', 'xihu']);
+        expect(wrapperPanelChange.vm.chooseResult).toEqual([
+          'zhejiang',
+          'hangzhou',
+          'xihu',
+        ]);
         done();
       } catch (err) {
         done.fail(err);

@@ -1,6 +1,6 @@
 import { hasOwn } from '@/helper/o';
 
-export const getMaxLevel = (params: any[], attr: string = 'children'): number => {
+export const getMaxLevel = (params: any[], attr = 'children'): number => {
   const number: number[] = params.map(() => 1);
   const loopLevet = (obj: any, idx: number) => {
     obj.reduce((acc: number, item: any) => {
@@ -26,7 +26,10 @@ export interface ChildEntity {
   [levelPath: string]: number;
 }
 
-export const getAllChildrenLength = (params: any[], attr: string = 'children'): ChildEntity => {
+export const getAllChildrenLength = (
+  params: any[],
+  attr = 'children'
+): ChildEntity => {
   const childs: any = {};
 
   const loopPushChild = (obj: any, objIndex?: string) => {
@@ -38,7 +41,7 @@ export const getAllChildrenLength = (params: any[], attr: string = 'children'): 
         }
 
         const childItems = objItem[attr].filter(
-          (objItemChild: any) => !hasOwn(objItemChild, attr),
+          (objItemChild: any) => !hasOwn(objItemChild, attr)
         );
 
         // 更新路径中的数据
@@ -62,19 +65,23 @@ export const getAllChildrenLength = (params: any[], attr: string = 'children'): 
   return childs;
 };
 
-
 export const getCol = (
   item: any,
   itemIndex: string,
   maxLevel: number,
-  childLength: ChildEntity,
+  childLength: ChildEntity
 ) => {
   const levels: number = itemIndex.split('-').length;
   const rowSpan: number = maxLevel - levels + 1;
 
   if (hasOwn(item, 'children')) {
     item.children.forEach((childItem: any, childIndex: number) => {
-      getCol(childItem, `${itemIndex}-${String(childIndex)}`, maxLevel, childLength);
+      getCol(
+        childItem,
+        `${itemIndex}-${String(childIndex)}`,
+        maxLevel,
+        childLength
+      );
     });
     // 追加 rowSpan
     Object.assign(item, {
@@ -88,7 +95,7 @@ export const getCol = (
   }
 };
 
-export const handleCol = (colDatas: any[], newCol: any[], level: number = 0) => {
+export const handleCol = (colDatas: any[], newCol: any[], level = 0) => {
   const colLine: any[] = newCol[level] || [];
   const nextLevel: number = level + 1;
   // 有层级

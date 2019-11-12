@@ -14,7 +14,8 @@ export const codeCommon = (): string => `<w-progress inside :stroke-width="20" v
 
 const base: ApiEntity = {
   title: '百分比内显',
-  desc: 'Progress 组件可通过 <code>stroke-width</code> 属性更改进度条的高度，并可通过 <code>inside</code> 属性来将进度条描述置于进度条内部。注意： <code>inside</code> 只对 <code>type="line"</code> 生效。当 <code>inside</code> 模式的时候，只显示文字，不显示图标及状态。',
+  desc:
+    'Progress 组件可通过 <code>stroke-width</code> 属性更改进度条的高度，并可通过 <code>inside</code> 属性来将进度条描述置于进度条内部。注意： <code>inside</code> 只对 <code>type="line"</code> 生效。当 <code>inside</code> 模式的时候，只显示文字，不显示图标及状态。',
   code: codeCommon(),
   js: `{
   data() {

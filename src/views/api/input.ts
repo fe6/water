@@ -1,4 +1,5 @@
-const url = 'https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7';
+const url =
+  'https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7';
 
 export const props = [
   {
@@ -24,7 +25,8 @@ export const props = [
   },
   {
     param: 'size',
-    desc: '设置输入框大小，可选值为 <code>small</code> <code>large</code> 或者不设',
+    desc:
+      '设置输入框大小，可选值为 <code>small</code> <code>large</code> 或者不设',
     type: 'String',
     require: '否',
     default: '无',
@@ -52,7 +54,8 @@ export const props = [
   },
   {
     param: 'error',
-    desc: '当返回为 true 的时候，输入框为错误状态。该函数返回的参数(params)： Event对象(ev)， 输入的值(value)， 最大长度(maxLength)，触发的事件或阶段(eventType <code>0.16.0</code> 新增)',
+    desc:
+      '当返回为 true 的时候，输入框为错误状态。该函数返回的参数(params)： Event对象(ev)， 输入的值(value)， 最大长度(maxLength)，触发的事件或阶段(eventType <code>0.16.0</code> 新增)',
     type: 'Function',
     require: '否',
     default: '(params) => false',

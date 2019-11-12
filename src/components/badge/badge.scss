@@ -25,7 +25,10 @@ $badge-default: #d9d9d9;
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(50%, -50%);
+    transform: translate(
+      50%,
+      -50%
+    );
     transform-origin: 100% 0%;
   }
 

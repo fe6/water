@@ -27,7 +27,11 @@ export interface CodeCommonParamsEntity {
  * @param attr {String} 额外添加的属性，适用于 loading ， ghost ， disabled 等类型为 boolean 的属性。
  * @return {string}
  */
-export const codeCommon = ({ attr, content }: CodeCommonParamsEntity = {}): string => `<w-link${attr ? ` ${attr}` : ''}>${content}</w-link>`;
+export const codeCommon = ({
+  attr,
+  content,
+}: CodeCommonParamsEntity = {}): string =>
+  `<w-link${attr ? ` ${attr}` : ''}>${content}</w-link>`;
 
 /**
  * demo 的现场预览， WDemo 的上面部分
@@ -35,34 +39,41 @@ export const codeCommon = ({ attr, content }: CodeCommonParamsEntity = {}): stri
  * @param params {RenderCommonParamsEntity} 自定义配置
  * @return any[]
  */
-export const renderCommon = (h: Function, params: RenderCommonParamsEntity) => h(
-  'section',
-  {
-    class: params.noLayout ? '' : 'demo-demo',
-  },
-  [h(
-    'div',
+export const renderCommon = (h: Function, params: RenderCommonParamsEntity) =>
+  h(
+    'section',
     {
-      class: params.demoClassName,
-    }, [
-      h(Link,
+      class: params.noLayout ? '' : 'demo-demo',
+    },
+    [
+      h(
+        'div',
         {
-          props: {
-            ...params.props,
-          },
+          class: params.demoClassName,
         },
-        [params.render ? params.render(h) : params.defaultText]),
-    ],
-  )],
-);
+        [
+          h(
+            Link,
+            {
+              props: {
+                ...params.props,
+              },
+            },
+            [params.render ? params.render(h) : params.defaultText]
+          ),
+        ]
+      ),
+    ]
+  );
 
 const base: ApiEntity = {
   title: '基本使用',
   desc: '基本使用。',
   code: codeCommon({ content: '这个超链没有链接' }),
-  render: (h: Function) => renderCommon(h, {
-    defaultText: '这个超链没有链接',
-  }),
+  render: (h: Function) =>
+    renderCommon(h, {
+      defaultText: '这个超链没有链接',
+    }),
 };
 
 export default base;

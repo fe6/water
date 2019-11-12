@@ -6,7 +6,7 @@ export interface ToEntity {
 
 export interface NavItemEntity {
   to: ToEntity;
-  title: string
+  title: string;
 }
 
 export interface NavChildrenEntity {

@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import Icon from './Icon.vue';
 
 describe('Icon.vue', () => {
-  let wrapperRender:any = null;
+  let wrapperRender: any = null;
 
   beforeEach(() => {
     wrapperRender = mount(Icon);

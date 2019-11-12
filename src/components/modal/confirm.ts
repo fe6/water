@@ -86,10 +86,7 @@ export default {
       change() {},
     };
 
-    const {
-      type,
-      color,
-    } = config || { type: 'confirm', color: '#ffa430' };
+    const { type, color } = config || { type: 'confirm', color: '#ffa430' };
 
     this.creatConfirm({
       okType,
@@ -106,21 +103,25 @@ export default {
       icon(h: Function) {
         return h(WIcon, [
           h('svg', [
-            h('g', {
-              attrs: {
-                stroke: 'none',
-                'stroke-width': 1,
-                fill: 'none',
-                'fill-rule': 'evenodd',
-              },
-            }, [
-              h('path', {
+            h(
+              'g',
+              {
                 attrs: {
-                  d: (path as any)[type],
-                  fill: color,
+                  stroke: 'none',
+                  'stroke-width': 1,
+                  fill: 'none',
+                  'fill-rule': 'evenodd',
                 },
-              }),
-            ]),
+              },
+              [
+                h('path', {
+                  attrs: {
+                    d: (path as any)[type],
+                    fill: color,
+                  },
+                }),
+              ]
+            ),
           ]),
         ]);
       },
@@ -166,37 +167,47 @@ export default {
 
     const Instance = new Vue({
       render(h) {
-        return h(WModal, {
-          class: 'w-confirm',
-          props: {
-            okType,
-            maskClosable,
-            okText,
-            okable,
-            ok,
-            cancel,
-            before,
-            change,
-            cancelable,
-            cancelText,
+        return h(
+          WModal,
+          {
+            class: 'w-confirm',
+            props: {
+              okType,
+              maskClosable,
+              okText,
+              okable,
+              ok,
+              cancel,
+              before,
+              change,
+              cancelable,
+              cancelText,
+            },
           },
-        }, [
-          h('div', {
-            class: 'w-confirm-icon',
-          }, [
-            isFunction(icon) ? (icon as Function)(h) : icon,
-          ]),
-          h('div', {
-            class: 'w-confirm-title',
-          }, [
-            isFunction(title) ? (title as Function)(h) : title,
-          ]),
-          h('div', {
-            class: 'w-confirm-content',
-          }, [
-            isFunction(content) ? (content as Function)(h) : content,
-          ]),
-        ]);
+          [
+            h(
+              'div',
+              {
+                class: 'w-confirm-icon',
+              },
+              [isFunction(icon) ? (icon as Function)(h) : icon]
+            ),
+            h(
+              'div',
+              {
+                class: 'w-confirm-title',
+              },
+              [isFunction(title) ? (title as Function)(h) : title]
+            ),
+            h(
+              'div',
+              {
+                class: 'w-confirm-content',
+              },
+              [isFunction(content) ? (content as Function)(h) : content]
+            ),
+          ]
+        );
       },
     });
     const component = Instance.$mount();

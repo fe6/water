@@ -2,9 +2,9 @@ import { mount } from '@vue/test-utils';
 import Affix from './Affix.vue';
 
 describe('Affix.vue', () => {
-  let wrapperBottom:any = null;
-  let wrapperOffsetValue:any = null;
-  let wrapperbeforeDestroy:any = null;
+  let wrapperBottom: any = null;
+  let wrapperOffsetValue: any = null;
+  let wrapperbeforeDestroy: any = null;
 
   beforeEach(() => {
     wrapperOffsetValue = mount(Affix, {

@@ -1,5 +1,8 @@
 import { ApiEntity } from '@/views/entity/demoentity';
-import { checkboxCol, checkboxOptions } from '@/views/code/table/options/checkbox';
+import {
+  checkboxCol,
+  checkboxOptions,
+} from '@/views/code/table/options/checkbox';
 
 /**
  * demo 的代码部分， WDemo 的下面部分
@@ -21,7 +24,8 @@ export const codeCommon = (): string => `<w-table :col="checkboxCol" :options="c
 
 const base: ApiEntity = {
   title: '可选择',
-  desc: '第一列是联动的选择框。通过 <a class="link" href="https://cn.vuejs.org/v2/api/#v-slot" target="_blank">v-slot</a> 定义表格任何地方。',
+  desc:
+    '第一列是联动的选择框。通过 <a class="link" href="https://cn.vuejs.org/v2/api/#v-slot" target="_blank">v-slot</a> 定义表格任何地方。',
   code: codeCommon(),
   js: `{
   data() {

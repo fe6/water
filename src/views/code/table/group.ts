@@ -15,7 +15,8 @@ export const codeCommon = (): string => `<w-table
 
 const group: ApiEntity = {
   title: '表头分组',
-  desc: '<code>columns[n]</code> 可以内嵌 <code>children</code> ，以渲染分组表头。',
+  desc:
+    '<code>columns[n]</code> 可以内嵌 <code>children</code> ，以渲染分组表头。',
   code: codeCommon(),
   js: `{
   data() {

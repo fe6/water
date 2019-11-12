@@ -1,6 +1,4 @@
-import {
-  hasOwn,
-} from './o';
+import { hasOwn } from './o';
 
 export const getScroll = (target: any, top?: boolean): number => {
   const prop = top ? 'pageYOffset' : 'pageXOffset';
@@ -15,9 +13,16 @@ export const getScroll = (target: any, top?: boolean): number => {
   return ret;
 };
 
-export const setLeftFn = (self: any, render: Element, before = () => {}, after = () => {}) => {
+export const setLeftFn = (
+  self: any,
+  render: Element,
+  before = () => {},
+  after = () => {}
+) => {
   if (!render) {
-    return new Promise((resolve) => { resolve(); });
+    return new Promise((resolve) => {
+      resolve();
+    });
   }
   const { x, width }: any = render.getBoundingClientRect();
   const offsetLeft = x;
@@ -49,9 +54,16 @@ export const setLeftFn = (self: any, render: Element, before = () => {}, after =
   });
 }; // end setLeftFn
 
-export const setTopFn = (self: any, render: Element, before = () => {}, after = () => {}) => {
+export const setTopFn = (
+  self: any,
+  render: Element,
+  before = () => {},
+  after = () => {}
+) => {
   if (!render) {
-    return new Promise((resolve) => { resolve(); });
+    return new Promise((resolve) => {
+      resolve();
+    });
   }
   const { y, height }: any = render.getBoundingClientRect();
   const offsetTop = y;

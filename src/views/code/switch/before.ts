@@ -4,7 +4,9 @@ import { codeCommon } from '@/views/code/switch/base';
 const base: ApiEntity = {
   title: '加载状态',
   desc: '设置 <code>before</code> 属性即可',
-  code: codeCommon({ attr: ':loading="swtichLoading" v-model="swtichStatus" :before="beforeFn"' }),
+  code: codeCommon({
+    attr: ':loading="swtichLoading" v-model="swtichStatus" :before="beforeFn"',
+  }),
   js: `{
   data() {
     return {

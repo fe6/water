@@ -24,7 +24,13 @@ $move-time: 0.4s;
     border-top: 0;
     border-left: 0;
     content: ' ';
-    transition: all 0.2s cubic-bezier(0.71, -0.46, 0.88, 0.6), opacity 0.1s;
+    transition: all 0.2s cubic-bezier(
+      0.71,
+      -0.46,
+      0.88,
+      0.6
+    ),
+      opacity 0.1s;
   }
 }
 
@@ -82,7 +88,7 @@ $move-time: 0.4s;
     &-active {
       background-color: $option-active-bg;
       color: $text-color;
-      font-family: PingFangSC-Medium;
+      font-family: 'PingFangSC-Medium';
 
       &:hover {
         background-color: $option-active-bg;

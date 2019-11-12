@@ -1,33 +1,45 @@
 import { shallowMount } from '@vue/test-utils';
 import CascaderPanel from './CascaderPanel.vue';
 
-const option = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
-  children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
-    children: [{
-      value: 'xihu',
-      label: 'West Lake',
-      code: 100800,
-    }],
-  }],
-}];
+const option = [
+  {
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [
+      {
+        value: 'hangzhou',
+        label: 'Hangzhou',
+        children: [
+          {
+            value: 'xihu',
+            label: 'West Lake',
+            code: 100800,
+          },
+        ],
+      },
+    ],
+  },
+];
 
-const optionValuse = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
-}];
-const optionDisabled = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
-  disabled: true,
-  children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
-  }],
-}];
+const optionValuse = [
+  {
+    value: 'zhejiang',
+    label: 'Zhejiang',
+  },
+];
+const optionDisabled = [
+  {
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    disabled: true,
+    children: [
+      {
+        value: 'hangzhou',
+        label: 'Hangzhou',
+      },
+    ],
+  },
+];
 
 describe('CascaderPanel.vue', () => {
   let wrapperModel: any = null;
@@ -42,10 +54,12 @@ describe('CascaderPanel.vue', () => {
       propsData: {
         value: [],
         oldValue: [],
-        option: [{
-          value: 'zhejiang',
-          label: 'Zhejiang',
-        }],
+        option: [
+          {
+            value: 'zhejiang',
+            label: 'Zhejiang',
+          },
+        ],
       },
     });
     wrapperModel = shallowMount(CascaderPanel, {
@@ -111,14 +125,26 @@ describe('CascaderPanel.vue', () => {
         const stopPropagationStub = jest.fn();
         wrapperSetValue.vm.setValue('', true);
         expect(wrapperSetValue.vm.value).toEqual(['']);
-        wrapperSetValue.vm.optChange('Zhejiang', { stopPropagation: stopPropagationStub }, false, 0, 1);
+        wrapperSetValue.vm.optChange(
+          'Zhejiang',
+          { stopPropagation: stopPropagationStub },
+          false,
+          0,
+          1
+        );
         expect(stopPropagationStub).toBeCalled();
         wrapperSetValue.vm.optChange();
 
         wrapperSetValue.setProps({
           option: optionValuse,
         });
-        wrapperSetValue.vm.optChange('Zhejiang', { stopPropagation: stopPropagationStub }, false, 0, 1);
+        wrapperSetValue.vm.optChange(
+          'Zhejiang',
+          { stopPropagation: stopPropagationStub },
+          false,
+          0,
+          1
+        );
         done();
       } catch (err) {
         done.fail(err);
@@ -130,7 +156,13 @@ describe('CascaderPanel.vue', () => {
     wrapperDisabled.vm.$nextTick(() => {
       try {
         const stopPropagationStub = jest.fn();
-        wrapperDisabled.vm.optChange('Zhejiang', { stopPropagation: stopPropagationStub }, false, 0, 1);
+        wrapperDisabled.vm.optChange(
+          'Zhejiang',
+          { stopPropagation: stopPropagationStub },
+          false,
+          0,
+          1
+        );
         expect(stopPropagationStub).toBeCalled();
         done();
       } catch (err) {
@@ -173,9 +205,14 @@ describe('CascaderPanel.vue', () => {
       try {
         const optChangeStub = jest.fn();
         handleOptionChange.vm.optChange = optChangeStub;
-        handleOptionChange.vm.handleOptionChange(0, 0, {
-          label: 'Zhejiang',
-        }, {});
+        handleOptionChange.vm.handleOptionChange(
+          0,
+          0,
+          {
+            label: 'Zhejiang',
+          },
+          {}
+        );
         expect(optChangeStub).toBeCalled();
         const stopPropagationStub = jest.fn();
         handleOptionChange.vm.handleOptionChange(0, 0, {

@@ -24,7 +24,10 @@ export const defaultDatas = [
  * @param attr {String} 额外添加的属性，适用于 loading ， ghost ， disabled 等类型为 boolean 的属性。
  * @return {string}
  */
-export const codeCommon = ({ attr }: CodeCommonParamsEntity = {}): string => `<w-checkbox${attr ? ` ${attr}` : ''} v-for="( data, dataIndex ) in defaultDatas" :label="data.label" :key="dataIndex">{{data.value}}</w-checkbox>`;
+export const codeCommon = ({ attr }: CodeCommonParamsEntity = {}): string =>
+  `<w-checkbox${
+    attr ? ` ${attr}` : ''
+  } v-for="( data, dataIndex ) in defaultDatas" :label="data.label" :key="dataIndex">{{data.value}}</w-checkbox>`;
 
 const base: ApiEntity = {
   title: '基本使用',

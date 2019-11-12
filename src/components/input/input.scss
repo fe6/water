@@ -1,7 +1,12 @@
 @import '../../helper/config.scss';
 @import '../icon/icon.scss';
 
-$placehoder-color: rgba(0, 0, 0, 0.25);
+$placehoder-color: rgba(
+  0,
+  0,
+  0,
+  0.25
+);
 
 .w-input {
   &::-webkit-input-placeholder {
@@ -49,13 +54,23 @@ $placehoder-color: rgba(0, 0, 0, 0.25);
 
   &:focus {
     outline: 0;
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    box-shadow: 0 0 0 2px rgba(
+      24,
+      144,
+      255,
+      0.2
+    );
   }
 
   &:focus,
   &:hover {
     border-color: $blue-5;
-    box-shadow: 0 0 0 2px rgba(27, 161, 254, 0.2);
+    box-shadow: 0 0 0 2px rgba(
+      27,
+      161,
+      254,
+      0.2
+    );
     border-right-width: 1px !important;
   }
 
@@ -75,12 +90,22 @@ $placehoder-color: rgba(0, 0, 0, 0.25);
 
   &-error {
     border-color: $red-5;
-    box-shadow: 0 0 0 2px rgba(255, 0, 68, 0.2);
+    box-shadow: 0 0 0 2px rgba(
+      255,
+      0,
+      68,
+      0.2
+    );
 
     &:focus,
     &:hover {
       border-color: $red-5;
-      box-shadow: 0 0 0 2px rgba(255, 0, 68, 0.2);
+      box-shadow: 0 0 0 2px rgba(
+        255,
+        0,
+        68,
+        0.2
+      );
     }
 
     &.w-input-disabled {

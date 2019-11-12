@@ -10,8 +10,12 @@ import { isPromise } from '@/helper/type';
  * @return {Node} The target that the el will be appended to
  */
 function getTarget(node: any = document.body) {
-  if (node === true) { return document.body; }
-  return node instanceof (window as any).Node ? node : document.querySelector(node);
+  if (node === true) {
+    return document.body;
+  }
+  return node instanceof (window as any).Node
+    ? node
+    : document.querySelector(node);
 }
 
 function transferInsert(
@@ -20,7 +24,7 @@ function transferInsert(
   value: any,
   el: any,
   hasMovedOut: any,
-  callBack: Function,
+  callBack: Function
 ) {
   if (value !== false) {
     parentNode.replaceChild(home, el); // moving out, el is no longer in the document
@@ -43,7 +47,7 @@ function transferUpdate(
   home: any,
   value: any,
   el: any,
-  hasMovedOut: any,
+  hasMovedOut: any
 ) {
   if (home.nodeType === 1) {
     if (!hasMovedOut && value) {
@@ -58,14 +62,10 @@ function transferUpdate(
     } else if (hasMovedOut && value === false) {
       // previously moved, coming back home
       parentNode.replaceChild(el, home);
-      el.wTransferDomData = Object.assign(
-        {},
-        el.wTransferDomData,
-        {
-          hasMovedOut: false,
-          target: getTarget(value),
-        },
-      );
+      el.wTransferDomData = Object.assign({}, el.wTransferDomData, {
+        hasMovedOut: false,
+        target: getTarget(value),
+      });
     } else if (value && value.nodeName !== 'BODY') {
       // already moved, going somewhere else
       // 并且 不是 body 元素，就继续添加，修复 w-modal 中有 w-input 的时候输入内容会自定失去焦点
@@ -77,7 +77,9 @@ function transferUpdate(
 const directive = {
   inserted(el: any, { value }: any) {
     if (el.dataset && el.dataset.transfer !== 'true') return false;
-    el.className = el.className ? `${el.className} v-transfer-dom` : 'v-transfer-dom';
+    el.className = el.className
+      ? `${el.className} v-transfer-dom`
+      : 'v-transfer-dom';
     const { parentNode } = el;
     if (!parentNode) {
       return false;
@@ -87,28 +89,14 @@ const directive = {
 
     if (isPromise(value)) {
       value.then((targetEl: any) => {
-        transferInsert(
-          parentNode,
-          home,
-          targetEl,
-          el,
-          hasMovedOut,
-          () => {
-            hasMovedOut = true;
-          },
-        );
+        transferInsert(parentNode, home, targetEl, el, hasMovedOut, () => {
+          hasMovedOut = true;
+        });
       });
     } else {
-      transferInsert(
-        parentNode,
-        home,
-        value,
-        el,
-        hasMovedOut,
-        () => {
-          hasMovedOut = true;
-        },
-      );
+      transferInsert(parentNode, home, value, el, hasMovedOut, () => {
+        hasMovedOut = true;
+      });
     }
 
     return false;
@@ -125,22 +113,10 @@ const directive = {
 
     if (isPromise(value)) {
       value.then((targetEl: any) => {
-        transferUpdate(
-          parentNode,
-          home,
-          targetEl,
-          el,
-          hasMovedOut,
-        );
+        transferUpdate(parentNode, home, targetEl, el, hasMovedOut);
       });
     } else {
-      transferUpdate(
-        parentNode,
-        home,
-        value,
-        el,
-        hasMovedOut,
-      );
+      transferUpdate(parentNode, home, value, el, hasMovedOut);
     }
     return false;
   },
@@ -151,7 +127,10 @@ const directive = {
     if (!ref$1) {
       return false;
     }
-    if (el.wTransferDomData.hasMovedOut === true && el.wTransferDomData.parentNode) {
+    if (
+      el.wTransferDomData.hasMovedOut === true &&
+      el.wTransferDomData.parentNode
+    ) {
       el.wTransferDomData.parentNode.appendChild(el);
     }
     el.wTransferDomData = null;

@@ -32,7 +32,8 @@ export const props = [
     desc: '改变之前触发，返回 Promise 对象',
     type: 'Function',
     require: '否',
-    default: 'function() {return new Promise((resolve, reject) => {resolve();});}',
+    default:
+      'function() {return new Promise((resolve, reject) => {resolve();});}',
   },
   {
     param: 'change',

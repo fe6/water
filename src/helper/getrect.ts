@@ -9,8 +9,7 @@ export interface RectEntity {
   y?: number;
 }
 
-export const getRect = (target: HTMLElement | Window | null): RectEntity => (
+export const getRect = (target: HTMLElement | Window | null): RectEntity =>
   target !== window
     ? (target as HTMLElement).getBoundingClientRect()
-    : ({ top: 0, bottom: window.innerHeight } as RectEntity)
-);
+    : ({ top: 0, bottom: window.innerHeight } as RectEntity);

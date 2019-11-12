@@ -12,24 +12,24 @@
     <WRow :gutter="16">
       <WCol :span="12">
         <OnlineReview
-          :temCode="base.code"
+          :tem-code="base.code"
           :title="base.title"
           :desc="base.desc"
         ></OnlineReview>
         <OnlineReview
-          :temCode="open.code"
+          :tem-code="open.code"
           :title="open.title"
           :desc="open.desc"
         ></OnlineReview>
       </WCol>
       <WCol :span="12">
         <OnlineReview
-          :temCode="icon.code"
+          :tem-code="icon.code"
           :title="icon.title"
           :desc="icon.desc"
         ></OnlineReview>
         <OnlineReview
-          :temCode="separator.code"
+          :tem-code="separator.code"
           :title="separator.title"
           :desc="separator.desc"
         ></OnlineReview>
@@ -41,43 +41,43 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import ApiTable from '@/views/components/ApiTable.vue';
-import WRow from '@/components/grid/Row.vue';
-import WCol from '@/components/grid/Col.vue';
-import OnlineReview from '@/views/components/OnlineReview.vue';
-import { ApiEntity } from '@/views/entity/demoentity';
-import base from '@/views/code/breadcrumb/base';
-import icon from '@/views/code/breadcrumb/icon';
-import open from '@/views/code/breadcrumb/open';
-import separator from '@/views/code/breadcrumb/separator';
-import { props } from '@/views/api/breadcrumb';
-import { PropsEntity } from '@/views/entity/apientity';
-import { TITLE } from '@/views/common/constant';
+  import { Component, Vue } from 'vue-property-decorator';
+  import ApiTable from '@/views/components/ApiTable.vue';
+  import WRow from '@/components/grid/Row.vue';
+  import WCol from '@/components/grid/Col.vue';
+  import OnlineReview from '@/views/components/OnlineReview.vue';
+  import { ApiEntity } from '@/views/entity/demoentity';
+  import base from '@/views/code/breadcrumb/base';
+  import icon from '@/views/code/breadcrumb/icon';
+  import open from '@/views/code/breadcrumb/open';
+  import separator from '@/views/code/breadcrumb/separator';
+  import { props } from '@/views/api/breadcrumb';
+  import { PropsEntity } from '@/views/entity/apientity';
+  import { TITLE } from '@/views/common/constant';
 
-@Component({
-  components: {
-    ApiTable,
-    WRow,
-    WCol,
-    OnlineReview,
-  },
-})
-export default class BreadcrumbView extends Vue {
-  Breadcrumb: string = TITLE.Breadcrumb;
+  @Component({
+    components: {
+      ApiTable,
+      WRow,
+      WCol,
+      OnlineReview,
+    },
+  })
+  export default class BreadcrumbView extends Vue {
+    Breadcrumb: string = TITLE.Breadcrumb;
 
-  base: ApiEntity = base;
+    base: ApiEntity = base;
 
-  icon: ApiEntity = icon;
+    icon: ApiEntity = icon;
 
-  open: ApiEntity = open;
+    open: ApiEntity = open;
 
-  separator: ApiEntity = separator;
+    separator: ApiEntity = separator;
 
-  props: PropsEntity[] = props;
-}
+    props: PropsEntity[] = props;
+  }
 </script>
 
 <style lang="scss">
-@import '~assets/style/breadcrumb.scss';
+  @import '~assets/style/breadcrumb.scss';
 </style>

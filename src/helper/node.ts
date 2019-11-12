@@ -1,4 +1,4 @@
-export const test: number = 1;
+export const test = 1;
 
 export const findUpNode = (content: any, name: string) => {
   let parent: any = content.$parent;

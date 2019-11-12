@@ -43,7 +43,8 @@ export const props = [
   },
   {
     param: 'change',
-    desc: '滚动触发的方法，返回 {总状态，滚动状态}({affixStatus, scrollStatus})',
+    desc:
+      '滚动触发的方法，返回 {总状态，滚动状态}({affixStatus, scrollStatus})',
     type: 'Function',
     require: '否',
     default: '() => {}',

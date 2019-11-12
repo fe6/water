@@ -6,7 +6,8 @@ import { baseCol, baseOptions } from '@/views/code/table/options/base';
  * @param attr {String} 额外添加的属性，适用于 loading ， ghost ， disabled 等类型为 boolean 的属性。
  * @return {string}
  */
-export const codeCommon = (): string => '<w-table :col="baseCol" :options="baseOptions"></w-table>';
+export const codeCommon = (): string =>
+  '<w-table :col="baseCol" :options="baseOptions"></w-table>';
 
 const base: ApiEntity = {
   title: '基本使用',

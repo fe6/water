@@ -36,7 +36,9 @@ describe('Spin.vue', () => {
     wrapperSize.vm.$nextTick(() => {
       try {
         expect(wrapperSize.vm.value).toBeFalsy();
-        expect(wrapperSize.vm.tipClass).toEqual({ 'w-spin-tip-large': 'large' });
+        expect(wrapperSize.vm.tipClass).toEqual({
+          'w-spin-tip-large': 'large',
+        });
 
         done();
       } catch (err) {

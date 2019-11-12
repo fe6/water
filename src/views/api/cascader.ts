@@ -11,7 +11,8 @@ export const props = [
     desc: '自定义属性的字段名',
     type: 'Object',
     require: '否',
-    default: '{ value: \'value\', label: \'label\', children: \'children\', loading: \'loading\', disabled: \'disabled\' }',
+    default:
+      "{ value: 'value', label: 'label', children: 'children', loading: 'loading', disabled: 'disabled' }",
   },
   {
     param: 'search',
@@ -88,7 +89,8 @@ export const props = [
     desc: '改变之前触发，返回 Promise 对象',
     type: 'Function',
     require: '否',
-    default: 'function() {return new Promise((resolve, reject) => {resolve();});}',
+    default:
+      'function() {return new Promise((resolve, reject) => {resolve();});}',
   },
   {
     param: 'getContainer',
@@ -99,21 +101,24 @@ export const props = [
   },
   {
     param: 'searchRender',
-    desc: '搜索模式，搜索后展示的渲染函数。 返回 {当前render方法的渲染函数， 搜索关键词，每条搜索结果的数据，所有搜索结果集合}(createElement,searchKeyWord,item,searchResult)',
+    desc:
+      '搜索模式，搜索后展示的渲染函数。 返回 {当前render方法的渲染函数， 搜索关键词，每条搜索结果的数据，所有搜索结果集合}(createElement,searchKeyWord,item,searchResult)',
     type: 'Function',
     require: '否',
     default: '无',
   },
   {
     param: 'displayRender',
-    desc: '选择后展示的渲染函数。 返回{选到最后一级之后的数据，所有点击元素的数据，真正的value值，选择时候的value 值。所有下拉选项配置，当前点击选项的数据}(chooseResult, chooseAllItem, realValue, chooseValue, options, currentOption)',
+    desc:
+      '选择后展示的渲染函数。 返回{选到最后一级之后的数据，所有点击元素的数据，真正的value值，选择时候的value 值。所有下拉选项配置，当前点击选项的数据}(chooseResult, chooseAllItem, realValue, chooseValue, options, currentOption)',
     type: 'Function',
     require: '否',
     default: '无',
   },
   {
     param: 'change',
-    desc: '改变触发，返回 {当前选项的label值，当前多级值的集合，下拉选项，当前索引，级数索引，下一级的数据，Event对象,当前选中的数据}({current,value,options,index,floor,nextPanel,ev,item})',
+    desc:
+      '改变触发，返回 {当前选项的label值，当前多级值的集合，下拉选项，当前索引，级数索引，下一级的数据，Event对象,当前选中的数据}({current,value,options,index,floor,nextPanel,ev,item})',
     type: 'Function',
     require: '否',
     default: '() => {}',
@@ -131,7 +136,8 @@ export const methods = [
   {
     name: 'change',
     desc: '改变触发',
-    return: '{当前选项的label值，当前多级值的集合，下拉选项，当前索引，级数索引，下一级的数据，Event对象,当前选中的数据}({current,value,options,index,floor,nextPanel,ev,item})',
+    return:
+      '{当前选项的label值，当前多级值的集合，下拉选项，当前索引，级数索引，下一级的数据，Event对象,当前选中的数据}({current,value,options,index,floor,nextPanel,ev,item})',
   },
   {
     name: 'click',

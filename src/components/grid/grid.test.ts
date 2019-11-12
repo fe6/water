@@ -3,8 +3,8 @@ import Row from './Row.vue';
 import Col from './Col.vue';
 
 describe('Col.vue', () => {
-  let wrapperRender:any = null;
-  let wrapperProps:any = null;
+  let wrapperRender: any = null;
+  let wrapperProps: any = null;
 
   beforeEach(() => {
     wrapperRender = mount(Row, {
@@ -49,7 +49,9 @@ describe('Col.vue', () => {
           expect(wrapperProps.vm.$children[0].gutter).toBe(12);
           expect(wrapperProps.vm.$children[0].basin).toBe(2);
           expect(wrapperProps.vm.$children[0].type).toBe('float');
-          expect(wrapperProps.vm.$children[0].customize).toEqual(['w-col-3-xl']);
+          expect(wrapperProps.vm.$children[0].customize).toEqual([
+            'w-col-3-xl',
+          ]);
           done();
         }, 0);
       } catch (err) {

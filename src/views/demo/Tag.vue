@@ -11,36 +11,36 @@
     <WRow :gutter="16">
       <WCol :span="12">
         <OnlineReview
-          :temCode="base.code"
+          :tem-code="base.code"
           :title="base.title"
           :desc="base.desc"
         ></OnlineReview>
         <OnlineReview
-          :temCode="loading.code"
+          :tem-code="loading.code"
           :title="loading.title"
           :desc="loading.desc"
-          iframeHeight="200px"
+          iframe-height="200px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="newtag.code"
-          :jsCode="newtag.js"
+          :tem-code="newtag.code"
+          :js-code="newtag.js"
           :title="newtag.title"
           :desc="newtag.desc"
-          iframeHeight="200px"
+          iframe-height="200px"
         ></OnlineReview>
       </WCol>
       <WCol :span="12">
         <OnlineReview
-          :temCode="size.code"
+          :tem-code="size.code"
           :title="size.title"
           :desc="size.desc"
-          iframeHeight="200px"
+          iframe-height="200px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="color.code"
-          :jsCode="color.js"
+          :tem-code="color.code"
+          :js-code="color.js"
           :title="color.title"
-          iframeHeight="260px"
+          iframe-height="260px"
         ></OnlineReview>
       </WCol>
     </WRow>
@@ -58,69 +58,69 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import ApiTable from '@/views/components/ApiTable.vue';
-import MethodTable from '@/views/components/MethodTable.vue';
-import WRow from '@/components/grid/Row.vue';
-import WCol from '@/components/grid/Col.vue';
-import OnlineReview from '@/views/components/OnlineReview.vue';
-import { ApiEntity } from '@/views/entity/demoentity';
-import base from '@/views/code/tag/base';
-import size from '@/views/code/tag/size';
-import color from '@/views/code/tag/color';
-import loading from '@/views/code/tag/loading';
-import newtag from '@/views/code/tag/newtag';
-import {
-  props,
-  methods,
-  checkTagProps,
-  newTagProps,
-  newTagMethods,
-} from '@/views/api/tag';
-import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
-import { TITLE } from '@/views/common/constant';
+  import { Component, Vue } from 'vue-property-decorator';
+  import ApiTable from '@/views/components/ApiTable.vue';
+  import MethodTable from '@/views/components/MethodTable.vue';
+  import WRow from '@/components/grid/Row.vue';
+  import WCol from '@/components/grid/Col.vue';
+  import OnlineReview from '@/views/components/OnlineReview.vue';
+  import { ApiEntity } from '@/views/entity/demoentity';
+  import base from '@/views/code/tag/base';
+  import size from '@/views/code/tag/size';
+  import color from '@/views/code/tag/color';
+  import loading from '@/views/code/tag/loading';
+  import newtag from '@/views/code/tag/newtag';
+  import {
+    props,
+    methods,
+    checkTagProps,
+    newTagProps,
+    newTagMethods,
+  } from '@/views/api/tag';
+  import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+  import { TITLE } from '@/views/common/constant';
 
-interface ParamsEntity {
-  attr: string;
-  value: string;
-  ctx?: any;
-}
+  interface ParamsEntity {
+    attr: string;
+    value: string;
+    ctx?: any;
+  }
 
-interface ChangeParamsEntity {
-  attr: string;
-  value: string;
-}
+  interface ChangeParamsEntity {
+    attr: string;
+    value: string;
+  }
 
-@Component({
-  components: {
-    WRow,
-    WCol,
-    ApiTable,
-    MethodTable,
-    OnlineReview,
-  },
-})
-export default class TagView extends Vue {
-  Tag: string = TITLE.Tag;
+  @Component({
+    components: {
+      WRow,
+      WCol,
+      ApiTable,
+      MethodTable,
+      OnlineReview,
+    },
+  })
+  export default class TagView extends Vue {
+    Tag: string = TITLE.Tag;
 
-  base: ApiEntity = base;
+    base: ApiEntity = base;
 
-  size: ApiEntity = size;
+    size: ApiEntity = size;
 
-  color: ApiEntity = color;
+    color: ApiEntity = color;
 
-  loading: ApiEntity = loading;
+    loading: ApiEntity = loading;
 
-  newtag: ApiEntity = newtag;
+    newtag: ApiEntity = newtag;
 
-  props: PropsEntity[] = props;
+    props: PropsEntity[] = props;
 
-  methods: MethodsEntity[] = methods;
+    methods: MethodsEntity[] = methods;
 
-  checkTagProps: PropsEntity[] = checkTagProps;
+    checkTagProps: PropsEntity[] = checkTagProps;
 
-  newTagProps: PropsEntity[] = newTagProps;
+    newTagProps: PropsEntity[] = newTagProps;
 
-  newTagMethods: MethodsEntity[] = newTagMethods;
-}
+    newTagMethods: MethodsEntity[] = newTagMethods;
+  }
 </script>

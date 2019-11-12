@@ -177,10 +177,12 @@ describe('DatePicker.vue', () => {
             disabled: false,
           },
           type: 'year',
-          dateWeek: [{
-            status: 'current',
-            disabled: false,
-          }],
+          dateWeek: [
+            {
+              status: 'current',
+              disabled: false,
+            },
+          ],
         });
         vm.$nextTick(() => {
           pickerYear.destroy();
@@ -203,10 +205,12 @@ describe('DatePicker.vue', () => {
             disabled: false,
           },
           type: 'year',
-          dateWeek: [{
-            status: 'next',
-            disabled: false,
-          }],
+          dateWeek: [
+            {
+              status: 'next',
+              disabled: false,
+            },
+          ],
         });
         vm.$nextTick(() => {
           done();
@@ -228,10 +232,12 @@ describe('DatePicker.vue', () => {
             status: 'current',
             disabled: false,
           },
-          dateWeek: [{
-            status: 'current',
-            disabled: false,
-          }],
+          dateWeek: [
+            {
+              status: 'current',
+              disabled: false,
+            },
+          ],
         });
         vm.$nextTick(() => {
           done();

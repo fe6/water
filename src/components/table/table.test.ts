@@ -1,7 +1,13 @@
 import { shallowMount } from '@vue/test-utils';
-import { sizeColArray, sizeOptionsArray } from '@/views/code/table/options/size';
+import {
+  sizeColArray,
+  sizeOptionsArray,
+} from '@/views/code/table/options/size';
 import { fixCol, fixTopCol, fixOptions } from '@/views/code/table/options/fix';
-import { slotColArray, slotOptionsArray } from '@/views/code/table/options/slot';
+import {
+  slotColArray,
+  slotOptionsArray,
+} from '@/views/code/table/options/slot';
 import Table from './Table.vue';
 
 describe('Table.vue', () => {
@@ -100,7 +106,10 @@ describe('Table.vue', () => {
   it('scroll', (done) => {
     wrapperScroll.vm.$nextTick(() => {
       try {
-        expect(wrapperScroll.vm.scrollHeightStyle).toEqual({ maxHeight: '400px', overflowY: 'auto' });
+        expect(wrapperScroll.vm.scrollHeightStyle).toEqual({
+          maxHeight: '400px',
+          overflowY: 'auto',
+        });
         wrapperScroll.vm.getHoverIndex(2);
         expect(wrapperScroll.vm.hoverIndex).toBe(-1);
         wrapperScroll.vm.getHoverIndex();

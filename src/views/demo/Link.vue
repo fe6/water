@@ -8,25 +8,25 @@
     <WRow :gutter="16">
       <WCol :span="12">
         <OnlineReview
-          :temCode="base.code"
+          :tem-code="base.code"
           :render="base.render"
           :title="base.title"
           :desc="base.desc"
         ></OnlineReview>
         <OnlineReview
-          :temCode="href.code"
+          :tem-code="href.code"
           :render="href.render"
           :title="href.title"
           :desc="href.desc"
         ></OnlineReview>
         <OnlineReview
-          :temCode="icon.code"
+          :tem-code="icon.code"
           :render="icon.render"
           :title="icon.title"
           :desc="icon.desc"
         ></OnlineReview>
         <OnlineReview
-          :temCode="size.code"
+          :tem-code="size.code"
           :render="size.render"
           :title="size.title"
           :desc="size.desc"
@@ -40,19 +40,19 @@
           :desc="to.desc"
         ></WDemo>
         <OnlineReview
-          :temCode="target.code"
+          :tem-code="target.code"
           :render="target.render"
           :title="target.title"
           :desc="target.desc"
         ></OnlineReview>
         <OnlineReview
-          :temCode="loading.code"
+          :tem-code="loading.code"
           :render="loading.render"
           :title="loading.title"
           :desc="loading.desc"
         ></OnlineReview>
         <OnlineReview
-          :temCode="disabled.code"
+          :tem-code="disabled.code"
           :render="disabled.render"
           :title="disabled.title"
           :desc="disabled.desc"
@@ -65,53 +65,53 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import ApiTable from '@/views/components/ApiTable.vue';
-import WRow from '@/components/grid/Row.vue';
-import WCol from '@/components/grid/Col.vue';
-import WDemo from '@/views/components/Demo.vue';
-import OnlineReview from '@/views/components/OnlineReview.vue';
-import { ApiEntity } from '@/views/entity/demoentity';
-import base from '@/views/code/link/base';
-import to from '@/views/code/link/to';
-import href from '@/views/code/link/href';
-import target from '@/views/code/link/target';
-import icon from '@/views/code/link/icon';
-import loading from '@/views/code/link/loading';
-import size from '@/views/code/link/size';
-import disabled from '@/views/code/link/disabled';
-import { props } from '@/views/api/link';
-import { PropsEntity } from '@/views/entity/apientity';
-import { TITLE } from '@/views/common/constant';
+  import { Component, Vue } from 'vue-property-decorator';
+  import ApiTable from '@/views/components/ApiTable.vue';
+  import WRow from '@/components/grid/Row.vue';
+  import WCol from '@/components/grid/Col.vue';
+  import WDemo from '@/views/components/Demo.vue';
+  import OnlineReview from '@/views/components/OnlineReview.vue';
+  import { ApiEntity } from '@/views/entity/demoentity';
+  import base from '@/views/code/link/base';
+  import to from '@/views/code/link/to';
+  import href from '@/views/code/link/href';
+  import target from '@/views/code/link/target';
+  import icon from '@/views/code/link/icon';
+  import loading from '@/views/code/link/loading';
+  import size from '@/views/code/link/size';
+  import disabled from '@/views/code/link/disabled';
+  import { props } from '@/views/api/link';
+  import { PropsEntity } from '@/views/entity/apientity';
+  import { TITLE } from '@/views/common/constant';
 
-@Component({
-  components: {
-    ApiTable,
-    WRow,
-    WCol,
-    WDemo,
-    OnlineReview,
-  },
-})
-export default class LinkView extends Vue {
-  Link: string = TITLE.Link;
+  @Component({
+    components: {
+      ApiTable,
+      WRow,
+      WCol,
+      WDemo,
+      OnlineReview,
+    },
+  })
+  export default class LinkView extends Vue {
+    Link: string = TITLE.Link;
 
-  base: ApiEntity = base;
+    base: ApiEntity = base;
 
-  to: ApiEntity = to;
+    to: ApiEntity = to;
 
-  href: ApiEntity = href;
+    href: ApiEntity = href;
 
-  target: ApiEntity = target;
+    target: ApiEntity = target;
 
-  icon: ApiEntity = icon;
+    icon: ApiEntity = icon;
 
-  loading: ApiEntity = loading;
+    loading: ApiEntity = loading;
 
-  size: ApiEntity = size;
+    size: ApiEntity = size;
 
-  disabled: ApiEntity = disabled;
+    disabled: ApiEntity = disabled;
 
-  props: PropsEntity[] = props;
-}
+    props: PropsEntity[] = props;
+  }
 </script>

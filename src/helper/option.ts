@@ -3,9 +3,9 @@ import { FieldNamesEntity } from '@/components/select/entity';
 // 放到这是因为碰到不可用的没法同步索引
 export const findEnabled = (
   slotsData: any,
-  hoverIndex: number = 0,
-  direction: number = 1,
-  fieldNames: FieldNamesEntity,
+  hoverIndex = 0,
+  direction = 1,
+  fieldNames: FieldNamesEntity
 ): number => {
   if (!slotsData) {
     return -1;
@@ -16,7 +16,8 @@ export const findEnabled = (
     return -1;
   }
   const index = slotsData.findIndex(
-    (slot: any, slotIndex: number) => !slot[fieldNames.disabled] && hoverIndex === slotIndex,
+    (slot: any, slotIndex: number) =>
+      !slot[fieldNames.disabled] && hoverIndex === slotIndex
   );
   if (index < 0) {
     let newIndex = hoverIndex + direction;
@@ -39,22 +40,18 @@ export const handleName = (
   name: any,
   slotsDefault: any[],
   isTagMode = false,
-  fieldNames: FieldNamesEntity,
+  fieldNames: FieldNamesEntity
 ) => {
   const newName = name.slice();
-  const nameIndex = newName.findIndex(
-    (nameItem: string) => (
-      isTagMode
-        ? nameItem === value
-        : nameItem.indexOf(value) > -1
-    ),
+  const nameIndex = newName.findIndex((nameItem: string) =>
+    isTagMode ? nameItem === value : nameItem.indexOf(value) > -1
   );
   // 如果有就删了
   if (nameIndex > -1) {
     newName.splice(nameIndex, 1);
   } else {
     const newIndex = slotsDefault.findIndex(
-      (nameItem: any) => nameItem[fieldNames.label].indexOf(value) > -1,
+      (nameItem: any) => nameItem[fieldNames.label].indexOf(value) > -1
     );
     // 如果找到对应的名字就填进去
     if (newIndex > -1) {
@@ -65,8 +62,14 @@ export const handleName = (
   return newName;
 };
 // 有就删没有就加
-export const toggleItem = (target:any[] = [], value: string, fieldNames: FieldNamesEntity) => {
-  const newTagIndex = target.findIndex(name => name[fieldNames.label] === value);
+export const toggleItem = (
+  target: any[] = [],
+  value: string,
+  fieldNames: FieldNamesEntity
+) => {
+  const newTagIndex = target.findIndex(
+    (name) => name[fieldNames.label] === value
+  );
   if (newTagIndex > -1) {
     target.splice(newTagIndex, 1);
   } else {
@@ -79,10 +82,16 @@ export const toggleItem = (target:any[] = [], value: string, fieldNames: FieldNa
   }
 };
 // 有就加，没有不操作
-export const addUsedStatus = (findTarget = [], target = [], fieldNames: FieldNamesEntity) => {
+export const addUsedStatus = (
+  findTarget = [],
+  target = [],
+  fieldNames: FieldNamesEntity
+) => {
   const statusArrs: any[] = [];
   target.forEach((value) => {
-    const findEnd: any = findTarget.find((findItem: any) => findItem[fieldNames.label] === value);
+    const findEnd: any = findTarget.find(
+      (findItem: any) => findItem[fieldNames.label] === value
+    );
 
     statusArrs.push({
       [fieldNames.value]: findEnd[fieldNames.value],
