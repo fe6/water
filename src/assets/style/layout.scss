@@ -153,7 +153,7 @@ table {
 
   &-main {
     position: relative;
-    padding: 40px 0 0;
+    padding: 80px 0 0;
     background: $normal-bg;
   }
 
@@ -168,9 +168,11 @@ table {
 
   &-menu {
     overflow: auto;
-    min-height: calc(100vh - 104px);
-    height: 100%;
     border-right: 1px solid #e8e8e8;
+    position: fixed;
+    z-index: 2;
+    top: 80px;
+    bottom: 0;
 
     &-sub {
       @extend .layout-mixin;
@@ -248,9 +250,10 @@ table {
   &-cantainer {
     position: relative;
     min-height: 500px;
-    padding: 0 170px 144px 64px;
+    padding: 0 170px 144px 270px;
     background: $normal-bg;
     min-height: calc(100vh - 248px);
+    box-sizing: border-box;
   }
 
   &-npm {
