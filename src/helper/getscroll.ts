@@ -1,4 +1,7 @@
-export default (target: HTMLElement | Window | null, isTop?: boolean): number => {
+export default (
+  target: HTMLElement | Window | null,
+  isTop?: boolean
+): number => {
   if (typeof window === 'undefined') {
     return 0;
   }
@@ -7,7 +10,9 @@ export default (target: HTMLElement | Window | null, isTop?: boolean): number =>
   const prop = isTop ? 'pageYOffset' : 'pageXOffset';
   const method = isTop ? 'scrollTop' : 'scrollLeft';
 
-  let value = isWindow ? (target as Window)[prop] : (target as HTMLElement)[method];
+  let value = isWindow
+    ? (target as Window)[prop]
+    : (target as HTMLElement)[method];
 
   // ie6,7,8 standard mode
   if (isWindow && typeof value !== 'number') {

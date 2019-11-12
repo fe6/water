@@ -11,36 +11,36 @@
     <WRow :gutter="16">
       <WCol :span="12">
         <OnlineReview
-          :temCode="base.code"
+          :tem-code="base.code"
           :title="base.title"
           :desc="base.desc"
         ></OnlineReview>
         <OnlineReview
-          :temCode="icon.code"
+          :tem-code="icon.code"
           :title="icon.title"
           :desc="icon.desc"
         ></OnlineReview>
         <OnlineReview
-          :temCode="disabled.code"
+          :tem-code="disabled.code"
           :title="disabled.title"
           :desc="disabled.desc"
         ></OnlineReview>
       </WCol>
       <WCol :span="12">
         <OnlineReview
-          :temCode="size.code"
+          :tem-code="size.code"
           :title="size.title"
           :desc="size.desc"
         ></OnlineReview>
         <OnlineReview
-          :temCode="error.code"
-          :jsCode="error.js"
+          :tem-code="error.code"
+          :js-code="error.js"
           :title="error.title"
           :desc="error.desc"
         ></OnlineReview>
         <OnlineReview
-          :temCode="limit.code"
-          :jsCode="limit.js"
+          :tem-code="limit.code"
+          :js-code="limit.js"
           :title="limit.title"
           :desc="limit.desc"
         ></OnlineReview>
@@ -58,60 +58,59 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import ApiTable from '@/views/components/ApiTable.vue';
-import ChangeTable from '@/views/components/ChangeTable.vue';
-import MethodTable from '@/views/components/MethodTable.vue';
-import WRow from '@/components/grid/Row.vue';
-import WCol from '@/components/grid/Col.vue';
-import OnlineReview from '@/views/components/OnlineReview.vue';
-import { ApiEntity } from '@/views/entity/demoentity';
-import base from '@/views/code/input/base';
-import size from '@/views/code/input/size';
-import icon from '@/views/code/input/icon';
-import error from '@/views/code/input/error';
-import disabled from '@/views/code/input/disabled';
-import limit from '@/views/code/input/limit';
-import {
-  props,
-  changeProps,
-  errorProps,
-  methods,
-} from '@/views/api/input';
-import { PropsEntity, ChangePropsEntity, MethodsEntity } from '@/views/entity/apientity';
-import { TITLE } from '@/views/common/constant';
+  import { Component, Vue } from 'vue-property-decorator';
+  import ApiTable from '@/views/components/ApiTable.vue';
+  import ChangeTable from '@/views/components/ChangeTable.vue';
+  import MethodTable from '@/views/components/MethodTable.vue';
+  import WRow from '@/components/grid/Row.vue';
+  import WCol from '@/components/grid/Col.vue';
+  import OnlineReview from '@/views/components/OnlineReview.vue';
+  import { ApiEntity } from '@/views/entity/demoentity';
+  import base from '@/views/code/input/base';
+  import size from '@/views/code/input/size';
+  import icon from '@/views/code/input/icon';
+  import error from '@/views/code/input/error';
+  import disabled from '@/views/code/input/disabled';
+  import limit from '@/views/code/input/limit';
+  import { props, changeProps, errorProps, methods } from '@/views/api/input';
+  import {
+    PropsEntity,
+    ChangePropsEntity,
+    MethodsEntity,
+  } from '@/views/entity/apientity';
+  import { TITLE } from '@/views/common/constant';
 
-@Component({
-  components: {
-    WRow,
-    WCol,
-    ApiTable,
-    ChangeTable,
-    MethodTable,
-    OnlineReview,
-  },
-})
-export default class InputView extends Vue {
-  Input: string = TITLE.Input;
+  @Component({
+    components: {
+      WRow,
+      WCol,
+      ApiTable,
+      ChangeTable,
+      MethodTable,
+      OnlineReview,
+    },
+  })
+  export default class InputView extends Vue {
+    Input: string = TITLE.Input;
 
-  base: ApiEntity = base;
+    base: ApiEntity = base;
 
-  size: ApiEntity = size;
+    size: ApiEntity = size;
 
-  icon: ApiEntity = icon;
+    icon: ApiEntity = icon;
 
-  error: ApiEntity = error;
+    error: ApiEntity = error;
 
-  disabled: ApiEntity = disabled;
+    disabled: ApiEntity = disabled;
 
-  limit: ApiEntity = limit;
+    limit: ApiEntity = limit;
 
-  props: PropsEntity[] = props;
+    props: PropsEntity[] = props;
 
-  errorProps: ChangePropsEntity[] = errorProps;
+    errorProps: ChangePropsEntity[] = errorProps;
 
-  changeProps: ChangePropsEntity[] = changeProps;
+    changeProps: ChangePropsEntity[] = changeProps;
 
-  methods: MethodsEntity[] = methods;
-}
+    methods: MethodsEntity[] = methods;
+  }
 </script>

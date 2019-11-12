@@ -6,7 +6,12 @@ $move-time: 0.3s;
   &:hover {
     &::before,
     &::after {
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(
+        0,
+        0,
+        0,
+        0.85
+      );
     }
   }
 

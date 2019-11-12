@@ -1,7 +1,12 @@
 @import '../../helper/config.scss';
 @import '../icon/icon.scss';
 
-$link-font: ('': 12, '-large': 14, '-16': 16, '-18': 18);
+$link-font: (
+  '': 12,
+  '-large': 14,
+  '-16': 16,
+  '-18': 18,
+);
 $move-time: 0.5s;
 
 .w-link {
@@ -80,11 +85,11 @@ $move-time: 0.5s;
     &:visited {
       color: $disabled-color;
     }
-  
+
     &:hover {
       color: $disabled-color;
     }
-  
+
     &:active {
       color: $disabled-color;
     }

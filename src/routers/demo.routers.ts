@@ -7,7 +7,8 @@ export default [
     meta: {
       title: TITLE.Affix,
     },
-    component: () => import(/* webpackChunkName: "affix" */ '@/views/demo/Affix.vue'),
+    component: () =>
+      import(/* webpackChunkName: "affix" */ '@/views/demo/Affix.vue'),
   },
   {
     path: '/icon',
@@ -15,7 +16,8 @@ export default [
     meta: {
       title: TITLE.Icon,
     },
-    component: () => import(/* webpackChunkName: "icon" */ '@/views/demo/Icon.vue'),
+    component: () =>
+      import(/* webpackChunkName: "icon" */ '@/views/demo/Icon.vue'),
   },
   {
     path: '/grid',
@@ -23,7 +25,8 @@ export default [
     meta: {
       title: TITLE.Grid,
     },
-    component: () => import(/* webpackChunkName: "grid" */ '@/views/demo/Grid.vue'),
+    component: () =>
+      import(/* webpackChunkName: "grid" */ '@/views/demo/Grid.vue'),
   },
   {
     path: '/badge',
@@ -31,7 +34,8 @@ export default [
     meta: {
       title: TITLE.Badge,
     },
-    component: () => import(/* webpackChunkName: "badge" */ '@/views/demo/Badge.vue'),
+    component: () =>
+      import(/* webpackChunkName: "badge" */ '@/views/demo/Badge.vue'),
   },
   {
     path: '/breadcrumb',
@@ -39,7 +43,10 @@ export default [
     meta: {
       title: TITLE.Breadcrumb,
     },
-    component: () => import(/* webpackChunkName: "breadcrumb" */ '@/views/demo/Breadcrumb.vue'),
+    component: () =>
+      import(
+        /* webpackChunkName: "breadcrumb" */ '@/views/demo/Breadcrumb.vue'
+      ),
   },
   {
     path: '/button',
@@ -47,7 +54,8 @@ export default [
     meta: {
       title: TITLE.Button,
     },
-    component: () => import(/* webpackChunkName: "button" */ '@/views/demo/Button.vue'),
+    component: () =>
+      import(/* webpackChunkName: "button" */ '@/views/demo/Button.vue'),
   },
   {
     path: '/cascader',
@@ -55,7 +63,8 @@ export default [
     meta: {
       title: TITLE.Cascader,
     },
-    component: () => import(/* webpackChunkName: "cascader" */ '@/views/demo/Cascader.vue'),
+    component: () =>
+      import(/* webpackChunkName: "cascader" */ '@/views/demo/Cascader.vue'),
   },
   {
     path: '/checkbox',
@@ -63,7 +72,8 @@ export default [
     meta: {
       title: TITLE.Checkbox,
     },
-    component: () => import(/* webpackChunkName: "checkbox" */ '@/views/demo/Checkbox.vue'),
+    component: () =>
+      import(/* webpackChunkName: "checkbox" */ '@/views/demo/Checkbox.vue'),
   },
   {
     path: '/input',
@@ -71,7 +81,8 @@ export default [
     meta: {
       title: TITLE.Input,
     },
-    component: () => import(/* webpackChunkName: "input" */ '@/views/demo/Input.vue'),
+    component: () =>
+      import(/* webpackChunkName: "input" */ '@/views/demo/Input.vue'),
   },
   {
     path: '/inputnumber',
@@ -79,7 +90,10 @@ export default [
     meta: {
       title: TITLE.InputNumber,
     },
-    component: () => import(/* webpackChunkName: "inputnumber" */ '@/views/demo/InputNumber.vue'),
+    component: () =>
+      import(
+        /* webpackChunkName: "inputnumber" */ '@/views/demo/InputNumber.vue'
+      ),
   },
   {
     path: '/link',
@@ -87,7 +101,8 @@ export default [
     meta: {
       title: TITLE.Link,
     },
-    component: () => import(/* webpackChunkName: "link" */ '@/views/demo/Link.vue'),
+    component: () =>
+      import(/* webpackChunkName: "link" */ '@/views/demo/Link.vue'),
   },
   {
     path: '/radio',
@@ -95,7 +110,8 @@ export default [
     meta: {
       title: TITLE.Radio,
     },
-    component: () => import(/* webpackChunkName: "radio" */ '@/views/demo/Radio.vue'),
+    component: () =>
+      import(/* webpackChunkName: "radio" */ '@/views/demo/Radio.vue'),
   },
   {
     path: '/select',
@@ -103,7 +119,8 @@ export default [
     meta: {
       title: TITLE.Select,
     },
-    component: () => import(/* webpackChunkName: "select" */ '@/views/demo/Select.vue'),
+    component: () =>
+      import(/* webpackChunkName: "select" */ '@/views/demo/Select.vue'),
   },
   {
     path: '/spin',
@@ -111,7 +128,8 @@ export default [
     meta: {
       title: TITLE.Spin,
     },
-    component: () => import(/* webpackChunkName: "spin" */ '@/views/demo/Spin.vue'),
+    component: () =>
+      import(/* webpackChunkName: "spin" */ '@/views/demo/Spin.vue'),
   },
   {
     path: '/switch',
@@ -119,7 +137,8 @@ export default [
     meta: {
       title: TITLE.Switch,
     },
-    component: () => import(/* webpackChunkName: "switch" */ '@/views/demo/Switch.vue'),
+    component: () =>
+      import(/* webpackChunkName: "switch" */ '@/views/demo/Switch.vue'),
   },
   {
     path: '/empty',
@@ -127,7 +146,8 @@ export default [
     meta: {
       title: TITLE.Empty,
     },
-    component: () => import(/* webpackChunkName: "empty" */ '@/views/demo/Empty.vue'),
+    component: () =>
+      import(/* webpackChunkName: "empty" */ '@/views/demo/Empty.vue'),
   },
   {
     path: '/modal',
@@ -135,7 +155,8 @@ export default [
     meta: {
       title: TITLE.Modal,
     },
-    component: () => import(/* webpackChunkName: "modal" */ '@/views/demo/Modal.vue'),
+    component: () =>
+      import(/* webpackChunkName: "modal" */ '@/views/demo/Modal.vue'),
   },
   {
     path: '/page',
@@ -143,7 +164,8 @@ export default [
     meta: {
       title: TITLE.Page,
     },
-    component: () => import(/* webpackChunkName: "page" */ '@/views/demo/Page.vue'),
+    component: () =>
+      import(/* webpackChunkName: "page" */ '@/views/demo/Page.vue'),
   },
   {
     path: '/popconfirm',
@@ -151,7 +173,10 @@ export default [
     meta: {
       title: TITLE.Popconfirm,
     },
-    component: () => import(/* webpackChunkName: "popconfirm" */ '@/views/demo/Popconfirm.vue'),
+    component: () =>
+      import(
+        /* webpackChunkName: "popconfirm" */ '@/views/demo/Popconfirm.vue'
+      ),
   },
   {
     path: '/popover',
@@ -159,7 +184,8 @@ export default [
     meta: {
       title: TITLE.Popover,
     },
-    component: () => import(/* webpackChunkName: "popover" */ '@/views/demo/Popover.vue'),
+    component: () =>
+      import(/* webpackChunkName: "popover" */ '@/views/demo/Popover.vue'),
   },
   {
     path: '/progress',
@@ -167,7 +193,8 @@ export default [
     meta: {
       title: TITLE.Progress,
     },
-    component: () => import(/* webpackChunkName: "progress" */ '@/views/demo/Progress.vue'),
+    component: () =>
+      import(/* webpackChunkName: "progress" */ '@/views/demo/Progress.vue'),
   },
   {
     path: '/table',
@@ -175,7 +202,8 @@ export default [
     meta: {
       title: TITLE.Table,
     },
-    component: () => import(/* webpackChunkName: "table" */ '@/views/demo/Table.vue'),
+    component: () =>
+      import(/* webpackChunkName: "table" */ '@/views/demo/Table.vue'),
   },
   {
     path: '/tag',
@@ -183,7 +211,8 @@ export default [
     meta: {
       title: TITLE.Tag,
     },
-    component: () => import(/* webpackChunkName: "tag" */ '@/views/demo/Tag.vue'),
+    component: () =>
+      import(/* webpackChunkName: "tag" */ '@/views/demo/Tag.vue'),
   },
   {
     path: '/tooltip',
@@ -191,7 +220,8 @@ export default [
     meta: {
       title: TITLE.Tooltip,
     },
-    component: () => import(/* webpackChunkName: "tooltip" */ '@/views/demo/Tooltip.vue'),
+    component: () =>
+      import(/* webpackChunkName: "tooltip" */ '@/views/demo/Tooltip.vue'),
   },
   {
     path: '/datepicker',
@@ -199,6 +229,9 @@ export default [
     meta: {
       title: TITLE.DatePicker,
     },
-    component: () => import(/* webpackChunkName: "datepicker" */ '@/views/demo/DatePicker.vue'),
+    component: () =>
+      import(
+        /* webpackChunkName: "datepicker" */ '@/views/demo/DatePicker.vue'
+      ),
   },
 ];

@@ -3,7 +3,8 @@ import { ApiEntity } from '@/views/entity/demoentity';
 const base: ApiEntity = {
   title: '动态加载选项',
   desc: '配合 <code>before</code> 属性。',
-  code: '<w-cascader v-model="loadingValue" :loading="loadingStatus" :before="beforeHandle" :options="loadingOptions" :change="loadingChange"></w-cascader>',
+  code:
+    '<w-cascader v-model="loadingValue" :loading="loadingStatus" :before="beforeHandle" :options="loadingOptions" :change="loadingChange"></w-cascader>',
   js: `{
   data() {
     return {

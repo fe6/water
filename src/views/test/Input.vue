@@ -4,7 +4,7 @@
     <WInput
       v-model="value1"
       class="test-input"
-      maxLength="10"
+      max-length="10"
       show-word-limit
       :error="errorFn"
       size="small"
@@ -110,34 +110,31 @@
 </template>
 
 <script lang="ts">
-import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
-import WInput from '@/components/input/Input.vue';
-import WIcon from '@/components/icon/Icon.vue';
+  import { Component, Vue } from 'vue-property-decorator';
+  import WInput from '@/components/input/Input.vue';
+  import WIcon from '@/components/icon/Icon.vue';
 
-@Component({
-  components: {
-    WInput,
-    WIcon,
-  },
-})
-export default class TestInput extends Vue {
-  value1: string = '这是个输入框';
+  @Component({
+    components: {
+      WInput,
+      WIcon,
+    },
+  })
+  export default class TestInput extends Vue {
+    value1 = '这是个输入框';
 
-  value2: string = '这是个输入框内容很长很长很长很长很长很长很长很长';
+    value2 = '这是个输入框内容很长很长很长很长很长很长很长很长';
 
-  errorFn(ev: any) {
-    console.log(this, ev, 'safd');
-    return !ev.value;
+    errorFn(ev: any) {
+      console.log(this, ev, 'safd');
+      return !ev.value;
+    }
   }
-}
 </script>
 
 <style lang="scss" scoped>
-.test-input {
-  width: 300px;
-  margin: 8px 0;
-}
+  .test-input {
+    width: 300px;
+    margin: 8px 0;
+  }
 </style>

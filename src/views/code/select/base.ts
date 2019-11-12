@@ -24,7 +24,13 @@ export const defaultDatas = [
  * @param attr {String} 额外添加的属性，适用于 loading ， ghost ， disabled 等类型为 boolean 的属性。
  * @return {string}
  */
-export const codeCommon = ({ attr, content = '' }: CodeCommonParamsEntity = {}): string => `<w-select${attr ? ` ${attr}` : ''} :options="defaultDatas">${content}</w-select>`;
+export const codeCommon = ({
+  attr,
+  content = '',
+}: CodeCommonParamsEntity = {}): string =>
+  `<w-select${
+    attr ? ` ${attr}` : ''
+  } :options="defaultDatas">${content}</w-select>`;
 
 const base: ApiEntity = {
   title: '基本使用',

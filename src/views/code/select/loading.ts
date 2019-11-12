@@ -4,7 +4,9 @@ import { codeCommon, defaultDatas } from '@/views/code/select/base';
 const base: ApiEntity = {
   title: '加载中',
   desc: '添加 <code>loading</code> 属性即可。',
-  code: codeCommon({ attr: 'v-model="selectValue" :loading="loadingStatus" :before="beforeFn"' }),
+  code: codeCommon({
+    attr: 'v-model="selectValue" :loading="loadingStatus" :before="beforeFn"',
+  }),
   js: `{
   data() {
     return {

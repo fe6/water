@@ -9,7 +9,7 @@ Vue.use(Router);
 // 动态路由管理
 export const importDemoRouters = () => {
   const rq = require.context('@/routers', true, /\.routers\.ts$/);
-  return rq.keys().map(key => rq(key).default);
+  return rq.keys().map((key) => rq(key).default);
 };
 
 export default new Router({
@@ -33,12 +33,16 @@ export default new Router({
             meta: {
               title: TITLE.Agreement,
             },
-            component: () => import(/* webpackChunkName: "agreement" */ '@/views/Agreement.vue'),
+            component: () =>
+              import(
+                /* webpackChunkName: "agreement" */ '@/views/Agreement.vue'
+              ),
           },
         ],
-        ...importDemoRouters(),
+        ...importDemoRouters()
       ),
-      component: () => import(/* webpackChunkName: "index" */ '@/views/Index.vue'),
+      component: () =>
+        import(/* webpackChunkName: "index" */ '@/views/Index.vue'),
     },
   ],
 });

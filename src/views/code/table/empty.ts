@@ -6,7 +6,8 @@ import { emptyCol, emptyOptions } from '@/views/code/table/options/empty';
  * @param attr {String} 额外添加的属性，适用于 loading ， ghost ， disabled 等类型为 boolean 的属性。
  * @return {string}
  */
-export const codeCommon = (): string => '<w-table :col="emptyCol" :options="emptyOptions"></w-table>';
+export const codeCommon = (): string =>
+  '<w-table :col="emptyCol" :options="emptyOptions"></w-table>';
 
 const empty: ApiEntity = {
   title: '空状态',

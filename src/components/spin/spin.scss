@@ -2,9 +2,21 @@
 @import '../../helper/ellipsis.scss';
 @import '../icon/icon.scss';
 
-$spin-size: ('': 20, '-large': 32, '-small': 14);
-$spin-tip-fontsize: ('': 12, '-large': 12, '-small': 12);
-$spin-tip-space: ('': 8, '-large': 12, '-small': 4);
+$spin-size: (
+  '': 20,
+  '-large': 32,
+  '-small': 14,
+);
+$spin-tip-fontsize: (
+  '': 12,
+  '-large': 12,
+  '-small': 12,
+);
+$spin-tip-space: (
+  '': 8,
+  '-large': 12,
+  '-small': 4,
+);
 $move-time: 0.3s;
 
 .w-spin {
@@ -60,8 +72,14 @@ $move-time: 0.3s;
     // 循环尺寸
     @each $size, $value in $spin-size {
       &#{$size} {
-        font-size: map-get($spin-tip-fontsize, $size) + px;
-        padding-top: map-get($spin-tip-space, $size) + px;
+        font-size: map-get(
+          $spin-tip-fontsize,
+          $size
+        ) + px;
+        padding-top: map-get(
+          $spin-tip-space,
+          $size
+        ) + px;
       }
 
       &#{$size} svg,

@@ -28,14 +28,24 @@ describe('Input.vue', () => {
     cb.vm.$nextTick(() => {
       try {
         cb.vm.changeValue({}, 'sss');
-        expect(cb.vm.prefixClass).toEqual([{ 'w-input-wraper-prefix-undefined': undefined }]);
-        expect(cb.vm.suffixClass).toEqual([{ 'w-input-wraper-suffix-limit': false, 'w-input-wraper-suffix-limit-undefined': undefined, 'w-input-wraper-suffix-undefined': undefined }]);
-        expect(cb.vm.inputClass).toEqual([{
-          'w-input-slot-prefix': false,
-          'w-input-slot-prefix-undefined': false,
-          'w-input-slot-suffix': false,
-          'w-input-slot-suffix-undefined': false,
-        }]);
+        expect(cb.vm.prefixClass).toEqual([
+          { 'w-input-wraper-prefix-undefined': undefined },
+        ]);
+        expect(cb.vm.suffixClass).toEqual([
+          {
+            'w-input-wraper-suffix-limit': false,
+            'w-input-wraper-suffix-limit-undefined': undefined,
+            'w-input-wraper-suffix-undefined': undefined,
+          },
+        ]);
+        expect(cb.vm.inputClass).toEqual([
+          {
+            'w-input-slot-prefix': false,
+            'w-input-slot-prefix-undefined': false,
+            'w-input-slot-suffix': false,
+            'w-input-slot-suffix-undefined': false,
+          },
+        ]);
         expect(cb.vm.wraperClass).toEqual([{ 'w-input-wraper-slot': false }]);
         expect(cb.vm.error()).toBe(false);
         done();
@@ -48,12 +58,14 @@ describe('Input.vue', () => {
   it('test Input slot', (done) => {
     slot.vm.$nextTick(() => {
       try {
-        expect(slot.vm.inputClass).toEqual([{
-          'w-input-slot-prefix': true,
-          'w-input-slot-prefix-small': 'small',
-          'w-input-slot-suffix': true,
-          'w-input-slot-suffix-small': 'small',
-        }]);
+        expect(slot.vm.inputClass).toEqual([
+          {
+            'w-input-slot-prefix': true,
+            'w-input-slot-prefix-small': 'small',
+            'w-input-slot-suffix': true,
+            'w-input-slot-suffix-small': 'small',
+          },
+        ]);
         done();
       } catch (err) {
         done.fail(err);

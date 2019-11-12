@@ -1,21 +1,22 @@
 import { mount } from '@vue/test-utils';
 import Modal from './Modal.vue';
 
-const before = () => new Promise((resolve) => {
-  resolve();
-});
+const before = () =>
+  new Promise((resolve) => {
+    resolve();
+  });
 
 describe('Modal.vue', () => {
-  let wrapper:any = null;
-  let wrapper1:any = null;
-  let wrapperBefore:any = null;
-  let wrapperNoBefore:any = null;
-  let wrapperCancel:any = null;
-  let wrapperChangeStatus:any = null;
-  let wrapperMaskClosable:any = null;
-  let wrapperLoading:any = null;
-  let wrapperKeyUpFn:any = null;
-  let wrapperKeyUpNoEvFn:any = null;
+  let wrapper: any = null;
+  let wrapper1: any = null;
+  let wrapperBefore: any = null;
+  let wrapperNoBefore: any = null;
+  let wrapperCancel: any = null;
+  let wrapperChangeStatus: any = null;
+  let wrapperMaskClosable: any = null;
+  let wrapperLoading: any = null;
+  let wrapperKeyUpFn: any = null;
+  let wrapperKeyUpNoEvFn: any = null;
 
   beforeEach(() => {
     wrapper = mount(Modal, 'sss');

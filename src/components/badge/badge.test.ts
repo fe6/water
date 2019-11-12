@@ -2,15 +2,16 @@ import { mount } from '@vue/test-utils';
 import Badge from './Badge.vue';
 
 describe('Badge.vue', () => {
-  let wrapperModel:any = null;
-  let wrapperLimit:any = null;
-  let wrapperZero:any = null;
-  let wrapperStatus:any = null;
-  const createBadge = (value: any) => mount(Badge, {
-    propsData: {
-      value,
-    },
-  });
+  let wrapperModel: any = null;
+  let wrapperLimit: any = null;
+  let wrapperZero: any = null;
+  let wrapperStatus: any = null;
+  const createBadge = (value: any) =>
+    mount(Badge, {
+      propsData: {
+        value,
+      },
+    });
 
   beforeEach(() => {
     wrapperModel = createBadge(10);

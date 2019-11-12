@@ -1,16 +1,19 @@
-const url = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type';
+const url =
+  'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type';
 
 export const props = [
   {
     param: 'type',
-    desc: '设置按钮类型，可选值为 <code>info</code> <code>border</code> <code>dashed</code> <code>danger</code> 或者不设',
+    desc:
+      '设置按钮类型，可选值为 <code>info</code> <code>border</code> <code>dashed</code> <code>danger</code> 或者不设',
     type: 'String',
     require: '否',
     default: '无',
   },
   {
     param: 'size',
-    desc: '设置按钮大小，可选值为 <code>small</code> <code>large</code> 或者不设',
+    desc:
+      '设置按钮大小，可选值为 <code>small</code> <code>large</code> 或者不设',
     type: 'String',
     require: '否',
     default: '无',

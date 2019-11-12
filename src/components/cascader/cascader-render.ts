@@ -30,5 +30,6 @@ export default {
       default: noop,
     },
   },
-  render: (createElement: Function, { props }: any) => props.render(createElement, props),
+  render: (createElement: Function, { props }: any) =>
+    props.render(createElement, props),
 };

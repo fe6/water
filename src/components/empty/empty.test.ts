@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import Empty from './Empty.vue';
 
 describe('Empty.vue', () => {
-  let wrapperRender:any = null;
+  let wrapperRender: any = null;
 
   beforeEach(() => {
     wrapperRender = mount(Empty);

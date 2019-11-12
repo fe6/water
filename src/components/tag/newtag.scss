@@ -1,17 +1,19 @@
 @import '../../helper/config.scss';
 @import '../../helper/buttonclick.scss';
 
-$tag-list: ('': 20, '-lg': 24, '-sm': 16);
+$tag-list: (
+  '': 20,
+  '-lg': 24,
+  '-sm': 16,
+);
 
 .w-newtag {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
   color: $text-color-light;
   font-family: $family;
   font-size: 12px;
   line-height: 18px;
-  height: 18px;
   font-variant: tabular-nums;
   list-style: none;
   font-feature-settings: 'tnum';

@@ -13,5 +13,6 @@ export default {
       default: () => {},
     },
   },
-  render: (h: Function, context: any) => context.props.render(h, context.props.data, context),
+  render: (h: Function, context: any) =>
+    context.props.render(h, context.props.data, context),
 };

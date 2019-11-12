@@ -1,6 +1,5 @@
 @import '../../helper/config.scss';
 
-
 .demo {
   &-box {
     position: relative;
@@ -19,7 +18,12 @@
 
   &-demo {
     padding: 42px 24px 50px;
-    color: rgba(0, 0, 0, 0.65);
+    color: rgba(
+      0,
+      0,
+      0,
+      0.65
+    );
   }
 
   &-deep {
@@ -73,7 +77,7 @@
       right: 16px;
       top: 50%;
       transform: translateY(-50%);
-      color: $red-6
+      color: $red-6;
     }
 
     &-panel {
@@ -117,7 +121,7 @@
       right: 0;
       top: 0;
       border-right: none;
-      color: $red-6
+      color: $red-6;
     }
   }
 }

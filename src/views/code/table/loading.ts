@@ -17,7 +17,8 @@ export const codeCommon = (): string => `<w-button @click="btnFn">{{loadingStatu
 
 const loading: ApiEntity = {
   title: '远程加载数据',
-  desc: '这个例子通过简单的定时器模拟 ajax 读取方式，演示了如何从服务端读取并展现数据以及页面 loading 效果。',
+  desc:
+    '这个例子通过简单的定时器模拟 ajax 读取方式，演示了如何从服务端读取并展现数据以及页面 loading 效果。',
   code: codeCommon(),
   js: `{
   data() {

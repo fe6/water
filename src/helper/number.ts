@@ -2,18 +2,19 @@ import { TweenLite } from 'gsap';
 import { noop } from '@/helper/noop';
 // 参照 https://github.com/react-component/input-number/blob/master/src/index.js
 // '1.' '1x' 'xx' '' => are not complete numbers
-export const isNotCompleteNumber = (num: any) => (
-  Number.isNaN(num)
-    || num === ''
-    || num === null
-    || (num && num.toString().indexOf('.') === num.toString().length - 1)
-);
+export const isNotCompleteNumber = (num: any) =>
+  Number.isNaN(num) ||
+  num === '' ||
+  num === null ||
+  (num && num.toString().indexOf('.') === num.toString().length - 1);
 
-export const isNegativeZero = (
-  number: number | string,
-) => Number(number) === 0 && (1 / Number(number)) === -Infinity;
+export const isNegativeZero = (number: number | string) =>
+  Number(number) === 0 && 1 / Number(number) === -Infinity;
 
-export const getValueFromEvent = (ev: MouseEvent, decimalSeparator: string = '.'): string => {
+export const getValueFromEvent = (
+  ev: MouseEvent,
+  decimalSeparator = '.'
+): string => {
   // optimize for chinese input expierence
   // https://github.com/ant-design/ant-design/issues/8196
   let value = (ev.target as any).value.trim().replace(/。/g, '.');
@@ -26,7 +27,7 @@ export const getValueFromEvent = (ev: MouseEvent, decimalSeparator: string = '.'
 export const formatWrapper = (
   num: number | string,
   formatter: Function = noop,
-  parase: Function = noop,
+  parase: Function = noop
 ): number | string => {
   if (isNegativeZero(num)) {
     return '-0';
@@ -34,7 +35,10 @@ export const formatWrapper = (
   return formatter(parase(num));
 };
 
-export const getPrecision = (value: number | string, precision: number): number => {
+export const getPrecision = (
+  value: number | string,
+  precision: number
+): number => {
   const valueString = value.toString();
   if (valueString.indexOf('e-') >= 0) {
     return parseInt(valueString.slice(valueString.indexOf('e-') + 2), 10);
@@ -57,7 +61,7 @@ export const getMaxPrecision = (
   currentValue: number | string,
   stepValue: number,
   precision: number,
-  rat: number = 1,
+  rat = 1
 ) => {
   const ratioPrecision = getPrecision(rat, precision);
   const stepPrecision = getPrecision(stepValue, precision);
@@ -65,7 +69,9 @@ export const getMaxPrecision = (
   if (!currentValue) {
     return ratioPrecision + stepPrecision;
   }
-  return precision || Math.max(currentValuePrecision, ratioPrecision + stepPrecision);
+  return (
+    precision || Math.max(currentValuePrecision, ratioPrecision + stepPrecision)
+  );
 };
 
 // 10 ** 2 就是 Math.pow(10, 2)
@@ -73,7 +79,7 @@ export const getPrecisionFactor = (
   currentValue: number | string,
   stepValue: number,
   precision: number,
-  rat: number = 1,
+  rat = 1
 ) => 10 ** getMaxPrecision(currentValue, stepValue, precision, rat);
 
 export const changeStep = (
@@ -82,8 +88,8 @@ export const changeStep = (
   maxValue: number,
   stepValue: number,
   precision: number,
-  rat: number = 1,
-  direction: number,
+  rat = 1,
+  direction: number
 ): number => {
   let newValue: string | number = val;
   // 如果输入的数字超过边界
@@ -95,13 +101,23 @@ export const changeStep = (
     newValue = val;
   }
 
-  const precisionFactor = getPrecisionFactor(newValue, stepValue, precision, rat);
-  const newPrecision = Math.abs(getMaxPrecision(newValue, stepValue, precision, rat));
+  const precisionFactor = getPrecisionFactor(
+    newValue,
+    stepValue,
+    precision,
+    rat
+  );
+  const newPrecision = Math.abs(
+    getMaxPrecision(newValue, stepValue, precision, rat)
+  );
   let result;
 
   if (!Number.isNaN(Number(newValue))) {
-    result = ((precisionFactor * Number(newValue) + precisionFactor * stepValue * rat * direction)
-      / precisionFactor).toFixed(newPrecision);
+    result = (
+      (precisionFactor * Number(newValue) +
+        precisionFactor * stepValue * rat * direction) /
+      precisionFactor
+    ).toFixed(newPrecision);
   } else {
     result = minValue === -Infinity ? stepValue : minValue;
   }
@@ -119,7 +135,9 @@ export const watchNumber = (self: any) => {
   if (self.write) {
     self.tweenedNumber = self.originalNumber - 0;
   } else {
-    TweenLite.to(self.$data, self.animateTime, { tweenedNumber: self.originalNumber });
+    TweenLite.to(self.$data, self.animateTime, {
+      tweenedNumber: self.originalNumber,
+    });
   }
 };
 
@@ -129,10 +147,8 @@ export const upStep = (
   maxValue: number,
   stepValue: number,
   precision: number,
-  rat: number = 1,
-): number => changeStep(
-  val, minValue, maxValue, stepValue, precision, rat, 1,
-);
+  rat = 1
+): number => changeStep(val, minValue, maxValue, stepValue, precision, rat, 1);
 
 export const downStep = (
   val: number | string,
@@ -140,7 +156,5 @@ export const downStep = (
   maxValue: number,
   stepValue: number,
   precision: number,
-  rat: number = 1,
-): number => changeStep(
-  val, minValue, maxValue, stepValue, precision, rat, -1,
-);
+  rat = 1
+): number => changeStep(val, minValue, maxValue, stepValue, precision, rat, -1);

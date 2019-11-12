@@ -241,7 +241,10 @@
           position: absolute;
           left: 50%;
           top: 50%;
-          transform: translate(-50%, -50%);
+          transform: translate(
+            -50%,
+            -50%
+          );
           content: '';
           border: 1px solid $blue-7;
           width: 20px;
@@ -289,7 +292,12 @@
 
     &.w-picker-disabled {
       border-color: $disabled-border;
-      background: rgba(0, 0, 0, 0.1);
+      background: rgba(
+        0,
+        0,
+        0,
+        0.1
+      );
     }
   }
 

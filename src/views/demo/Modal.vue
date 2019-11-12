@@ -3,65 +3,68 @@
     <h1>{{ Modal }}</h1>
     <p>模态对话框。 <code>0.2.0</code> 新增。</p>
     <h2>何时使用</h2>
-    <p>需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 <code>Modal</code> 在当前页面正中打开一个浮层，承载相应的操作。</p>
+    <p>
+      需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用
+      <code>Modal</code> 在当前页面正中打开一个浮层，承载相应的操作。
+    </p>
     <h2>代码演示</h2>
     <WRow :gutter="16">
       <WCol :span="24">
         <OnlineReview
-          :temCode="base.code"
-          :jsCode="base.js"
+          :tem-code="base.code"
+          :js-code="base.js"
           :title="base.title"
           :desc="base.desc"
-          iframeHeight="300px"
+          iframe-height="300px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="before.code"
-          :jsCode="before.js"
+          :tem-code="before.code"
+          :js-code="before.js"
           :title="before.title"
           :desc="before.desc"
-          iframeHeight="300px"
+          iframe-height="300px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="content.code"
-          :jsCode="content.js"
+          :tem-code="content.code"
+          :js-code="content.js"
           :title="content.title"
           :desc="content.desc"
-          iframeHeight="300px"
+          iframe-height="300px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="esc.code"
-          :jsCode="esc.js"
+          :tem-code="esc.code"
+          :js-code="esc.js"
           :title="esc.title"
           :desc="esc.desc"
-          iframeHeight="300px"
+          iframe-height="300px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="diy.code"
-          :jsCode="diy.js"
+          :tem-code="diy.code"
+          :js-code="diy.js"
           :title="diy.title"
           :desc="diy.desc"
-          iframeHeight="300px"
+          iframe-height="300px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="style.code"
-          :jsCode="style.js"
+          :tem-code="style.code"
+          :js-code="style.js"
           :title="style.title"
           :desc="style.desc"
-          iframeHeight="300px"
+          iframe-height="300px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="mask.code"
-          :jsCode="mask.js"
+          :tem-code="mask.code"
+          :js-code="mask.js"
           :title="mask.title"
           :desc="mask.desc"
-          iframeHeight="300px"
+          iframe-height="300px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="method.code"
-          :jsCode="method.js"
+          :tem-code="method.code"
+          :js-code="method.js"
           :title="method.title"
           :desc="method.desc"
-          iframeHeight="300px"
+          iframe-height="300px"
         ></OnlineReview>
       </WCol>
     </WRow>
@@ -85,66 +88,62 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import ApiTable from '@/views/components/ApiTable.vue';
-import MethodTable from '@/views/components/MethodTable.vue';
-import WRow from '@/components/grid/Row.vue';
-import WCol from '@/components/grid/Col.vue';
-import OnlineReview from '@/views/components/OnlineReview.vue';
-import { ApiEntity } from '@/views/entity/demoentity';
-import base from '@/views/code/modal/base';
-import diy from '@/views/code/modal/diy';
-import before from '@/views/code/modal/before';
-import style from '@/views/code/modal/style';
-import content from '@/views/code/modal/content';
-import mask from '@/views/code/modal/mask';
-import esc from '@/views/code/modal/esc';
-import method from '@/views/code/modal/method';
-import {
-  props,
-  confirmProps,
-  methods,
-} from '@/views/api/modal';
-import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
-import { TITLE } from '@/views/common/constant';
+  import { Component, Vue } from 'vue-property-decorator';
+  import ApiTable from '@/views/components/ApiTable.vue';
+  import MethodTable from '@/views/components/MethodTable.vue';
+  import WRow from '@/components/grid/Row.vue';
+  import WCol from '@/components/grid/Col.vue';
+  import OnlineReview from '@/views/components/OnlineReview.vue';
+  import { ApiEntity } from '@/views/entity/demoentity';
+  import base from '@/views/code/modal/base';
+  import diy from '@/views/code/modal/diy';
+  import before from '@/views/code/modal/before';
+  import style from '@/views/code/modal/style';
+  import content from '@/views/code/modal/content';
+  import mask from '@/views/code/modal/mask';
+  import esc from '@/views/code/modal/esc';
+  import method from '@/views/code/modal/method';
+  import { props, confirmProps, methods } from '@/views/api/modal';
+  import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
+  import { TITLE } from '@/views/common/constant';
 
-interface ParamsEntity {
-  attr: string;
-  status: boolean;
-}
+  interface ParamsEntity {
+    attr: string;
+    status: boolean;
+  }
 
-@Component({
-  components: {
-    ApiTable,
-    MethodTable,
-    WRow,
-    WCol,
-    OnlineReview,
-  },
-})
-export default class ModalView extends Vue {
-  Modal: string = TITLE.Modal;
+  @Component({
+    components: {
+      ApiTable,
+      MethodTable,
+      WRow,
+      WCol,
+      OnlineReview,
+    },
+  })
+  export default class ModalView extends Vue {
+    Modal: string = TITLE.Modal;
 
-  base: ApiEntity = base;
+    base: ApiEntity = base;
 
-  diy: ApiEntity = diy;
+    diy: ApiEntity = diy;
 
-  before: ApiEntity = before;
+    before: ApiEntity = before;
 
-  style: ApiEntity = style;
+    style: ApiEntity = style;
 
-  content: ApiEntity = content;
+    content: ApiEntity = content;
 
-  mask: ApiEntity = mask;
+    mask: ApiEntity = mask;
 
-  esc: ApiEntity = esc;
+    esc: ApiEntity = esc;
 
-  method: ApiEntity = method;
+    method: ApiEntity = method;
 
-  props: PropsEntity[] = props;
+    props: PropsEntity[] = props;
 
-  confirmProps: PropsEntity[] = confirmProps;
+    confirmProps: PropsEntity[] = confirmProps;
 
-  methods: MethodsEntity[] = methods;
-}
+    methods: MethodsEntity[] = methods;
+  }
 </script>

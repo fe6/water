@@ -40,7 +40,7 @@ h4,
 h5,
 h6 {
   clear: both;
-  margin: 1.6em 0 .6em;
+  margin: 1.6em 0 0.6em;
   color: $text-color;
   font-weight: 500;
   line-height: 1.5;
@@ -153,13 +153,18 @@ table {
 
   &-main {
     position: relative;
-    padding: 40px 0 0;
+    padding: 80px 0 0;
     background: $normal-bg;
   }
 
   &-mixin {
     font-family: $family;
-    color: rgba(0, 0, 0, 0.45);
+    color: rgba(
+      0,
+      0,
+      0,
+      0.45
+    );
     font-size: 14px;
     line-height: 1.5;
     transition: all 0.3s;
@@ -168,9 +173,11 @@ table {
 
   &-menu {
     overflow: auto;
-    min-height: calc(100vh - 104px);
-    height: 100%;
     border-right: 1px solid #e8e8e8;
+    position: fixed;
+    z-index: 2;
+    top: 80px;
+    bottom: 0;
 
     &-sub {
       @extend .layout-mixin;
@@ -203,7 +210,7 @@ table {
         margin-bottom: 0;
       }
 
-      &:after {
+      &::after {
         position: absolute;
         top: 0;
         right: 0;
@@ -211,7 +218,19 @@ table {
         border-right: 3px solid #1890ff;
         transform: scaleY(0.0001);
         opacity: 0;
-        transition: transform 0.15s cubic-bezier(.215, .61, .355, 1),opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition:
+          transform 0.15s cubic-bezier(
+            0.215,
+            0.61,
+            0.355,
+            1
+          ),
+          opacity 0.15s cubic-bezier(
+            0.215,
+            0.61,
+            0.355,
+            1
+          );
         content: '';
       }
 
@@ -232,7 +251,7 @@ table {
       background: #e6f7ff;
       color: $blue-6;
 
-      &:after {
+      &::after {
         transform: scaleY(1);
         opacity: 1;
       }
@@ -247,10 +266,10 @@ table {
 
   &-cantainer {
     position: relative;
-    min-height: 500px;
-    padding: 0 170px 144px 64px;
+    padding: 0 170px 144px 270px;
     background: $normal-bg;
     min-height: calc(100vh - 248px);
+    box-sizing: border-box;
   }
 
   &-npm {

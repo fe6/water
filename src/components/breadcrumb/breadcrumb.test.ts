@@ -5,9 +5,9 @@ import BreadcrumbItem from './BreadcrumbItem.vue';
 
 // 各种跳转的测试
 describe('BreadcrumbItem.vue', () => {
-  let wrapperHref:any = null;
-  let wrapperOpen:any = null;
-  let wrapperRouter:any = null;
+  let wrapperHref: any = null;
+  let wrapperOpen: any = null;
+  let wrapperRouter: any = null;
   const href = 'https://baidu.com/';
   const open = 'https://baidu.com/';
 
@@ -15,21 +15,27 @@ describe('BreadcrumbItem.vue', () => {
     const localVue = createLocalVue();
     localVue.use(VueRouter);
     const router = new VueRouter({
-      routes: [{
-        path: 'Breadcrumb',
-        name: 'Breadcrumb',
-      }],
+      routes: [
+        {
+          path: 'Breadcrumb',
+          name: 'Breadcrumb',
+        },
+      ],
     });
 
     wrapperRouter = mount(Breadcrumb, {
       slots: {
         default: {
           render(h: Function) {
-            return h(BreadcrumbItem, {
-              props: {
-                to: { name: 'Breadcrumb' },
+            return h(
+              BreadcrumbItem,
+              {
+                props: {
+                  to: { name: 'Breadcrumb' },
+                },
               },
-            }, 'vue 路由跳转');
+              'vue 路由跳转'
+            );
           },
         },
       },
@@ -42,11 +48,15 @@ describe('BreadcrumbItem.vue', () => {
       slots: {
         default: {
           render(h: Function) {
-            return h(BreadcrumbItem, {
-              props: {
-                href,
+            return h(
+              BreadcrumbItem,
+              {
+                props: {
+                  href,
+                },
               },
-            }, '本标签页面跳转');
+              '本标签页面跳转'
+            );
           },
         },
       },
@@ -57,11 +67,15 @@ describe('BreadcrumbItem.vue', () => {
       slots: {
         default: {
           render(h: Function) {
-            return h(BreadcrumbItem, {
-              props: {
-                open,
+            return h(
+              BreadcrumbItem,
+              {
+                props: {
+                  open,
+                },
               },
-            }, '新标签页面跳转');
+              '新标签页面跳转'
+            );
           },
         },
       },

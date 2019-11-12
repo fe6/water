@@ -21,11 +21,7 @@ interface paramsEntity {
 }
 
 function random(params: paramsEntity = {}): number {
-  const {
-    min = 500,
-    max = 10000,
-    floor = false,
-  } = params;
+  const { min = 500, max = 10000, floor = false } = params;
   const num = Math.random() * (max - min) + min;
   return floor ? Math.floor(num) : num;
 }

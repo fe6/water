@@ -1,15 +1,16 @@
 import { hasOwn } from '@/helper/o';
-import {
-  FieldNamesEntity,
-} from './entity';
+import { FieldNamesEntity } from './entity';
 
 // 递归获取结果 通过 label
-export const getValueByLabel = (values: any[], options: any[], fieldNames: FieldNamesEntity) => {
+export const getValueByLabel = (
+  values: any[],
+  options: any[],
+  fieldNames: FieldNamesEntity
+) => {
   const newValue: string[] = [];
-  let index: number = 0;
-  const loopFind = (opts: any[]) => opts.find(
-    (opt: any) => opt[fieldNames.label] === values[index],
-  );
+  let index = 0;
+  const loopFind = (opts: any[]) =>
+    opts.find((opt: any) => opt[fieldNames.label] === values[index]);
   const loop = (opts: any[]) => {
     const Item = loopFind(opts);
     if (Item) {
@@ -31,14 +32,28 @@ export const objToPath = (arr: any, fieldNames: FieldNamesEntity) => {
   const format = ' / ';
   const path: any[] = [];
   // 带着路径和索引知道没有子级再添加
-  const reduceFn = (target: any[], valuePrefix = '', labelPrefix = '', disabled = false) => {
+  const reduceFn = (
+    target: any[],
+    valuePrefix = '',
+    labelPrefix = '',
+    disabled = false
+  ) => {
     target.forEach((cur, index) => {
-      const itemValuePath = valuePrefix ? `${valuePrefix}${format}${cur[fieldNames.value]}` : cur[fieldNames.value];
-      const itemLabelPath = labelPrefix ? `${labelPrefix}${format}${cur[fieldNames.label]}` : cur[fieldNames.label];
+      const itemValuePath = valuePrefix
+        ? `${valuePrefix}${format}${cur[fieldNames.value]}`
+        : cur[fieldNames.value];
+      const itemLabelPath = labelPrefix
+        ? `${labelPrefix}${format}${cur[fieldNames.label]}`
+        : cur[fieldNames.label];
       const itemDisabled = disabled || cur[fieldNames.disabled] || false;
 
       if (hasOwn(cur, fieldNames.children)) {
-        reduceFn(cur[fieldNames.children], itemValuePath, itemLabelPath, itemDisabled);
+        reduceFn(
+          cur[fieldNames.children],
+          itemValuePath,
+          itemLabelPath,
+          itemDisabled
+        );
       } else {
         const value = itemValuePath.split(format);
         path.push({
@@ -59,11 +74,7 @@ export const objToPath = (arr: any, fieldNames: FieldNamesEntity) => {
 };
 
 // 通过 children 获取下一级选项
-export const getChildOptions = ({
-  item,
-  origin,
-  index,
-}: any) => {
+export const getChildOptions = ({ item, origin, index }: any) => {
   const opts: any = {
     index: -1,
     options: [],
@@ -94,12 +105,10 @@ export const getCascaderOptions = ({
 }: any) => {
   let index = 0;
   const { label, children } = fieldNames;
-  const loopFind = (opts: any[]) => opts.find(
-    (opt: any) => opt[label] === value[index],
-  );
-  const loopFindIndex = (opts: any[]) => opts.findIndex(
-    (opt: any) => opt[label] === value[index],
-  );
+  const loopFind = (opts: any[]) =>
+    opts.find((opt: any) => opt[label] === value[index]);
+  const loopFindIndex = (opts: any[]) =>
+    opts.findIndex((opt: any) => opt[label] === value[index]);
   const loop = (opts: any[]) => {
     const Item = loopFind(opts);
     if (Item) {

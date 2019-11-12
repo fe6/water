@@ -8,14 +8,16 @@ export const props = [
   },
   {
     param: 'width',
-    desc: '环形进度条画布宽度（只在 <code>type</code> 为 <code>circle</code> 或 <code>dashboard</code> 时可用）',
+    desc:
+      '环形进度条画布宽度（只在 <code>type</code> 为 <code>circle</code> 或 <code>dashboard</code> 时可用）',
     type: 'Number',
     require: '否',
     default: '126',
   },
   {
     param: 'type',
-    desc: '进度条类型，可选值：<code>line</code> 、 <code>circle</code> 或 <code>dashboard</code>',
+    desc:
+      '进度条类型，可选值：<code>line</code> 、 <code>circle</code> 或 <code>dashboard</code>',
     type: 'String',
     require: '否',
     default: 'line',
@@ -29,7 +31,8 @@ export const props = [
   },
   {
     param: 'status',
-    desc: '进度条当前状态，可选值: <code>warning</code> 、 <code>error</code> 、 <code>success</code> 或 <code>空</code>',
+    desc:
+      '进度条当前状态，可选值: <code>warning</code> 、 <code>error</code> 、 <code>success</code> 或 <code>空</code>',
     type: 'String',
     require: '否',
     default: '无',
@@ -46,7 +49,7 @@ export const props = [
     desc: '内容的模板函数',
     type: 'Function(percent)',
     require: '否',
-    default: 'percent => percent + \'%\'',
+    default: "percent => percent + '%'",
   },
   {
     param: 'showInfo',
@@ -57,7 +60,8 @@ export const props = [
   },
   {
     param: 'inside',
-    desc: '进度条显示文字内置在进度条内（只在 <code>type="line"</code> 时可用）',
+    desc:
+      '进度条显示文字内置在进度条内（只在 <code>type="line"</code> 时可用）',
     type: 'Boolean',
     require: '否',
     default: '无',

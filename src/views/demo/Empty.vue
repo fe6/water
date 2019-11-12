@@ -11,18 +11,18 @@
     <WRow :gutter="16">
       <WCol :span="24">
         <OnlineReview
-          :temCode="base.code"
+          :tem-code="base.code"
           :render="base.render"
           :title="base.title"
           :desc="base.desc"
-          iframeHeight="240px"
+          iframe-height="240px"
         ></OnlineReview>
         <OnlineReview
-          :temCode="image.code"
+          :tem-code="image.code"
           :render="image.render"
           :title="image.title"
           :desc="image.desc"
-          iframeHeight="240px"
+          iframe-height="240px"
         ></OnlineReview>
       </WCol>
     </WRow>
@@ -32,33 +32,33 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import ApiTable from '@/views/components/ApiTable.vue';
-import WRow from '@/components/grid/Row.vue';
-import WCol from '@/components/grid/Col.vue';
-import OnlineReview from '@/views/components/OnlineReview.vue';
-import { ApiEntity } from '@/views/entity/demoentity';
-import base from '@/views/code/empty/base';
-import image from '@/views/code/empty/image';
-import { props } from '@/views/api/empty';
-import { PropsEntity } from '@/views/entity/apientity';
-import { TITLE } from '@/views/common/constant';
+  import { Component, Vue } from 'vue-property-decorator';
+  import ApiTable from '@/views/components/ApiTable.vue';
+  import WRow from '@/components/grid/Row.vue';
+  import WCol from '@/components/grid/Col.vue';
+  import OnlineReview from '@/views/components/OnlineReview.vue';
+  import { ApiEntity } from '@/views/entity/demoentity';
+  import base from '@/views/code/empty/base';
+  import image from '@/views/code/empty/image';
+  import { props } from '@/views/api/empty';
+  import { PropsEntity } from '@/views/entity/apientity';
+  import { TITLE } from '@/views/common/constant';
 
-@Component({
-  components: {
-    ApiTable,
-    WRow,
-    WCol,
-    OnlineReview,
-  },
-})
-export default class EmptyView extends Vue {
-  Empty: string = TITLE.Empty;
+  @Component({
+    components: {
+      ApiTable,
+      WRow,
+      WCol,
+      OnlineReview,
+    },
+  })
+  export default class EmptyView extends Vue {
+    Empty: string = TITLE.Empty;
 
-  base: ApiEntity = base;
+    base: ApiEntity = base;
 
-  image: ApiEntity = image;
+    image: ApiEntity = image;
 
-  props: PropsEntity[] = props;
-}
+    props: PropsEntity[] = props;
+  }
 </script>

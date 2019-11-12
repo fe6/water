@@ -4,7 +4,8 @@ const href = 'https://github.com/fe6/water';
 
 const base: ApiEntity = {
   title: '自定义',
-  desc: '通过 <code>slot="title"</code> 自定义标题, <code>slot="footer"</code> 自定义页脚。',
+  desc:
+    '通过 <code>slot="title"</code> 自定义标题, <code>slot="footer"</code> 自定义页脚。',
   code: `<w-button @click="modalStatus = true">点击</w-button>
 <w-modal v-model="modalStatus" title="Basic Modal">
   <div>Some contents...</div>

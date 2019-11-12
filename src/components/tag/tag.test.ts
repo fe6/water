@@ -97,7 +97,9 @@ describe('Tag.vue', () => {
       try {
         expect(wrapperSection.vm.isAllValue).toBeFalsy();
         expect(wrapperSection.vm.colorTypeValue).toBe('section');
-        expect(wrapperSection.vm.borderColorValue).toBe('rgba(25, 150, 249, 1)');
+        expect(wrapperSection.vm.borderColorValue).toBe(
+          'rgba(25, 150, 249, 1)'
+        );
         done();
       } catch (err) {
         done.fail(err);

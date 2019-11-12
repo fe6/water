@@ -1,32 +1,44 @@
 import WTag from '@/components/tag/Tag.vue';
 
-export const loadingCol = [{
-  title: 'Name',
-  dataIndex: 'name',
-  width: '100px',
-}, {
-  title: 'Age',
-  dataIndex: 'age',
-  width: '100px',
-}, {
-  title: 'Address',
-  dataIndex: 'address',
-}, {
-  title: 'Tags',
-  dataIndex: 'tags',
-  width: '100px',
-  render(createElement: Function, { text }: any) {
-    return text.map((textName: string, textIdx: number) => createElement(WTag, {
-      props: {
-        color: ['#eb2f96', '#f5222d', '#1996f9'][textIdx],
-      },
-    }, textName));
+export const loadingCol = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    width: '100px',
   },
-}, {
-  title: 'Action',
-  dataIndex: 'action',
-  width: '30px',
-}];
+  {
+    title: 'Age',
+    dataIndex: 'age',
+    width: '100px',
+  },
+  {
+    title: 'Address',
+    dataIndex: 'address',
+  },
+  {
+    title: 'Tags',
+    dataIndex: 'tags',
+    width: '100px',
+    render(createElement: Function, { text }: any) {
+      return text.map((textName: string, textIdx: number) =>
+        createElement(
+          WTag,
+          {
+            props: {
+              color: ['#eb2f96', '#f5222d', '#1996f9'][textIdx],
+            },
+          },
+          textName
+        )
+      );
+    },
+  },
+  {
+    title: 'Action',
+    dataIndex: 'action',
+    width: '30px',
+  },
+];
 
 export const loadingOptions = `[{
         "name": "John Brown",

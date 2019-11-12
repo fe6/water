@@ -1,16 +1,20 @@
 <template>
   <div
+    v-if="!inputStatus"
+    ref="newtag"
     class="w-newtag"
     :class="classList"
     @click="clickFn($event)"
     @animationend="removeClickName"
-    ref="newtag"
-    v-if="!inputStatus"
   >
     <i class="w-newtag-icon"></i>
     <slot></slot>
   </div>
   <w-input
+    v-else
+    ref="input"
+    v-model="inputValue"
+    v-doc-click="bodyClick"
     class="w-newtag-input"
     :class="{
       ['w-newtag-input-loading']: !loading,
@@ -18,151 +22,146 @@
       'w-newtag-input-sm': this.size === 'small',
     }"
     :placeholder="placeholder"
-    v-model="inputValue"
-    v-doc-click="bodyClick"
     :error="error"
-    @keyup.native.enter="inputEnter"
-    ref="input"
     :style="`width: ${inputWidth}px`"
-    v-else
+    @keyup.native.enter="inputEnter"
   >
-    <w-icon slot="suffix" spin v-show="loading" />
+    <w-icon v-show="loading" slot="suffix" spin />
   </w-input>
 </template>
 
 <script lang="ts">
-import {
-  Component,
-  Model,
-  Prop,
-  Emit,
-  Vue,
-} from 'vue-property-decorator';
-import WInput from '@/components/input/Input.vue';
-import WIcon from '@/components/icon/Icon.vue';
-import docClick from '@/directives/doclick';
+  import { Component, Model, Prop, Emit, Vue } from 'vue-property-decorator';
+  import WInput from '@/components/input/Input.vue';
+  import WIcon from '@/components/icon/Icon.vue';
+  import docClick from '@/directives/doclick';
 
-Vue.directive('doc-click', (docClick as any));
+  Vue.directive('doc-click', docClick as any);
 
-interface ReturnEntity {
-  value: string;
-}
+  interface ReturnEntity {
+    value: string;
+  }
 
-@Component({
-  components: {
-    WInput,
-    WIcon,
-  },
-})
-export default class NewTag extends Vue {
-  clicked: boolean = false;
-
-  inputWidth: number = 0;
-
-  inputStatus: boolean = false;
-
-  inputValue: string = '';
-
-  @Model('model', { type: String }) readonly value!: string;
-
-  @Prop(Boolean) private disabled!: boolean;
-
-  @Prop(Boolean) private loading!: boolean;
-
-  @Prop(Boolean) private stop!: boolean;
-
-  @Prop(String) private size!: string;
-
-  @Prop(String) private placeholder!: string;
-
-  @Prop({
-    type: Function,
-    default: (): boolean => false,
-  }) private error!: Function;
-
-  @Prop({
-    type: Function,
-    default() {
-      return new Promise((resolve) => {
-        resolve();
-      });
+  @Component({
+    components: {
+      WInput,
+      WIcon,
     },
-  }) private before!: Function;
+  })
+  export default class NewTag extends Vue {
+    clicked = false;
 
-  @Prop({
-    type: Function,
-    default: () => {},
-  }) private change!: Function;
+    inputWidth = 0;
 
-  get classList() {
-    return [
-      {
-        'w-newtag-lg': this.size === 'large',
-        'w-newtag-sm': this.size === 'small',
-        'w-newtag-disabled': this.disabled,
-        'w-tag-click': !this.loading && this.clicked,
+    inputStatus = false;
+
+    inputValue = '';
+
+    @Model('model', { type: String }) readonly value!: string;
+
+    @Prop(Boolean) private disabled!: boolean;
+
+    @Prop(Boolean) private loading!: boolean;
+
+    @Prop(Boolean) private stop!: boolean;
+
+    @Prop(String) private size!: string;
+
+    @Prop(String) private placeholder!: string;
+
+    @Prop({
+      type: Function,
+      default: (): boolean => false,
+    })
+    private error!: Function;
+
+    @Prop({
+      type: Function,
+      default() {
+        return new Promise((resolve) => {
+          resolve();
+        });
       },
-    ];
-  }
+    })
+    private before!: Function;
 
-  mounted() {
-    this.inputWidth = (this.$refs.newtag as HTMLDivElement).offsetWidth;
-  }
+    @Prop({
+      type: Function,
+      default: () => {},
+    })
+    private change!: Function;
 
-  clickFn(ev: MouseEvent) {
-    this.clicked = !this.disabled;
-    if (this.stop) {
-      ev.stopPropagation();
+    get classList() {
+      return [
+        {
+          'w-newtag-lg': this.size === 'large',
+          'w-newtag-sm': this.size === 'small',
+          'w-newtag-disabled': this.disabled,
+          'w-tag-click': !this.loading && this.clicked,
+        },
+      ];
     }
-  }
 
-  removeClickName() {
-    this.clicked = false;
-    this.inputStatus = true;
-    this.$nextTick(() => {
-      const inputElement = (this.$refs.input as any).$el.querySelector('.w-input') || { focus: () => {} };
-      (inputElement as HTMLInputElement).focus();
-    });
-  }
+    mounted() {
+      this.inputWidth = (this.$refs.newtag as HTMLDivElement).offsetWidth;
+    }
 
-  bodyClick() {
-    if (!this.error({ value: this.inputValue })) {
-      const reParams: ReturnEntity = {
+    clickFn(ev: MouseEvent) {
+      this.clicked = !this.disabled;
+      if (this.stop) {
+        ev.stopPropagation();
+      }
+    }
+
+    removeClickName() {
+      this.clicked = false;
+      this.inputStatus = true;
+      this.$nextTick(() => {
+        const inputElement = (this.$refs.input as any).$el.querySelector(
+          '.w-input'
+        ) || { focus: () => {} };
+        (inputElement as HTMLInputElement).focus();
+      });
+    }
+
+    bodyClick() {
+      if (!this.error({ value: this.inputValue })) {
+        const reParams: ReturnEntity = {
+          value: this.inputValue,
+        };
+        (this.before as Function)(reParams).then(() => {
+          this.changeValue();
+          this.returnModel();
+          this.inputReset();
+        });
+      }
+    }
+
+    inputReset() {
+      this.inputValue = '';
+      this.inputStatus = false;
+    }
+
+    inputEnter() {
+      this.bodyClick();
+    }
+
+    @Emit('change')
+    changeValue(): ReturnEntity {
+      const params: ReturnEntity = {
         value: this.inputValue,
       };
-      (this.before as Function)(reParams).then(() => {
-        this.changeValue();
-        this.returnModel();
-        this.inputReset();
-      });
+
+      this.change(params);
+
+      return params;
+    }
+
+    @Emit('model')
+    returnModel() {
+      return this.inputValue;
     }
   }
-
-  inputReset() {
-    this.inputValue = '';
-    this.inputStatus = false;
-  }
-
-  inputEnter() {
-    this.bodyClick();
-  }
-
-  @Emit('change')
-  changeValue(): ReturnEntity {
-    const params: ReturnEntity = {
-      value: this.inputValue,
-    };
-
-    this.change(params);
-
-    return params;
-  }
-
-  @Emit('model')
-  returnModel() {
-    return this.inputValue;
-  }
-}
 </script>
 
 <style lang="scss">

@@ -129,12 +129,13 @@ describe('ProgressCircle.vue', () => {
     vm.$nextTick(() => {
       try {
         expect(vm.rate).toBe(0.75);
+        // prettier-ignore
         expect(vm.trackPath).toBe(`
-      M 50 50
-      m 0 46
-      a 46 46 0 1 1 0 -92
-      a 46 46 0 1 1 0 92
-    `);
+    M 50 50
+    m 0 46
+    a 46 46 0 1 1 0 -92
+    a 46 46 0 1 1 0 92
+  `);
         done();
       } catch (err) {
         done.fail(err);

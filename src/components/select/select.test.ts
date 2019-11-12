@@ -2,13 +2,17 @@ import { shallowMount } from '@vue/test-utils';
 import Option from './Option.vue';
 import Select from './Select.vue';
 
-const before = () => new Promise((resolve) => {
-  resolve();
-});
+const before = () =>
+  new Promise((resolve) => {
+    resolve();
+  });
 
 const testTip = '李红星';
 const testObj = {
-  value: testTip, label: testTip, new: true, disabled: false,
+  value: testTip,
+  label: testTip,
+  new: true,
+  disabled: false,
 };
 const options = [
   {
@@ -184,10 +188,12 @@ describe('Select.vue', () => {
         expect(testFieldDelete.vm.fieldCanDelate).toBe(1);
         const optionChangeFn = jest.fn();
         testFieldDelete.vm.optionChange = optionChangeFn;
-        testFieldDelete.vm.nameTags = [{
-          value: 'test',
-          disabled: false,
-        }];
+        testFieldDelete.vm.nameTags = [
+          {
+            value: 'test',
+            disabled: false,
+          },
+        ];
         testFieldDelete.vm.fieldCanDelate = 2;
         testFieldDelete.vm.fieldDelete({
           target: {
@@ -201,10 +207,12 @@ describe('Select.vue', () => {
         testFieldDelete.vm.bodyClick();
         expect(setStatusFn).toBeCalled();
         // disabled is true
-        testFieldDelete.vm.nameTags = [{
-          value: 'test',
-          disabled: true,
-        }];
+        testFieldDelete.vm.nameTags = [
+          {
+            value: 'test',
+            disabled: true,
+          },
+        ];
         testFieldDelete.vm.fieldDelete({
           target: {
             value: 'test',

@@ -36,7 +36,8 @@ export const props = [
   },
   {
     param: 'size',
-    desc: '设置按钮大小，可选值为 <code>small</code> <code>large</code> 或者不设',
+    desc:
+      '设置按钮大小，可选值为 <code>small</code> <code>large</code> 或者不设',
     type: 'String',
     require: '否',
     default: '无',
@@ -50,7 +51,8 @@ export const props = [
   },
   {
     param: 'colorType',
-    desc: '标签颜色的渲染类型，可选值为 <code>all(全部)</code> <code>section(部分)</code>',
+    desc:
+      '标签颜色的渲染类型，可选值为 <code>all(全部)</code> <code>section(部分)</code>',
     type: 'String',
     require: '否',
     default: '无',
@@ -96,7 +98,8 @@ export const checkTagProps = [
   },
   {
     param: 'size',
-    desc: '设置按钮大小，可选值为 <code>small</code> <code>large</code> 或者不设',
+    desc:
+      '设置按钮大小，可选值为 <code>small</code> <code>large</code> 或者不设',
     type: 'String',
     require: '否',
     default: '无',
@@ -129,7 +132,8 @@ export const newTagProps = [
   },
   {
     param: 'size',
-    desc: '设置按钮大小，可选值为 <code>small</code> <code>large</code> 或者不设',
+    desc:
+      '设置按钮大小，可选值为 <code>small</code> <code>large</code> 或者不设',
     type: 'String',
     require: '否',
     default: '无',
@@ -153,7 +157,8 @@ export const newTagProps = [
     desc: '改变之前触发，返回 Promise 对象',
     type: 'Function',
     require: '否',
-    default: 'function() {return new Promise((resolve, reject) => {resolve();});}',
+    default:
+      'function() {return new Promise((resolve, reject) => {resolve();});}',
   },
   {
     param: 'change',

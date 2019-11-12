@@ -1,1 +1,1 @@
-declare module 'add-dom-event-listener'
+declare module 'add-dom-event-listener';

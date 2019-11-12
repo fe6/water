@@ -1,6 +1,9 @@
 import { shallowMount } from '@vue/test-utils';
 import { sortCol, sortOptions } from '@/views/code/table/options/sort';
-import { slotColArray, slotOptionsArray } from '@/views/code/table/options/slot';
+import {
+  slotColArray,
+  slotOptionsArray,
+} from '@/views/code/table/options/slot';
 import Thead from './Thead.vue';
 
 describe('Thead.vue', () => {

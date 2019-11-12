@@ -1,9 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
 import Switch from './Switch.vue';
 
-const before = () => new Promise((resolve) => {
-  resolve();
-});
+const before = () =>
+  new Promise((resolve) => {
+    resolve();
+  });
 
 describe('Switch.vue', () => {
   let wrapper: any = null;

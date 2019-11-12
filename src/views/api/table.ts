@@ -50,7 +50,8 @@ export const props = [
   },
   {
     param: 'scroll',
-    desc: '设置横向或纵向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，具体项见下表',
+    desc:
+      '设置横向或纵向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，具体项见下表',
     type: 'Object',
     require: '否',
     default: '无',
@@ -75,7 +76,8 @@ export const methods = [
   {
     name: 'change',
     desc: '点击表头触发的方法',
-    return: '{当前表头的配置， 当前表头的索引，排序类型，Event对象}({colItem, colIndex, sortType, ev})',
+    return:
+      '{当前表头的配置， 当前表头的索引，排序类型，Event对象}({colItem, colIndex, sortType, ev})',
   },
 ];
 
@@ -124,28 +126,32 @@ export const colProps = [
   },
   {
     param: 'render',
-    desc: '生成复杂数据的渲染函数，参数分别为 createElement，{当前文案，行col，行数据，行索引，所有数据}((text, col, optItem, optIndex, options))，@return VNode',
+    desc:
+      '生成复杂数据的渲染函数，参数分别为 createElement，{当前文案，行col，行数据，行索引，所有数据}((text, col, optItem, optIndex, options))，@return VNode',
     type: 'Function',
     require: '否',
     default: '无',
   },
   {
     param: 'extendRowRender',
-    desc: '生成<strong>行展开</strong>复杂数据的渲染函数，参数分别为 createElement，{行col，行数据，行索引，所有数据}((col, optItem, optIndex, options))，@return VNode',
+    desc:
+      '生成<strong>行展开</strong>复杂数据的渲染函数，参数分别为 createElement，{行col，行数据，行索引，所有数据}((col, optItem, optIndex, options))，@return VNode',
     type: 'Function',
     require: '否',
     default: '无',
   },
   {
     param: 'col',
-    desc: '表身列合并，返回合并的数字， 0 则不显示，不合返回 <code>undefined</code>>',
+    desc:
+      '表身列合并，返回合并的数字， 0 则不显示，不合返回 <code>undefined</code>>',
     type: 'Function',
     require: '否',
     default: '无',
   },
   {
     param: 'row',
-    desc: '表身行合并，返回合并的数字， 0 则不显示，不合返回 <code>undefined</code>>',
+    desc:
+      '表身行合并，返回合并的数字， 0 则不显示，不合返回 <code>undefined</code>>',
     type: 'Function',
     require: '否',
     default: '无',

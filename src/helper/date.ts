@@ -47,15 +47,7 @@ export interface HandleMomentObjectEntity {
   disabledRender?: Function;
 }
 
-export const WEEK_TEXT: string[] = [
-  '日',
-  '一',
-  '二',
-  '三',
-  '四',
-  '五',
-  '六',
-];
+export const WEEK_TEXT: string[] = ['日', '一', '二', '三', '四', '五', '六'];
 
 export const DATE_UNIT_TEXT: string[] = ['年', '月', '日'];
 
@@ -74,7 +66,8 @@ export const MONTH_TEXT: string[] = [
   `十二${DATE_UNIT_TEXT[1]}`,
 ];
 
-export const paddingZero = (number: number = 0): string => (number < 10 ? `0${number}` : String(number));
+export const paddingZero = (number = 0): string =>
+  number < 10 ? `0${number}` : String(number);
 
 // 日期对象中添加一些东西
 export const handleMomentObject = ({
@@ -86,10 +79,7 @@ export const handleMomentObject = ({
 }: HandleMomentObjectEntity): DateEntity => {
   const mJson = mObject.toObject();
   if (hasOwn(mJson, 'months') && !isUndefined(mJson.months)) {
-    const {
-      months,
-      years,
-    } = mJson;
+    const { months, years } = mJson;
     const day = mObject.day();
     const trueMonths = paddingZero(months + 1);
     const trueValue = paddingZero(mJson.date);
@@ -108,27 +98,30 @@ export const handleMomentObject = ({
     });
 
     return Object.assign(newMomentJson, {
-      disabled: disabledRender && isFunction(disabledRender) ? disabledRender({
-        item: newMomentJson,
-        current: moment(mObject.format(format)),
-        type: 'date',
-      }) : false,
+      disabled:
+        disabledRender && isFunction(disabledRender)
+          ? disabledRender({
+              item: newMomentJson,
+              current: moment(mObject.format(format)),
+              type: 'date',
+            })
+          : false,
     });
   }
   return mJson;
 };
 
-export const formatDateDefault: string = 'YYYY-MM-DD';
-export const formatWeekDefault: string = 'YYYY 年 WW 周';
-export const formatMonthDefault: string = 'YYYY-MM';
-export const formatYearDefault: string = 'YYYY';
-export const formatAgeDefault: string = 'YYYY-YYYY';
+export const formatDateDefault = 'YYYY-MM-DD';
+export const formatWeekDefault = 'YYYY 年 WW 周';
+export const formatMonthDefault = 'YYYY-MM';
+export const formatYearDefault = 'YYYY';
+export const formatAgeDefault = 'YYYY-YYYY';
 
-export const valueFormatDateDefault: string = 'YYYY-MM-DD';
-export const valueFormatWeekDefault: string = 'YYYY-WW';
-export const valueFormatMonthDefault: string = 'YYYY-MM';
-export const valueFormatYearDefault: string = 'YYYY';
-export const valueFormatAgeDefault: string = 'YYYY-YYYY';
+export const valueFormatDateDefault = 'YYYY-MM-DD';
+export const valueFormatWeekDefault = 'YYYY-WW';
+export const valueFormatMonthDefault = 'YYYY-MM';
+export const valueFormatYearDefault = 'YYYY';
+export const valueFormatAgeDefault = 'YYYY-YYYY';
 
 export interface FormatDefaultEntity {
   date: string;
@@ -162,10 +155,7 @@ export const renderPrevDates = ({
   valueFormat,
   disabledRender,
 }: RenderMonthDatesEntity): DateEntity[] => {
-  const {
-    trueMonths,
-    years,
-  } = mJson;
+  const { trueMonths, years } = mJson;
   const dates: DateEntity[] = [];
 
   let prevDateNumbers = 0;
@@ -173,18 +163,30 @@ export const renderPrevDates = ({
   const prevMonth = currentMonth > 1 ? currentMonth - 1 : 12;
   const currentYear = currentMonth > 0 ? years : years - 1;
 
-  const prevDateAllNumbers = moment(`${currentYear}-${prevMonth}`, formatMonthDefault).daysInMonth();
-  const maxNumber = Number(moment(`${currentYear}-${trueMonths}-01`, formatDateDefault).day()) - firstDayOfWeek;
+  const prevDateAllNumbers = moment(
+    `${currentYear}-${prevMonth}`,
+    formatMonthDefault
+  ).daysInMonth();
+  const maxNumber =
+    Number(moment(`${currentYear}-${trueMonths}-01`, formatDateDefault).day()) -
+    firstDayOfWeek;
 
   while (prevDateNumbers < maxNumber) {
-    const momentLastItem = moment(`${currentYear}-${paddingZero(prevMonth)}-${paddingZero(prevDateAllNumbers - prevDateNumbers)}`, formatDateDefault);
-    dates.unshift(handleMomentObject({
-      mObject: momentLastItem,
-      status: 'prev',
-      format,
-      valueFormat,
-      disabledRender,
-    }));
+    const momentLastItem = moment(
+      `${currentYear}-${paddingZero(prevMonth)}-${paddingZero(
+        prevDateAllNumbers - prevDateNumbers
+      )}`,
+      formatDateDefault
+    );
+    dates.unshift(
+      handleMomentObject({
+        mObject: momentLastItem,
+        status: 'prev',
+        format,
+        valueFormat,
+        disabledRender,
+      })
+    );
     prevDateNumbers++;
   }
 
@@ -199,21 +201,23 @@ export const renderCurrentDates = ({
   valueFormat,
   disabledRender,
 }: RenderMonthDatesEntity): DateEntity[] => {
-  const {
-    trueMonths,
-    years,
-  } = mJson;
+  const { trueMonths, years } = mJson;
   const dates: DateEntity[] = [];
 
   for (let index = 1; index <= dateNumbers; index++) {
-    const momentItem = moment(`${years}-${trueMonths}-${paddingZero(index)}`, formatDateDefault);
-    dates.push(handleMomentObject({
-      mObject: momentItem,
-      status: 'current',
-      format,
-      valueFormat,
-      disabledRender,
-    }));
+    const momentItem = moment(
+      `${years}-${trueMonths}-${paddingZero(index)}`,
+      formatDateDefault
+    );
+    dates.push(
+      handleMomentObject({
+        mObject: momentItem,
+        status: 'current',
+        format,
+        valueFormat,
+        disabledRender,
+      })
+    );
   }
 
   return dates;
@@ -228,10 +232,7 @@ export const renderNextDates = ({
   valueFormat,
   disabledRender,
 }: RenderMonthDatesEntity): DateEntity[] => {
-  const {
-    trueMonths,
-    years,
-  } = mJson;
+  const { trueMonths, years } = mJson;
   const dates: DateEntity[] = [];
 
   let nextDateNumbers = 0;
@@ -240,18 +241,28 @@ export const renderNextDates = ({
   const nextYear = currentMonth < 12 ? years : years + 1;
 
   const weekNumber: number = WEEK_TEXT.length; // 一周 7 天
-  const maxNumber = weekNumber - Number(moment(`${years}-${trueMonths}-${dateNumbers}`, formatDateDefault).day()) - firstDayOfWeek;
+  const maxNumber =
+    weekNumber -
+    Number(
+      moment(`${years}-${trueMonths}-${dateNumbers}`, formatDateDefault).day()
+    ) -
+    firstDayOfWeek;
 
   while (nextDateNumbers < maxNumber - 1) {
     nextDateNumbers++;
-    const momentLastItem = moment(`${nextYear}-${paddingZero(nextMonth)}-${paddingZero(nextDateNumbers)}`, formatDateDefault);
-    dates.push(handleMomentObject({
-      mObject: momentLastItem,
-      status: 'next',
-      format,
-      valueFormat,
-      disabledRender,
-    }));
+    const momentLastItem = moment(
+      `${nextYear}-${paddingZero(nextMonth)}-${paddingZero(nextDateNumbers)}`,
+      formatDateDefault
+    );
+    dates.push(
+      handleMomentObject({
+        mObject: momentLastItem,
+        status: 'next',
+        format,
+        valueFormat,
+        disabledRender,
+      })
+    );
   }
 
   return dates;
@@ -271,14 +282,9 @@ export const paddingDatesWithToSixLines = ({
   format,
   valueFormat,
 }: PaddingDatesWithToSixLinesEntity): DateEntity[] => {
-  const allLines: number = 6;
+  const allLines = 6;
   const nowLines: number = allDates.length / WEEK_TEXT.length;
-  const {
-    trueMonths,
-    trueValue,
-    years,
-    value,
-  } = allDates[allDates.length - 1];
+  const { trueMonths, trueValue, years, value } = allDates[allDates.length - 1];
   const date6: DateEntity[] = [];
 
   if (trueMonths && nowLines < allLines) {
@@ -294,15 +300,20 @@ export const paddingDatesWithToSixLines = ({
     }
 
     while (dateNumbers < WEEK_TEXT.length) {
-      const momentItem = moment(`${years}-${paddingZero(startMonths)}-${paddingZero(startDates)}`, formatDateDefault);
+      const momentItem = moment(
+        `${years}-${paddingZero(startMonths)}-${paddingZero(startDates)}`,
+        formatDateDefault
+      );
 
-      date6.push(handleMomentObject({
-        mObject: momentItem,
-        status: 'next',
-        format,
-        valueFormat,
-        disabledRender,
-      }));
+      date6.push(
+        handleMomentObject({
+          mObject: momentItem,
+          status: 'next',
+          format,
+          valueFormat,
+          disabledRender,
+        })
+      );
 
       dateNumbers++;
       startDates++;
@@ -320,25 +331,28 @@ export const renderDates = ({
   valueFormat,
   disabledRender,
 }: RenderDatesEntity): DateEntity[] => {
-  const newParams: RenderMonthDatesEntity = Object.assign({}, {
-    firstDayOfWeek,
-    format,
-    valueFormat,
-    dateNumbers: mObject.daysInMonth(),
-    disabledRender,
-    mJson: handleMomentObject({
-      mObject,
-      status: 'default',
+  const newParams: RenderMonthDatesEntity = Object.assign(
+    {},
+    {
+      firstDayOfWeek,
       format,
       valueFormat,
+      dateNumbers: mObject.daysInMonth(),
       disabledRender,
-    }),
-  });
+      mJson: handleMomentObject({
+        mObject,
+        status: 'default',
+        format,
+        valueFormat,
+        disabledRender,
+      }),
+    }
+  );
 
   const allDates: DateEntity[] = concat(
     renderPrevDates(newParams),
     renderCurrentDates(newParams),
-    renderNextDates(newParams),
+    renderNextDates(newParams)
   );
 
   return concat(
@@ -348,7 +362,7 @@ export const renderDates = ({
       disabledRender,
       format,
       valueFormat,
-    }),
+    })
   );
 };
 
@@ -369,16 +383,16 @@ export interface YearsEntity {
 export interface RenderYearsByRangeYearEntity {
   yearStart: number;
   yearEnd: number;
-  format: string,
-  valueFormat: string,
+  format: string;
+  valueFormat: string;
   disabledRender: Function;
 }
 
 export interface GenerateRangeEntity {
   value: string | number;
   status: string;
-  format: string,
-  valueFormat: string,
+  format: string;
+  valueFormat: string;
   years: YearInYearsEntity[];
   disabledRender: Function;
 }
@@ -399,11 +413,13 @@ export const generateRangeYear = ({
     inputValue: disabledMoment.format(valueFormat),
     title: String(value),
     status,
-    disabled: isFunction(disabledRender) ? disabledRender({
-      item: disabledMoment.toObject(),
-      type: 'year',
-      current: disabledMoment,
-    }) : false,
+    disabled: isFunction(disabledRender)
+      ? disabledRender({
+          item: disabledMoment.toObject(),
+          type: 'year',
+          current: disabledMoment,
+        })
+      : false,
   });
 };
 
@@ -463,7 +479,7 @@ export interface RangeYearEntity {
 // 通过年算出当前年代
 export const getRangeYear = (nowYear: number): RangeYearEntity => {
   const yearHeader: string = String(nowYear).slice(0, 3);
-  const yearStart: number = Number(`${yearHeader}0`);
+  const yearStart = Number(`${yearHeader}0`);
   const yearEnd: number = yearStart + 9;
 
   return {
@@ -475,8 +491,8 @@ export const getRangeYear = (nowYear: number): RangeYearEntity => {
 
 export interface RenderYearsByYear {
   nowYear: number;
-  format: string,
-  valueFormat: string,
+  format: string;
+  valueFormat: string;
   disabledRender: Function;
 }
 
@@ -488,7 +504,7 @@ export const renderYearsByYear = ({
   disabledRender,
 }: RenderYearsByYear): YearsEntity => {
   const yearHeader: string = String(nowYear).slice(0, 3);
-  const yearStart: number = Number(`${yearHeader}0`);
+  const yearStart = Number(`${yearHeader}0`);
   const yearEnd: number = yearStart + 9;
 
   return renderYearsByRangeYear({
@@ -547,21 +563,25 @@ export const generateAges = ({
 
     ages.push({
       value: moment(value, format).format(format),
-      trueValue: trueValueMoment.isValid() ? trueValueMoment.format(valueFormat) : value,
+      trueValue: trueValueMoment.isValid()
+        ? trueValueMoment.format(valueFormat)
+        : value,
       title: value,
       inputValue: value,
       status,
-      disabled: isFunction(disabledRender) ? disabledRender({
-        item: {
-          start: disabledStartMoment.toObject(),
-          end: disabledEndMoment.toObject(),
-        },
-        type: 'age',
-        current: {
-          start: disabledStartMoment,
-          end: disabledEndMoment,
-        },
-      }) : false,
+      disabled: isFunction(disabledRender)
+        ? disabledRender({
+            item: {
+              start: disabledStartMoment.toObject(),
+              end: disabledEndMoment.toObject(),
+            },
+            type: 'age',
+            current: {
+              start: disabledStartMoment,
+              end: disabledEndMoment,
+            },
+          })
+        : false,
     });
   }
 };
@@ -575,9 +595,9 @@ export const renderAges = ({
 }: RenderAgesEntity): AgesEntity => {
   const ages: AgesInAgesEntity[] = [];
   const ageHeader: string = range.split('-')[0].slice(0, 2);
-  const ageStart: number = Number(`${ageHeader}00`);
-  const step: number = 10;
-  let whileIndex: number = 0;
+  const ageStart = Number(`${ageHeader}00`);
+  const step = 10;
+  let whileIndex = 0;
   const ageEnd: number = ageStart + step - 1;
 
   generateAges({
@@ -600,7 +620,6 @@ export const renderAges = ({
     });
     whileIndex++;
   }
-
 
   generateAges({
     value: `${ageStart + whileIndex * step}-${ageEnd + whileIndex * step}`,
@@ -645,29 +664,33 @@ export const renderMonths = ({
   valueFormat,
   disabledRender,
 }: RenderMonthsEntity): MonthsEntity => {
-  const months: MonthInMonthsEntity[] = MONTH_TEXT.map((
-    value: string,
-    valueIndex: number,
-  ): MonthInMonthsEntity => {
-    const monthMoment = moment(`${year}-${paddingZero(valueIndex + 1)}`, formatMonthDefault);
-    return {
-      value: monthMoment.format(valueFormat),
-      inputValue: value,
-      trueValue: monthMoment.month() + 1,
-      title: value,
-      status: 'current',
-      disabled: isFunction(disabledRender) ? disabledRender({
-        item: handleMomentObject({
-          mObject: monthMoment,
-          status: 'current',
-          format,
-          valueFormat,
-        }),
-        type: 'month',
-        current: monthMoment,
-      }) : false,
-    };
-  });
+  const months: MonthInMonthsEntity[] = MONTH_TEXT.map(
+    (value: string, valueIndex: number): MonthInMonthsEntity => {
+      const monthMoment = moment(
+        `${year}-${paddingZero(valueIndex + 1)}`,
+        formatMonthDefault
+      );
+      return {
+        value: monthMoment.format(valueFormat),
+        inputValue: value,
+        trueValue: monthMoment.month() + 1,
+        title: value,
+        status: 'current',
+        disabled: isFunction(disabledRender)
+          ? disabledRender({
+              item: handleMomentObject({
+                mObject: monthMoment,
+                status: 'current',
+                format,
+                valueFormat,
+              }),
+              type: 'month',
+              current: monthMoment,
+            })
+          : false,
+      };
+    }
+  );
 
   return {
     months,

@@ -1,7 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import InputNumber from './InputNumber.vue';
 
-
 describe('InputNumber.vue', () => {
   let wrapperNumber: any = null;
   let wrapperMore: any = null;

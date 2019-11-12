@@ -3,10 +3,26 @@
 @import '../../helper/loading.scss';
 
 $move-time: 0.2s;
-$tag-list: ('': 18, '-lg': 22, '-sm': 14);
-$margin-right: ('': 8, '-lg': 8, '-sm': 8);
-$loading-padding-right: ('': 29, '-lg': 29, '-sm': 21);
-$loading-right: ('': 10, '-lg': 16, '-sm': 8);
+$tag-list: (
+  '': 18,
+  '-lg': 22,
+  '-sm': 14,
+);
+$margin-right: (
+  '': 8,
+  '-lg': 8,
+  '-sm': 8,
+);
+$loading-padding-right: (
+  '': 29,
+  '-lg': 29,
+  '-sm': 21,
+);
+$loading-right: (
+  '': 10,
+  '-lg': 16,
+  '-sm': 8,
+);
 
 .w-checktag {
   border: 1px solid $normal-bg;
@@ -45,7 +61,10 @@ $loading-right: ('': 10, '-lg': 16, '-sm': 8);
     &#{$size} {
       height: $value + px;
       line-height: $value + px;
-      margin-right: map-get($margin-right, $size) + px;
+      margin-right: map-get(
+        $margin-right,
+        $size
+      ) + px;
 
       @if $size == '-sm' {
         padding: 0 8px;
@@ -68,7 +87,7 @@ $loading-right: ('': 10, '-lg': 16, '-sm': 8);
       width: 10px;
       height: 10px;
       top: 50%;
-      margin: -5px 0 0 0;
+      margin: -5px 0 0;
     }
 
     // 循环尺寸
@@ -77,7 +96,10 @@ $loading-right: ('': 10, '-lg': 16, '-sm': 8);
         padding-right: $value + px;
 
         &::before {
-          right: map-get($loading-right, $size) + px;
+          right: map-get(
+            $loading-right,
+            $size
+          ) + px;
         }
       }
     }

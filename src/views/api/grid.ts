@@ -15,14 +15,16 @@ export const rowProps = [
   },
   {
     param: 'align',
-    desc: 'flex 布局下的垂直对齐方式： <code>top</code> <code>middle</code> <code>bottom</code>',
+    desc:
+      'flex 布局下的垂直对齐方式： <code>top</code> <code>middle</code> <code>bottom</code>',
     type: 'String',
     require: '否',
     default: '无',
   },
   {
     param: 'justify',
-    desc: 'flex 布局下的水平排列方式： <code>start</code> <code>end</code> <code>center</code> <code>space-around</code> <code>space-between</code>',
+    desc:
+      'flex 布局下的水平排列方式： <code>start</code> <code>end</code> <code>center</code> <code>space-around</code> <code>space-between</code>',
     type: 'String',
     require: '否',
     default: '无',
@@ -43,7 +45,8 @@ export const rowProps = [
   },
   {
     param: 'type',
-    desc: '栅格布局类型，可选值： <code>float</code>或者不设，默认 <code>flex</code> 布局',
+    desc:
+      '栅格布局类型，可选值： <code>float</code>或者不设，默认 <code>flex</code> 布局',
     type: 'Number',
     require: '否',
     default: '无',

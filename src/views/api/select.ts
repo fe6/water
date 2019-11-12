@@ -11,7 +11,8 @@ export const props = [
     desc: '自定义属性的字段名',
     type: 'Object',
     require: '否',
-    default: '{ value: \'value\', label: \'label\', key: \'key\', loading: \'loading\', disabled: \'disabled\' }',
+    default:
+      "{ value: 'value', label: 'label', key: 'key', loading: 'loading', disabled: 'disabled' }",
   },
   {
     param: 'search',
@@ -50,7 +51,8 @@ export const props = [
   },
   {
     param: 'mode',
-    desc: '选择器的模式，支持 单选模式(<code>single</code>)、多选模式(<code>multiple</code>)，标签模式(<code>tag</code>)',
+    desc:
+      '选择器的模式，支持 单选模式(<code>single</code>)、多选模式(<code>multiple</code>)，标签模式(<code>tag</code>)',
     type: 'String',
     require: '否',
     default: 'single',
@@ -102,7 +104,8 @@ export const props = [
     desc: '改变之前触发，返回 Promise 对象',
     type: 'Function',
     require: '否',
-    default: 'function() {return new Promise((resolve, reject) => {resolve();});}',
+    default:
+      'function() {return new Promise((resolve, reject) => {resolve();});}',
   },
   {
     param: 'getContainer',
@@ -113,7 +116,8 @@ export const props = [
   },
   {
     param: 'change',
-    desc: '改变触发，返回 {Event对象,选中的值,当前数据,所有数据}({ev,value,item,options})',
+    desc:
+      '改变触发，返回 {Event对象,选中的值,当前数据,所有数据}({ev,value,item,options})',
     type: 'Function',
     require: '否',
     default: '() => {}',

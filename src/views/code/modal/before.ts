@@ -2,7 +2,8 @@ import { ApiEntity } from '@/views/entity/demoentity';
 
 const base: ApiEntity = {
   title: '确定之前',
-  desc: '通过 <code>before</code> 即可对确定之前进行操作，返回 <code>Promise</code> 。添加 <code>loading</code> 属性即可控制对话框中确定键的 <code>loading</code> 状态。',
+  desc:
+    '通过 <code>before</code> 即可对确定之前进行操作，返回 <code>Promise</code> 。添加 <code>loading</code> 属性即可控制对话框中确定键的 <code>loading</code> 状态。',
   code: `<w-button @click="modalStatus = true">点击</w-button>
   <w-modal :loading="modalLoading" :before="beforeFn" v-model="modalStatus" title="确定之前">
   姓名<input aria-label="姓名" />

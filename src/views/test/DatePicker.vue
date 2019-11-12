@@ -84,85 +84,89 @@
     <!-- <WDatePicker @change="change" v-model="value1" /> -->
     <!-- <WDatePicker v-model="value1" /> -->
     <!-- <WDatePicker defaultPickerValue="1997-12-12" /> -->
-    <WDatePicker style="width: 1000px" @change="change" v-model="value1">
-      <div>123{{value1}}</div>
+    <WDatePicker v-model="value1" style="width: 1000px" @change="change">
+      <div>123{{ value1 }}</div>
     </WDatePicker>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import WDatePicker from '@/components/datepicker/DatePicker.vue';
-import { pickerSvg, PickerSvgEntity } from '@/helper/pickersvg';
+  import { Component, Vue } from 'vue-property-decorator';
+  import WDatePicker from '@/components/datepicker/DatePicker.vue';
+  import { pickerSvg, PickerSvgEntity } from '@/helper/pickersvg';
 
-@Component({
-  components: {
-    WDatePicker,
-  },
-})
-export default class DatePickerView extends Vue {
-  pickerSvg: PickerSvgEntity = pickerSvg;
+  @Component({
+    components: {
+      WDatePicker,
+    },
+  })
+  export default class DatePickerView extends Vue {
+    pickerSvg: PickerSvgEntity = pickerSvg;
 
-  value1: string = '1999-11-10';
+    value1 = '1999-11-10';
 
-  value2: string = '1999-11';
+    value2 = '1999-11';
 
-  value3: string = '1999++01++01++';
+    value3 = '1999++01++01++';
 
-  value33: string = '1999++01++';
+    value33 = '1999++01++';
 
-  value333: string = '1999++';
+    value333 = '1999++';
 
-  value3333: string = '1999++2009';
+    value3333 = '1999++2009';
 
-  value4: string = '2019||41++';
+    value4 = '2019||41++';
 
-  value44: string = '2019-41';
+    value44 = '2019-41';
 
-  renderDate(h: Function, a: any) {
-    this.value3 = '123';
-    const style: any = {};
+    renderDate(h: Function, a: any) {
+      this.value3 = '123';
+      const style: any = {};
 
-    if (a.dateItem.date === 1) {
-      style.border = '1px solid #1890ff';
-      style.borderRadius = '50%';
+      if (a.dateItem.date === 1) {
+        style.border = '1px solid #1890ff';
+        style.borderRadius = '50%';
+      }
+
+      if (a.dateItem.date === 3) {
+        style.border = '1px solid #f00';
+        style.borderRadius = '50%';
+      }
+
+      return h(
+        'div',
+        {
+          class: 'w-picker-date',
+          style,
+        },
+        a.dateItem.trueValue
+      );
     }
 
-    if (a.dateItem.date === 3) {
-      style.border = '1px solid #f00';
-      style.borderRadius = '50%';
+    disabledRenderDate(a: any) {
+      this.value3 = '1999++01++01++';
+      return a.item.date < 25;
     }
 
-    return h('div', {
-      class: 'w-picker-date',
-      style,
-    }, a.dateItem.trueValue);
-  }
+    disabledRenderMonth(a: any) {
+      this.value3 = '1999++01++01++';
+      return a.item.months < 3;
+    }
 
-  disabledRenderDate(a: any) {
-    this.value3 = '1999++01++01++';
-    return a.item.date < 25;
-  }
+    disabledRenderYear(a: any) {
+      this.value3 = '1999++01++01++';
+      return a.item.years < 2017;
+    }
 
-  disabledRenderMonth(a: any) {
-    this.value3 = '1999++01++01++';
-    return a.item.months < 3;
-  }
+    disabledRenderAge(a: any) {
+      this.value3 = '1999++01++01++';
+      const { start } = a.item;
+      return start.years < 2050;
+    }
 
-  disabledRenderYear(a: any) {
-    this.value3 = '1999++01++01++';
-    return a.item.years < 2017;
+    change(params: any) {
+      this.value3 = '1999++01++01++';
+      console.log(params, 'params');
+    }
   }
-
-  disabledRenderAge(a: any) {
-    this.value3 = '1999++01++01++';
-    const { start } = a.item;
-    return start.years < 2050;
-  }
-
-  change(params: any) {
-    this.value3 = '1999++01++01++';
-    console.log(params, 'params');
-  }
-}
 </script>

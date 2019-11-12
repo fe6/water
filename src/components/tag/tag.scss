@@ -3,8 +3,16 @@
 @import '../../helper/loading.scss';
 
 $move-time: 0.2s;
-$tag-list: ('': 18, '-lg': 22, '-sm': 14);
-$margin-right: ('': 8, '-lg': 8, '-sm': 8);
+$tag-list: (
+  '': 18,
+  '-lg': 22,
+  '-sm': 14,
+);
+$margin-right: (
+  '': 8,
+  '-lg': 8,
+  '-sm': 8,
+);
 
 .w-tag {
   border: 1px solid $normal-border;
@@ -27,7 +35,10 @@ $margin-right: ('': 8, '-lg': 8, '-sm': 8);
     &#{$size} {
       height: $value + px;
       line-height: $value + px;
-      margin-right: map-get($margin-right, $size) + px;
+      margin-right: map-get(
+        $margin-right,
+        $size
+      ) + px;
 
       @if $size == '-sm' {
         padding: 0 8px;
@@ -68,7 +79,12 @@ $margin-right: ('': 8, '-lg': 8, '-sm': 8);
     &:hover {
       &::before,
       &::after {
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(
+          0,
+          0,
+          0,
+          0.85
+        );
       }
 
       & .w-tag-close-section {
@@ -136,7 +152,7 @@ $margin-right: ('': 8, '-lg': 8, '-sm': 8);
       height: 10px;
       top: 50%;
       right: 9px;
-      margin: -6px 0 0 0;
+      margin: -6px 0 0;
     }
   }
 

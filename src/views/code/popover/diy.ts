@@ -2,7 +2,8 @@ import { ApiEntity } from '@/views/entity/demoentity';
 
 const base: ApiEntity = {
   title: '自定义样式',
-  desc: '可通过 <code>arrowColor</code> ， <code>titleStyle</code> ， <code>contentStyle</code> 配合调整样式。',
+  desc:
+    '可通过 <code>arrowColor</code> ， <code>titleStyle</code> ， <code>contentStyle</code> 配合调整样式。',
   code: `<w-popover
   placement="bottom"
   :interval="16"

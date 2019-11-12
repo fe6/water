@@ -1,5 +1,5 @@
 <template>
-  <div class="table-box" v-once>
+  <div v-once class="table-box">
     <table>
       <thead>
         <tr>
@@ -10,9 +10,9 @@
       </thead>
       <tbody>
         <tr v-for="(source, sourceIndex) in data" :key="sourceIndex">
-          <td>{{source.key}}</td>
+          <td>{{ source.key }}</td>
           <td v-html="source.desc"></td>
-          <td>{{source.type}}</td>
+          <td>{{ source.type }}</td>
         </tr>
       </tbody>
     </table>
@@ -20,14 +20,10 @@
 </template>
 
 <script lang="ts">
-import {
-  Component,
-  Prop,
-  Vue,
-} from 'vue-property-decorator';
+  import { Component, Prop, Vue } from 'vue-property-decorator';
 
-@Component
-export default class ApiTable extends Vue {
-  @Prop() private data!: any[];
-}
+  @Component
+  export default class ApiTable extends Vue {
+    @Prop() private data!: any[];
+  }
 </script>

@@ -17,7 +17,10 @@ $cascader-input-placeholder: #b4bac3;
   border-radius: 4px;
   border: 1px solid $normal-border;
   padding: 0 32px 0 12px;
-  transition: border-color $move-time, line-height $move-time, padding $move-time;
+  transition:
+    border-color $move-time,
+    line-height $move-time,
+    padding $move-time;
 
   &:hover {
     border: 1px solid $blue-6;
@@ -119,19 +122,22 @@ $cascader-input-placeholder: #b4bac3;
       outline: none;
     }
 
-    &::-webkit-input-placeholder { /* WebKit browsers */
+    &::-webkit-input-placeholder {
+      /* WebKit browsers */
       font-family: $family;
       font-size: 12px;
       color: $cascader-input-placeholder;
     }
 
-    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    &::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
       font-family: $family;
       font-size: 12px;
       color: $cascader-input-placeholder;
     }
 
-    &::-ms-input-placeholder { /* Internet Explorer 10+ */
+    &::-ms-input-placeholder {
+      /* Internet Explorer 10+ */
       font-family: $family;
       font-size: 12px;
       color: $cascader-input-placeholder;
@@ -148,15 +154,18 @@ $cascader-input-placeholder: #b4bac3;
     }
 
     &-active {
-      &::-webkit-input-placeholder { /* WebKit browsers */
+      &::-webkit-input-placeholder {
+        /* WebKit browsers */
         color: $text-color;
       }
 
-      &::-moz-placeholder { /* Mozilla Firefox 19+ */
+      &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
         color: $text-color;
       }
 
-      &::-ms-input-placeholder { /* Internet Explorer 10+ */
+      &::-ms-input-placeholder {
+        /* Internet Explorer 10+ */
         color: $text-color;
       }
     }

@@ -12,10 +12,19 @@ $move-time: 0.3s;
   font-family: $family;
   box-sizing: border-box;
   padding: 0 8px;
-  transition: border $move-time, padding $move-time, height $move-time, font-size $move-time;
+  transition:
+    border $move-time,
+    padding $move-time,
+    height $move-time,
+    font-size $move-time;
 
   &-focus {
-    box-shadow: 0 0 3px rgba(52, 171, 254, 0.7);
+    box-shadow: 0 0 3px rgba(
+      52,
+      171,
+      254,
+      0.7
+    );
     border: 1px solid $blue-5;
   }
 

@@ -34,11 +34,13 @@ describe('Radio.vue', () => {
     group = mount(RadioGroup, {
       propsData: {
         value: 'a',
-        options: [{
-          value: 'Apple',
-          label: 'Apple',
-          age: '18岁',
-        }],
+        options: [
+          {
+            value: 'Apple',
+            label: 'Apple',
+            age: '18岁',
+          },
+        ],
       },
     });
     groupEmpty = mount(RadioGroup);

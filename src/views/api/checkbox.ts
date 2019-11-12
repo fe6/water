@@ -50,7 +50,8 @@ export const props = [
   },
   {
     param: 'change',
-    desc: '状态改变触发的方法，返回 {Event对象,当前状态，选中的值，显示的值，失效状态，半选状态}({ev, status,label,value,disabled,indeterminate})',
+    desc:
+      '状态改变触发的方法，返回 {Event对象,当前状态，选中的值，显示的值，失效状态，半选状态}({ev, status,label,value,disabled,indeterminate})',
     type: 'Function',
     require: '否',
     default: '() => {}',
@@ -61,7 +62,8 @@ export const methods = [
   {
     name: 'change',
     desc: '状态改变触发的方法',
-    return: '{Event对象,当前状态，选中的值，显示的值，失效状态，半选状态}({ev, status,label,value,disabled,indeterminate})',
+    return:
+      '{Event对象,当前状态，选中的值，显示的值，失效状态，半选状态}({ev, status,label,value,disabled,indeterminate})',
   },
 ];
 
@@ -106,7 +108,8 @@ export const groupProps = [
     desc: '自定义 checkbox 属性的字段名',
     type: 'Object',
     require: '否',
-    default: '{ value: \'value\', label: \'label\', key: \'key\', disabled: \'disabled\' }',
+    default:
+      "{ value: 'value', label: 'label', key: 'key', disabled: 'disabled' }",
   },
   {
     param: 'options',
@@ -117,7 +120,8 @@ export const groupProps = [
   },
   {
     param: 'change',
-    desc: '状态改变触发的方法，返回 {Event对象,当前状态，选中的值，选中的数据}({ev,status,value,item})',
+    desc:
+      '状态改变触发的方法，返回 {Event对象,当前状态，选中的值，选中的数据}({ev,status,value,item})',
     type: 'Function',
     require: '否',
     default: '() => {}',
@@ -128,7 +132,8 @@ export const groupMethods = [
   {
     name: 'change',
     desc: '状态改变触发的方法',
-    return: '{Event对象,当前状态，选中的值，选中的数据}({ev,status,value,item})',
+    return:
+      '{Event对象,当前状态，选中的值，选中的数据}({ev,status,value,item})',
   },
 ];
 
