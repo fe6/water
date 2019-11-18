@@ -1,5 +1,5 @@
 import { ApiEntity } from '@/views/entity/demoentity';
-import Page from '@/components/page/Page.vue';
+import Page from '@/components/page/src/Page.vue';
 
 interface PropEntity {
   total?: number;

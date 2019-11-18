@@ -1,4 +1,4 @@
-import WTable from '@/components/table/Table.vue';
+import WTable from '@/components/table/src/Table.vue';
 
 const detailCol = [
   {

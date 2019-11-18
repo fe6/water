@@ -7,7 +7,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import WCascader from '@/components/cascader/Cascader.vue';
+  import WCascader from '@/components/cascader/src/Cascader.vue';
   import { defaultDatas } from '@/views/code/cascader/base';
 
   @Component({

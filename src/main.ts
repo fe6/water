@@ -8,8 +8,6 @@ import App from '@/App.vue';
 import router from '@/routers';
 import './registerServiceWorker';
 
-Vue.config.productionTip = false;
-
 Vue.use(VueCodemirror);
 
 new Vue({

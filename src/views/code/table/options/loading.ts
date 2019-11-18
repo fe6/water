@@ -1,4 +1,4 @@
-import WTag from '@/components/tag/Tag.vue';
+import WTag from '@/components/tag/src/Tag.vue';
 
 export const loadingCol = [
   {

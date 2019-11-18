@@ -6,6 +6,7 @@
       <router-link :to="{ name: 'TestModal' }">对话框</router-link> |
       <router-link :to="{ name: 'TestPopconfirm' }">气泡确认框</router-link> |
       <router-link :to="{ name: 'TestDatePicker' }">日期选择器</router-link> |
+      <router-link :to="{ name: 'TestNeed' }">按需加载</router-link> |
       <router-link :to="{ name: 'TestCascader' }">多级</router-link>
     </div>
     <h1>开发约定</h1>

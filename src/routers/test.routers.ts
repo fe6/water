@@ -59,4 +59,13 @@ export default [
     component: () =>
       import(/* webpackChunkName: "progress" */ '@/views/test/Progress.vue'),
   },
+  {
+    path: '/tneed',
+    name: 'TestNeed',
+    meta: {
+      title: TITLE.Progress,
+    },
+    component: () =>
+      import(/* webpackChunkName: "need" */ '@/views/test/Need.vue'),
+  },
 ];

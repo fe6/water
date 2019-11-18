@@ -2,18 +2,17 @@
   "name": "@fe6/water",
   "version": "0.17.7",
   "author": "李梦龙 <649076408@qq.com>",
-  "main": "dist/w.js",
-  "unpkg": "dist/w.js",
+  "main": "dist/water.umd.js",
+  "unpkg": "dist/water.umd.js",
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
     "start": "vue-cli-service serve",
-    "build": "yarn build:wc && yarn build:lib",
+    "build": "yarn build:lib",
     "build:site": "vue-cli-service build --modern --mode site",
-    "build:wc": "vue-cli-service build --target wc-async --name w 'src/components/**/*.vue' --mode wc",
-    "build:lib": "vue-cli-service build --target lib --name water 'src/components/index.ts' --mode lib",
+    "build:lib": "vue-cli-service build --target lib --name water 'src/components/water.ts' --mode lib",
     "site": "yarn build:site && bash scripts/deploy-gh.sh",
     "lint": "yarn jslint && yarn style",
     "jslint": "vue-cli-service lint",

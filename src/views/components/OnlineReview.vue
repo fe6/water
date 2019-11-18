@@ -67,8 +67,8 @@
 <script lang="ts">
   import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
   import WCode from '@/views/components/OnlineCode.vue';
-  import WLink from '@/components/link/Link.vue';
-  import WAffix from '@/components/affix/Affix.vue';
+  import WLink from '@/components/link/src/Link.vue';
+  import WAffix from '@/components/affix/src/Affix.vue';
   import WRender from '@/helper/render';
   import temString from './tem';
 
