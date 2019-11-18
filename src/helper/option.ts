@@ -1,4 +1,4 @@
-import { FieldNamesEntity } from '@/components/select/entity';
+import { FieldNamesEntity } from '@/components/select/src/entity';
 
 // 放到这是因为碰到不可用的没法同步索引
 export const findEnabled = (

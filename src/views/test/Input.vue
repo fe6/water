@@ -111,8 +111,8 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import WInput from '@/components/input/Input.vue';
-  import WIcon from '@/components/icon/Icon.vue';
+  import WInput from '@/components/input/src/Input.vue';
+  import WIcon from '@/components/icon/src/Icon.vue';
 
   @Component({
     components: {

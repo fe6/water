@@ -1,4 +1,4 @@
-import Link from '@/components/link/Link.vue';
+import Link from '@/components/link/src/Link.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 
 interface PropEntity {

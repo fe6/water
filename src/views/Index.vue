@@ -74,9 +74,9 @@
 
 <script lang="ts">
   import { Component, Watch, Vue } from 'vue-property-decorator';
-  import WAffix from '@/components/affix/Affix.vue';
-  import WRow from '@/components/grid/Row.vue';
-  import WCol from '@/components/grid/Col.vue';
+  import WAffix from '@/components/affix/src/Affix.vue';
+  import WRow from '@/components/grid/src/Row.vue';
+  import WCol from '@/components/grid/src/Col.vue';
   import { nav, NavEntity } from '@/nav';
 
   interface MenuStyleEntity {

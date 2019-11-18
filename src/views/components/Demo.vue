@@ -24,7 +24,7 @@
 <script lang="ts">
   import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
   import WCode from '@/views/components/Code.vue';
-  import WLink from '@/components/link/Link.vue';
+  import WLink from '@/components/link/src/Link.vue';
   import WRender from '@/helper/render';
 
   @Component({
