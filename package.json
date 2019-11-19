@@ -1,6 +1,6 @@
 {
   "name": "@fe6/water",
-  "version": "0.18.1",
+  "version": "0.18.2",
   "author": "李梦龙 <649076408@qq.com>",
   "main": "dist/water.umd.js",
   "unpkg": "dist/water.umd.js",
