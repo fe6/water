@@ -194,6 +194,9 @@ describe('Scroll.vue', () => {
         disEmpty.setProps({
           openPull: true,
         });
+        disEmpty.setProps({
+          edgeIsPreventDefault: false,
+        });
         vm.scrollMove({
           ev,
           scrollChange: 10,
