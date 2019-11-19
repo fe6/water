@@ -264,6 +264,7 @@
           scrollMax - scrollSpace <= this.threshold
         ) {
           this.isPulling = true;
+          pullParams.eventType = 'pulling';
           this.pulling(pullParams);
           this.$emit('pulling', pullParams);
         }
@@ -276,6 +277,7 @@
           scrollChange <= this.threshold
         ) {
           this.isPulling = true;
+          pullParams.eventType = 'pulling';
           this.pulling(pullParams);
           this.$emit('pulling', pullParams);
         }
