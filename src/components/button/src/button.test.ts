@@ -31,7 +31,9 @@ describe('Button.vue', () => {
   it('test ButtonGroup', (done) => {
     wrapper.vm.$nextTick(() => {
       try {
-        const button = wrapper.find('.w-btn');
+        // 快照
+        // expect(wrapper.element).toMatchSnapshot()
+        const button = wrapper.find('.w-btn-wrap');
         button.trigger('click');
         button.trigger('animationend');
         expect(wrapper.vm.$children[0].clicked).toBeFalsy();

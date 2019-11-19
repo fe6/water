@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 export interface BarFace {
   offset: string;
   scroll: string;
@@ -9,31 +11,6 @@ export interface BarFace {
   client: string;
   direction: string;
 }
-
-export const BAR_MAP = {
-  vertical: {
-    offset: 'offsetHeight',
-    scroll: 'scrollTop',
-    scrollSize: 'scrollHeight',
-    clientSize: 'clientHeight',
-    size: 'height',
-    key: 'vertical',
-    axis: 'Y',
-    client: 'clientY',
-    direction: 'top',
-  },
-  horizontal: {
-    offset: 'offsetWidth',
-    scroll: 'scrollLeft',
-    scrollSize: 'scrollWidth',
-    clientSize: 'clientWidth',
-    size: 'width',
-    key: 'horizontal',
-    axis: 'X',
-    client: 'clientX',
-    direction: 'left',
-  },
-};
 
 export interface RenderThumbStyleFace {
   move: number;
@@ -57,4 +34,33 @@ export function renderThumbStyle({
   style.msTransform = translate;
   style.webkitTransform = translate;
   return style;
+}
+
+export enum VERTICAL_ENUM {
+  offset = 'offsetHeight',
+  scroll = 'scrollTop',
+  scrollSize = 'scrollHeight',
+  clientSize = 'clientHeight',
+  size = 'height',
+  key = 'vertical',
+  axis = 'Y',
+  client = 'clientY',
+  direction = 'top',
+}
+
+export enum HORIZONTAL_ENUM {
+  offset = 'offsetWidth',
+  scroll = 'scrollLeft',
+  scrollSize = 'scrollWidth',
+  clientSize = 'clientWidth',
+  size = 'width',
+  key = 'horizontal',
+  axis = 'X',
+  client = 'clientX',
+  direction = 'left',
+}
+
+export enum DIR_ENUM {
+  NEXT = 'next',
+  PREV = 'prev',
 }

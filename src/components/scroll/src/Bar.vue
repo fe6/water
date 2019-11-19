@@ -15,7 +15,7 @@
 <script lang="ts">
   import addDOMEventListener from 'add-dom-event-listener';
   import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
-  import { BAR_MAP, renderThumbStyle } from './ast';
+  import { VERTICAL_ENUM, HORIZONTAL_ENUM, renderThumbStyle } from './ast';
 
   export interface MouseMoveBaseEntity {
     ev: null | Event;
@@ -50,7 +50,7 @@
     @Prop(String) private size!: string;
 
     get bar() {
-      return BAR_MAP[this.isVertical ? 'vertical' : 'horizontal'];
+      return this.isVertical ? VERTICAL_ENUM : HORIZONTAL_ENUM;
     }
 
     get elem() {

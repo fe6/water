@@ -5,6 +5,14 @@ const slots = {
   default: '<p>这是一段文字++2</p>',
 };
 
+const ev = {
+  target: {
+    tagName: 'DIV',
+  },
+  preventDefault() {},
+  stopPropagation() {},
+};
+
 describe('Scroll.vue', () => {
   let wrapper: any = null;
   let wrapperScrollMove: any = null;
@@ -54,9 +62,7 @@ describe('Scroll.vue', () => {
         vm.dragChange(false);
         vm.scrollDir = 'down';
         vm.scrollMove({
-          ev: {
-            preventDefault() {},
-          },
+          ev,
           scrollChange: 1,
           scrollScale: 0.1,
           eventType: 'scroll',
@@ -74,9 +80,7 @@ describe('Scroll.vue', () => {
       try {
         vm.scrollDir = '';
         vm.scrollMove({
-          ev: {
-            preventDefault() {},
-          },
+          ev,
           scrollChange: 100,
         });
         wrapperScrollMove.setProps({
@@ -84,6 +88,9 @@ describe('Scroll.vue', () => {
         });
         vm.scrollMove({
           ev: {
+            target: {
+              tagName: 'DIV',
+            },
             preventDefault() {},
           },
           scrollChange: 1000,
@@ -100,34 +107,24 @@ describe('Scroll.vue', () => {
     vm.$nextTick(() => {
       try {
         vm.scrollMove({
-          ev: {
-            preventDefault() {},
-          },
+          ev,
           scrollChange: -1000,
         });
         vm.scrollMove({
-          ev: {
-            preventDefault() {},
-          },
+          ev,
           scrollChange: 2000,
         });
         vm.scrollMove({
-          ev: {
-            preventDefault() {},
-          },
+          ev,
           scrollChange: 2000,
         });
         vm.barMove({
-          ev: {
-            preventDefault() {},
-          },
+          ev,
           scrollChange: 2000,
           thumbPositionPercentage: 10,
         });
         vm.barClickTrack({
-          ev: {
-            preventDefault() {},
-          },
+          ev,
           scrollChange: 2000,
           thumbPositionPercentage: 10,
         });
@@ -145,6 +142,9 @@ describe('Scroll.vue', () => {
         vm.wrap.scrollTop = 10;
         vm.handleScroll({
           ev: {
+            target: {
+              tagName: 'DIV',
+            },
             wheelDelta: 10,
             preventDefault() {},
           },
@@ -153,6 +153,9 @@ describe('Scroll.vue', () => {
         vm.wrap.scrollTop = 0;
         vm.handleScroll({
           ev: {
+            target: {
+              tagName: 'DIV',
+            },
             wheelDelta: 10,
             preventDefault() {},
           },
@@ -185,27 +188,28 @@ describe('Scroll.vue', () => {
       try {
         vm.lastScroll = 10;
         vm.scrollMove({
-          ev: {
-            preventDefault() {},
-          },
+          ev,
           scrollChange: 10,
         });
         disEmpty.setProps({
           openPull: true,
         });
         vm.scrollMove({
-          ev: {
-            preventDefault() {},
-          },
+          ev,
           scrollChange: 10,
         });
         disEmpty.setProps({
           disabled: true,
         });
         vm.scrollMove({
-          ev: {
-            preventDefault() {},
-          },
+          ev,
+          scrollChange: 10,
+        });
+        disEmpty.setProps({
+          stopPropagation: false,
+        });
+        vm.scrollMove({
+          ev,
           scrollChange: 10,
         });
 

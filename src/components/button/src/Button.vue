@@ -106,7 +106,7 @@
     }
 
     get hasGroup(): boolean {
-      return findUpNode(this, 'ButtonGroup') !== undefined;
+      return findUpNode(this, 'WButtonGroup') !== undefined;
     }
 
     get groupClass(): string {

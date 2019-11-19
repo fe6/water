@@ -29,12 +29,13 @@
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import WSpin from '@/components/spin/src/Spin.vue';
   import { noop } from '@/helper/noop';
-  import { isFunction, isObject } from '@/helper/type';
+  import { isFunction } from '@/helper/type';
+  import { preventDefaultExceptionFn } from '@/helper/node';
   import WBar, {
     HandleScrollEntity,
     ThumbPositionPercentageEntity,
   } from './Bar.vue';
-  import { BAR_MAP } from './ast';
+  import { VERTICAL_ENUM, HORIZONTAL_ENUM, DIR_ENUM } from './ast';
 
   @Component({
     components: {
@@ -70,6 +71,18 @@
     @Prop(Boolean) private openPull!: boolean; // 是否开启加载更多
 
     @Prop({
+      type: Boolean,
+      default: true,
+    })
+    private stopPropagation!: boolean;
+
+    @Prop({
+      type: Boolean,
+      default: true,
+    })
+    private preventDefault!: boolean;
+
+    @Prop({
       type: Number,
       default: 100,
     })
@@ -86,6 +99,16 @@
       default: 'vertical',
     })
     private type!: string;
+
+    @Prop({
+      type: Object,
+      default() {
+        return {
+          tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|AUDIO)$/,
+        };
+      },
+    })
+    private preventDefaultException!: object;
 
     @Prop({
       type: Function,
@@ -114,7 +137,7 @@
     }
 
     get bar() {
-      return BAR_MAP[this.isVertical ? 'vertical' : 'horizontal'];
+      return this.isVertical ? VERTICAL_ENUM : HORIZONTAL_ENUM;
     }
 
     mounted() {
@@ -191,11 +214,21 @@
         // 方向判断
         if (this.lastScroll !== this.wrap[scroll]) {
           this.scrollDir =
-            this.lastScroll < this.wrap[scroll] ? 'next' : 'prev';
+            this.lastScroll < this.wrap[scroll] ? DIR_ENUM.NEXT : DIR_ENUM.PREV;
           this.lastScroll = this.wrap[scroll];
           const evt = ev as any;
 
-          if (isObject(evt) && isFunction(evt.preventDefault)) {
+          // 多个滚动嵌套的时候，可以设置 stopPropagation 进行独立滚动
+          if (this.stopPropagation && evt && isFunction(evt.stopPropagation)) {
+            evt.stopPropagation();
+          }
+
+          if (
+            this.preventDefault &&
+            evt &&
+            isFunction(evt.preventDefault) &&
+            !preventDefaultExceptionFn(evt.target, this.preventDefaultException)
+          ) {
             evt.preventDefault();
           }
         } else {
@@ -211,7 +244,7 @@
         if (
           this.openPull &&
           !this.isPulling &&
-          this.scrollDir === 'next' &&
+          this.scrollDir === DIR_ENUM.NEXT &&
           scrollMax - scrollSpace <= this.threshold
         ) {
           this.isPulling = true;
@@ -223,7 +256,7 @@
         if (
           this.openPull &&
           !this.isPulling &&
-          this.scrollDir === 'prev' &&
+          this.scrollDir === DIR_ENUM.PREV &&
           scrollChange <= this.threshold
         ) {
           this.isPulling = true;
