@@ -83,6 +83,12 @@
     private preventDefault!: boolean;
 
     @Prop({
+      type: Boolean,
+      default: true,
+    })
+    private edgeIsPreventDefault!: boolean; // 灵界点不阻止
+
+    @Prop({
       type: Number,
       default: 100,
     })
@@ -207,6 +213,7 @@
         const { scroll, clientSize } = this.bar;
         const scrollSpace = this.wrap[scroll] + this.wrap[clientSize];
         const scrollMax = this.resize[clientSize];
+        const evt = ev as any;
 
         this.wrap[scroll] = scrollChange;
         this.move = (this.wrap[scroll] * 100) / this.wrap[clientSize];
@@ -216,7 +223,6 @@
           this.scrollDir =
             this.lastScroll < this.wrap[scroll] ? DIR_ENUM.NEXT : DIR_ENUM.PREV;
           this.lastScroll = this.wrap[scroll];
-          const evt = ev as any;
 
           // 多个滚动嵌套的时候，可以设置 stopPropagation 进行独立滚动
           if (this.stopPropagation && evt && isFunction(evt.stopPropagation)) {
@@ -233,6 +239,16 @@
           }
         } else {
           this.scrollDir = this.openPull ? this.scrollDir : '';
+
+          if (
+            this.preventDefault &&
+            !this.edgeIsPreventDefault &&
+            evt &&
+            isFunction(evt.preventDefault) &&
+            !preventDefaultExceptionFn(evt.target, this.preventDefaultException)
+          ) {
+            evt.preventDefault();
+          }
         }
 
         const pullParams = {
