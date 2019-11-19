@@ -22,9 +22,9 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import WInput from '@/components/input/Input.vue';
-  import WPopconfirm from '@/components/popconfirm/Popconfirm.vue';
-  import WButton from '@/components/button/Button.vue';
+  import WInput from '@/components/input/src/Input.vue';
+  import WPopconfirm from '@/components/popconfirm/src/Popconfirm.vue';
+  import WButton from '@/components/button/src/Button.vue';
 
   @Component({
     components: {

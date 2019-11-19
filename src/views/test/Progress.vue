@@ -49,7 +49,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import WProgress from '@/components/progress/Progress.vue';
+  import WProgress from '@/components/progress/src/Progress.vue';
 
   @Component({
     components: {

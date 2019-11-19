@@ -1,7 +1,7 @@
 import { upperFirst } from 'lodash/string';
 import { ApiEntity } from '@/views/entity/demoentity';
-import Button from '@/components/button/Button.vue';
-import ButtonGroup from '@/components/button/ButtonGroup.vue';
+import Button from '@/components/button/src/Button.vue';
+import ButtonGroup from '@/components/button/src/ButtonGroup.vue';
 
 const sizes = ['large', '', 'small'];
 

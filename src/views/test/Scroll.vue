@@ -38,7 +38,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import WScroll from '@/components/scroll/Scroll.vue';
+  import WScroll from '@/components/scroll/src/Scroll.vue';
 
   @Component({
     components: {

@@ -1,6 +1,6 @@
 import { ApiEntity } from '@/views/entity/demoentity';
-import Affix from '@/components/affix/Affix.vue';
-import Button from '@/components/button/Button.vue';
+import Affix from '@/components/affix/src/Affix.vue';
+import Button from '@/components/button/src/Button.vue';
 
 interface PropEntity {
   offsetTop?: number;

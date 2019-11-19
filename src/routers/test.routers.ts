@@ -68,4 +68,13 @@ export default [
     component: () =>
       import(/* webpackChunkName: "scroll" */ '@/views/test/Scroll.vue'),
   },
+  {
+    path: '/tneed',
+    name: 'TestNeed',
+    meta: {
+      title: TITLE.Progress,
+    },
+    component: () =>
+      import(/* webpackChunkName: "need" */ '@/views/test/Need.vue'),
+  },
 ];

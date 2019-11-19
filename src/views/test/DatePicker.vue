@@ -92,7 +92,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import WDatePicker from '@/components/datepicker/DatePicker.vue';
+  import WDatePicker from '@/components/datepicker/src/DatePicker.vue';
   import { pickerSvg, PickerSvgEntity } from '@/helper/pickersvg';
 
   @Component({

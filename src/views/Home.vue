@@ -35,7 +35,7 @@
 <script lang="ts">
   import lottie from 'lottie-web';
   import { Component, Vue } from 'vue-property-decorator';
-  import WButton from '@/components/button/Button.vue';
+  import WButton from '@/components/button/src/Button.vue';
   import animationData from '@/views/common/data';
   import { github } from '@/views/common/icon';
 

@@ -19,9 +19,9 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import WInput from '@/components/input/Input.vue';
-  import WModal from '@/components/modal/Modal.vue';
-  import WButton from '@/components/button/Button.vue';
+  import WInput from '@/components/input/src/Input.vue';
+  import WModal from '@/components/modal/src/Modal.vue';
+  import WButton from '@/components/button/src/Button.vue';
 
   @Component({
     components: {

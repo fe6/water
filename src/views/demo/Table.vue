@@ -175,8 +175,10 @@
   import ApiTable from '@/views/components/ApiTable.vue';
   import ChangeTable from '@/views/components/ChangeTable.vue';
   import MethodTable from '@/views/components/MethodTable.vue';
-  import WRow from '@/components/grid/Row.vue';
-  import WCol from '@/components/grid/Col.vue';
+  import WRow from '@/components/grid/src/Row.vue';
+  import WCol from '@/components/grid/src/Col.vue';
+  import WTable from '@/components/table/src/Table.vue';
+  import WCheckbox from '@/components/checkbox/src/Checkbox.vue';
   import OnlineReview from '@/views/components/OnlineReview.vue';
   import { ApiEntity } from '@/views/entity/demoentity';
   import base from '@/views/code/table/base';
@@ -205,8 +207,6 @@
     MethodsEntity,
   } from '@/views/entity/apientity';
   import { TITLE } from '@/views/common/constant';
-  import WTable from '@/components/table/Table.vue';
-  import WCheckbox from '@/components/checkbox/Checkbox.vue';
   import { baseCol, baseOptions } from '@/views/code/table/options/base';
   import {
     checkboxCol,

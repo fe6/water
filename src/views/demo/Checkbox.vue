@@ -68,8 +68,8 @@
   import ApiTable from '@/views/components/ApiTable.vue';
   import ChangeTable from '@/views/components/ChangeTable.vue';
   import MethodTable from '@/views/components/MethodTable.vue';
-  import WRow from '@/components/grid/Row.vue';
-  import WCol from '@/components/grid/Col.vue';
+  import WRow from '@/components/grid/src/Row.vue';
+  import WCol from '@/components/grid/src/Col.vue';
   import OnlineReview from '@/views/components/OnlineReview.vue';
   import { ApiEntity } from '@/views/entity/demoentity';
   import base from '@/views/code/checkbox/base';
