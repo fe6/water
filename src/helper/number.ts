@@ -1,4 +1,4 @@
-import * as gsap from 'gsap';
+// import * as gsap from 'gsap';
 import { noop } from '@/helper/noop';
 // 参照 https://github.com/react-component/input-number/blob/master/src/index.js
 // '1.' '1x' 'xx' '' => are not complete numbers
@@ -132,13 +132,15 @@ export const changeStep = (
 };
 
 export const watchNumber = (self: any) => {
-  if (self.write) {
-    self.tweenedNumber = self.originalNumber - 0;
-  } else {
-    gsap.TweenLite.to(self.$data, self.animateTime, {
-      tweenedNumber: self.originalNumber,
-    });
-  }
+  // 因为打包太大，所以取消动画
+  // if (self.write) {
+  //   self.tweenedNumber = self.originalNumber - 0;
+  // } else {
+  //   gsap.TweenLite.to(self.$data, self.animateTime, {
+  //     tweenedNumber: self.originalNumber,
+  //   });
+  // }
+  self.tweenedNumber = self.originalNumber - 0;
 };
 
 export const upStep = (
