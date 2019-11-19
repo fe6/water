@@ -1,6 +1,8 @@
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
@@ -24,6 +26,16 @@ const buildConf = {
         fix: true,
       }
     );
+    // 优化体积
+    if (isProduction) {
+      config.externals = {
+        lodash: 'lodash',
+        moment: 'moment',
+        vue: 'Vue',
+        gsap: 'gsap',
+        'add-dom-event-listener': 'add-dom-event-listener',
+      };
+    }
   },
   chainWebpack: (config) => {
     config.resolve.alias.set('assets', resolve('src/assets'));
