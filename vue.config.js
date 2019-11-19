@@ -16,6 +16,15 @@ const buildConf = {
   },
   productionSourceMap: false,
   outputDir: file,
+  configureWebpack: (config) => {
+    // 自动修复语法错误
+    Object.assign(
+      config.module.rules[config.module.rules.length - 3].use[0].options,
+      {
+        fix: true,
+      }
+    );
+  },
   chainWebpack: (config) => {
     config.resolve.alias.set('assets', resolve('src/assets'));
 

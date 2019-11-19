@@ -140,7 +140,8 @@ table {
     font-family: $family;
     font-size: 20px;
     height: 64px;
-    padding-left: 40px;
+    padding: 8px 40px;
+    box-sizing: border-box;
     overflow: hidden;
     line-height: 64px;
     white-space: nowrap;
