@@ -13,20 +13,21 @@ export const props = [
     require: '否',
     default: '无',
   },
-  {
-    param: 'animate',
-    desc: '是否动画改变数字',
-    type: 'Boolean',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'animateTime',
-    desc: '动画改变的时间',
-    type: 'Number',
-    require: '否',
-    default: '0.3',
-  },
+  // 0.18.0 中取消，原因包太大，排除出去不支持
+  // {
+  //   param: 'animate',
+  //   desc: '是否动画改变数字',
+  //   type: 'Boolean',
+  //   require: '否',
+  //   default: '无',
+  // },
+  // {
+  //   param: 'animateTime',
+  //   desc: '动画改变的时间',
+  //   type: 'Number',
+  //   require: '否',
+  //   default: '0.3',
+  // },
   {
     param: 'min',
     desc: '最小值',
