@@ -92,7 +92,6 @@
     "test"
   ],
   "dependencies": {
-    "gsap": "^3.0.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "vue": "^2.6.10",
