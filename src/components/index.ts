@@ -24,6 +24,7 @@ import Popover from './popover/Popover.vue';
 import Progress from './progress/Progress.vue';
 import Radio from './radio/Radio.vue';
 import RadioGroup from './radio/RadioGroup.vue';
+import Scroll from './scroll/Scroll.vue';
 import Select from './select/Select.vue';
 import Spin from './spin/Spin.vue';
 import Switch from './switch/Switch.vue';
@@ -61,6 +62,7 @@ const waterCpt = {
   Progress,
   Radio,
   RadioGroup,
+  Scroll,
   Select,
   Spin,
   Switch,

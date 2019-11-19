@@ -4,9 +4,9 @@
       <header class="layout-header">
         <WRow>
           <WCol :span="24" class="layout-header-col">
-            <router-link :to="{ name: 'Home' }" class="layout-logo"
-              >水滴</router-link
-            >
+            <router-link :to="{ name: 'Home' }" class="layout-logo">
+              <img height="32px" src="~assets/image/logo.svg" alt="水滴" />
+            </router-link>
             <a
               href="https://www.npmjs.org/package/@fe6/water"
               class="layout-npm"

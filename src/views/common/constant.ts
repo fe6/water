@@ -23,6 +23,7 @@ export const TITLE = {
   Popover: 'Popover 气泡卡片',
   Radio: 'Radio 单选',
   Select: 'Select 选择器',
+  Scroll: 'Scroll 自定义滚动',
   Spin: 'Spin 加载中',
   Switch: 'Switch 开关',
   Tag: 'Tag 标签',

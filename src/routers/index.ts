@@ -17,14 +17,17 @@ export default new Router({
   // base: process.env.NODE_ENV === 'development' ? '/' : '/water/',
   routes: [
     {
-      path: '/home',
+      path: '',
       name: 'Home',
+      meta: {
+        title: 'Water - 一个前端 UI 工具',
+      },
       component: Home,
     },
     {
       path: '/',
       name: 'Index',
-      redirect: { name: 'Agreement' },
+      // redirect: { name: 'Agreement' },
       children: concat(
         [
           {
