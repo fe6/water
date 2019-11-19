@@ -1,4 +1,4 @@
-export const test = 1;
+import { keys } from '@/helper/o';
 
 export const findUpNode = (content: any, name: string) => {
   let parent: any = content.$parent;
@@ -12,4 +12,23 @@ export const findUpNode = (content: any, name: string) => {
   }
 
   return parent;
+};
+
+export const preventDefaultExceptionFn = (
+  el: any,
+  exceptions: {
+    tagName?: RegExp;
+    className?: RegExp;
+    [key: string]: any;
+  }
+): boolean => {
+  let result: boolean = false;
+
+  keys(exceptions).forEach((excItem: string) => {
+    if (exceptions[excItem].test(el[excItem])) {
+      result = true;
+    }
+  });
+
+  return result;
 };
