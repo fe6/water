@@ -14,8 +14,6 @@ export const importCpts = () => {
 
 importCpts();
 
-console.log(waterCpt, 'waterCpt');
-
 const install = (Vue: any) => {
   if ((install as any).installed) return;
 
