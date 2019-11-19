@@ -1,4 +1,4 @@
-import { TweenLite } from 'gsap';
+import * as gsap from 'gsap';
 import { noop } from '@/helper/noop';
 // 参照 https://github.com/react-component/input-number/blob/master/src/index.js
 // '1.' '1x' 'xx' '' => are not complete numbers
@@ -135,7 +135,7 @@ export const watchNumber = (self: any) => {
   if (self.write) {
     self.tweenedNumber = self.originalNumber - 0;
   } else {
-    TweenLite.to(self.$data, self.animateTime, {
+    gsap.TweenLite.to(self.$data, self.animateTime, {
       tweenedNumber: self.originalNumber,
     });
   }
