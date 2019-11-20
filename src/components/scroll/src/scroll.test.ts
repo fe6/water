@@ -67,6 +67,7 @@ describe('Scroll.vue', () => {
           scrollScale: 0.1,
           eventType: 'scroll',
         });
+        vm.scrollTo(10);
         done();
       } catch (err) {
         done.fail(err);

@@ -50,8 +50,8 @@ new Vue({
 import { Button, Select } from '@fe6/water';
 import App from './App.vue';
 
-Vue.component(Button.name, Button);
-Vue.component(Select.name, Select);
+Vue.component(Button.waterName, Button);
+Vue.component(Select.waterName, Select);
 /* 或写为
  * Vue.use(Button)
  * Vue.use(Select)

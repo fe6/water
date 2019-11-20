@@ -137,14 +137,18 @@ $move-time: 0.4s;
     @extend .w-ellipsis;
 
     max-width: 100%;
+    line-height: 28px;
+    height: 28px;
     color: $text-color;
 
     &-small {
       line-height: 22px;
+      height: 22px;
     }
 
     &-large {
       line-height: 30px;
+      height: 30px;
     }
 
     &-disabled {

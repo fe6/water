@@ -12,7 +12,7 @@
         <p class="home-desc">Vue 2.0 的高质量组件库</p>
         <div class="home-handle">
           <w-button class="home-btn" @click="start">开始使用</w-button>
-          <w-button class="home-btn" type="border">
+          <w-button class="home-btn" type="border" @click="goGithub">
             <svg
               slot="icon"
               class="octicon octicon-mark-github v-align-middle"
@@ -72,8 +72,13 @@
 
     start() {
       this.$router.push({
-        name: 'Agreement',
+        name: 'Start',
       });
+    }
+
+    goGithub() {
+      this.msg = '首页';
+      window.open('https://github.com/fe6/water');
     }
   }
 </script>

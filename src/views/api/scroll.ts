@@ -112,6 +112,32 @@ export const methods = [
   },
 ];
 
+export const innerMethods = [
+  {
+    name: 'scrollTo',
+    desc: '滚动到某个位置， <code>0.19.0</code> 新增',
+    return: '无',
+  },
+  {
+    name: 'refresh',
+    desc: '刷新，重新计算滚动条高度',
+    return: '无',
+  },
+  {
+    name: 'finishPull',
+    desc: '加载完毕之后调用。若不调用则不会触发下次的 pulling 事件',
+    return: '无',
+  },
+];
+
+export const scrollToProps = [
+  {
+    desc: '滚动的位置',
+    type: 'Number',
+    key: 'scrollChange( Function({scrollChange}){} )',
+  },
+];
+
 export const emitProps = [
   {
     desc: 'Event对象',
@@ -127,6 +153,16 @@ export const emitProps = [
     desc: '滚动的距离',
     type: 'Number',
     key: 'scrollChange',
+  },
+  {
+    desc: '竖直滚动的时候的滚动距离',
+    type: 'Number',
+    key: 'scrollTop',
+  },
+  {
+    desc: '横滚动的时候的滚动距离',
+    type: 'Number',
+    key: 'scrollLeft',
   },
   {
     desc: '滚动的方向',

@@ -7,7 +7,7 @@
     </p>
     <h2>何时使用</h2>
     <p>
-      需要美化 Windows 的滚动条，可开箱即用。
+      需要美化 Windows 的滚动条，可开箱即用。目前只支持单方向滚动
     </p>
     <h2>代码演示</h2>
     <OnlineReview
@@ -49,6 +49,10 @@
     <ApiTable :data="props"></ApiTable>
     <h2>Scroll Method</h2>
     <MethodTable :data="methods"></MethodTable>
+    <h2>内置方法</h2>
+    <MethodTable :data="innerMethods"></MethodTable>
+    <h2>scrollTo API</h2>
+    <ChangeTable :data="scrollToProps"></ChangeTable>
     <h2>scroll 和 pulling 函数返回的参数</h2>
     <ChangeTable :data="emitProps"></ChangeTable>
   </div>
@@ -68,7 +72,13 @@
   import heng from '@/views/code/scroll/heng';
   import more from '@/views/code/scroll/more';
   import moreheng from '@/views/code/scroll/moreheng';
-  import { props, methods, emitProps } from '@/views/api/scroll';
+  import {
+    props,
+    methods,
+    emitProps,
+    innerMethods,
+    scrollToProps,
+  } from '@/views/api/scroll';
   import {
     PropsEntity,
     MethodsEntity,
@@ -104,5 +114,9 @@
     methods: MethodsEntity[] = methods;
 
     emitProps: ChangePropsEntity[] = emitProps;
+
+    innerMethods: MethodsEntity[] = innerMethods;
+
+    scrollToProps: ChangePropsEntity[] = scrollToProps;
   }
 </script>
