@@ -4,8 +4,10 @@ export default (tem: string, js: string) => `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
-  <script src="https://unpkg.com/@fe6/water@0.17.7/dist/lib/water.umd.js"></script>
-  <link href="https://unpkg.com/@fe6/water@0.17.7/dist/lib/water.css" rel="stylesheet">
+  <script src="https://unpkg.com/moment@2.24.0/moment.js"></script>
+  <script src="https://unpkg.com/lodash@4.17.15/lodash.js"></script>
+  <script src="https://unpkg.com/@fe6/water@0.18.4/dist/water.umd.js"></script>
+  <link href="https://unpkg.com/@fe6/water@0.18.4/dist/water.css" rel="stylesheet">
 </head>
 <body style="margin: 36px 24px;">
   <div id="app">

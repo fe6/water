@@ -15,7 +15,13 @@
       </div>
     </WScroll>
     <hr />
-    <WScroll class="demo-scroll" openPull ref="pullScroll" :pulling="pulling">
+    <WScroll
+      class="demo-scroll"
+      openPull
+      ref="pullScroll"
+      :pulling="pulling"
+      :edgeIsPreventDefault="false"
+    >
       <p v-for="(text, index) in texts2" :key="index">{{ text }}</p>
     </WScroll>
     <hr />
@@ -73,7 +79,7 @@
       }
     }
 
-    pulling() {
+    pulling(params: any) {
       const len = this.texts2.length;
 
       for (let i = len + 1; i < len + 11; i++) {
@@ -84,6 +90,7 @@
         (this.$refs.pullScroll as any).refresh();
         (this.$refs.pullScroll as any).finishPull();
       });
+      console.log(params, '加载中');
     }
 
     pulling2() {

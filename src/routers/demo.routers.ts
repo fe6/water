@@ -234,4 +234,13 @@ export default [
         /* webpackChunkName: "datepicker" */ '@/views/demo/DatePicker.vue'
       ),
   },
+  {
+    path: '/scroll',
+    name: 'Scroll',
+    meta: {
+      title: TITLE.Scroll,
+    },
+    component: () =>
+      import(/* webpackChunkName: "scroll" */ '@/views/demo/Scroll.vue'),
+  },
 ];

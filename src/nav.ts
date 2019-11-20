@@ -47,6 +47,10 @@ export const nav = [
             to: { name: 'Link' },
             title: TITLE.Link,
           },
+          {
+            to: { name: 'Scroll' },
+            title: TITLE.Scroll,
+          },
         ],
       },
       {

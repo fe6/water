@@ -32,8 +32,6 @@ const buildConf = {
         lodash: 'lodash',
         moment: 'moment',
         vue: 'Vue',
-        gsap: 'gsap',
-        // 'add-dom-event-listener': 'add-dom-event-listener',
       };
     }
   },
