@@ -57,6 +57,20 @@ export const props = [
     default: '无',
   },
   {
+    param: 'wrapClassName',
+    desc: 'wrap 的 class 名字 <code>0.19.0</code> 新增',
+    type: 'String | Object | Array',
+    require: '否',
+    default: '无',
+  },
+  {
+    param: 'bodyClassName',
+    desc: 'body 的 class 名字 <code>0.19.0</code> 新增',
+    type: 'String | Object | Array',
+    require: '否',
+    default: '无',
+  },
+  {
     param: 'header',
     desc: '列头显示文字',
     type: 'Function',

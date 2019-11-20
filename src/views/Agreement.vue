@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="env === 'development'">
+    <div>
       <router-link :to="{ name: 'TestInput' }">输入框</router-link> |
       <router-link :to="{ name: 'TestProgress' }">进度条</router-link> |
       <router-link :to="{ name: 'TestModal' }">对话框</router-link> |
@@ -57,7 +57,5 @@
   import { Component, Vue } from 'vue-property-decorator';
 
   @Component
-  export default class AgreementView extends Vue {
-    env: string = process.env.NODE_ENV;
-  }
+  export default class AgreementView extends Vue {}
 </script>

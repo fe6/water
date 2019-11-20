@@ -2,7 +2,6 @@
 
 [![@fe6/water](https://img.shields.io/npm/v/@fe6/water.svg?style=flat-square)](https://www.npmjs.org/package/@fe6/water)
 [![water 持续集成](https://travis-ci.org/fe6/water.svg?branch=master)](https://travis-ci.org/fe6/water)
-[![Greenkeeper badge](https://badges.greenkeeper.io/fe6/water.svg)](https://greenkeeper.io/)
 [![Codecov 单元测试覆盖](https://img.shields.io/codecov/c/github/fe6/water/master.svg?style=flat)](https://codecov.io/gh/fe6/water/branch/master)
 [![NPM downloads](http://img.shields.io/npm/dm/@fe6/water.svg?style=flat-square)](https://npmjs.org/package/@fe6/water)
 [![NPM downloads](https://img.shields.io/npm/dt/@fe6/water.svg?style=flat-square)](https://npmjs.org/package/@fe6/water)
@@ -25,8 +24,8 @@ $ yarn add @fe6/water
 - 通过 npm 安装依赖，引入
 
 ``` js
-import water from '@fe6/water/dist/lib/water.umd';
-import '@fe6/water/dist/lib/water.css';
+import water from '@fe6/water';
+import '@fe6/water/dist/water.css';
 ```
 
 - CDN 外部引用

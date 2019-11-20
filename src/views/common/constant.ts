@@ -3,6 +3,7 @@ export const IMAGE = 'https://static2.evente.cn/static/img/icon.jpg';
 export const ALT = '水滴';
 
 export const TITLE = {
+  Start: '快速开始',
   Agreement: '开发约定',
   Affix: 'Affix 固钉',
   Badge: 'Badge 徽标数',

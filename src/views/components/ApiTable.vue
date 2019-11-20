@@ -1,6 +1,6 @@
 <template>
   <WScroll type="horizontal" v-once class="table-box">
-    <table>
+    <table style="width: calc(100vw - 286px);">
       <thead>
         <tr>
           <th>参数</th>

@@ -8,24 +8,20 @@
       <li>初始化场景时的引导创建流程。</li>
     </ul>
     <h2>代码演示</h2>
-    <WRow :gutter="16">
-      <WCol :span="24">
-        <OnlineReview
-          :tem-code="base.code"
-          :render="base.render"
-          :title="base.title"
-          :desc="base.desc"
-          iframe-height="240px"
-        ></OnlineReview>
-        <OnlineReview
-          :tem-code="image.code"
-          :render="image.render"
-          :title="image.title"
-          :desc="image.desc"
-          iframe-height="240px"
-        ></OnlineReview>
-      </WCol>
-    </WRow>
+    <OnlineReview
+      :tem-code="base.code"
+      :render="base.render"
+      :title="base.title"
+      :desc="base.desc"
+      iframe-height="240px"
+    ></OnlineReview>
+    <OnlineReview
+      :tem-code="image.code"
+      :render="image.render"
+      :title="image.title"
+      :desc="image.desc"
+      iframe-height="240px"
+    ></OnlineReview>
     <h2>Empty API</h2>
     <ApiTable :data="props"></ApiTable>
   </div>

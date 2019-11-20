@@ -41,6 +41,15 @@ export default new Router({
                 /* webpackChunkName: "agreement" */ '@/views/Agreement.vue'
               ),
           },
+          {
+            path: '/start',
+            name: 'Start',
+            meta: {
+              title: TITLE.Start,
+            },
+            component: () =>
+              import(/* webpackChunkName: "start" */ '@/views/Start.vue'),
+          },
         ],
         ...importDemoRouters()
       ),

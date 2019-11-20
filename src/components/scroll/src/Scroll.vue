@@ -6,8 +6,13 @@
     }"
   >
     <WSpin class="w-scroll-spin" v-model="loading">
-      <div class="w-scroll-wrap" ref="wrap" @mousewheel="handleScroll">
-        <div class="w-scroll-body" ref="resize">
+      <div
+        class="w-scroll-wrap"
+        :class="wrapClassName"
+        ref="wrap"
+        @mousewheel="handleScroll"
+      >
+        <div class="w-scroll-body" :class="bodyClassName" ref="resize">
           <slot></slot>
         </div>
       </div>
@@ -129,6 +134,16 @@
       },
     })
     private pulling!: Function;
+
+    @Prop([String, Object, Array]) private wrapClassName!:
+      | string
+      | object
+      | any[];
+
+    @Prop([String, Object, Array]) private bodyClassName!:
+      | string
+      | object
+      | any[];
 
     get wrap() {
       return this.$refs.wrap as any;
