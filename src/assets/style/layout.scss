@@ -111,7 +111,7 @@ table {
 }
 
 .table-box {
-  overflow: auto;
+  width: calc(100vw - 286px);
 }
 
 .link {
@@ -267,9 +267,9 @@ table {
 
   &-cantainer {
     position: relative;
-    padding: 0 170px 144px 270px;
+    padding: 0 16px 16px 270px;
     background: $normal-bg;
-    min-height: calc(100vh - 248px);
+    height: calc(100vh - 80px);
     box-sizing: border-box;
   }
 

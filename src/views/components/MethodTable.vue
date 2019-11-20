@@ -1,6 +1,6 @@
 <template>
-  <div v-once class="table-box">
-    <table>
+  <WScroll type="horizontal" v-once class="table-box">
+    <table style="width: calc(100vw - 286px);">
       <thead>
         <tr>
           <th>名称</th>
@@ -16,13 +16,18 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </WScroll>
 </template>
 
 <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
+  import WScroll from '@/components/scroll/src/Scroll.vue';
 
-  @Component
+  @Component({
+    components: {
+      WScroll,
+    },
+  })
   export default class MethodTable extends Vue {
     @Prop() private data!: any[];
   }
