@@ -69,7 +69,11 @@
           </template>
         </template>
       </WScroll>
-      <WScroll class="layout-cantainer">
+      <WScroll
+        class="layout-cantainer"
+        wrapClassName="layout-wrap"
+        bodyClassName="layout-body"
+      >
         <router-view />
       </WScroll>
     </div>

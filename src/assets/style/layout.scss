@@ -276,4 +276,9 @@ table {
   &-npm {
     padding-right: 40px;
   }
+
+  &-wrap,
+  &-body {
+    width: 100%;
+  }
 }

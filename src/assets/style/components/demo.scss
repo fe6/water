@@ -9,6 +9,7 @@
     border: 1px solid $normal-border;
     border-radius: 4px;
     transition: all 0.2s;
+    box-sizing: border-box;
 
     & iframe {
       width: 100%;

@@ -20,10 +20,10 @@ export interface NavEntity {
   children?: NavChildrenEntity[];
 }
 
-export const nav = [
+const navCore: NavEntity[] = [
   {
-    to: { name: 'Agreement' },
-    title: TITLE.Agreement,
+    to: { name: 'Start' },
+    title: TITLE.Start,
   },
   {
     title: '组件',
@@ -160,3 +160,12 @@ export const nav = [
     ],
   },
 ];
+
+if (process.env.NODE_ENV === 'development') {
+  navCore.unshift({
+    to: { name: 'Agreement' },
+    title: TITLE.Agreement,
+  });
+}
+
+export const nav = navCore;
