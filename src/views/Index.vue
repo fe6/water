@@ -25,7 +25,11 @@
       </header>
     </WAffix>
     <div class="layout-main">
-      <section class="layout-menu" :style="menuStyle">
+      <WScroll
+        class="layout-menu"
+        :style="menuStyle"
+        :edgeIsPreventDefault="false"
+      >
         <template v-for="(navItem, navIndex) in nav">
           <div
             v-if="navItem.children"
@@ -64,10 +68,10 @@
             </ul>
           </template>
         </template>
-      </section>
-      <article class="layout-cantainer">
+      </WScroll>
+      <WScroll class="layout-cantainer">
         <router-view />
-      </article>
+      </WScroll>
     </div>
   </div>
 </template>
@@ -77,6 +81,7 @@
   import WAffix from '@/components/affix/src/Affix.vue';
   import WRow from '@/components/grid/src/Row.vue';
   import WCol from '@/components/grid/src/Col.vue';
+  import WScroll from '@/components/scroll/src/Scroll.vue';
   import { nav, NavEntity } from '@/nav';
 
   interface MenuStyleEntity {
@@ -88,6 +93,7 @@
       WAffix,
       WRow,
       WCol,
+      WScroll,
     },
   })
   export default class IndexView extends Vue {
