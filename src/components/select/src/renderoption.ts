@@ -1,5 +1,6 @@
 import WOption from './Option.vue';
 import WEmpty from '@/components/empty/src/Empty.vue';
+import WScroll from '@/components/scroll/src/Scroll.vue';
 import {
   ReturnParamsEntity,
   FieldNamesEntity,
@@ -8,7 +9,10 @@ import {
 import { handleName, addUsedStatus } from '@/helper/option';
 import { noopArray, noop } from '@/helper/noop';
 
-export default {
+const optionHeight = 28;
+const optionMaxHeight = 180;
+
+const renderOption = {
   functional: true,
   props: {
     name: [String, Number, Array],
@@ -204,15 +208,24 @@ export default {
     updateHock(slotsDefault, nameTags);
 
     return createElement(
-      'ul',
+      WScroll,
       {
-        class: ['w-option-list'],
+        props: {
+          disabled: liElem.length * optionHeight < optionMaxHeight,
+        },
+        class: ['w-option-scroll'],
       },
-      liElem
+      [
+        createElement(
+          'ul',
+          {
+            class: ['w-option-list'],
+          },
+          liElem
+        ),
+      ]
     );
   },
-  components: {
-    WOption,
-    WEmpty,
-  },
 };
+
+export default renderOption;

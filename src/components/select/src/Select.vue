@@ -114,7 +114,7 @@
         :field-value="fieldValue"
         :empty-text="emptyText"
         :mode="mode"
-        :name="name"
+        :name="title"
         :field-names="fieldNames"
         :update-hock="updateHock"
       ></render-option>

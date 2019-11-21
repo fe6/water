@@ -22,19 +22,31 @@
     }
   }
 
+  &-disabled {
+    .w-scroll-bar {
+      opacity: 0;
+    }
+
+    &:focus,
+    &:hover {
+      .w-scroll-bar {
+        opacity: 0;
+      }
+    }
+  }
+
   &-wrap {
     overflow: hidden;
     height: 100%;
+    width: 100%;
   }
-
-  // &-body {
-  //   position: absolute;
-  //   left: 0;
-  //   top: 0;
-  // }
 
   &-body {
     display: inline-block;
+
+    &-vertical {
+      width: 100%;
+    }
   }
 
   &-bar {

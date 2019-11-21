@@ -3,6 +3,7 @@
     class="w-scroll"
     :class="{
       ['w-scroll-active']: isCursorDown,
+      ['w-scroll-disabled']: disabled,
     }"
   >
     <WSpin class="w-scroll-spin" v-model="loading">
@@ -12,7 +13,11 @@
         ref="wrap"
         @mousewheel="handleScroll"
       >
-        <div class="w-scroll-body" :class="bodyClassName" ref="resize">
+        <div
+          class="w-scroll-body"
+          :class="[{ ['w-scroll-body-vertical']: isVertical }, bodyClassName]"
+          ref="resize"
+        >
           <slot></slot>
         </div>
       </div>
@@ -40,7 +45,12 @@
     HandleScrollEntity,
     ThumbPositionPercentageEntity,
   } from './Bar.vue';
-  import { VERTICAL_ENUM, HORIZONTAL_ENUM, DIR_ENUM } from './ast';
+  import {
+    VERTICAL_ENUM,
+    HORIZONTAL_ENUM,
+    DIR_ENUM,
+    ScrollToEntity,
+  } from './ast';
 
   @Component({
     components: {
@@ -140,10 +150,7 @@
       | object
       | any[];
 
-    @Prop([String, Object, Array]) private bodyClassName!:
-      | string
-      | object
-      | any[];
+    @Prop([String, Object]) private bodyClassName!: string | object;
 
     get wrap() {
       return this.$refs.wrap as any;
@@ -162,7 +169,7 @@
     }
 
     mounted() {
-      this.$nextTick(this.update);
+      this.$nextTick(this.updateScroll);
 
       if (!this.noResize) {
         this.resizeEvent = addDOMEventListener(
@@ -173,21 +180,24 @@
       }
     }
 
+    updated() {
+      this.updateScroll();
+    }
+
     beforeDestroy() {
       if (!this.noResize) {
         this.resizeEvent.remove();
       }
     }
 
-    update() {
+    updateScroll() {
       const { clientSize, scrollSize } = this.bar;
       const percentage = (this.wrap[clientSize] * 100) / this.wrap[scrollSize];
-
       this.getSize(percentage);
     }
 
     updateResize() {
-      this.update();
+      this.updateScroll();
       this.scrollMove({
         ev: null,
         scrollScale: 0,
@@ -268,6 +278,7 @@
 
         const pullParams = {
           ...params,
+          [scroll]: scrollChange,
           dir: this.scrollDir,
         };
 
@@ -330,15 +341,25 @@
       this.isCursorDown = isCursorDown;
     }
 
+    // 滚动到某处
+    scrollTo({ scrollChange }: ScrollToEntity): void {
+      this.scrollMove({
+        ev: null,
+        scrollScale: 0,
+        scrollChange,
+        eventType: 'resize',
+      });
+    }
+
     // 刷新，重新计算
-    refresh() {
+    refresh(): void {
       this.$nextTick(() => {
-        this.update();
+        this.updateScroll();
       });
     }
 
     // 加载完毕
-    finishPull() {
+    finishPull(): void {
       this.isPulling = false;
       this.lastScroll = -1;
       this.scrollDir = '';

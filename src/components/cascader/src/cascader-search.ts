@@ -1,4 +1,5 @@
 import WEmpty from '@/components/empty/src/Empty.vue';
+import WScroll from '@/components/scroll/src/Scroll.vue';
 import { FieldNamesEntity, fieldNamesDefault } from './entity';
 
 export default {
@@ -137,14 +138,22 @@ export default {
     }
 
     return createElement(
-      'ul',
+      WScroll,
       {
         class: 'w-cascader-search',
-        style: {
-          width,
-        },
       },
-      liElem
+      [
+        createElement(
+          'ul',
+          {
+            class: 'w-cascader-search-ul',
+            style: {
+              width,
+            },
+          },
+          liElem
+        ),
+      ]
     );
   },
 };

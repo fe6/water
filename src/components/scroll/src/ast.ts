@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-export interface BarFace {
+export interface BarEntity {
   offset: string;
   scroll: string;
   scrollSize: string;
@@ -12,13 +12,13 @@ export interface BarFace {
   direction: string;
 }
 
-export interface RenderThumbStyleFace {
+export interface RenderThumbStyleEntity {
   move: number;
   size: string;
-  bar: BarFace;
+  bar: BarEntity;
 }
 
-export interface ThumbStyleFace {
+export interface ThumbStyleEntity {
   [attr: string]: string;
 }
 
@@ -26,8 +26,8 @@ export function renderThumbStyle({
   move,
   size,
   bar,
-}: RenderThumbStyleFace): ThumbStyleFace {
-  const style: ThumbStyleFace = {};
+}: RenderThumbStyleEntity): ThumbStyleEntity {
+  const style: ThumbStyleEntity = {};
   const translate = `translate${bar.axis}(${move}%)`;
   style[bar.size] = size;
   style.transform = translate;
@@ -63,4 +63,8 @@ export enum HORIZONTAL_ENUM {
 export enum DIR_ENUM {
   NEXT = 'next',
   PREV = 'prev',
+}
+
+export interface ScrollToEntity {
+  scrollChange: number;
 }

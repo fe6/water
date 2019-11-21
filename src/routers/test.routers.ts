@@ -77,4 +77,22 @@ export default [
     component: () =>
       import(/* webpackChunkName: "need" */ '@/views/test/Need.vue'),
   },
+  {
+    path: '/tselect',
+    name: 'TestSelect',
+    meta: {
+      title: TITLE.Select,
+    },
+    component: () =>
+      import(/* webpackChunkName: "select" */ '@/views/test/Select.vue'),
+  },
+  {
+    path: '/ttable',
+    name: 'TestTable',
+    meta: {
+      title: TITLE.Table,
+    },
+    component: () =>
+      import(/* webpackChunkName: "table" */ '@/views/test/Table.vue'),
+  },
 ];

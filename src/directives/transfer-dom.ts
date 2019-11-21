@@ -124,6 +124,11 @@ const directive = {
     if (el.dataset && el.dataset.transfer !== 'true') return false;
     el.className = el.className.replace('v-transfer-dom', '');
     const ref$1 = el.wTransferDomData;
+    // 切换页面的时候移除元素，修复打开的时候切换页面之后还在打开
+    if (el.parentNode) {
+      el.parentNode.removeChild(el);
+    }
+
     if (!ref$1) {
       return false;
     }

@@ -70,24 +70,28 @@ $cascader-input-placeholder: #b4bac3;
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 8px $shadow;
-    display: none;
+    // display: none;
+    visibility: hidden;
 
     &-show {
-      display: block;
+      // display: block;
+      visibility: visible;
     }
   }
 
-  &-list {
+  &-scroll {
+    height: 180px;
+    vertical-align: top;
     display: inline-block;
     min-width: 111px;
-    height: 180px;
+  }
+
+  &-list {
     margin: 0;
     padding: 0;
-    overflow: auto;
-    vertical-align: top;
     list-style: none;
     border-right: 1px solid #e8e8e8;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+    // -ms-overflow-style: -ms-autohiding-scrollbar;
 
     &:first-child {
       border-radius: 4px 0 0 4px;
@@ -268,8 +272,13 @@ $cascader-input-placeholder: #b4bac3;
   } // .w-cascader-loading
 
   &-search {
-    margin: 0;
-    padding: 0;
+    height: 180px;
+
+    &-ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
 
     &-item {
       padding: 5px 12px;

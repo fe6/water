@@ -49,15 +49,18 @@ $move-time: 0.4s;
   top: 0;
   left: 0;
   width: 100%;
-  display: none;
+  // display: none;
+  visibility: hidden;
 
   &-list {
     list-style: none;
     padding: 0;
     margin: 0;
     outline: none;
-    max-height: 250px;
-    overflow: auto;
+  }
+
+  &-scroll {
+    height: 180px;
   }
 
   &-single {
@@ -218,6 +221,8 @@ $move-time: 0.4s;
   &-show {
     // transform: translateY(0);
     // opacity: 1;
-    display: block;
+
+    // display: block;
+    visibility: visible;
   } // w-option-show end
 }

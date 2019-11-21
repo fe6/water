@@ -1,29 +1,31 @@
 <template>
   <div style="display: inline-block">
     <template v-for="(optItem, optItemIndex) in optionMenu">
-      <ul :key="optItemIndex" class="w-cascader-list">
-        <w-option
-          v-for="(optOne, optOneIndex) in optItem.options"
-          :key="`${optOne[fieldNames.value]}_${floor}_${optOneIndex}`"
-          mode="cascader"
-          :active="optItem.index === optOneIndex"
-          :class="{
-            ['w-cascader-last']:
-              !optOne[fieldNames.children] ||
-              optOne[fieldNames.children].length < 1,
-            ['w-cascader-loading']: optOne[fieldNames.loading],
-          }"
-          :option-change="
-            handleOptionChange.bind(this, optItemIndex, optOneIndex)
-          "
-          :disabled="optOne.disabled || false"
-          :value="optOne[fieldNames.value]"
-          :label="optOne[fieldNames.label]"
-          :loading="optOne[fieldNames.loading]"
-          :field-names="fieldNames"
-          >{{ optOne[fieldNames.value] }}</w-option
-        >
-      </ul>
+      <WScroll :key="optItemIndex" class="w-cascader-scroll">
+        <ul class="w-cascader-list">
+          <w-option
+            v-for="(optOne, optOneIndex) in optItem.options"
+            :key="`${optOne[fieldNames.value]}_${floor}_${optOneIndex}`"
+            mode="cascader"
+            :active="optItem.index === optOneIndex"
+            :class="{
+              ['w-cascader-last']:
+                !optOne[fieldNames.children] ||
+                optOne[fieldNames.children].length < 1,
+              ['w-cascader-loading']: optOne[fieldNames.loading],
+            }"
+            :option-change="
+              handleOptionChange.bind(this, optItemIndex, optOneIndex)
+            "
+            :disabled="optOne.disabled || false"
+            :value="optOne[fieldNames.value]"
+            :label="optOne[fieldNames.label]"
+            :loading="optOne[fieldNames.loading]"
+            :field-names="fieldNames"
+            >{{ optOne[fieldNames.value] }}</w-option
+          >
+        </ul>
+      </WScroll>
     </template>
   </div>
 </template>
@@ -34,6 +36,7 @@
   import { noop, noopArray } from '@/helper/noop';
   import { hasOwn } from '@/helper/o';
   import WOption from '@/components/select/src/Option.vue';
+  import WScroll from '@/components/scroll/src/Scroll.vue';
   import {
     OptionsEntity,
     FieldNamesEntity,
@@ -52,6 +55,7 @@
   @Component({
     components: {
       WOption,
+      WScroll,
     },
   })
   export default class CascaderPanel extends Vue {

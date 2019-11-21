@@ -1,7 +1,7 @@
 <template>
   <div>
     --{{ value1 }}
-    <WCascader :options="defaultDatas" @change="change"></WCascader>
+    <WCascader search :options="defaultDatas" @change="change"></WCascader>
   </div>
 </template>
 
@@ -15,7 +15,7 @@
       WCascader,
     },
   })
-  export default class DatePickerView extends Vue {
+  export default class CascaderView extends Vue {
     value1 = '1999-11-10';
 
     defaultDatas: any[] = defaultDatas;
