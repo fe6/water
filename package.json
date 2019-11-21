@@ -1,7 +1,7 @@
 {
   "name": "@fe6/water",
   "description": "An enterprise-class UI design language and Vue components implementation.",
-  "version": "0.18.4",
+  "version": "0.18.5",
   "author": "李梦龙 <649076408@qq.com>",
   "main": "dist/water.umd.js",
   "unpkg": "dist/water.umd.js",
