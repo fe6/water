@@ -87,6 +87,15 @@ export default [
       import(/* webpackChunkName: "select" */ '@/views/test/Select.vue'),
   },
   {
+    path: '/tcalendar',
+    name: 'TestCalendar',
+    meta: {
+      title: TITLE.Calendar,
+    },
+    component: () =>
+      import(/* webpackChunkName: "calendar" */ '@/views/test/Calendar.vue'),
+  },
+  {
     path: '/ttable',
     name: 'TestTable',
     meta: {

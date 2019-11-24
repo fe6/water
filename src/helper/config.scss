@@ -74,3 +74,9 @@ $mask: rgba(
 );
 // 分割线
 $dividing: #eaeef5;
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

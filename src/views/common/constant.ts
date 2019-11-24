@@ -11,6 +11,7 @@ export const TITLE = {
   Button: 'Button 按钮',
   Cascader: 'Cascader 联级选择',
   Checkbox: 'Checkbox 多选',
+  Calendar: 'Calendar 日历',
   DatePicker: 'DatePicker 日历选择器',
   Empty: 'Empty 空状态',
   Grid: 'Grid 栅格',

@@ -38,7 +38,10 @@ module.exports = {
         ],
       },
     ],
-    'no-unused-vars': ['error', { varsIgnorePattern: '^V|Moment|Entity$' }],
+    'no-unused-vars': [
+      'error',
+      { varsIgnorePattern: '^V|Moment|Entity$|ENUM$' },
+    ],
     'no-underscore-dangle': ['error', { allow: ['_componentTag'] }],
     'spaced-comment': 'off',
     'no-dupe-keys': 'off',
