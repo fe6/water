@@ -273,6 +273,7 @@
             !preventDefaultExceptionFn(evt.target, this.preventDefaultException)
           ) {
             evt.preventDefault();
+            evt.stopPropagation();
           }
         }
 
