@@ -69,6 +69,15 @@ export default [
       import(/* webpackChunkName: "scroll" */ '@/views/test/Scroll.vue'),
   },
   {
+    path: '/ttimeline',
+    name: 'TestTimeline',
+    meta: {
+      title: TITLE.Timeline,
+    },
+    component: () =>
+      import(/* webpackChunkName: "timeline" */ '@/views/test/Timeline.vue'),
+  },
+  {
     path: '/tneed',
     name: 'TestNeed',
     meta: {
