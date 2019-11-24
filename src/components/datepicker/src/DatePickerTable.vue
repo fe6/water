@@ -72,6 +72,15 @@
             type,
           }"
         ></WRender>
+        <slot
+          v-else-if="$scopedSlots.picker"
+          :dateItem="dateItem"
+          :dateIndex="dateIndex"
+          :dateWeekIndex="dateWeekIndex"
+          :dateWeek="dateWeek"
+          :type="type"
+          name="picker"
+        ></slot>
         <div
           v-else
           :class="[

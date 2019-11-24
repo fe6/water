@@ -15,6 +15,8 @@ describe('DatePicker.vue', () => {
   let pickerWeek: any = null;
   let pickerValueFormat: any = null;
   let pickerTypeIsTest: any = null;
+  let pickerOpen: any = null;
+  let pickerCalendar: any = null;
 
   beforeEach(() => {
     pickerDate = mount(DatePicker, {
@@ -58,6 +60,16 @@ describe('DatePicker.vue', () => {
     pickerTypeIsTest = mount(DatePicker, {
       propsData: {
         type: 'test',
+      },
+    });
+    pickerOpen = mount(DatePicker, {
+      propsData: {
+        open: true,
+      },
+    });
+    pickerCalendar = mount(DatePicker, {
+      propsData: {
+        calendar: true,
       },
     });
   });
@@ -276,6 +288,28 @@ describe('DatePicker.vue', () => {
     vm.$nextTick(() => {
       try {
         vm.openPicker();
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('test open', (done) => {
+    const { vm } = pickerOpen;
+    vm.$nextTick(() => {
+      try {
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('test calendar', (done) => {
+    const { vm } = pickerCalendar;
+    vm.$nextTick(() => {
+      try {
         done();
       } catch (err) {
         done.fail(err);

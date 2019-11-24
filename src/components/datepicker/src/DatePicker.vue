@@ -4,6 +4,7 @@
       @mouseover="handleMouseOver"
       @mouseout="handleMouseOut"
       @click="openPicker"
+      v-if="!calendar"
     >
       <slot v-if="$slots.default"></slot>
       <WInput
@@ -73,7 +74,7 @@
       :data-transfer="transfer"
       @click="popoverClick($event)"
     >
-      <i class="w-picker-arrow" :class="arrowClass"></i>
+      <i class="w-picker-arrow" :class="arrowClass" v-if="!calendar"></i>
       <div class="w-picker-header">
         <button class="w-picker-year-prev" @click="handlePrevYear"></button>
         <button
@@ -87,7 +88,9 @@
           @click="handleNextMonth"
         ></button>
         <button class="w-picker-year-next" @click="handleNextYear"></button>
-        <span v-if="tableType === 'age'">{{ nowRangeAge }}</span>
+        <span class="w-picker-header-text" v-if="tableType === 'age'">{{
+          nowRangeAge
+        }}</span>
         <span
           v-if="tableType === 'year'"
           class="w-picker-header-text"
@@ -98,13 +101,13 @@
           v-if="tableType === 'date' || tableType === 'month'"
           class="w-picker-header-text"
           @click="handleYear"
-          >{{ nowYear }}{{ DATE_UNIT_TEXT[0] }}</span
+          >{{ nowYear }} {{ DATE_UNIT_TEXT[DATE_UNIT_ENUM.YEAR_ENUM] }}</span
         >
         <span
-          v-if="tableType === 'date' || tableType === 'month'"
+          v-if="tableType === 'date'"
           class="w-picker-header-text"
           @click="handleMonth"
-          >{{ nowMonth }}{{ DATE_UNIT_TEXT[1] }}</span
+          >{{ nowMonth }}{{ DATE_UNIT_TEXT[DATE_UNIT_ENUM.MONTH_ENUM] }}</span
         >
       </div>
       <div class="w-picker-body">
@@ -118,7 +121,28 @@
           :chunk-number="tableChunkNumber"
           :picker-render="pickerRender"
           @pickerTableChange="pickerTableChange"
-        />
+        >
+          <template
+            v-slot:picker="{
+              dateItem,
+              dateIndex,
+              dateWeekIndex,
+              dateWeek,
+              type,
+            }"
+          >
+            <slot
+              :dateItem="dateItem"
+              :dateIndex="dateIndex"
+              :dateWeekIndex="dateWeekIndex"
+              :dateWeek="dateWeek"
+              :type="type"
+              :headerDate="headerDate"
+              :pickerValue="pickerValue(dateItem.date)"
+              name="picker"
+            ></slot>
+          </template>
+        </DatePcikerTable>
       </div>
     </div>
   </div>
@@ -146,8 +170,8 @@
     valueFormatDateDefault,
     valueFormatDefault,
     WEEK_TEXT,
-    MONTH_TEXT,
     DATE_UNIT_TEXT,
+    DATE_UNIT_ENUM,
     renderYearsByYear,
     renderYearsByRangeYear,
     YearsEntity,
@@ -177,6 +201,24 @@
 
   Vue.directive('doc-click', docClick as any);
 
+  export interface ChangeEntity extends PickerTableChangeEntity {
+    tableType: string;
+  }
+
+  export interface PanelChangeEntity {
+    tableType: String;
+    tableOptions:
+      | DateEntity[]
+      | MonthInMonthsEntity[]
+      | AgesInAgesEntity[]
+      | YearInYearsEntity[];
+    nowRangeYear: string;
+    nowRangeAge: string;
+    value: string;
+    nowYear: number;
+    nowMonth: number;
+  }
+
   @Component({
     components: {
       DatePcikerTable,
@@ -189,15 +231,13 @@
 
     inputChangeTimer = -1;
 
-    inputValue = '';
+    inputValue: string = '';
 
-    oldValue = ''; // 点击空白处，日期校验失败恢复之前的value
+    oldValue: string = ''; // 点击空白处，日期校验失败恢复之前的value
 
-    updateTable: string | undefined;
+    trueFormat: string = ''; // 显示的格式
 
-    trueFormat = ''; // 显示的格式
-
-    trueValueFormat = ''; // 数据的格式
+    trueValueFormat: string = ''; // 数据的格式
 
     mNowObject: Moment = moment(); // 此刻 moment 的对象
 
@@ -205,19 +245,19 @@
 
     dates: DateEntity[] = [];
 
-    nowYear = 0;
+    nowRangeYear: string = ''; // 年份区间
 
-    nowRangeYear = ''; // 年份区间
+    nowRangeAge: string = ''; // 年代区间
 
-    nowRangeAge = ''; // 年代区间
+    nowYear: number = 0;
 
-    nowMonth = 0;
+    nowMonth: number = 0;
 
     WEEK_TEXT: string[] = WEEK_TEXT;
 
     DATE_UNIT_TEXT: string[] = DATE_UNIT_TEXT;
 
-    MONTH_TEXT: string[] = MONTH_TEXT;
+    DATE_UNIT_ENUM: any = DATE_UNIT_ENUM;
 
     particularYears: YearsEntity = {
       years: [],
@@ -231,15 +271,15 @@
 
     tableCol: string[] = [];
 
-    tableChunkNumber = 0;
+    tableChunkNumber: number = 0;
 
-    tableTextValue = '';
+    tableTextValue: string = '';
 
-    tableNowValue = '';
+    tableNowValue: string = '';
 
-    tableType = 'date';
+    tableType: string = 'date';
 
-    tableValue = '';
+    tableValue: string = '';
 
     tableOptions:
       | DateEntity[]
@@ -303,6 +343,12 @@
     private change!: Function;
 
     @Prop({
+      type: Function,
+      default: noop,
+    })
+    private panelChange!: Function;
+
+    @Prop({
       type: Boolean,
       default: true,
     })
@@ -320,8 +366,10 @@
     })
     private clearable!: boolean;
 
+    @Prop(Boolean) private calendar!: boolean;
+
     get isWeekOrDate() {
-      return this.type === 'date' || this.type === 'week';
+      return this.tableType === 'date' || this.tableType === 'week';
     }
 
     get pickerClass(): any[] {
@@ -331,6 +379,9 @@
           'w-picker-hortop': this.isHorTop,
           'w-picker-horleft': this.isVerLeft,
           'w-picker-horright': this.isVerRight,
+        },
+        {
+          'w-picker-calendar': this.calendar,
         },
       ];
     }
@@ -345,6 +396,30 @@
           'w-picker-arrow-vercenter': this.isVerCenter,
         },
       ];
+    }
+
+    get headerDate(): string {
+      let value: string = '';
+
+      if (this.tableType === 'age') {
+        value = this.nowRangeAge;
+      }
+
+      if (this.tableType === 'year') {
+        value = this.nowRangeYear;
+      }
+
+      if (this.tableType === 'month') {
+        value = `${this.nowYear} ${DATE_UNIT_TEXT[DATE_UNIT_ENUM.YEAR_ENUM]}`;
+      }
+
+      if (this.tableType === 'date') {
+        value = `${this.nowYear} ${DATE_UNIT_TEXT[DATE_UNIT_ENUM.YEAR_ENUM]} ${
+          this.nowMonth
+        } ${DATE_UNIT_TEXT[DATE_UNIT_ENUM.MONTH_ENUM]}`;
+      }
+
+      return value;
     }
 
     created(): void {
@@ -370,6 +445,28 @@
       this.resizeEvent.remove();
     }
 
+    pickerValue(date: number): string {
+      let value: string = '';
+
+      if (this.tableType === 'age') {
+        value = this.nowRangeAge;
+      }
+
+      if (this.tableType === 'year') {
+        value = this.nowRangeYear;
+      }
+
+      if (this.tableType === 'month') {
+        value = String(this.nowYear);
+      }
+
+      if (this.tableType === 'date') {
+        value = String(date);
+      }
+
+      return value;
+    }
+
     @Watch('value', {
       immediate: true,
     })
@@ -378,7 +475,9 @@
     }
 
     resizeChange() {
-      setPostion(this, 'picker');
+      if (!this.calendar) {
+        setPostion(this, 'picker');
+      }
     }
 
     initFormat() {
@@ -431,7 +530,7 @@
 
       this.setTableValue(mValueJson.value as string);
 
-      if (this.isWeekOrDate) {
+      if (this.type === 'date' || this.type === 'week') {
         this.setTableDate(
           renderDates({
             mObject: tableMoment,
@@ -496,12 +595,27 @@
       this.tableTextValue = 'value';
     }
 
+    tablePanelChange() {
+      const params: PanelChangeEntity = {
+        tableType: this.tableType,
+        tableOptions: this.tableOptions,
+        nowMonth: this.nowMonth,
+        nowYear: this.nowYear,
+        nowRangeYear: this.nowRangeYear,
+        nowRangeAge: this.nowRangeAge,
+        value: this.headerDate,
+      };
+      this.panelChange(params);
+      this.$emit('panelChange', params);
+    }
+
     setTableDate(dates: DateEntity[]) {
-      this.tableType = this.type;
+      this.tableType = 'date';
       this.tableOptions = cloneDeep(dates);
       this.tableChunkNumber = WEEK_TEXT.length;
       this.tableCol = WEEK_TEXT;
       this.tableTextValue = 'trueValue';
+      this.tablePanelChange();
     }
 
     // 面板设置成月份
@@ -518,6 +632,7 @@
 
       this.tableTextValue = 'inputValue';
       // this.setTableValue(this.value);
+      this.tablePanelChange();
     }
 
     // 面板设置年份 通过某一年
@@ -533,7 +648,10 @@
       this.nowRangeYear = range;
       this.setTableNoTh();
       this.tableTextValue = 'trueValue';
-      // this.setTableValue(String(this.nowYear));
+      this.setTableValue(
+        moment(this.nowYear, this.trueFormat).format(this.trueValueFormat)
+      );
+      this.tablePanelChange();
     }
 
     // 面板设置年份 通过年份区间
@@ -552,6 +670,7 @@
       this.nowRangeYear = range;
       this.setTableNoTh();
       this.tableTextValue = 'trueValue';
+      this.tablePanelChange();
     }
 
     // 面板设置年代
@@ -568,6 +687,8 @@
       this.setTableNoTh();
       // this.setTableValue(this.nowRangeYear);
       this.tableTextValue = 'trueValue';
+
+      this.tablePanelChange();
     }
 
     pickerTableChange({
@@ -578,7 +699,7 @@
       dateWeek,
       ev,
     }: PickerTableChangeEntity): void {
-      if (item.disabled) {
+      if (item.disabled || this.calendar) {
         return;
       }
       // 如果点击的是月份
@@ -591,7 +712,7 @@
         if (this.type === 'month') {
           // 当月份的时候去月份
           this.setTableMonths();
-        } else if (this.isWeekOrDate) {
+        } else if (this.type === 'date' || this.type === 'week') {
           // 当日期的时候去日期
           this.renderTableDateInMonth();
         }
@@ -601,44 +722,46 @@
         this.setTableYearsByRangeYear();
       }
 
+      const params: ChangeEntity = {
+        type,
+        value,
+        trueValue,
+        item,
+        dateWeek,
+        ev,
+        tableType: this.tableType,
+      };
+
       if (!isUndefined(this.value)) {
-        const params: PickerTableChangeEntity = {
-          type,
-          value,
-          trueValue,
-          item,
-          dateWeek,
-          ev,
-        };
-
         this.returnModel(params);
-        this.$emit('change', params);
-        this.change(params);
-
-        // 非当前页面自动跳转到当前页面
-        this.$nextTick(() => {
-          const { status } = item;
-          const isPrev = (dateWeek as []).find(
-            (weekItem: any) => weekItem.status === 'prev'
-          );
-          const isNext = (dateWeek as []).find(
-            (weekItem: any) => weekItem.status === 'next'
-          );
-
-          if (
-            (this.type === 'date' && status === 'next') ||
-            (this.type === 'week' && isNext)
-          ) {
-            this.handleNextMonth();
-          }
-          if (
-            (this.type === 'date' && status === 'prev') ||
-            (this.type === 'week' && isPrev)
-          ) {
-            this.handlePrevMonth();
-          }
-        });
       }
+
+      this.$emit('change', params);
+      this.change(params);
+
+      // 非当前页面自动跳转到当前页面
+      this.$nextTick(() => {
+        const { status } = item;
+        const isPrev = (dateWeek as []).find(
+          (weekItem: any) => weekItem.status === 'prev'
+        );
+        const isNext = (dateWeek as []).find(
+          (weekItem: any) => weekItem.status === 'next'
+        );
+
+        if (
+          (this.type === 'date' && status === 'next') ||
+          (this.type === 'week' && isNext)
+        ) {
+          this.handleNextMonth();
+        }
+        if (
+          (this.type === 'date' && status === 'prev') ||
+          (this.type === 'week' && isPrev)
+        ) {
+          this.handlePrevMonth();
+        }
+      });
     }
 
     @Emit('model')
@@ -673,7 +796,7 @@
     }
 
     handleYear() {
-      this.setTableValue(String(this.nowYear));
+      this.setTableValue(`${String(this.nowYear)}-${String(this.nowMonth)}-01`);
       this.setTableYearsByYear();
     }
 
@@ -701,7 +824,7 @@
     }
 
     handleHeaderYear(dirNumber: number) {
-      if (this.type === 'month' || this.isWeekOrDate) {
+      if (this.tableType === 'month' || this.isWeekOrDate) {
         this.nowYear += 1 * dirNumber;
         if (this.isWeekOrDate) {
           this.renderTableDateInMonth();
@@ -709,12 +832,12 @@
           this.setTableMonths();
         }
       }
-      if (this.type === 'year') {
+      if (this.tableType === 'year') {
         this.nowYear += 10 * dirNumber;
         this.setTableYearsByYear();
       }
 
-      if (this.type === 'age') {
+      if (this.tableType === 'age') {
         this.nowYear += 100 * dirNumber;
         this.nowRangeYear = getRangeYear(this.nowYear).range;
         this.setTableAges();
@@ -722,13 +845,11 @@
     }
 
     handleNextYear() {
-      const nextNumber = 1;
-      this.handleHeaderYear(nextNumber);
+      this.handleHeaderYear(1);
     }
 
     handlePrevYear() {
-      const prevNumber = -1;
-      this.handleHeaderYear(prevNumber);
+      this.handleHeaderYear(-1);
     }
 
     inputChange({ value }: any) {
@@ -765,7 +886,14 @@
 
     @Watch('open')
     setPickerStatus() {
-      this.pickerStatus = this.open;
+      this.pickerStatus = this.open || this.calendar;
+
+      if (this.pickerStatus) {
+        // 当一开始的时候有可能位置跑偏，所以 nextTick 一下
+        this.$nextTick(() => {
+          this.resizeChange();
+        });
+      }
     }
 
     openPicker() {
@@ -776,7 +904,7 @@
     }
 
     closePicker() {
-      this.pickerStatus = false;
+      this.pickerStatus = this.calendar;
     }
 
     @Emit('model')
