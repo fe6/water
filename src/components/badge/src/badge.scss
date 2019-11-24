@@ -70,16 +70,15 @@ $badge-default: #d9d9d9;
   }
 
   &-status {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 0;
+    vertical-align: baseline;
+    line-height: inherit;
 
     &-dot {
       position: relative;
+      top: -1px;
       display: inline-block;
       width: 6px;
       height: 6px;
-      vertical-align: middle;
       border-radius: 50%;
     }
 
@@ -122,8 +121,6 @@ $badge-default: #d9d9d9;
       color: $text-color;
       font-size: 14px;
       line-height: 22px;
-      display: inline-block;
-      vertical-align: middle;
       font-family: $family;
       font-variant: tabular-nums;
       font-feature-settings: 'tnum';
