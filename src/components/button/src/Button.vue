@@ -11,6 +11,7 @@
         [`${preName}${groupClass}-loading`]: loading,
         [`${preName}${groupClass}-click`]: clicked,
         [`${preName}${groupClass}-disabled`]: disabled,
+        [`${preName}${groupClass}-one`]: hasGroup && isOnlyOne,
         [`${preName}${groupClass}-on`]: status,
         [`${preName}${groupClass}-${type}-on`]: type && status,
         [`${preName}-icon${size ? `-${size}` : ''}`]: !$slots.default,
@@ -68,6 +69,8 @@
 
     clickEvent: any = null;
 
+    isOnlyOne: boolean = false;
+
     @Prop(String) private type?: string;
 
     @Prop(String) private size?: string;
@@ -106,6 +109,10 @@
     }
 
     get hasGroup(): boolean {
+      this.$nextTick(() => {
+        this.isOnlyOne = this.$parent.$children.length < 2;
+      });
+
       return findUpNode(this, 'WButtonGroup') !== undefined;
     }
 

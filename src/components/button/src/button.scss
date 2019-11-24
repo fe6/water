@@ -35,7 +35,7 @@ $button-text-margin: (
 .#{$prefix}btn {
   box-sizing: border-box;
   font-family: $family;
-  padding: 0 20px;
+  padding: 0 16px;
   display: inline-block;
   cursor: pointer;
   border-radius: $border-radius-base;
@@ -378,6 +378,10 @@ $button-text-margin: (
 
       &:first-child {
         box-shadow: none;
+
+        &.w-btn-wrap-one {
+          border-radius: $border-radius-base;
+        }
       }
     }
   } // w-btn-wrap end
