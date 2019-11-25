@@ -18,7 +18,7 @@
     :title="titleValue"
     >{{ count }}</span
   >
-  <div v-else-if="!slotDefault && showStatus" class="w-badge-status">
+  <span v-else-if="!slotDefault && showStatus" class="w-badge-status">
     <span
       class="w-badge-status-dot"
       :class="{
@@ -26,8 +26,8 @@
       }"
       :style="dotColor"
     ></span>
-    <p v-if="text" class="w-badge-status-text">{{ text }}</p>
-  </div>
+    <span v-if="text" class="w-badge-status-text">{{ text }}</span>
+  </span>
 </template>
 
 <script lang="ts">

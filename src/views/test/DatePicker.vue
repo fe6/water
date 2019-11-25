@@ -15,24 +15,25 @@
       format="YYYY年MM月"
     ></WDatePicker> -->
 
-    <!-- --{{value333}}
+    <!-- --{{ valueYearFormat }}
     <WDatePicker
       type="year"
-      v-model="value333"
+      v-model="valueYearFormat"
       valueFormat="YYYY年"
       format="YYYY++"
       open
     ></WDatePicker> -->
 
-    <!-- --{{value3333}}
+    <!-- --{{ valueAgeFormat }}
     <WDatePicker
       type="age"
-      v-model="value3333"
+      v-model="valueAgeFormat"
       valueFormat="YYYY||YYYY"
       format="YYYY++YYYY"
       open
     ></WDatePicker> -->
 
+    <WDatePicker v-model="value1"></WDatePicker>
     <!-- <WDatePicker v-model="value1" size="large"></WDatePicker>
     <WDatePicker v-model="value1"></WDatePicker>
     <WDatePicker v-model="value1" size="small"></WDatePicker> -->
@@ -79,14 +80,17 @@
     <WDatePicker type="year" />
     <WDatePicker type="age" /> -->
 
+    <!-- {{ valueYear }}
+    <WDatePicker v-model="valueYear" type="year" format="YYYY年" /> -->
+
     <!-- <WDatePicker disabled type="month" v-model="value2" /> -->
 
     <!-- <WDatePicker @change="change" v-model="value1" /> -->
     <!-- <WDatePicker v-model="value1" /> -->
     <!-- <WDatePicker defaultPickerValue="1997-12-12" /> -->
-    <WDatePicker v-model="value1" style="width: 1000px" @change="change">
+    <!-- <WDatePicker v-model="value1" style="width: 1000px" @change="change">
       <div>123{{ value1 }}</div>
-    </WDatePicker>
+    </WDatePicker> -->
   </div>
 </template>
 
@@ -111,13 +115,15 @@
 
     value33 = '1999++01++';
 
-    value333 = '1999++';
+    valueYearFormat = '1999年';
 
-    value3333 = '1999++2009';
+    valueAgeFormat = '1999||2009';
 
     value4 = '2019||41++';
 
     value44 = '2019-41';
+
+    valueYear = '2000';
 
     renderDate(h: Function, a: any) {
       this.value3 = '123';

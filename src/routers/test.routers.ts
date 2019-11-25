@@ -69,6 +69,15 @@ export default [
       import(/* webpackChunkName: "scroll" */ '@/views/test/Scroll.vue'),
   },
   {
+    path: '/ttimeline',
+    name: 'TestTimeline',
+    meta: {
+      title: TITLE.Timeline,
+    },
+    component: () =>
+      import(/* webpackChunkName: "timeline" */ '@/views/test/Timeline.vue'),
+  },
+  {
     path: '/tneed',
     name: 'TestNeed',
     meta: {
@@ -85,6 +94,15 @@ export default [
     },
     component: () =>
       import(/* webpackChunkName: "select" */ '@/views/test/Select.vue'),
+  },
+  {
+    path: '/tcalendar',
+    name: 'TestCalendar',
+    meta: {
+      title: TITLE.Calendar,
+    },
+    component: () =>
+      import(/* webpackChunkName: "calendar" */ '@/views/test/Calendar.vue'),
   },
   {
     path: '/ttable',

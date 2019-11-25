@@ -8,8 +8,10 @@
       <router-link :to="{ name: 'TestDatePicker' }">日期选择器</router-link> |
       <router-link :to="{ name: 'TestCascader' }">多级</router-link> |
       <router-link :to="{ name: 'TestScroll' }">滚动</router-link> |
+      <router-link :to="{ name: 'TestTimeline' }">时间线</router-link> |
       <router-link :to="{ name: 'TestNeed' }">按需加载</router-link> |
       <router-link :to="{ name: 'TestSelect' }">选择</router-link> |
+      <router-link :to="{ name: 'TestCalendar' }">日历</router-link> |
       <router-link :to="{ name: 'TestTable' }">表格</router-link>
     </div>
     <h1>开发约定</h1>

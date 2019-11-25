@@ -51,6 +51,12 @@ export const WEEK_TEXT: string[] = ['日', '一', '二', '三', '四', '五', '�
 
 export const DATE_UNIT_TEXT: string[] = ['年', '月', '日'];
 
+export enum DATE_UNIT_ENUM {
+  YEAR_ENUM,
+  MONTH_ENUM,
+  DATE_ENUM,
+}
+
 export const MONTH_TEXT: string[] = [
   `一${DATE_UNIT_TEXT[1]}`,
   `二${DATE_UNIT_TEXT[1]}`,
@@ -115,13 +121,13 @@ export const formatDateDefault = 'YYYY-MM-DD';
 export const formatWeekDefault = 'YYYY 年 WW 周';
 export const formatMonthDefault = 'YYYY-MM';
 export const formatYearDefault = 'YYYY';
-export const formatAgeDefault = 'YYYY-YYYY';
+export const formatAgeDefault = 'YYYY - YYYY';
 
 export const valueFormatDateDefault = 'YYYY-MM-DD';
 export const valueFormatWeekDefault = 'YYYY-WW';
 export const valueFormatMonthDefault = 'YYYY-MM';
 export const valueFormatYearDefault = 'YYYY';
-export const valueFormatAgeDefault = 'YYYY-YYYY';
+export const valueFormatAgeDefault = 'YYYY - YYYY';
 
 export interface FormatDefaultEntity {
   date: string;
@@ -408,9 +414,9 @@ export const generateRangeYear = ({
   const newValue = String(value);
   const disabledMoment = moment(newValue, formatYearDefault);
   years.push({
-    value: disabledMoment.format(format),
+    value: disabledMoment.format(valueFormat),
     trueValue: Number(value),
-    inputValue: disabledMoment.format(valueFormat),
+    inputValue: disabledMoment.format(format),
     title: String(value),
     status,
     disabled: isFunction(disabledRender)
@@ -466,7 +472,7 @@ export const renderYearsByRangeYear = ({
 
   return {
     years,
-    range: `${yearStart}-${yearEnd}`,
+    range: `${yearStart} - ${yearEnd}`,
   };
 };
 
@@ -483,7 +489,7 @@ export const getRangeYear = (nowYear: number): RangeYearEntity => {
   const yearEnd: number = yearStart + 9;
 
   return {
-    range: `${yearStart}-${yearEnd}`,
+    range: `${yearStart} - ${yearEnd}`,
     yearStart,
     yearEnd,
   };
@@ -560,14 +566,19 @@ export const generateAges = ({
     const disabledStartMoment = moment(startYear, formatYearDefault);
     const disabledEndMoment = moment(endYear, formatYearDefault);
     const trueValueMoment = moment(value, valueFormat);
+    const valueMoment = moment(value, format);
 
     ages.push({
-      value: moment(value, format).format(format),
+      value: trueValueMoment.isValid()
+        ? trueValueMoment.format(valueFormat)
+        : value, // 因为 无效日期
       trueValue: trueValueMoment.isValid()
         ? trueValueMoment.format(valueFormat)
         : value,
       title: value,
-      inputValue: value,
+      inputValue: valueMoment.isValid()
+        ? trueValueMoment.format(format)
+        : value, // 因为 无效日期
       status,
       disabled: isFunction(disabledRender)
         ? disabledRender({
@@ -594,7 +605,7 @@ export const renderAges = ({
   disabledRender,
 }: RenderAgesEntity): AgesEntity => {
   const ages: AgesInAgesEntity[] = [];
-  const ageHeader: string = range.split('-')[0].slice(0, 2);
+  const ageHeader: string = range.split(' - ')[0].slice(0, 2);
   const ageStart = Number(`${ageHeader}00`);
   const step = 10;
   let whileIndex = 0;
@@ -611,7 +622,7 @@ export const renderAges = ({
 
   while (whileIndex < step) {
     generateAges({
-      value: `${ageStart + whileIndex * step}-${ageEnd + whileIndex * step}`,
+      value: `${ageStart + whileIndex * step} - ${ageEnd + whileIndex * step}`,
       ages,
       format,
       valueFormat,
@@ -622,7 +633,7 @@ export const renderAges = ({
   }
 
   generateAges({
-    value: `${ageStart + whileIndex * step}-${ageEnd + whileIndex * step}`,
+    value: `${ageStart + whileIndex * step} - ${ageEnd + whileIndex * step}`,
     ages,
     format,
     valueFormat,
@@ -632,7 +643,7 @@ export const renderAges = ({
 
   return {
     ages,
-    range: `${ageStart}-${ageEnd + (whileIndex - 1) * step}`,
+    range: `${ageStart} - ${ageEnd + (whileIndex - 1) * step}`,
   };
 };
 
