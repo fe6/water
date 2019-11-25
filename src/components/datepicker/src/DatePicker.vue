@@ -123,6 +123,7 @@
           @pickerTableChange="pickerTableChange"
         >
           <template
+            v-if="$scopedSlots.picker"
             v-slot:picker="{
               dateItem,
               dateIndex,
