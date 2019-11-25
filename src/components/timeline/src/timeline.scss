@@ -19,6 +19,8 @@
     font-family: $family;
 
     &:last-child {
+      padding: 0;
+
       & .w-timeline-tail {
         display: none;
       }
@@ -75,7 +77,7 @@
 
       &-inner {
         left: calc(50% - 4px);
-        width: calc(50% - 14px);
+        width: 100%;
         text-align: left;
       }
     }
