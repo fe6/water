@@ -111,6 +111,7 @@
           headerDate,
           pickerValue,
         }"
+        v-if="$scopedSlots.picker"
       >
         <slot
           :dateItem="dateItem"

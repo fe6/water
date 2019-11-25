@@ -310,6 +310,13 @@ describe('DatePicker.vue', () => {
     const { vm } = pickerCalendar;
     vm.$nextTick(() => {
       try {
+        vm.pickerValue(1);
+        vm.tableType = 'month';
+        vm.pickerValue(1);
+        vm.tableType = 'year';
+        vm.pickerValue(1);
+        vm.tableType = 'age';
+        vm.pickerValue(1);
         done();
       } catch (err) {
         done.fail(err);
