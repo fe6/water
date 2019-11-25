@@ -152,6 +152,7 @@
 <script lang="ts">
   import moment, { Moment } from 'moment';
   import cloneDeep from 'lodash/cloneDeep';
+  import concat from 'lodash/concat';
   import {
     Component,
     Model,
@@ -614,7 +615,10 @@
       this.tableType = 'date';
       this.tableOptions = cloneDeep(dates);
       this.tableChunkNumber = WEEK_TEXT.length;
-      this.tableCol = WEEK_TEXT;
+      this.tableCol = concat(
+        WEEK_TEXT.slice(this.firstDayOfWeek, WEEK_TEXT.length),
+        WEEK_TEXT.slice(0, this.firstDayOfWeek)
+      );
       this.tableTextValue = 'trueValue';
       this.tablePanelChange();
     }
