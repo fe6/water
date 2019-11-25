@@ -69,13 +69,13 @@
           </template>
         </template>
       </WScroll>
-      <WScroll
+      <article
         class="layout-cantainer"
         wrapClassName="layout-wrap"
         bodyClassName="layout-body"
       >
         <router-view />
-      </WScroll>
+      </article>
     </div>
   </div>
 </template>
@@ -86,7 +86,7 @@
   import WRow from '@/components/grid/src/Row.vue';
   import WCol from '@/components/grid/src/Col.vue';
   import WScroll from '@/components/scroll/src/Scroll.vue';
-  import { nav, NavEntity } from '@/nav';
+  import { nav, NavEntity } from '@/views/common/nav';
 
   interface MenuStyleEntity {
     height?: string;

@@ -39,7 +39,7 @@ export const props = [
   {
     param: 'type',
     desc:
-      '进度条类型，可选值：周<code>week</code> 、 月<code>month</code> 、 年<code>year</code> 或 世纪<code>age</code>',
+      '日历类型，可选值：周<code>week</code> 、 月<code>month</code> 、 年<code>year</code> 或 世纪<code>age</code>',
     type: 'String',
     require: '否',
     default: 'date',
@@ -169,5 +169,44 @@ export const changeProps = [
     desc: '当前行',
     type: 'Array',
     key: 'dateWeek',
+  },
+  {
+    desc: '面板的类型， <code>0.19.0</code> 新增',
+    type: 'String',
+    key: 'tableType',
+  },
+];
+
+export const slotMethods = [
+  {
+    name: '-',
+    desc: '自定义触发日历的区域',
+  },
+  {
+    name: 'picker',
+    desc: '自定义日历面板， <code>0.19.0</code> 新增',
+  },
+];
+
+export const slotProps = [
+  {
+    desc: '当前点击的数据集',
+    type: 'Object',
+    key: 'dateItem',
+  },
+  {
+    desc: '当前点击格子在一行中的索引',
+    type: 'Number',
+    key: 'dateIndex',
+  },
+  {
+    desc: '当前一整行的数据集',
+    type: 'Array',
+    key: 'dateWeek',
+  },
+  {
+    desc: '当前面板的类型',
+    type: 'String',
+    key: 'type',
   },
 ];

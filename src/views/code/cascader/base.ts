@@ -1,4 +1,4 @@
-import { ApiEntity, CodeCommonParamsEntity } from '@/views/entity/demoentity';
+import { ApiEntity } from '@/views/entity/demoentity';
 
 export const defaultDatas = [
   {

@@ -12,8 +12,11 @@ export interface ChangePropsEntity {
   key: string;
 }
 
-export interface MethodsEntity {
+export interface SlotMethodsEntity {
   name: string;
   desc: string;
+}
+
+export interface MethodsEntity extends SlotMethodsEntity {
   return: string;
 }

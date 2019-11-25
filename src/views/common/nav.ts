@@ -26,6 +26,10 @@ const navCore: NavEntity[] = [
     title: TITLE.Start,
   },
   {
+    to: { name: 'Log' },
+    title: TITLE.Log,
+  },
+  {
     title: '组件',
     children: [
       {
@@ -119,6 +123,10 @@ const navCore: NavEntity[] = [
             title: TITLE.Badge,
           },
           {
+            to: { name: 'Calendar' },
+            title: TITLE.Calendar,
+          },
+          {
             to: { name: 'Empty' },
             title: TITLE.Empty,
           },
@@ -137,6 +145,10 @@ const navCore: NavEntity[] = [
           {
             to: { name: 'Tooltip' },
             title: TITLE.Tooltip,
+          },
+          {
+            to: { name: 'Timeline' },
+            title: TITLE.Timeline,
           },
         ],
       },

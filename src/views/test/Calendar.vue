@@ -1,13 +1,13 @@
 <template>
   <div>
     <!-- <WCalendar :showAge="false" :showYear="false" :showMonth="false" /> -->
-    <!-- <WCalendar /> -->
+    <WCalendar default-picker-value="1999-01-01" />
     <!-- <WCalendar type="month" /> -->
     <!-- <WCalendar type="year" /> -->
     <!-- <WCalendar type="age" :showAge="false" /> -->
     <!-- <WCalendar type="age" /> -->
     <!-- <WCalendar :pickerRender="pickerRender" /> -->
-    <WCalendar>
+    <!-- <WCalendar>
       <template
         v-slot:picker="{
           dateItem,
@@ -40,7 +40,7 @@
           </div>
         </div>
       </template>
-    </WCalendar>
+    </WCalendar> -->
   </div>
 </template>
 

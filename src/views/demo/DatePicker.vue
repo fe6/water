@@ -67,6 +67,10 @@
     <ChangeTable :data="changeProps"></ChangeTable>
     <h2>DatePicker Method</h2>
     <MethodTable :data="methods"></MethodTable>
+    <h2>DatePicker Slot</h2>
+    <ChangeTable :data="slotProps"></ChangeTable>
+    <h2>Slot Scope 参数</h2>
+    <MethodTable :data="slotMethods"></MethodTable>
   </div>
 </template>
 
@@ -86,11 +90,18 @@
   import disabledrender from '@/views/code/datepicker/disabledrender';
   import diy from '@/views/code/datepicker/diy';
   import slot from '@/views/code/datepicker/slot';
-  import { props, methods, changeProps } from '@/views/api/datepicker';
+  import {
+    props,
+    methods,
+    changeProps,
+    slotMethods,
+    slotProps,
+  } from '@/views/api/datepicker';
   import {
     PropsEntity,
     ChangePropsEntity,
     MethodsEntity,
+    SlotMethodsEntity,
   } from '@/views/entity/apientity';
   import { TITLE } from '@/views/common/constant';
 
@@ -130,6 +141,10 @@
     changeProps: ChangePropsEntity[] = changeProps;
 
     methods: MethodsEntity[] = methods;
+
+    slotProps: ChangePropsEntity[] = slotProps;
+
+    slotMethods: SlotMethodsEntity[] = slotMethods;
   }
 </script>
 

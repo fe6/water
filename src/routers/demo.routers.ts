@@ -58,6 +58,15 @@ export default [
       import(/* webpackChunkName: "button" */ '@/views/demo/Button.vue'),
   },
   {
+    path: '/calendar',
+    name: 'Calendar',
+    meta: {
+      title: TITLE.Calendar,
+    },
+    component: () =>
+      import(/* webpackChunkName: "calendar" */ '@/views/demo/Calendar.vue'),
+  },
+  {
     path: '/cascader',
     name: 'Cascader',
     meta: {
@@ -213,6 +222,15 @@ export default [
     },
     component: () =>
       import(/* webpackChunkName: "tag" */ '@/views/demo/Tag.vue'),
+  },
+  {
+    path: '/timeline',
+    name: 'Timeline',
+    meta: {
+      title: TITLE.Timeline,
+    },
+    component: () =>
+      import(/* webpackChunkName: "timeline" */ '@/views/demo/Timeline.vue'),
   },
   {
     path: '/tooltip',
