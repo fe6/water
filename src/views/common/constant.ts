@@ -4,6 +4,7 @@ export const ALT = '水滴';
 
 export const TITLE = {
   Start: '快速开始',
+  Log: '更新日志',
   Agreement: '开发约定',
   Affix: 'Affix 固钉',
   Badge: 'Badge 徽标数',
@@ -28,7 +29,7 @@ export const TITLE = {
   Scroll: 'Scroll 滚动',
   Spin: 'Spin 加载中',
   Switch: 'Switch 开关',
-  Timeline: 'Timeline 时间线',
+  Timeline: 'Timeline 时间轴',
   Tag: 'Tag 标签',
   Table: 'Table 表格',
   Tooltip: 'Tooltip 文字提示',

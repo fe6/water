@@ -50,6 +50,15 @@ export default new Router({
             component: () =>
               import(/* webpackChunkName: "start" */ '@/views/Start.vue'),
           },
+          {
+            path: '/log',
+            name: 'Log',
+            meta: {
+              title: TITLE.Log,
+            },
+            component: () =>
+              import(/* webpackChunkName: "log" */ '@/views/Log.vue'),
+          },
         ],
         ...importDemoRouters()
       ),
