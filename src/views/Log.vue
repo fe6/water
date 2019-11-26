@@ -1,29 +1,19 @@
 <template>
   <div>
     <h1>{{ Log }}</h1>
-    <p>
-      <span class="log-text">Water 严格遵循</span>
-      <WLink
-        href="http://semver.org/lang/zh-CN/"
-        target="_blank"
-        class="log-link"
-      >
-        Semantic Versioning 2.0.0
-      </WLink>
-    </p>
     <div class="log-line">
       <WTimeline>
         <WTimelineItem
-          :timestamp="item.date"
+          :timestamp="item.version"
           v-for="(item, idx) in logs"
           :key="idx"
         >
-          <Code class="log-date">2019-10-10</Code>
+          <Code class="log-date">{{ item.date }}</Code>
           <ul>
             <li
               v-for="(text, tIdx) in item.content"
               :key="tIdx"
-              class="log-text"
+              class="log-item"
             >
               <span class="log-text">{{ text }}</span>
               <WLink
@@ -71,37 +61,5 @@
 </script>
 
 <style lang="scss" scope>
-  .w-timeline-timestamp {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 32px;
-  }
-
-  .w-timeline-core {
-    top: -12px;
-  }
-  .log {
-    &-text {
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    &-link {
-      margin: 0 4px;
-      vertical-align: middle;
-
-      & .w-link-text {
-        font-size: 14px;
-      }
-    }
-
-    &-line {
-      padding-top: 40px;
-    }
-
-    &-date {
-      margin: 1em 0 1em 20px;
-      display: inline-block;
-    }
-  }
+  @import '~assets/style/log.scss';
 </style>
