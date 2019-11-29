@@ -87,6 +87,17 @@ export default [
       import(/* webpackChunkName: "need" */ '@/views/test/Need.vue'),
   },
   {
+    path: '/ttimepicker',
+    name: 'TestTimepicker',
+    meta: {
+      title: TITLE.Timepicker,
+    },
+    component: () =>
+      import(
+        /* webpackChunkName: "timepicker" */ '@/views/test/Timepicker.vue'
+      ),
+  },
+  {
     path: '/tselect',
     name: 'TestSelect',
     meta: {
