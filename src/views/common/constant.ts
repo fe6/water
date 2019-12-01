@@ -30,6 +30,7 @@ export const TITLE = {
   Spin: 'Spin 加载中',
   Switch: 'Switch 开关',
   Timeline: 'Timeline 时间轴',
+  Timepicker: 'Timepicker 时间选择器',
   Tag: 'Tag 标签',
   Table: 'Table 表格',
   Tooltip: 'Tooltip 文字提示',
