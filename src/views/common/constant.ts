@@ -28,6 +28,7 @@ export const TITLE = {
   Select: 'Select 选择器',
   Scroll: 'Scroll 滚动',
   Spin: 'Spin 加载中',
+  Statistic: 'Statistic 统计数值',
   Switch: 'Switch 开关',
   Timeline: 'Timeline 时间轴',
   Tag: 'Tag 标签',

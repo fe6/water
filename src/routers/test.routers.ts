@@ -20,6 +20,15 @@ export default [
       import(/* webpackChunkName: "modal" */ '@/views/test/Modal.vue'),
   },
   {
+    path: '/tstatistic',
+    name: 'TestStatistic',
+    meta: {
+      title: TITLE.Statistic,
+    },
+    component: () =>
+      import(/* webpackChunkName: "statistic" */ '@/views/test/Statistic.vue'),
+  },
+  {
     path: '/tpopconfirm',
     name: 'TestPopconfirm',
     meta: {

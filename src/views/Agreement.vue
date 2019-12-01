@@ -5,6 +5,7 @@
       <router-link :to="{ name: 'TestProgress' }">进度条</router-link> |
       <router-link :to="{ name: 'TestModal' }">对话框</router-link> |
       <router-link :to="{ name: 'TestPopconfirm' }">气泡确认框</router-link> |
+      <router-link :to="{ name: 'TestStatistic' }">统计数值</router-link> |
       <router-link :to="{ name: 'TestDatePicker' }">日期选择器</router-link> |
       <router-link :to="{ name: 'TestCascader' }">多级</router-link> |
       <router-link :to="{ name: 'TestScroll' }">滚动</router-link> |
