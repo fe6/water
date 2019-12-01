@@ -31,6 +31,7 @@ export const TITLE = {
   Statistic: 'Statistic 统计数值',
   Switch: 'Switch 开关',
   Timeline: 'Timeline 时间轴',
+  Timepicker: 'Timepicker 时间选择器',
   Tag: 'Tag 标签',
   Table: 'Table 表格',
   Tooltip: 'Tooltip 文字提示',
