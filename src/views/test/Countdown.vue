@@ -1,8 +1,6 @@
 <template>
   <div>
-    <!-- <WCountdown v-model="value1" />
-    <WCountdown v-model="value1" /> -->
-    {{ value1.format(TIME_VALUE_FORMAT_DEFAULT) }}
+    <WCountdown v-model="value1" />
     <WCountdown v-model="value1" format="HH:mm:ss:SSS" />
   </div>
 </template>

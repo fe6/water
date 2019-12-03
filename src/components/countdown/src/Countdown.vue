@@ -1,7 +1,10 @@
 <template>
-  <WStatistic :title="title" v-model="content">
-    Countdown
-  </WStatistic>
+  <WStatistic
+    :title="title"
+    v-model="content"
+    ref="statistic"
+    :valueRender="formatCountdown"
+  ></WStatistic>
 </template>
 
 <script lang="ts">
@@ -15,6 +18,10 @@
   import WStatistic from '@/components/statistic/src/Statistic.vue';
   import { TIME_VALUE_FORMAT_DEFAULT } from '@/helper/time';
   import { isString } from '@/helper/type';
+
+  export const interopDefault = (m: any) => m.default || m;
+
+  const REFRESH_INTERVAL = 1000 / 30;
 
   // Countdown
   const timeUnits: [string, number, string][] = [
@@ -62,6 +69,16 @@
     });
   }
 
+  export function formatCountdown(value: any, format: string) {
+    const target = interopDefault(moment)(value, format).valueOf();
+    const current = interopDefault(moment)().valueOf();
+    const diff = Math.max(target - current, 0);
+    return {
+      value: formatTimeStr(diff, format),
+      isGo: diff > 0,
+    };
+  }
+
   export const getTime = (
     value: MomentInput,
     format: MomentFormatSpecification
@@ -100,8 +117,59 @@
     created() {
       this.initContent();
       this.configCountDown();
-      this.countTimes1();
-      // this.countTimes();
+    }
+
+    mounted() {
+      this.syncTimer();
+    }
+
+    updated() {
+      this.syncTimer();
+    }
+
+    beforeDestroy() {
+      this.stopTimer();
+    }
+
+    syncTimer() {
+      const { value } = this.$props;
+      const timestamp = getTime(value, this.format);
+
+      if (timestamp >= Date.now()) {
+        this.startTimer();
+      } else {
+        this.stopTimer();
+      }
+    }
+
+    startTimer() {
+      if (this.countdownId) return;
+      this.countdownId = window.setInterval(() => {
+        (this.$refs.statistic as any).$forceUpdate();
+      }, REFRESH_INTERVAL);
+      // (this.$refs.statistic as any).$forceUpdate();
+      // console.log(REFRESH_INTERVAL, 'REFRESH_INTERVAL');
+    }
+
+    stopTimer() {
+      const { value } = this.$props;
+      if (this.countdownId) {
+        clearInterval(this.countdownId);
+        this.countdownId = undefined;
+
+        const timestamp = getTime(value, this.format);
+        if (timestamp < Date.now()) {
+          this.$emit('finish');
+        }
+      }
+    }
+
+    formatCountdown(createdElement: any, params: any) {
+      const { value, isGo } = formatCountdown(params.value, this.format);
+      if (!isGo) {
+        this.stopTimer();
+      }
+      return createdElement('div', value);
     }
 
     configCountDown() {
@@ -126,87 +194,6 @@
 
     getValueByFormat(mTime: Moment) {
       return mTime.format(this.format);
-    }
-
-    countTimes() {
-      const mTime = this.value ? moment(this.value, this.format) : moment();
-      const nowMoment = moment();
-
-      console.log(mTime.diff(nowMoment), (mTime as any).valueOf(), 890);
-
-      if (mTime.diff(nowMoment) > 0) {
-        this.autoTime(mTime, nowMoment);
-      }
-    }
-
-    autoTime(mTime: Moment, now: Moment) {
-      if (this.getValueByFormat(mTime) >= this.getValueByFormat(now)) {
-        const newTime = mTime.subtract(
-          this.countdownType !== 'millisecond' ? 1 : 5,
-          this.countdownType
-        );
-        this.content = this.getValueByFormat(newTime);
-
-        console.log(
-          this.getValueByFormat(mTime),
-          this.getValueByFormat(now),
-          this.countdownTime,
-          this.content,
-          this.getValueByFormat(newTime)
-        );
-        this.countdownId = setTimeout(() => {
-          this.autoTime(newTime, now);
-        }, this.countdownTime);
-      } else {
-        clearTimeout(this.countdownId);
-        this.countdownId = undefined;
-        console.log('end time');
-      }
-    }
-
-    countTimes1() {
-      const mTime = this.value ? moment(this.value, this.format) : moment();
-      const currentSamp = moment().valueOf();
-
-      this.autoTime1(mTime.format(this.format), currentSamp);
-    }
-
-    autoTime1(value: string, samp: number) {
-      const targetMoment = moment(value, this.format);
-      const currentMoment = moment();
-      const target = targetMoment.valueOf();
-      const current = samp;
-      const diff = Math.max(target - current, 0);
-      console.log(
-        11,
-        // this.getValueByFormat(this.value as any),
-        // currentMoment.diff(targetMoment),
-        // this.getValueByFormat(targetMoment),
-        // this.getValueByFormat(currentMoment),
-        target - current,
-        target,
-        current,
-        diff
-      );
-
-      if (diff > 0) {
-        this.content = formatTimeStr(diff, this.format);
-
-        console.log(
-          123,
-          target,
-          current,
-          this.content,
-          formatTimeStr(diff, this.format)
-        );
-        this.countdownId = setInterval(() => {
-          this.autoTime1(this.content, samp);
-        }, 1000);
-      } else {
-        clearInterval(this.countdownId);
-        this.countdownId = undefined;
-        console.log('end time');
-      }
     }
   }
 </script>
