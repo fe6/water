@@ -11,7 +11,7 @@ export const genSeconds = (): string[] => genNumberArray(60);
 
 export const TIME_VALUE_FORMAT_DEFAULT = 'HH:mm:ss';
 
-export const TIME_FORMAT_DEFAULT = 'HH-mm-ss';
+export const TIME_FORMAT_DEFAULT = 'HH:mm:ss';
 
 export const rgHour = /h/gi;
 

@@ -19,6 +19,7 @@
 
 <script lang="ts">
   import { Component, Model, Prop, Vue } from 'vue-property-decorator';
+  import { isNumber } from '@/helper/type';
 
   enum NUMBER_TYPE {
     INT_ENUM = 0,
@@ -31,7 +32,7 @@
   export default class Statistic extends Vue {
     name: string = 'WStatistic';
 
-    @Model('model', { type: [String, Number], default: true }) readonly value!:
+    @Model('model', { type: [String, Number], default: 0 }) readonly value!:
       | string
       | number;
 
@@ -59,9 +60,12 @@
     }
 
     get content(): string {
-      return Number(this.contentList[NUMBER_TYPE.INT_ENUM])
-        .toLocaleString()
-        .replace(',', this.groupSeparator);
+      const content = this.contentList[NUMBER_TYPE.INT_ENUM];
+
+      const intNumber = Number(content);
+      return isNumber(intNumber) && !Number.isNaN(intNumber)
+        ? intNumber.toLocaleString().replace(',', this.groupSeparator)
+        : content;
     }
 
     get decimal(): string {
