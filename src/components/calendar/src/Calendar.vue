@@ -130,14 +130,7 @@
 
 <script lang="ts">
   import moment from 'moment';
-  import {
-    Component,
-    Model,
-    Prop,
-    // Emit,
-    Watch,
-    Vue,
-  } from 'vue-property-decorator';
+  import { Component, Model, Prop, Watch, Vue } from 'vue-property-decorator';
   import WDatePicker, {
     PanelChangeEntity,
   } from '@/components/datepicker/src/DatePicker.vue';
@@ -222,10 +215,6 @@
       default: noop,
     })
     private change!: Function;
-
-    get picker(): any {
-      return (this.$refs.picker as any) || null;
-    }
 
     @Watch('type', {
       immediate: true,
