@@ -9,6 +9,10 @@
   font-feature-settings: 'tnum';
   font-family: $family;
 
+  .w-icon {
+    display: block;
+  }
+
   &-title {
     font-size: 14px;
     line-height: 18px;
@@ -40,16 +44,19 @@
   }
 
   &-prefix {
+    font-size: 16px;
+    line-height: 22px;
     margin-right: 4px;
     display: inline-block;
     vertical-align: middle;
+    font-family: $family;
   }
 
   &-suffix {
-    font-size: 16px;
-    line-height: 22px;
+    @extend .w-statistic-prefix;
+
     margin-left: 4px;
-    display: inline-block;
     vertical-align: bottom;
+    padding-bottom: 0.5px;
   }
 }
