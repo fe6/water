@@ -125,6 +125,15 @@ export default [
       import(/* webpackChunkName: "select" */ '@/views/test/Select.vue'),
   },
   {
+    path: '/ttext',
+    name: 'TestText',
+    meta: {
+      title: TITLE.Text,
+    },
+    component: () =>
+      import(/* webpackChunkName: "text" */ '@/views/test/Text.vue'),
+  },
+  {
     path: '/tcalendar',
     name: 'TestCalendar',
     meta: {
