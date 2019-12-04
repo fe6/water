@@ -4,12 +4,25 @@
       <slot name="title" v-if="$slots.title"></slot>
       <template v-else>{{ title }}</template>
     </div>
-    <div class="w-statistic-content" :style="valueStyle">
+    <div
+      class="w-statistic-content"
+      :class="{
+        ['w-statistic-content-render']: isFunction(valueRender),
+      }"
+      :style="valueStyle"
+    >
       <span class="w-statistic-prefix" v-if="$slots.prefix"
         ><slot name="prefix"
       /></span>
-      <span class="w-statistic-int">{{ content }}</span>
-      <span class="w-statistic-decimal">{{ decimal }}</span>
+      <WStatisticNumber
+        v-if="isFunction(valueRender)"
+        :valueRender="valueRender"
+        :value="value"
+      />
+      <template v-else>
+        <span class="w-statistic-int">{{ int }}</span>
+        <span class="w-statistic-decimal">{{ decimal }}</span>
+      </template>
       <span class="w-statistic-suffix" v-if="$slots.suffix">
         <slot name="suffix" />
       </span>
@@ -19,6 +32,8 @@
 
 <script lang="ts">
   import { Component, Model, Prop, Vue } from 'vue-property-decorator';
+  import { isNumber, isFunction } from '@/helper/type';
+  import WStatisticNumber from '@/components/statistic/src/Number';
 
   enum NUMBER_TYPE {
     INT_ENUM = 0,
@@ -26,12 +41,16 @@
   }
 
   @Component({
-    components: {},
+    components: {
+      WStatisticNumber,
+    },
   })
   export default class Statistic extends Vue {
     name: string = 'WStatistic';
 
-    @Model('model', { type: [String, Number], default: true }) readonly value!:
+    isFunction: Function = isFunction;
+
+    @Model('model', { type: [String, Number], default: 0 }) readonly value!:
       | string
       | number;
 
@@ -47,6 +66,8 @@
 
     @Prop([String, Object]) private valueStyle!: string | object;
 
+    @Prop(Function) private valueRender!: Function;
+
     get formatValue(): string {
       const newValue = Number(this.value);
       return this.precision
@@ -58,10 +79,13 @@
       return this.formatValue.split('.');
     }
 
-    get content(): string {
-      return Number(this.contentList[NUMBER_TYPE.INT_ENUM])
-        .toLocaleString()
-        .replace(',', this.groupSeparator);
+    get int(): string {
+      const content = this.contentList[NUMBER_TYPE.INT_ENUM];
+
+      const intNumber = Number(content);
+      return isNumber(intNumber) && !Number.isNaN(intNumber)
+        ? intNumber.toLocaleString().replace(',', this.groupSeparator)
+        : content;
     }
 
     get decimal(): string {

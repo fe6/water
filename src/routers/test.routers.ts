@@ -40,6 +40,15 @@ export default [
       ),
   },
   {
+    path: '/tcountdown',
+    name: 'TestCountdown',
+    meta: {
+      title: TITLE.Countdown,
+    },
+    component: () =>
+      import(/* webpackChunkName: "countdown" */ '@/views/test/Countdown.vue'),
+  },
+  {
     path: '/tdatepicker',
     name: 'TestDatePicker',
     meta: {
