@@ -1,9 +1,19 @@
 <template>
   <div>
-    <!-- <WCountdown v-model="value1" />
-    <WCountdown v-model="value1" /> -->
-    {{ value1.format(TIME_VALUE_FORMAT_DEFAULT) }}
-    <WCountdown v-model="value1" format="HH:mm:ss:SSS" />
+    -{{ value1 }}-
+    <WCountdown v-model="value1" />
+    <WCountdown title="倒计时" v-model="value1" format="HH:mm:ss:SSS" />
+    <WCountdown
+      v-model="value1"
+      format="D 天 HH:mm:ss:SSS"
+      valueStyle="color: red"
+    />
+    <WCountdown title="国安主场夺冠" v-model="value1" valueStyle="color: red">
+      <template slot="prefix">
+        <span style="padding-top: 4px; display: block;">预计</span>
+      </template>
+      <template slot="suffix">之后开始</template>
+    </WCountdown>
   </div>
 </template>
 
@@ -23,8 +33,13 @@
   export default class CountdownView extends Vue {
     TIME_VALUE_FORMAT_DEFAULT: string = TIME_VALUE_FORMAT_DEFAULT;
 
-    value1: Moment = moment().add(5, 'second');
+    // value1: number = moment('16:44:00', 'HH:mm:ss').valueOf();
+    // value1: number = moment('16:44:00', 'HH:mm:ss');
+    value1: number = Date.now() + 1000 * 5;
+    // value1: number = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30;
 
-    value2: number = 12345.29;
+    // value1: Moment = moment().add(5, 'second');
+
+    value2: Moment = moment().add(5, 'second');
   }
 </script>
