@@ -75,7 +75,11 @@
       @click="popoverClick($event)"
     >
       <i class="w-picker-arrow" :class="arrowClass" v-if="!calendar"></i>
-      <div class="w-picker-header">
+      <div v-if="isSelectTime">
+        <div class="w-picker-time" @click="selectDate">{{ panelValue }}</div>
+        <TimePanel v-model="timeValue" @change="timeChange" />
+      </div>
+      <div class="w-picker-header" v-if="!isSelectTime">
         <button class="w-picker-year-prev" @click="handlePrevYear"></button>
         <button
           v-if="isWeekOrDate"
@@ -98,19 +102,23 @@
           >{{ nowRangeYear }}</span
         >
         <span
-          v-if="tableType === 'date' || tableType === 'month'"
+          v-if="
+            tableType === 'date' ||
+              tableType === 'week' ||
+              tableType === 'month'
+          "
           class="w-picker-header-text"
           @click="handleYear"
           >{{ nowYear }} {{ DATE_UNIT_TEXT[DATE_UNIT_ENUM.YEAR_ENUM] }}</span
         >
         <span
-          v-if="tableType === 'date'"
+          v-if="tableType === 'date' || tableType === 'week'"
           class="w-picker-header-text"
           @click="handleMonth"
           >{{ nowMonth }}{{ DATE_UNIT_TEXT[DATE_UNIT_ENUM.MONTH_ENUM] }}</span
         >
       </div>
-      <div class="w-picker-body">
+      <div class="w-picker-body" v-if="!isSelectTime">
         <DatePcikerTable
           v-model="tableValue"
           :type="tableType"
@@ -144,6 +152,15 @@
             ></slot>
           </template>
         </DatePcikerTable>
+      </div>
+      <div class="w-picker-footer" v-if="type === 'datetime'">
+        <WLink
+          @click.native="selectTimeFn"
+          :disabled="!panelValue"
+          v-if="!isSelectTime"
+          >选择时间</WLink
+        >
+        <WLink @click.native="selectDate" v-else>选择日期</WLink>
       </div>
     </div>
   </div>
@@ -185,11 +202,16 @@
     MonthInMonthsEntity,
     getRangeYear,
   } from '@/helper/date';
+  import { TIME_FORMAT_DEFAULT } from '@/helper/time';
   import docClick from '@/directives/doclick';
   import TransferDom from '@/directives/transfer-dom';
+  import WLink from '@/components/link/src/Link.vue';
   import DatePcikerTable, {
     PickerTableChangeEntity,
   } from '@/components/datepicker/src/DatePickerTable.vue';
+  import TimePanel, {
+    PanelChangeEntity,
+  } from '@/components/timepicker/src/TimePanel.vue';
   import WInput from '@/components/input/src/Input.vue';
   import WIcon from '@/components/icon/src/Icon.vue';
   import { pickerSvg, PickerSvgEntity } from '@/helper/pickersvg';
@@ -207,7 +229,7 @@
     tableType: string;
   }
 
-  export interface PanelChangeEntity {
+  export interface TablePanelChangeEntity {
     tableType: String;
     tableOptions:
       | DateEntity[]
@@ -226,14 +248,24 @@
       DatePcikerTable,
       WInput,
       WIcon,
+      TimePanel,
+      WLink,
     },
   })
   export default class DatePicker extends mixins(poperMixin) {
     pickerSvg: PickerSvgEntity = pickerSvg;
 
+    TIME_FORMAT_DEFAULT: string = TIME_FORMAT_DEFAULT;
+
     inputChangeTimer = -1;
 
     inputValue: string = '';
+
+    panelValue: string = '';
+
+    timeValue: string = '';
+
+    isSelectTime: boolean = false;
 
     oldValue: string = ''; // 点击空白处，日期校验失败恢复之前的value
 
@@ -524,24 +556,35 @@
       const mValueJson = handleMomentObject({
         mObject: tableMoment,
         status: 'value',
-        format: this.trueFormat,
-        valueFormat: this.trueValueFormat,
+        format: this.type === 'datetime' ? formatDateDefault : this.trueFormat,
+        valueFormat:
+          this.type === 'datetime' ? formatDateDefault : this.trueValueFormat,
       });
       this.nowYear = mValueJson.years;
       this.nowMonth = Number(mValueJson.trueMonths);
+      this.panelValue = mValueJson.value as string;
 
       this.setTableValue(mValueJson.value as string);
 
-      if (this.type === 'date' || this.type === 'week') {
+      if (
+        this.type === 'date' ||
+        this.type === 'datetime' ||
+        this.type === 'week'
+      ) {
         this.setTableDate(
           renderDates({
             mObject: tableMoment,
             firstDayOfWeek: this.firstDayOfWeek,
-            format: this.trueFormat,
-            valueFormat: this.trueValueFormat,
+            format:
+              this.type === 'datetime' ? formatDateDefault : this.trueFormat,
+            valueFormat:
+              this.type === 'datetime'
+                ? formatDateDefault
+                : this.trueValueFormat,
             disabledRender: this.disabledRender,
           })
         );
+        this.tableType = this.type;
       }
       if (this.type === 'month') {
         this.setTableMonths();
@@ -577,6 +620,12 @@
               this.trueFormat
             );
           }
+
+          if (this.type === 'datetime') {
+            this.timeValue = moment(value, this.trueFormat).format(
+              TIME_FORMAT_DEFAULT
+            );
+          }
         } else {
           this.inputValue = '';
         }
@@ -598,7 +647,7 @@
     }
 
     tablePanelChange() {
-      const params: PanelChangeEntity = {
+      const params: TablePanelChangeEntity = {
         tableType: this.tableType,
         tableOptions: this.tableOptions,
         nowMonth: this.nowMonth,
@@ -651,6 +700,7 @@
       });
       this.tableOptions = years;
       this.nowRangeYear = range;
+
       this.setTableNoTh();
       this.tableTextValue = 'trueValue';
       this.setTableValue(
@@ -684,7 +734,7 @@
       const { ages, range } = renderAges({
         range: this.nowRangeYear,
         format: this.trueFormat,
-        valueFormat: this.trueValueFormat,
+        valueFormat: valueFormatDateDefault, // 当 type = year 的时候切换头部显示有问题
         disabledRender: this.disabledRender,
       });
       this.tableOptions = ages;
@@ -694,6 +744,19 @@
       this.tableTextValue = 'trueValue';
 
       this.tablePanelChange();
+    }
+
+    timeChange(params: PanelChangeEntity) {
+      this.timeValue = params.value;
+      this.change(params);
+      // this.$emit('change', params);
+      this.$emit('model', this.getDateTimeValue(this.panelValue, params.value));
+    }
+
+    getDateTimeValue(panelValue: string, timeValue: string) {
+      return moment(`${panelValue} ${timeValue}`, this.trueValueFormat).format(
+        this.trueValueFormat
+      );
     }
 
     pickerTableChange({
@@ -708,7 +771,10 @@
         return;
       }
       // 如果点击的是月份
-      if (type === 'month' && this.isWeekOrDate) {
+      if (
+        (type === 'month' && this.isWeekOrDate) ||
+        (type === 'month' && this.type === 'datetime')
+      ) {
         this.nowMonth = Number(trueValue);
         this.renderTableDateInMonth();
       } else if (type === 'year') {
@@ -717,7 +783,11 @@
         if (this.type === 'month') {
           // 当月份的时候去月份
           this.setTableMonths();
-        } else if (this.type === 'date' || this.type === 'week') {
+        } else if (
+          this.type === 'date' ||
+          this.type === 'datetime' ||
+          this.type === 'week'
+        ) {
           // 当日期的时候去日期
           this.renderTableDateInMonth();
         }
@@ -737,7 +807,10 @@
         tableType: this.tableType,
       };
 
-      if (!isUndefined(this.value)) {
+      if (
+        !isUndefined(this.value) &&
+        (this.type === type || (this.type === 'datetime' && type === 'date'))
+      ) {
         this.returnModel(params);
       }
 
@@ -766,18 +839,24 @@
         ) {
           this.handlePrevMonth();
         }
+        this.tableType = type;
       });
     }
 
     @Emit('model')
-    returnModel({ type, value }: PickerTableChangeEntity): string {
-      if (this.type === type) {
-        this.setTableValue(value);
-        this.closePicker();
-        return value;
+    returnModel({ value }: PickerTableChangeEntity): string {
+      let newValue = value;
+      this.panelValue = moment(value, this.trueValueFormat).format(
+        formatDateDefault
+      );
+
+      if (this.type === 'datetime') {
+        newValue = this.getDateTimeValue(this.panelValue, this.timeValue);
       }
 
-      return '';
+      this.setTableValue(value);
+      this.closePicker();
+      return newValue;
     }
 
     renderTableDateInMonth() {
@@ -872,9 +951,16 @@
     @Emit('model')
     clearValue(ev: Event): string {
       const emptyValue = '';
+      this.timeValue = '';
+      this.panelValue = '';
+      this.oldValue = '';
       this.initInput(emptyValue);
       this.setTableValue(emptyValue);
-      this.closePicker();
+      // 在 datatime 的时候时间重置滚动
+      this.$nextTick(() => {
+        this.selectDate();
+        this.closePicker();
+      });
 
       ev.stopPropagation();
 
@@ -931,6 +1017,14 @@
 
     popoverClick(ev: Event) {
       ev.stopPropagation();
+    }
+
+    selectTimeFn() {
+      this.isSelectTime = !!this.panelValue;
+    }
+
+    selectDate() {
+      this.isSelectTime = false;
     }
   }
 </script>

@@ -25,7 +25,7 @@ describe('TimeList.vue', () => {
       propsData: {
         times: genHours(),
         type: 'minute',
-        value: '03'
+        value: '03',
       },
     });
   });
