@@ -22,7 +22,7 @@ export const props = [
   },
   {
     param: 'open',
-    desc: '站外跳转，新标签页打开',
+    desc: '站外跳转，新标签页打开的链接',
     type: 'String',
     require: '否',
     default: '无',

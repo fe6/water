@@ -35,7 +35,7 @@ export const props = [
     default: '10',
   },
   {
-    param: 'Boolean',
+    param: 'simple',
     desc: '当添加该属性时，显示为简单分页',
     type: 'Boolean',
     require: '否',

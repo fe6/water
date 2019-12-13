@@ -35,7 +35,7 @@
         ></OnlineReview>
       </WCol>
     </WRow>
-    <h2>Breadcrumb API</h2>
+    <h2>Breadcrumb Item API</h2>
     <ApiTable :data="props"></ApiTable>
   </div>
 </template>

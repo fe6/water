@@ -78,7 +78,7 @@ export const props = [
   },
   {
     param: 'ok',
-    desc: '取消的回调，返回当前状态',
+    desc: '确定的回调，返回当前状态',
     type: 'Function',
     require: '否',
     default: '() => {}',

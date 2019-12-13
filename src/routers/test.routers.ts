@@ -151,4 +151,13 @@ export default [
     component: () =>
       import(/* webpackChunkName: "table" */ '@/views/test/Table.vue'),
   },
+  {
+    path: '/ttag',
+    name: 'TestTag',
+    meta: {
+      title: TITLE.Tag,
+    },
+    component: () =>
+      import(/* webpackChunkName: "tag" */ '@/views/test/Tag.vue'),
+  },
 ];
