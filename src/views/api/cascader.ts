@@ -68,7 +68,7 @@ export const props = [
     desc: '选择框默认文字',
     type: 'String',
     require: '否',
-    default: '无',
+    default: '请选择',
   },
   {
     param: 'placement',

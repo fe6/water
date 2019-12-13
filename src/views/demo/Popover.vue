@@ -62,7 +62,7 @@
   import diy from '@/views/code/popover/diy';
   import modal from '@/views/code/popover/modal';
   import pos from '@/views/code/popover/pos';
-  import { props, methods } from '@/views/api/tooltip';
+  import { props, methods } from '@/views/api/popover';
   import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
   import { TITLE } from '@/views/common/constant';
 

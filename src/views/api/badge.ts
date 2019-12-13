@@ -9,7 +9,7 @@ export const props = [
   {
     param: 'status',
     desc:
-      '设置 Badge 为状态点。，可选值为 <code>success</code> <code>processing</code> <code>default</code> <code>error</code> <code>warning</code> 或者颜色的色值',
+      '设置 Badge 为状态点，可选值为 <code>success</code> <code>processing</code> <code>default</code> <code>error</code> <code>warning</code> 或者颜色的色值',
     type: 'String',
     require: '否',
     default: '无',

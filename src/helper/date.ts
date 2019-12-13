@@ -117,12 +117,14 @@ export const handleMomentObject = ({
   return mJson;
 };
 
+export const formatDateTimeDefault = 'YYYY-MM-DD HH:mm:ss';
 export const formatDateDefault = 'YYYY-MM-DD';
 export const formatWeekDefault = 'YYYY 年 WW 周';
 export const formatMonthDefault = 'YYYY-MM';
 export const formatYearDefault = 'YYYY';
 export const formatAgeDefault = 'YYYY - YYYY';
 
+export const valueFormatDateTimeDefault = 'YYYY-MM-DD HH:mm:ss';
 export const valueFormatDateDefault = 'YYYY-MM-DD';
 export const valueFormatWeekDefault = 'YYYY-WW';
 export const valueFormatMonthDefault = 'YYYY-MM';
@@ -130,6 +132,7 @@ export const valueFormatYearDefault = 'YYYY';
 export const valueFormatAgeDefault = 'YYYY - YYYY';
 
 export interface FormatDefaultEntity {
+  datetime: string;
   date: string;
   week: string;
   month: string;
@@ -138,6 +141,7 @@ export interface FormatDefaultEntity {
 }
 
 export const formatDefault: FormatDefaultEntity = {
+  datetime: formatDateTimeDefault,
   date: formatDateDefault,
   week: formatWeekDefault,
   month: formatMonthDefault,
@@ -146,6 +150,7 @@ export const formatDefault: FormatDefaultEntity = {
 };
 
 export const valueFormatDefault: FormatDefaultEntity = {
+  datetime: valueFormatDateTimeDefault,
   date: valueFormatDateDefault,
   week: valueFormatWeekDefault,
   month: valueFormatMonthDefault,

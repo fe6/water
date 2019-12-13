@@ -5,6 +5,7 @@ const ev = { stopPropagation: () => {} };
 const testDateValue = '2009-12-10';
 const testWeekValue = '2009-12';
 const testDate = '2019-10-10';
+const testDateTime = '2019-10-10 10:10:10';
 
 describe('DatePicker.vue', () => {
   let pickerDate: any = null;
@@ -17,6 +18,7 @@ describe('DatePicker.vue', () => {
   let pickerTypeIsTest: any = null;
   let pickerOpen: any = null;
   let pickerCalendar: any = null;
+  let pickerTime: any = null;
 
   beforeEach(() => {
     pickerDate = mount(DatePicker, {
@@ -70,6 +72,12 @@ describe('DatePicker.vue', () => {
     pickerCalendar = mount(DatePicker, {
       propsData: {
         calendar: true,
+      },
+    });
+    pickerTime = mount(DatePicker, {
+      propsData: {
+        value: testDateTime,
+        type: 'datetime',
       },
     });
   });
@@ -317,6 +325,47 @@ describe('DatePicker.vue', () => {
         vm.pickerValue(1);
         vm.tableType = 'age';
         vm.pickerValue(1);
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+  });
+
+  it('test time', (done) => {
+    const { vm } = pickerTime;
+    vm.$nextTick(() => {
+      try {
+        vm.selectTimeFn();
+        vm.pickerTableChange({
+          item: {
+            status: 'current',
+            disabled: false,
+          },
+          type: 'date',
+          dateWeek: [
+            {
+              status: 'current',
+              disabled: false,
+            },
+          ],
+        });
+        vm.timeChange({
+          value: '12:12:12',
+        });
+        vm.pickerTableChange({
+          item: {
+            status: 'current',
+            disabled: false,
+          },
+          type: 'month',
+          dateWeek: [
+            {
+              status: 'current',
+              disabled: false,
+            },
+          ],
+        });
         done();
       } catch (err) {
         done.fail(err);

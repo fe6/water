@@ -33,7 +33,7 @@
       open
     ></WDatePicker> -->
 
-    <WDatePicker v-model="value1"></WDatePicker>
+    <!-- <WDatePicker v-model="value1"></WDatePicker> -->
     <!-- <WDatePicker v-model="value1" size="large"></WDatePicker>
     <WDatePicker v-model="value1"></WDatePicker>
     <WDatePicker v-model="value1" size="small"></WDatePicker> -->
@@ -57,13 +57,13 @@
     <!-- --{{value44}}-<br>
     ==== -->
     <!-- <WDatePicker type="week" v-model="value44" open></WDatePicker> -->
-    <!-- --{{value4}}-<br>
+    --{{ value4 }}-<br />
     <WDatePicker
       type="week"
       v-model="value4"
       format="YYYY 第 WW 周"
       valueFormat="YYYY||WW++"
-    ></WDatePicker> -->
+    ></WDatePicker>
 
     <!-- ---{{value1}}___
     <WDatePicker></WDatePicker> -->
@@ -91,6 +91,8 @@
     <!-- <WDatePicker v-model="value1" style="width: 1000px" @change="change">
       <div>123{{ value1 }}</div>
     </WDatePicker> -->
+
+    <!-- <WDatePicker v-model="valueTime" type="datetime" open></WDatePicker> -->
   </div>
 </template>
 
@@ -124,6 +126,8 @@
     value44 = '2019-41';
 
     valueYear = '2000';
+
+    valueTime = '2019-10-10 10:10:10';
 
     renderDate(h: Function, a: any) {
       this.value3 = '123';
