@@ -37,4 +37,5 @@ export const TITLE = {
   Table: 'Table 表格',
   Tooltip: 'Tooltip 文字提示',
   Progress: 'Progress 进度条',
+  Text: 'Text 文本',
 };

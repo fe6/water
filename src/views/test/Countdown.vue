@@ -33,9 +33,9 @@
   export default class CountdownView extends Vue {
     TIME_VALUE_FORMAT_DEFAULT: string = TIME_VALUE_FORMAT_DEFAULT;
 
-    value1: number = moment('16:44:00', 'HH:mm:ss').valueOf();
+    // value1: number = moment('16:44:00', 'HH:mm:ss').valueOf();
     // value1: number = moment('16:44:00', 'HH:mm:ss');
-    // value1: number = Date.now() + 1000 * 5;
+    value1: number = Date.now() + 1000 * 5;
     // value1: number = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30;
 
     // value1: Moment = moment().add(5, 'second');

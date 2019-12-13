@@ -125,6 +125,15 @@ export default [
       import(/* webpackChunkName: "select" */ '@/views/test/Select.vue'),
   },
   {
+    path: '/ttext',
+    name: 'TestText',
+    meta: {
+      title: TITLE.Text,
+    },
+    component: () =>
+      import(/* webpackChunkName: "text" */ '@/views/test/Text.vue'),
+  },
+  {
     path: '/tcalendar',
     name: 'TestCalendar',
     meta: {
@@ -141,5 +150,14 @@ export default [
     },
     component: () =>
       import(/* webpackChunkName: "table" */ '@/views/test/Table.vue'),
+  },
+  {
+    path: '/ttag',
+    name: 'TestTag',
+    meta: {
+      title: TITLE.Tag,
+    },
+    component: () =>
+      import(/* webpackChunkName: "tag" */ '@/views/test/Tag.vue'),
   },
 ];

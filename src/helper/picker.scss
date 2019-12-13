@@ -6,6 +6,7 @@
   box-shadow: 0 2px 8px $shadow;
   position: absolute;
   width: 280px;
+  background: $white;
 
   &-header {
     height: 40px;
@@ -354,5 +355,32 @@
 
   &-calendar {
     position: static;
+  }
+
+  &-footer {
+    border-top: 1px solid $normal-border;
+    text-align: right;
+    padding: 8px;
+    font-size: 0;
+
+    &-btn {
+      margin-left: 8px;
+    }
+  }
+
+  &-time {
+    text-align: center;
+    font-size: 14px;
+    color: $text-color;
+    line-height: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    font-family: $family;
+    border-bottom: 1px solid $normal-border;
+    cursor: pointer;
+
+    &:hover {
+      color: $blue-5;
+    }
   }
 }

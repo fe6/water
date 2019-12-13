@@ -74,6 +74,7 @@
       class="w-picker"
       :class="pickerClass"
       :data-transfer="transfer"
+      :style="pickerStyle"
       @click="popoverClick($event)"
     >
       <i class="w-picker-arrow" :class="arrowClass"></i>
@@ -214,6 +215,12 @@
       default: true,
     })
     private clearable!: boolean;
+
+    @Prop({
+      type: [String, Object],
+      default: '',
+    })
+    private pickerStyle!: string | object;
 
     @Prop(Function) private disabledHourRender!: Function;
 

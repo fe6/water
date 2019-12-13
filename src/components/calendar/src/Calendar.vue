@@ -132,7 +132,7 @@
   import moment from 'moment';
   import { Component, Model, Prop, Watch, Vue } from 'vue-property-decorator';
   import WDatePicker, {
-    PanelChangeEntity,
+    TablePanelChangeEntity,
   } from '@/components/datepicker/src/DatePicker.vue';
   import WButton from '@/components/button/src/Button.vue';
   import WButtonGroup from '@/components/button/src/ButtonGroup.vue';
@@ -271,7 +271,7 @@
       picker.handleNextYear();
     }
 
-    panelChange(params: PanelChangeEntity) {
+    panelChange(params: TablePanelChangeEntity) {
       const {
         nowRangeAge,
         nowRangeYear,

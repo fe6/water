@@ -15,7 +15,9 @@
       <router-link :to="{ name: 'TestSelect' }">选择</router-link> |
       <router-link :to="{ name: 'TestCalendar' }">日历</router-link> |
       <router-link :to="{ name: 'TestTable' }">表格</router-link> |
-      <router-link :to="{ name: 'TestCountdown' }">倒计时</router-link>
+      <router-link :to="{ name: 'TestCountdown' }">倒计时</router-link> |
+      <router-link :to="{ name: 'TestText' }">文本</router-link> |
+      <router-link :to="{ name: 'TestTag' }">标签</router-link>
     </div>
     <h1>开发约定</h1>
     <p>由于组件库未来也许会有很多人参与，所以在这里我们来约定一些事情。</p>

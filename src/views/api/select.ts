@@ -79,7 +79,7 @@ export const props = [
     default: '无',
   },
   {
-    param: 'prefix',
+    param: 'suffix',
     desc: '选中的后缀',
     type: 'String',
     require: '否',
@@ -98,6 +98,13 @@ export const props = [
     type: 'Number',
     require: '否',
     default: '4',
+  },
+  {
+    param: 'zIndex',
+    desc: '下拉弹出的层级',
+    type: 'Number',
+    require: '否',
+    default: '1',
   },
   {
     param: 'before',

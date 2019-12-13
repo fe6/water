@@ -40,7 +40,7 @@ export const props = [
   {
     param: 'color',
     desc: '进度条背景色（会覆盖 <code>status</code> 状态颜色）',
-    type: 'String/Function(percent)/Array',
+    type: 'String | Function(percent) | Array',
     require: '否',
     default: '无',
   },
