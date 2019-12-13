@@ -1,76 +1,7 @@
-export const props = [
-  {
-    param: 'col',
-    desc: '表格列的配置描述，具体项见下表',
-    type: 'Array',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'options',
-    desc: '数据数组',
-    type: 'Array',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'showSort',
-    desc: '头部筛选的 UI 显示，点击头部可触发 change 回调钩子',
-    type: 'Boolean',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'border',
-    desc: '是否展示外边框和列边框',
-    type: 'Boolean',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'showHeader',
-    desc: '是否显示表头',
-    type: 'Boolean',
-    require: '否',
-    default: 'true',
-  },
-  {
-    param: 'loading',
-    desc: '加载模式',
-    type: 'Boolean',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'size',
-    desc: '设置按钮大小，可选值为 <code>small</code> 或者不设',
-    type: 'String',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'scroll',
-    desc:
-      '设置横向或纵向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，具体项见下表',
-    type: 'Object',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'header',
-    desc: '列头显示文字',
-    type: 'Function',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'footer',
-    desc: '表格尾部',
-    type: 'Function',
-    require: '否',
-    default: '无',
-  },
-];
+import table from 'water-helper-maps/out/maps/attrs/table/table.json';
+import getProps from '@/views/common/getprop';
+
+export const props = getProps(table);
 
 export const methods = [
   {
@@ -84,77 +15,78 @@ export const methods = [
 export const colProps = [
   {
     param: 'colSpan',
-    desc: '表头列合并,设置为 0 时，不渲染',
-    type: 'Number',
+    description: '表头列合并,设置为 0 时，不渲染',
+    optionType: 'Number',
     require: '否',
-    default: '无',
+    defaultValue: '-',
   },
   {
     param: 'dataIndex',
-    desc: '列数据在数据项中对应的 key',
-    type: 'String',
+    description: '列数据在数据项中对应的 key',
+    optionType: 'String',
     require: '否',
-    default: '无',
+    defaultValue: '-',
   },
   {
     param: 'defaultSortOrder',
-    desc: '默认排序顺序，可选值： <code>ascend<.code> | <code>descend</cpde>',
-    type: 'String',
+    description:
+      '默认排序顺序，可选值： <code>ascend<.code> | <code>descend</cpde>',
+    optionType: 'String',
     require: '否',
-    default: '无',
+    defaultValue: '-',
   },
   {
     param: 'fixed',
-    desc: '列是否固定，可选 <code>left</code> >code>right</code>',
-    type: 'String',
+    description: '列是否固定，可选 <code>left</code> >code>right</code>',
+    optionType: 'String',
     require: '否',
-    default: '无',
+    defaultValue: '-',
   },
   {
     param: 'title',
-    desc: '列头显示文字',
-    type: 'String',
+    description: '列头显示文字',
+    optionType: 'String',
     require: '否',
-    default: '无',
+    defaultValue: '-',
   },
   {
     param: 'width',
-    desc: '列宽度',
-    type: 'String|Number',
+    description: '列宽度',
+    optionType: 'String|Number',
     require: '否',
-    default: '无',
+    defaultValue: '无',
   },
   {
     param: 'render',
-    desc:
+    description:
       '生成复杂数据的渲染函数，参数分别为 createElement，{当前文案，行col，行数据，行索引，所有数据}((text, col, optItem, optIndex, options))，@return VNode',
-    type: 'Function',
+    optionType: 'Function',
     require: '否',
-    default: '无',
+    defaultValue: '-',
   },
   {
     param: 'extendRowRender',
-    desc:
+    description:
       '生成<strong>行展开</strong>复杂数据的渲染函数，参数分别为 createElement，{行col，行数据，行索引，所有数据}((col, optItem, optIndex, options))，@return VNode',
-    type: 'Function',
+    optionType: 'Function',
     require: '否',
-    default: '无',
+    defaultValue: '-',
   },
   {
     param: 'col',
-    desc:
+    description:
       '表身列合并，返回合并的数字， 0 则不显示，不合返回 <code>undefined</code>>',
-    type: 'Function',
+    optionType: 'Function',
     require: '否',
-    default: '无',
+    defaultValue: '-',
   },
   {
     param: 'row',
-    desc:
+    description:
       '表身行合并，返回合并的数字， 0 则不显示，不合返回 <code>undefined</code>>',
-    type: 'Function',
+    optionType: 'Function',
     require: '否',
-    default: '无',
+    defaultValue: '-',
   },
 ];
 

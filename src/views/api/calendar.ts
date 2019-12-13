@@ -1,71 +1,7 @@
-export const props = [
-  {
-    param: 'showDate',
-    desc: '是否显示日期面板',
-    type: 'Boolean',
-    require: '否',
-    default: 'true',
-  },
-  {
-    param: 'showMonth',
-    desc: '是否显示月份面板',
-    type: 'Boolean',
-    require: '否',
-    default: 'true',
-  },
-  {
-    param: 'showYear',
-    desc: '是否显示年份面板',
-    type: 'Boolean',
-    require: '否',
-    default: 'true',
-  },
-  {
-    param: 'showAge',
-    desc: '是否显示世纪面板',
-    type: 'Boolean',
-    require: '否',
-    default: 'true',
-  },
-  {
-    param: 'type',
-    desc:
-      '日历类型，可选值：周<code>week</code> 、 月<code>month</code> 、 年<code>year</code> 或 世纪<code>age</code>',
-    type: 'String',
-    require: '否',
-    default: 'date',
-  },
-  {
-    param: 'defaultPickerValue',
-    desc:
-      '当 <code>v-model</code>( <code>value</code> ) 为空时，选择器打开时默认显示的时间',
-    type: 'String',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'firstDayOfWeek',
-    desc: '周起始日，默认： 日(0)',
-    type: 'Number',
-    require: '否',
-    default: '0',
-  },
-  {
-    param: 'pickerRender',
-    desc: '自定义日期单元格的内容和样式',
-    type: 'Function',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'change',
-    desc:
-      '输入时触发的方法，返回 {当前月份,当前年代区间,当前年的区间,当前年,面板数据集,面板类型,面板的值}({nowMonth,nowRangeAge,nowRangeYear,nowYear,tableOptions,tableType,value})',
-    type: 'Function',
-    require: '否',
-    default: '() => {}',
-  },
-];
+import calendar from 'water-helper-maps/out/maps/attrs/calendar/calendar.json';
+import getProps from '@/views/common/getprop';
+
+export const props = getProps(calendar);
 
 export const methods = [
   {

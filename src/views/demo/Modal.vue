@@ -103,11 +103,6 @@
   import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
   import { TITLE } from '@/views/common/constant';
 
-  interface ParamsEntity {
-    attr: string;
-    status: boolean;
-  }
-
   @Component({
     components: {
       ApiTable,

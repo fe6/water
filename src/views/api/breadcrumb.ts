@@ -1,39 +1,6 @@
-export const props = [
-  {
-    param: 'separator',
-    desc: '自定义的分隔符',
-    type: 'String',
-    require: '否',
-    default: '/',
-  },
-  {
-    param: 'to',
-    desc: '站内跳转',
-    type: 'Object',
-    require: '否',
-    default: '() => {}',
-  },
-  {
-    param: 'routerType',
-    desc: '站内跳转的跳转方式',
-    type: 'String',
-    require: '否',
-    default: 'push',
-  },
-  {
-    param: 'open',
-    desc: '站外跳转，新标签页打开的链接',
-    type: 'String',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'href',
-    desc: '站外跳转',
-    type: 'String',
-    require: '否',
-    default: '无',
-  },
-];
+import breadcrumbItem from 'water-helper-maps/out/maps/attrs/breadcrumb/breadcrumb-item.json';
+import getProps from '@/views/common/getprop';
+
+export const props = getProps(breadcrumbItem);
 
 export const methods = [];

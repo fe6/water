@@ -8,12 +8,12 @@ const base: ApiEntity = {
   placement="bottom"
   :interval="16"
   trigger="click"
-  arrowColor="rgba(255, 255, 0, 0.4)"
-  :titleStyle="{
+  arrow-color="rgba(255, 255, 0, 0.4)"
+  :title-style="{
     'background-color': 'rgba(0, 255, 255, 0.4)',
     color: 'rgba(255, 0, 255, 0.2)',
   }"
-  :contentStyle="{
+  :content-style="{
     'background-color': 'rgba(0, 255, 255, 0.4)',
     color: 'rgba(255, 0, 255, 0.2)',
     'box-shadow': '0 2px 8px rgba(0, 255, 255, 0.14)',

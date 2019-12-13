@@ -2,6 +2,9 @@ export const IMAGE = 'https://static2.evente.cn/static/img/icon.jpg';
 
 export const ALT = '水滴';
 
+export const VSC_URL =
+  'https://marketplace.visualstudio.com/items?itemName=fe6.vscode-water-helper';
+
 export const TITLE = {
   Start: '快速开始',
   Log: '更新日志',

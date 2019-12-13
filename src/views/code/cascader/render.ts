@@ -5,7 +5,7 @@ const base: ApiEntity = {
   title: '自定义已选项',
   desc: '添加 <code>displayRender</code> 属性即可。',
   code:
-    '<w-cascader :displayRender="displayRender" :options="defaultDatas"></w-cascader>',
+    '<w-cascader :display-render="displayRender" :options="defaultDatas"></w-cascader>',
   js: `
     {
       data() {

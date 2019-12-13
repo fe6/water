@@ -1,5 +1,93 @@
 export default [
   {
+    version: 'v0.20.1',
+    date: '2019-12-14',
+    content: ['[样式] timepicker 修复底部按钮间距。'],
+    url: [
+      {
+        text: '#52c92b0',
+        href:
+          'https://github.com/fe6/water/pull/295/commits/52c92b0fc1dc441822f4e5e77f3dd0750b414c73',
+      },
+    ],
+    git: [
+      {
+        name: '@iq9891',
+        href: 'https://github.com/iq9891',
+      },
+    ],
+  },
+  {
+    version: 'v0.20.0',
+    date: '2019-12-13',
+    content: [
+      '[新增] datepicker 类型新增 datetime 。',
+      '[新增] countdown 组件。',
+      '[新增] timepickr 组件。',
+      '[新增] statistic 组件。',
+      '[新增] text 组件。',
+      '[修复] check-tag 和 new-tag 未找到的问题。',
+    ],
+    url: [
+      {
+        text: '#6ee9a7d',
+        href:
+          'https://github.com/fe6/water/commit/6ee9a7ddb6b094e9ccf423f78a06a9dd05c50739',
+      },
+      {
+        text: '#bd86df6',
+        href:
+          'https://github.com/fe6/water/commit/bd86df6ba14b1ce63d8ec727fe83064f953ee3e3',
+      },
+      {
+        text: '#6c59754',
+        href:
+          'https://github.com/fe6/water/commit/6c5975450d61642a35ba1a7919f690f68f585f62',
+      },
+      {
+        text: '#336ec5c',
+        href:
+          'https://github.com/fe6/water/commit/336ec5c16f70ed3fac5651e13c4832ce07e07a46',
+      },
+      {
+        text: '#9dc2cbf',
+        href:
+          'https://github.com/fe6/water/commit/9dc2cbfe873ba7b1cfb2721c5fd5eb60676b2e1e',
+      },
+      {
+        text: '#03be9a8',
+        href:
+          'https://github.com/fe6/water/commit/03be9a813ccd87aa057a34f7fecf10b4e227a84b',
+      },
+    ],
+    git: [
+      {
+        name: '@iq9891',
+        href: 'https://github.com/iq9891',
+      },
+      {
+        name: '@iq9891',
+        href: 'https://github.com/iq9891',
+      },
+      {
+        name: '@iq9891',
+        href: 'https://github.com/iq9891',
+      },
+      {
+        name: '@iq9891',
+        href: 'https://github.com/iq9891',
+      },
+      {
+        name: '@iq9891',
+        href: 'https://github.com/iq9891',
+      },
+      {
+        name: '@iq9891',
+        href: 'https://github.com/iq9891',
+      },
+    ],
+  },
+  {
     version: 'v0.19.3',
     date: '2019-11-26',
     content: [
@@ -989,7 +1077,7 @@ export default [
   {
     version: 'v0.12.0',
     date: '2019-07-22',
-    content: ['[新增] Page 组件 。', '[样式] Modal 、 Propover 边框颜色修改'],
+    content: ['[新增] Tag 组件 。', '[样式] Modal 、 Propover 边框颜色修改'],
     url: [
       {
         text: '#213',
