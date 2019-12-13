@@ -126,12 +126,21 @@ export const props = [
     default: '() => document.body',
   },
   {
+    param: 'panelChange',
+    desc:
+      '点击面板的方法，返回 {面板类型,面板数据,当前月份,当前年份,当前年代,当前世纪}({tableType,tableOptions,nowMonth,nowYear,nowRangeYear,nowRangeAge,value})',
+    type: 'Function',
+    require: '否',
+    default:
+      '({tableType,tableOptions,nowMonth,nowYear,nowRangeYear,nowRangeAge,value}) => {}',
+  },
+  {
     param: 'change',
     desc:
       '输入时触发的方法，返回 {Event对象,处理过的值,格式的值,当前的对象,当前行}({ev,trueValue,value,item,dateWeek})',
     type: 'Function',
     require: '否',
-    default: '() => {}',
+    default: '({ev,trueValue,value,item,dateWeek}) => {}',
   },
 ];
 

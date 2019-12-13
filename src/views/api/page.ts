@@ -80,6 +80,13 @@ export const pageJumpProps = [
     require: '否',
     default: '页',
   },
+  {
+    param: 'size',
+    desc: '设置大小，可选值为 <code>small</code> <code>large</code> 或者不设',
+    type: 'String',
+    require: '否',
+    default: '无',
+  },
 ];
 
 export const pageJumpMethods = [

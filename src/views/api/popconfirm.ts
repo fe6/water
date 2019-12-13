@@ -77,6 +77,14 @@ export const props = [
     require: '否',
     default: '() => {}',
   },
+  {
+    param: 'before',
+    desc: '确定之前触发的方法，返回 Promise 对象',
+    type: 'Function',
+    require: '否',
+    default:
+      'function() {return new Promise((resolve, reject) => {resolve();});}',
+  },
 ];
 
 export const methods = [
