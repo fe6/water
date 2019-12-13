@@ -95,6 +95,20 @@ export const props = [
     require: '否',
     default: '无',
   },
+  {
+    param: 'wrapClassName',
+    desc: 'wrap 自定义 class， <code>0.20.0</code 新增',
+    type: 'Function',
+    require: '否',
+    default: '无',
+  },
+  {
+    param: 'bodyClassName',
+    desc: 'body 自定义 class， <code>0.20.0</code 新增',
+    type: 'Function',
+    require: '否',
+    default: '无',
+  },
 ];
 
 export const methods = [

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-  import { Component, Model, Prop, Vue } from 'vue-property-decorator';
+  import { Component, Prop, Vue } from 'vue-property-decorator';
   import WTextBase from '@/components/text/src/base';
 
   @Component({
@@ -15,10 +15,6 @@
   })
   export default class WText extends Vue {
     name: string = 'WText';
-
-    @Model('model', { type: [String, Number], default: 0 }) readonly value!:
-      | string
-      | number;
 
     @Prop(Boolean) private disabled!: boolean;
 

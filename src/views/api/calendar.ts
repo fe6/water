@@ -51,6 +51,13 @@ export const props = [
     default: '0',
   },
   {
+    param: 'pickerRender',
+    desc: '自定义日期单元格的内容和样式',
+    type: 'Function',
+    require: '否',
+    default: '无',
+  },
+  {
     param: 'change',
     desc:
       '输入时触发的方法，返回 {当前月份,当前年代区间,当前年的区间,当前年,面板数据集,面板类型,面板的值}({nowMonth,nowRangeAge,nowRangeYear,nowYear,tableOptions,tableType,value})',
