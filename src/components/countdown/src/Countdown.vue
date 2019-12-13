@@ -16,11 +16,7 @@
 </template>
 
 <script lang="ts">
-  import moment, {
-    Moment,
-    MomentInput,
-    MomentFormatSpecification,
-  } from 'moment';
+  import moment, { Moment } from 'moment';
   import { Component, Model, Prop, Vue } from 'vue-property-decorator';
   import WStatistic from '@/components/statistic/src/Statistic.vue';
   import {
