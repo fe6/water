@@ -11,6 +11,7 @@
       :minute="minute"
       :second="second"
       @change="hourChange"
+      ref="hour"
     />
     <TimeList
       :class="`w-timelist-list-${listLength}`"
@@ -23,6 +24,7 @@
       :minute="minute"
       :second="second"
       @change="minuteChange"
+      ref="minute"
     />
     <TimeList
       :class="`w-timelist-list-${listLength}`"
@@ -35,6 +37,7 @@
       :minute="minute"
       :second="second"
       @change="secondChange"
+      ref="second"
     />
   </div>
 </template>
@@ -135,7 +138,7 @@
       ).length;
     }
 
-    created() {
+    mounted() {
       this.initHours();
       this.initMinutes();
       this.initSeconds();
@@ -162,10 +165,12 @@
       });
 
       if (!this.value) {
-        this.hour = '';
-        this.minute = '';
-        this.second = '';
+        this.hour = '00';
+        this.minute = '00';
+        this.second = '00';
       }
+
+      this.scrollTimesToNow();
     }
 
     initHours() {
@@ -178,6 +183,22 @@
 
     initSeconds() {
       this.seconds = genSeconds();
+    }
+
+    scrollTimesToNow() {
+      this.scrollNow('hour');
+      this.scrollNow('minute');
+      this.scrollNow('second');
+    }
+
+    scrollNow(timeKey: string) {
+      this.$nextTick(() => {
+        (this.$refs[timeKey] as any).scrollTo(
+          (this as any)[`${timeKey}s`].findIndex(
+            (timeItem: string) => timeItem === (this as any)[timeKey]
+          )
+        );
+      });
     }
 
     formatNewValue(format: string = this.valueFormat): string {

@@ -3,7 +3,7 @@
 .w-timelist {
   &-list {
     overflow: hidden;
-    height: 190px;
+    height: 250px;
     border-right: 1px solid $normal-border;
 
     &-1 {
@@ -42,7 +42,7 @@
 
     &::after {
       display: block;
-      height: 166px;
+      height: 226px;
       content: '';
     }
   }
