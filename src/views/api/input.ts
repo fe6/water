@@ -5,7 +5,7 @@ export const props = [
   {
     param: 'maxLength',
     desc: '最大输入长度。 <code>0.15.0</code> 新增。',
-    type: 'String|Number',
+    type: 'String | Number',
     require: '否',
     default: '无',
   },
@@ -47,7 +47,7 @@ export const props = [
   },
   {
     param: 'readonly',
-    desc: '输入框可读状态 <code>0.17.0</code>',
+    desc: '输入框可读状态， <code>0.17.0</code> 新增',
     type: 'Boolean',
     require: '否',
     default: 'false',

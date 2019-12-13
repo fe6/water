@@ -21,6 +21,13 @@ export const props = [
     default: '无',
   },
   {
+    param: 'closable',
+    desc: '是否显示关闭按钮',
+    type: 'Boolean',
+    require: '否',
+    default: 'true',
+  },
+  {
     param: 'esc',
     desc: '是否支持键盘 <code>esc</code> 关闭',
     type: 'Boolean',
@@ -78,7 +85,7 @@ export const props = [
   },
   {
     param: 'ok',
-    desc: '取消的回调，返回当前状态',
+    desc: '确定的回调，返回当前状态',
     type: 'Function',
     require: '否',
     default: '() => {}',

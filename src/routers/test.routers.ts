@@ -20,6 +20,15 @@ export default [
       import(/* webpackChunkName: "modal" */ '@/views/test/Modal.vue'),
   },
   {
+    path: '/tstatistic',
+    name: 'TestStatistic',
+    meta: {
+      title: TITLE.Statistic,
+    },
+    component: () =>
+      import(/* webpackChunkName: "statistic" */ '@/views/test/Statistic.vue'),
+  },
+  {
     path: '/tpopconfirm',
     name: 'TestPopconfirm',
     meta: {
@@ -29,6 +38,15 @@ export default [
       import(
         /* webpackChunkName: "popconfirm" */ '@/views/test/Popconfirm.vue'
       ),
+  },
+  {
+    path: '/tcountdown',
+    name: 'TestCountdown',
+    meta: {
+      title: TITLE.Countdown,
+    },
+    component: () =>
+      import(/* webpackChunkName: "countdown" */ '@/views/test/Countdown.vue'),
   },
   {
     path: '/tdatepicker',
@@ -87,6 +105,17 @@ export default [
       import(/* webpackChunkName: "need" */ '@/views/test/Need.vue'),
   },
   {
+    path: '/ttimepicker',
+    name: 'TestTimepicker',
+    meta: {
+      title: TITLE.Timepicker,
+    },
+    component: () =>
+      import(
+        /* webpackChunkName: "timepicker" */ '@/views/test/Timepicker.vue'
+      ),
+  },
+  {
     path: '/tselect',
     name: 'TestSelect',
     meta: {
@@ -94,6 +123,15 @@ export default [
     },
     component: () =>
       import(/* webpackChunkName: "select" */ '@/views/test/Select.vue'),
+  },
+  {
+    path: '/ttext',
+    name: 'TestText',
+    meta: {
+      title: TITLE.Text,
+    },
+    component: () =>
+      import(/* webpackChunkName: "text" */ '@/views/test/Text.vue'),
   },
   {
     path: '/tcalendar',
@@ -112,5 +150,14 @@ export default [
     },
     component: () =>
       import(/* webpackChunkName: "table" */ '@/views/test/Table.vue'),
+  },
+  {
+    path: '/ttag',
+    name: 'TestTag',
+    meta: {
+      title: TITLE.Tag,
+    },
+    component: () =>
+      import(/* webpackChunkName: "tag" */ '@/views/test/Tag.vue'),
   },
 ];

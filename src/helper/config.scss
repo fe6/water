@@ -49,6 +49,8 @@ $purple-6: #722ed1;
 $magenta-6: #eb2f96;
 //默认的灰色背景颜色
 $base-bg: #f5f5f5;
+// 灰色
+$gray: #dcdcdc;
 // 文字
 $text-color: #292b2d;
 $text-color-light: #60636c;
@@ -56,6 +58,8 @@ $text-color-light: #60636c;
 $disabled-bg: #eff1f6;
 $disabled-color: #b4bac3;
 $disabled-border: #dbdee9;
+// code 的样式
+$code-bg: #f0f0f0;
 // 圆角
 $border-radius-base: 4px;
 // 阴影
@@ -74,6 +78,8 @@ $mask: rgba(
 );
 // 分割线
 $dividing: #eaeef5;
+// 时间选择器选中的颜色
+$time-picker-active: #f5f5f5;
 
 .ellipsis {
   overflow: hidden;

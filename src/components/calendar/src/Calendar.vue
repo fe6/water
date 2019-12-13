@@ -130,16 +130,9 @@
 
 <script lang="ts">
   import moment from 'moment';
-  import {
-    Component,
-    Model,
-    Prop,
-    // Emit,
-    Watch,
-    Vue,
-  } from 'vue-property-decorator';
+  import { Component, Model, Prop, Watch, Vue } from 'vue-property-decorator';
   import WDatePicker, {
-    PanelChangeEntity,
+    TablePanelChangeEntity,
   } from '@/components/datepicker/src/DatePicker.vue';
   import WButton from '@/components/button/src/Button.vue';
   import WButtonGroup from '@/components/button/src/ButtonGroup.vue';
@@ -223,10 +216,6 @@
     })
     private change!: Function;
 
-    get picker(): any {
-      return (this.$refs.picker as any) || null;
-    }
-
     @Watch('type', {
       immediate: true,
     })
@@ -282,7 +271,7 @@
       picker.handleNextYear();
     }
 
-    panelChange(params: PanelChangeEntity) {
+    panelChange(params: TablePanelChangeEntity) {
       const {
         nowRangeAge,
         nowRangeYear,

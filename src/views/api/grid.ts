@@ -47,7 +47,7 @@ export const rowProps = [
     param: 'type',
     desc:
       '栅格布局类型，可选值： <code>float</code>或者不设，默认 <code>flex</code> 布局',
-    type: 'Number',
+    type: 'String',
     require: '否',
     default: '无',
   },

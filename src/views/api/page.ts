@@ -35,7 +35,7 @@ export const props = [
     default: '10',
   },
   {
-    param: 'Boolean',
+    param: 'simple',
     desc: '当添加该属性时，显示为简单分页',
     type: 'Boolean',
     require: '否',
@@ -79,6 +79,13 @@ export const pageJumpProps = [
     type: 'String',
     require: '否',
     default: '页',
+  },
+  {
+    param: 'size',
+    desc: '设置大小，可选值为 <code>small</code> <code>large</code> 或者不设',
+    type: 'String',
+    require: '否',
+    default: '无',
   },
 ];
 

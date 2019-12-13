@@ -11,12 +11,13 @@
     <slot v-if="$slots.default"></slot>
     <template v-else>
       <svg
+        viewBox="0 0 1024 1024"
+        focusable="false"
         class="icon"
         width="16px"
         height="16px"
-        viewBox="0 0 1024 1024"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        aria-hidden="true"
       >
         <path :fill="color" :d="defaultPath" />
       </svg>
@@ -38,11 +39,7 @@
 
     @Prop([String, Object, Array]) private className!: string | object | any[];
 
-    @Prop({
-      type: String,
-      default: '#333',
-    })
-    private color!: string;
+    @Prop(String) private color!: string;
   }
 </script>
 
