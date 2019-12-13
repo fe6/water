@@ -85,6 +85,15 @@ export default [
       import(/* webpackChunkName: "checkbox" */ '@/views/demo/Checkbox.vue'),
   },
   {
+    path: '/countdown',
+    name: 'Countdown',
+    meta: {
+      title: TITLE.Countdown,
+    },
+    component: () =>
+      import(/* webpackChunkName: "countdown" */ '@/views/demo/Countdown.vue'),
+  },
+  {
     path: '/input',
     name: 'Input',
     meta: {
@@ -206,6 +215,15 @@ export default [
       import(/* webpackChunkName: "progress" */ '@/views/demo/Progress.vue'),
   },
   {
+    path: '/statistic',
+    name: 'Statistic',
+    meta: {
+      title: TITLE.Statistic,
+    },
+    component: () =>
+      import(/* webpackChunkName: "statistic" */ '@/views/demo/Statistic.vue'),
+  },
+  {
     path: '/table',
     name: 'Table',
     meta: {
@@ -222,6 +240,26 @@ export default [
     },
     component: () =>
       import(/* webpackChunkName: "tag" */ '@/views/demo/Tag.vue'),
+  },
+  {
+    path: '/text',
+    name: 'Text',
+    meta: {
+      title: TITLE.Text,
+    },
+    component: () =>
+      import(/* webpackChunkName: "text" */ '@/views/demo/Text.vue'),
+  },
+  {
+    path: '/timepicker',
+    name: 'Timepicker',
+    meta: {
+      title: TITLE.Timepicker,
+    },
+    component: () =>
+      import(
+        /* webpackChunkName: "timepicker" */ '@/views/demo/Timepicker.vue'
+      ),
   },
   {
     path: '/timeline',

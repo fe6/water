@@ -5,10 +5,10 @@ import { ApiEntity } from '@/views/entity/demoentity';
  * @param attr {String} 额外添加的属性，适用于 loading ， ghost ， disabled 等类型为 boolean 的属性。
  * @return {string}
  */
-export const codeCommon = (): string => `<w-progress strokeLinecap="square" v-model="value" style="margin-bottom: 8px"></w-progress>
+export const codeCommon = (): string => `<w-progress stroke-linecap="square" v-model="value" style="margin-bottom: 8px"></w-progress>
 <div>
-  <w-progress strokeLinecap="square" v-model="value" type="circle" style="margin-bottom: 8px"></w-progress>
-  <w-progress strokeLinecap="square" v-model="value" type="dashboard" style="margin-bottom: 8px"></w-progress>
+  <w-progress stroke-linecap="square" v-model="value" type="circle" style="margin-bottom: 8px"></w-progress>
+  <w-progress stroke-linecap="square" v-model="value" type="dashboard" style="margin-bottom: 8px"></w-progress>
 </div>`;
 
 const base: ApiEntity = {

@@ -39,6 +39,15 @@
           >
             {{ navItem.title }}
           </div>
+          <a
+            v-else-if="navItem.href"
+            :key="`navItem_${navIndex}`"
+            class="layout-menu-link"
+            :href="navItem.href"
+            target="_blank"
+          >
+            {{ navItem.title }}
+          </a>
           <router-link
             v-else
             :key="`navItem_${navIndex}`"

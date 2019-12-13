@@ -11125,6 +11125,11 @@ watchpack@^1.5.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
+water-helper-maps@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/water-helper-maps/-/water-helper-maps-0.1.0.tgz#6d49bbe0e7f203038ffec94cdcd3b017e96b68af"
+  integrity sha512-Ug4qtsyPqnVS2am/fM5sLxLOfVnxpjZaOzD4PxIDJudki1fy8J4bZWmP1DgU4dcwz8+Yk6R7q/pmZz5pzC3kVQ==
+
 wbuf@^1.1.0, wbuf@^1.7.3:
   version "1.7.3"
   resolved "http://registry.npm.taobao.org/wbuf/download/wbuf-1.7.3.tgz#c1d8d149316d3ea852848895cb6a0bfe887b87df"

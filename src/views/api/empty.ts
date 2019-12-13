@@ -1,18 +1,6 @@
-export const props = [
-  {
-    param: 'image',
-    desc: '设置图片',
-    type: 'String',
-    require: '否',
-    default: '无',
-  },
-  {
-    param: 'imageStyle',
-    desc: '设置图片外层样式。<code>0.3.0</code> 新增。',
-    type: 'Object',
-    require: '否',
-    default: '无',
-  },
-];
+import empty from 'water-helper-maps/out/maps/attrs/empty/empty.json';
+import getProps from '@/views/common/getprop';
+
+export const props = getProps(empty);
 
 export const methods = [];

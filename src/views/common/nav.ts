@@ -1,4 +1,4 @@
-import { TITLE } from '@/views/common/constant';
+import { TITLE, VSC_URL } from '@/views/common/constant';
 
 export interface ToEntity {
   name: string;
@@ -17,6 +17,7 @@ export interface NavChildrenEntity {
 export interface NavEntity {
   title: string;
   to?: ToEntity;
+  href?: string;
   children?: NavChildrenEntity[];
 }
 
@@ -24,6 +25,10 @@ const navCore: NavEntity[] = [
   {
     to: { name: 'Start' },
     title: TITLE.Start,
+  },
+  {
+    href: VSC_URL,
+    title: 'VSCode 插件',
   },
   {
     to: { name: 'Log' },
@@ -54,6 +59,10 @@ const navCore: NavEntity[] = [
           {
             to: { name: 'Scroll' },
             title: TITLE.Scroll,
+          },
+          {
+            to: { name: 'Text' },
+            title: TITLE.Text,
           },
         ],
       },
@@ -113,6 +122,10 @@ const navCore: NavEntity[] = [
             to: { name: 'Switch' },
             title: TITLE.Switch,
           },
+          {
+            to: { name: 'Timepicker' },
+            title: TITLE.Timepicker,
+          },
         ],
       },
       {
@@ -127,12 +140,20 @@ const navCore: NavEntity[] = [
             title: TITLE.Calendar,
           },
           {
+            to: { name: 'Countdown' },
+            title: TITLE.Countdown,
+          },
+          {
             to: { name: 'Empty' },
             title: TITLE.Empty,
           },
           {
             to: { name: 'Popover' },
             title: TITLE.Popover,
+          },
+          {
+            to: { name: 'Statistic' },
+            title: TITLE.Statistic,
           },
           {
             to: { name: 'Table' },

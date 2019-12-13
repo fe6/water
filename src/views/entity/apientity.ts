@@ -1,9 +1,9 @@
 export interface PropsEntity {
   param: string;
-  desc: string;
-  type: string;
+  description: string;
+  optionType: string;
   require: string;
-  default: string;
+  defaultValue: string;
 }
 
 export interface ChangePropsEntity {

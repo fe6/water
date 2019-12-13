@@ -12,6 +12,9 @@
         <p class="home-desc">Vue 2.0 的高质量组件库</p>
         <div class="home-handle">
           <w-button class="home-btn" @click="start">开始使用</w-button>
+          <w-button class="home-btn" type="info" @click="goVSC"
+            >VSCode 插件</w-button
+          >
           <w-button class="home-btn" type="border" @click="goGithub">
             <svg
               slot="icon"
@@ -38,6 +41,7 @@
   import WButton from '@/components/button/src/Button.vue';
   import animationData from '@/views/common/data';
   import { github } from '@/views/common/icon';
+  import { VSC_URL } from '@/views/common/constant';
 
   @Component({
     components: {
@@ -79,6 +83,11 @@
     goGithub() {
       this.msg = '首页';
       window.open('https://github.com/fe6/water');
+    }
+
+    goVSC() {
+      this.msg = '首页';
+      window.open(VSC_URL);
     }
   }
 </script>

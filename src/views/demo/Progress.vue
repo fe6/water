@@ -18,7 +18,7 @@
           :js-code="base.js"
           :title="base.title"
           :desc="base.desc"
-          iframe-height="220px"
+          iframe-height="260px"
         ></OnlineReview>
         <OnlineReview
           :tem-code="dashboard.code"
@@ -32,7 +32,7 @@
           :js-code="inside.js"
           :title="inside.title"
           :desc="inside.desc"
-          iframe-height="220px"
+          iframe-height="260px"
         ></OnlineReview>
       </WCol>
       <WCol :span="12">
@@ -41,7 +41,7 @@
           :js-code="circle.js"
           :title="circle.title"
           :desc="circle.desc"
-          iframe-height="220px"
+          iframe-height="260px"
         ></OnlineReview>
         <OnlineReview
           :tem-code="color.code"

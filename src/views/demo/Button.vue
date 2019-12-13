@@ -61,6 +61,8 @@
     <ChangeTable :data="clickProps"></ChangeTable>
     <h2>Button Method</h2>
     <MethodTable :data="methods"></MethodTable>
+    <h2>Button Group API</h2>
+    <ApiTable :data="groupProps"></ApiTable>
   </div>
 </template>
 
@@ -81,7 +83,7 @@
   import icon from '@/views/code/button/icon';
   import disabled from '@/views/code/button/disabled';
   import group from '@/views/code/button/group';
-  import { props, methods, clickProps } from '@/views/api/button';
+  import { props, groupProps, methods, clickProps } from '@/views/api/button';
   import {
     PropsEntity,
     ChangePropsEntity,
@@ -123,6 +125,8 @@
     group: ApiEntity = group;
 
     props: PropsEntity[] = props;
+
+    groupProps: PropsEntity[] = groupProps;
 
     clickProps: ChangePropsEntity[] = clickProps;
 
