@@ -193,11 +193,14 @@
 
     scrollNow(timeKey: string) {
       this.$nextTick(() => {
-        (this.$refs[timeKey] as any).scrollTo(
-          (this as any)[`${timeKey}s`].findIndex(
-            (timeItem: string) => timeItem === (this as any)[timeKey]
-          )
-        );
+        const scrollEle = this.$refs[timeKey] as any;
+        if (scrollEle) {
+          scrollEle.scrollTo(
+            (this as any)[`${timeKey}s`].findIndex(
+              (timeItem: string) => timeItem === (this as any)[timeKey]
+            )
+          );
+        }
       });
     }
 
