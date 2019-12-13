@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-  import { Component, Model, Prop, Emit, Vue } from 'vue-property-decorator';
+  import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
   import { hexToRgb, RgbEntity } from '@/helper/color';
 
   interface ReturnEntity {
@@ -38,8 +38,6 @@
     name: string = 'WTag';
 
     clicked = false;
-
-    @Model('model', { type: String }) readonly value!: string;
 
     @Prop(Boolean) private disabled!: boolean;
 
