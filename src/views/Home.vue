@@ -13,7 +13,7 @@
         <div class="home-handle">
           <w-button class="home-btn" @click="start">开始使用</w-button>
           <w-button class="home-btn" type="info" @click="goVSC"
-            >VSCode 插件</w-button
+            >VSC 插件</w-button
           >
           <w-button class="home-btn" type="border" @click="goGithub">
             <svg

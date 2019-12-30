@@ -1,4 +1,4 @@
-import { TITLE, VSC_URL } from '@/views/common/constant';
+import { TITLE, VSC_URL, LOADER_URL } from '@/views/common/constant';
 
 export interface ToEntity {
   name: string;
@@ -29,6 +29,10 @@ const navCore: NavEntity[] = [
   {
     href: VSC_URL,
     title: 'VSCode 插件',
+  },
+  {
+    href: LOADER_URL,
+    title: 'Water Loader',
   },
   {
     to: { name: 'Log' },
