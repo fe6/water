@@ -78,13 +78,19 @@
   &-btn {
     margin-right: 1vw;
     width: 14vw;
-    max-width: 120px;
+    max-width: 158px;
     padding: 0.6vw 0;
     height: auto;
 
     & .w-btn-text {
       font-size: 1.2vw;
       line-height: 1;
+    }
+
+    & i,
+    & svg {
+      width: 1.2vw !important;
+      height: 1.2vw !important;
     }
   }
 
