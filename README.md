@@ -13,6 +13,12 @@
 
 [![Sauce Labs Test Status (for master branch)](https://badges.herokuapp.com/browsers?googlechrome=7&firefox=7&microsoftedge=10&iexplore=9&safari=10.10)](https://saucelabs.com/u/_wmhilton)
 
+## 使用建议
+
+- vue 2.6 +
+- webpack 4 +
+- node 11 +
+
 ## 安装
 
 ``` cmd
@@ -26,6 +32,8 @@ $ yarn add @fe6/water
 ``` js
 import water from '@fe6/water';
 import '@fe6/water/dist/water.css';
+
+Vue.use(water);
 ```
 
 - CDN 外部引用
