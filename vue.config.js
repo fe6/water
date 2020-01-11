@@ -1,3 +1,5 @@
+/** @format */
+
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
@@ -24,7 +26,7 @@ const buildConf = {
       config.module.rules[config.module.rules.length - 3].use[0].options,
       {
         fix: true,
-      }
+      },
     );
     // 优化体积
     if (isProduction) {

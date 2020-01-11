@@ -1,12 +1,9 @@
+/** @format */
+
 @import '../components/icon/src/circle.scss';
 @import './config.scss';
 
-$loading-color: rgba(
-  0,
-  0,
-  0,
-  0.45
-);
+$loading-color: rgba(0, 0, 0, 0.45);
 
 .w-loading {
   &::before {

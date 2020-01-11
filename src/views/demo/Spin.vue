@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div>
     <h1>{{ Spin }}</h1>

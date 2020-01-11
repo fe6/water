@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import { groupCol, groupOptions } from '@/views/code/table/options/group';
 

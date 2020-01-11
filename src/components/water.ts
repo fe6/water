@@ -1,3 +1,5 @@
+/** @format */
+
 // 挂载方法
 import confirm from '@/components/modal/src/confirm';
 

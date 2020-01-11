@@ -1,3 +1,5 @@
+/** @format */
+
 export interface RgbMayBeEntity {
   r?: number;
   g?: number;

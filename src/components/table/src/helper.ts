@@ -1,3 +1,5 @@
+/** @format */
+
 import { hasOwn } from '@/helper/o';
 
 export const getMaxLevel = (params: any[], attr = 'children'): number => {
@@ -28,7 +30,7 @@ export interface ChildEntity {
 
 export const getAllChildrenLength = (
   params: any[],
-  attr = 'children'
+  attr = 'children',
 ): ChildEntity => {
   const childs: any = {};
 
@@ -41,7 +43,7 @@ export const getAllChildrenLength = (
         }
 
         const childItems = objItem[attr].filter(
-          (objItemChild: any) => !hasOwn(objItemChild, attr)
+          (objItemChild: any) => !hasOwn(objItemChild, attr),
         );
 
         // 更新路径中的数据
@@ -69,7 +71,7 @@ export const getCol = (
   item: any,
   itemIndex: string,
   maxLevel: number,
-  childLength: ChildEntity
+  childLength: ChildEntity,
 ) => {
   const levels: number = itemIndex.split('-').length;
   const rowSpan: number = maxLevel - levels + 1;
@@ -80,7 +82,7 @@ export const getCol = (
         childItem,
         `${itemIndex}-${String(childIndex)}`,
         maxLevel,
-        childLength
+        childLength,
       );
     });
     // 追加 rowSpan

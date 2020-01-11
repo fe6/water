@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import { borderCol, borderOptions } from '@/views/code/table/options/border';
 

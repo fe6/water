@@ -1,3 +1,5 @@
+/** @format */
+
 import popconfirm from 'water-helper-maps/out/maps/attrs/popconfirm/popconfirm.json';
 import getProps from '@/views/common/getprop';
 

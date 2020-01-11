@@ -1,3 +1,5 @@
+/** @format */
+
 import WEmpty from './src/Empty.vue';
 
 const waterName = 'WEmpty';

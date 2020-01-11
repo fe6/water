@@ -1,3 +1,5 @@
+/** @format */
+
 import { shallowMount } from '@vue/test-utils';
 import Option from './Option.vue';
 import Select from './Select.vue';
@@ -340,7 +342,7 @@ describe('Select.vue', () => {
         expect(setFieldValueFn).toBeCalled();
         expect(setStatusFn).toBeCalled();
         expect(resetHoverIndexFn).toBeCalled();
-        //test searchInput
+        // test searchInput
         testSearchEnter.vm.searchInput({ target: { value: testTip } });
         expect(setFieldValueFn).toBeCalled();
         // test keyUp

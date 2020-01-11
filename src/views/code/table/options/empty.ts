@@ -1,3 +1,5 @@
+/** @format */
+
 export const emptyCol = `[{
         "title": "Name",
         "dataIndex": "name",

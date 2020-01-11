@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <li class="w-timeline-item">
     <div
@@ -86,7 +88,7 @@
       const defNodes = (this.$parent.$slots as any).default;
       if (defNodes && defNodes.length > 0) {
         this.index = ([...defNodes] as any).findIndex(
-          (item: any) => item === this.$vnode
+          (item: any) => item === this.$vnode,
         );
       }
     }

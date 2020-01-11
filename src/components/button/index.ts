@@ -1,3 +1,5 @@
+/** @format */
+
 import WButton from './src/Button.vue';
 
 const waterName = 'WButton';

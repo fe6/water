@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import { IMAGE, ALT } from '@/views/common/constant';
 import { codeCommon } from '@/views/code/link/base';

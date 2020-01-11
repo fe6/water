@@ -1,3 +1,5 @@
+/** @format */
+
 import WSwitch from './src/Switch.vue';
 
 const waterName = 'WSwitch';

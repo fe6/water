@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div
     class="w-switch"

@@ -1,3 +1,5 @@
+/** @format */
+
 import countdown from 'water-helper-maps/out/maps/attrs/countdown/countdown.json';
 import getProps from '@/views/common/getprop';
 

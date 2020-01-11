@@ -1,3 +1,5 @@
+/** @format */
+
 export const mergeCol = [
   {
     title: 'Name',

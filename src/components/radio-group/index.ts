@@ -1,3 +1,5 @@
+/** @format */
+
 import WRadioGroup from '@/components/radio/src/RadioGroup.vue';
 
 const waterName = 'WRadioGroup';

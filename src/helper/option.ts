@@ -1,3 +1,5 @@
+/** @format */
+
 import { FieldNamesEntity } from '@/components/select/src/entity';
 
 // 放到这是因为碰到不可用的没法同步索引
@@ -5,7 +7,7 @@ export const findEnabled = (
   slotsData: any,
   hoverIndex = 0,
   direction = 1,
-  fieldNames: FieldNamesEntity
+  fieldNames: FieldNamesEntity,
 ): number => {
   if (!slotsData) {
     return -1;
@@ -17,7 +19,7 @@ export const findEnabled = (
   }
   const index = slotsData.findIndex(
     (slot: any, slotIndex: number) =>
-      !slot[fieldNames.disabled] && hoverIndex === slotIndex
+      !slot[fieldNames.disabled] && hoverIndex === slotIndex,
   );
   if (index < 0) {
     let newIndex = hoverIndex + direction;
@@ -40,18 +42,18 @@ export const handleName = (
   name: any,
   slotsDefault: any[],
   isTagMode = false,
-  fieldNames: FieldNamesEntity
+  fieldNames: FieldNamesEntity,
 ) => {
   const newName = name.slice();
   const nameIndex = newName.findIndex((nameItem: string) =>
-    isTagMode ? nameItem === value : nameItem.indexOf(value) > -1
+    isTagMode ? nameItem === value : nameItem.indexOf(value) > -1,
   );
   // 如果有就删了
   if (nameIndex > -1) {
     newName.splice(nameIndex, 1);
   } else {
     const newIndex = slotsDefault.findIndex(
-      (nameItem: any) => nameItem[fieldNames.label].indexOf(value) > -1
+      (nameItem: any) => nameItem[fieldNames.label].indexOf(value) > -1,
     );
     // 如果找到对应的名字就填进去
     if (newIndex > -1) {
@@ -65,10 +67,10 @@ export const handleName = (
 export const toggleItem = (
   target: any[] = [],
   value: string,
-  fieldNames: FieldNamesEntity
+  fieldNames: FieldNamesEntity,
 ) => {
   const newTagIndex = target.findIndex(
-    (name) => name[fieldNames.label] === value
+    (name) => name[fieldNames.label] === value,
   );
   if (newTagIndex > -1) {
     target.splice(newTagIndex, 1);
@@ -85,12 +87,12 @@ export const toggleItem = (
 export const addUsedStatus = (
   findTarget = [],
   target = [],
-  fieldNames: FieldNamesEntity
+  fieldNames: FieldNamesEntity,
 ) => {
   const statusArrs: any[] = [];
   target.forEach((value) => {
     const findEnd: any = findTarget.find(
-      (findItem: any) => findItem[fieldNames.label] === value
+      (findItem: any) => findItem[fieldNames.label] === value,
     );
 
     statusArrs.push({

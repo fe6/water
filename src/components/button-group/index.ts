@@ -1,3 +1,5 @@
+/** @format */
+
 import WButtonGroup from '@/components/button/src/ButtonGroup.vue';
 
 const waterName = 'WButtonGroup';

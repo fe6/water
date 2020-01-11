@@ -1,3 +1,5 @@
+/** @format */
+
 export default (tem: string, js: string) => `<!DOCTYPE html>
 <html lang="zh">
 <head>

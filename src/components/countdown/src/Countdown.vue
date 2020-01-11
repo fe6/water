@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <WStatistic
     :title="title"
@@ -117,7 +119,7 @@
         {
           class: 'w-statistic-int',
         },
-        value
+        value,
       );
     }
 

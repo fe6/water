@@ -1,3 +1,5 @@
+/** @format */
+
 const timeList = {
   functional: true,
   props: {
@@ -27,7 +29,7 @@ const timeList = {
           },
         ],
       },
-      time
+      time,
     );
   },
 };

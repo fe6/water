@@ -1,3 +1,5 @@
+/** @format */
+
 import affix from 'water-helper-maps/out/maps/attrs/affix/affix.json';
 import getProps from '@/views/common/getprop';
 

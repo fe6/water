@@ -1,3 +1,5 @@
+/** @format */
+
 import WPopover from './src/Popover.vue';
 
 const waterName = 'WPopover';

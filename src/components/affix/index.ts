@@ -1,3 +1,5 @@
+/** @format */
+
 import WAffix from './src/Affix.vue';
 
 const waterName = 'WAffix';

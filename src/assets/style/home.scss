@@ -1,3 +1,5 @@
+/** @format */
+
 @import '../../helper/config.scss';
 @import '../../helper/fade.scss';
 
@@ -11,11 +13,7 @@
     height: auto;
     display: block;
     overflow: hidden;
-    transform: translate3d(
-      0,
-      0,
-      0
-    );
+    transform: translate3d(0, 0, 0);
     text-align: center;
     opacity: 1;
   }

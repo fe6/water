@@ -1,3 +1,5 @@
+/** @format */
+
 import { keys } from '@/helper/o';
 
 export default (attrs: any): any => {

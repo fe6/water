@@ -1,3 +1,5 @@
+/** @format */
+
 import Link from '@/components/link/src/Link.vue';
 import { ApiEntity } from '@/views/entity/demoentity';
 
@@ -59,11 +61,11 @@ export const renderCommon = (h: Function, params: RenderCommonParamsEntity) =>
                 ...params.props,
               },
             },
-            [params.render ? params.render(h) : params.defaultText]
+            [params.render ? params.render(h) : params.defaultText],
           ),
-        ]
+        ],
       ),
-    ]
+    ],
   );
 
 const base: ApiEntity = {

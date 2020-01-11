@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div class="w-empty">
     <div class="w-empty-box" :style="imageStyle">

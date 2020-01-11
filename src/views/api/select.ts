@@ -1,3 +1,5 @@
+/** @format */
+
 import select from 'water-helper-maps/out/maps/attrs/select/select.json';
 import getProps from '@/views/common/getprop';
 

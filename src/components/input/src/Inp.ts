@@ -1,3 +1,5 @@
+/** @format */
+
 import { VNode } from 'vue';
 import { Component, Model, Prop, Vue, Watch } from 'vue-property-decorator';
 import { getMaxLengthValue } from '@/components/input/src/helpers';

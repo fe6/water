@@ -1,3 +1,5 @@
+/** @format */
+
 import WTag from '@/components/tag/src/Tag.vue';
 
 export const loadingCol = [
@@ -28,8 +30,8 @@ export const loadingCol = [
               color: ['#eb2f96', '#f5222d', '#1996f9'][textIdx],
             },
           },
-          textName
-        )
+          textName,
+        ),
       );
     },
   },

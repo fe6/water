@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <!-- 使用 -->
   <!-- <DatePcikerTable
@@ -172,8 +174,8 @@
       if (this.isWeek) {
         return !!weekLine.find((lineItem: DateEntity) =>
           Boolean(
-            lineItem.day && lineItem.day > 0 && lineItem.value === this.value
-          )
+            lineItem.day && lineItem.day > 0 && lineItem.value === this.value,
+          ),
         );
       }
 
@@ -199,7 +201,7 @@
         | MonthInMonthsEntity[]
         | AgesInAgesEntity[]
         | YearInYearsEntity[],
-      ev: Event
+      ev: Event,
     ): PickerTableChangeEntity {
       const params: PickerTableChangeEntity = {
         value: item.value || '',

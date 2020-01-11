@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <table
     v-if="options.length"

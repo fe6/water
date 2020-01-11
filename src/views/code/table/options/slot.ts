@@ -1,3 +1,5 @@
+/** @format */
+
 export const slotCol = `[{
         "title": "line",
         "dataIndex": "action",

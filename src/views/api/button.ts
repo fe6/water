@@ -1,3 +1,5 @@
+/** @format */
+
 import button from 'water-helper-maps/out/maps/attrs/button/button.json';
 import buttonGroup from 'water-helper-maps/out/maps/attrs/button/button-group.json';
 import getProps from '@/views/common/getprop';

@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div class="w-calendar">
     <div class="w-calendar-header">

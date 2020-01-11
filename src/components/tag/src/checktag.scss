@@ -1,3 +1,5 @@
+/** @format */
+
 @import '../../../helper/config.scss';
 @import '../../../helper/buttonclick.scss';
 @import '../../../helper/loading.scss';
@@ -61,10 +63,7 @@ $loading-right: (
     &#{$size} {
       height: $value + px;
       line-height: $value + px;
-      margin-right: map-get(
-        $margin-right,
-        $size
-      ) + px;
+      margin-right: map-get($margin-right, $size) + px;
 
       @if $size == '-sm' {
         padding: 0 8px;
@@ -96,10 +95,7 @@ $loading-right: (
         padding-right: $value + px;
 
         &::before {
-          right: map-get(
-            $loading-right,
-            $size
-          ) + px;
+          right: map-get($loading-right, $size) + px;
         }
       }
     }

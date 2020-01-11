@@ -1,3 +1,5 @@
+/** @format */
+
 import getScroll from './getscroll';
 import * as getRect from './getrect';
 

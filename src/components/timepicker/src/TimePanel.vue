@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div class="w-timepanel">
     <TimeList
@@ -43,7 +45,7 @@
 </template>
 
 <script lang="ts">
-  import moment, { Moment } from 'moment';
+  import moment from 'moment';
   import {
     Component,
     Model,
@@ -134,7 +136,7 @@
 
     get listLength(): number {
       return [this.hasHour, this.hasMinute, this.hasSecond].filter(
-        (item: boolean): boolean => item === true
+        (item: boolean): boolean => item === true,
       ).length;
     }
 
@@ -197,8 +199,8 @@
         if (scrollEle) {
           scrollEle.scrollTo(
             (this as any)[`${timeKey}s`].findIndex(
-              (timeItem: string) => timeItem === (this as any)[timeKey]
-            )
+              (timeItem: string) => timeItem === (this as any)[timeKey],
+            ),
           );
         }
       });

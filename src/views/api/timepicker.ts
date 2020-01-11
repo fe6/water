@@ -1,3 +1,5 @@
+/** @format */
+
 import timepicker from 'water-helper-maps/out/maps/attrs/timepicker/timepicker.json';
 import getProps from '@/views/common/getprop';
 

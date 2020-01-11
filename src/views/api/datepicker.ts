@@ -1,3 +1,5 @@
+/** @format */
+
 import datepicker from 'water-helper-maps/out/maps/attrs/datepicker/datepicker.json';
 import getProps from '@/views/common/getprop';
 

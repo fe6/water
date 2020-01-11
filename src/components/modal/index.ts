@@ -1,3 +1,5 @@
+/** @format */
+
 import WModal from './src/Modal.vue';
 
 const waterName = 'WModal';

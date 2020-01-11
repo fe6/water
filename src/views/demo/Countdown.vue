@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div>
     <h1>{{ Countdown }}</h1>
@@ -45,11 +47,7 @@
   import base from '@/views/code/countdown/base';
   import million from '@/views/code/countdown/million';
   import { props, methods } from '@/views/api/countdown';
-  import {
-    PropsEntity,
-    SlotMethodsEntity,
-    MethodsEntity,
-  } from '@/views/entity/apientity';
+  import { PropsEntity, MethodsEntity } from '@/views/entity/apientity';
   import { TITLE } from '@/views/common/constant';
 
   interface StatusEntity {

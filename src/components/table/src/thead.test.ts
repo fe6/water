@@ -1,3 +1,5 @@
+/** @format */
+
 import { shallowMount } from '@vue/test-utils';
 import { sortCol, sortOptions } from '@/views/code/table/options/sort';
 import {

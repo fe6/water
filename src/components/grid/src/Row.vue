@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <script lang="ts">
   import { VNode } from 'vue';
   import { Component, Vue, Prop, Provide } from 'vue-property-decorator';
@@ -63,7 +65,7 @@
           class: [this.classList, this.className],
           style: this.rowStyle,
         },
-        this.$slots.default
+        this.$slots.default,
       );
     }
   }

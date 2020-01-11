@@ -1,3 +1,5 @@
+/** @format */
+
 import WPopconfirm from './src/Popconfirm.vue';
 
 const waterName = 'WPopconfirm';

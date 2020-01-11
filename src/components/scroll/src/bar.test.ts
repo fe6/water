@@ -1,3 +1,5 @@
+/** @format */
+
 import { mount } from '@vue/test-utils';
 import Bar from './Bar.vue';
 

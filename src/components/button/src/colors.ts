@@ -1,3 +1,5 @@
+/** @format */
+
 export interface ColorEntity {
   danger: string;
   border: string;

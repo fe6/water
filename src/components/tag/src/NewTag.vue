@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div
     v-if="!inputStatus"
@@ -118,7 +120,7 @@
       this.inputStatus = true;
       this.$nextTick(() => {
         const inputElement = (this.$refs.input as any).$el.querySelector(
-          '.w-input'
+          '.w-input',
         ) || { focus: () => {} };
         (inputElement as HTMLInputElement).focus();
       });

@@ -1,3 +1,5 @@
+/** @format */
+
 import cascader from 'water-helper-maps/out/maps/attrs/cascader/cascader.json';
 import getProps from '@/views/common/getprop';
 

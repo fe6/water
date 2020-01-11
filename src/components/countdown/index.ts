@@ -1,3 +1,5 @@
+/** @format */
+
 import WCountdown from './src/Countdown.vue';
 
 const waterName = 'WCountdown';

@@ -1,3 +1,5 @@
+/** @format */
+
 export interface PickerSvgEntity {
   [key: string]: string;
 }

@@ -1,3 +1,5 @@
+/** @format */
+
 export default {
   bind(el: any, binding: any) {
     const documentHandler = (e: any) => {

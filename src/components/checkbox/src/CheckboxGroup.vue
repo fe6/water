@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div class="w-checkbox-group" :class="className">
     <Checkbox
@@ -9,7 +11,8 @@
       :value="
         checkValue.find(
           (cItem) =>
-            cItem === item[fieldNames.label] || cItem === item[fieldNames.value]
+            cItem === item[fieldNames.label] ||
+            cItem === item[fieldNames.value],
         )
       "
       :label="item[fieldNames.label] || item[fieldNames.value]"

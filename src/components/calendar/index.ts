@@ -1,3 +1,5 @@
+/** @format */
+
 import WCalendar from './src/Calendar.vue';
 
 const waterName = 'WCalendar';

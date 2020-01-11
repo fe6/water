@@ -1,3 +1,5 @@
+/** @format */
+
 import WIcon from './src/Icon.vue';
 
 const waterName = 'WIcon';

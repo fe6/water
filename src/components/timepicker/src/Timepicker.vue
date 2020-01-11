@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div ref="picker" v-doc-click="bodyClick" class="w-timepicker">
     <div
@@ -104,7 +106,7 @@
 </template>
 
 <script lang="ts">
-  import moment, { Moment } from 'moment';
+  import moment from 'moment';
   import addDOMEventListener from 'add-dom-event-listener';
   import {
     Component,
@@ -263,7 +265,7 @@
       this.resizeEvent = addDOMEventListener(
         window,
         'resize',
-        this.resizeChange
+        this.resizeChange,
       );
       this.resizeChange();
     }

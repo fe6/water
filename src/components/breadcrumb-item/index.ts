@@ -1,3 +1,5 @@
+/** @format */
+
 import WBreadcrumbItem from '@/components/breadcrumb/src/BreadcrumbItem.vue';
 
 const waterName = 'WBreadcrumbItem';

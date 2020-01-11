@@ -1,3 +1,5 @@
+/** @format */
+
 import WRadio from '@/components/radio/src/Radio.vue';
 
 const waterName = 'WRadio';

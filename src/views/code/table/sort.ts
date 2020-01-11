@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import { sortOptions } from '@/views/code/table/options/sort';
 

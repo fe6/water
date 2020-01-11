@@ -1,3 +1,5 @@
+/** @format */
+
 export interface ApiEntity {
   title: string;
   desc: string;

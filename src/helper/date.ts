@@ -1,3 +1,5 @@
+/** @format */
+
 import moment, { Moment } from 'moment';
 import concat from 'lodash/concat';
 import { hasOwn } from './o';
@@ -176,7 +178,7 @@ export const renderPrevDates = ({
 
   const prevDateAllNumbers = moment(
     `${currentYear}-${prevMonth}`,
-    formatMonthDefault
+    formatMonthDefault,
   ).daysInMonth();
   const maxNumber =
     Number(moment(`${currentYear}-${trueMonths}-01`, formatDateDefault).day()) -
@@ -185,9 +187,9 @@ export const renderPrevDates = ({
   while (prevDateNumbers < maxNumber) {
     const momentLastItem = moment(
       `${currentYear}-${paddingZero(prevMonth)}-${paddingZero(
-        prevDateAllNumbers - prevDateNumbers
+        prevDateAllNumbers - prevDateNumbers,
       )}`,
-      formatDateDefault
+      formatDateDefault,
     );
     dates.unshift(
       handleMomentObject({
@@ -196,7 +198,7 @@ export const renderPrevDates = ({
         format,
         valueFormat,
         disabledRender,
-      })
+      }),
     );
     prevDateNumbers++;
   }
@@ -218,7 +220,7 @@ export const renderCurrentDates = ({
   for (let index = 1; index <= dateNumbers; index++) {
     const momentItem = moment(
       `${years}-${trueMonths}-${paddingZero(index)}`,
-      formatDateDefault
+      formatDateDefault,
     );
     dates.push(
       handleMomentObject({
@@ -227,7 +229,7 @@ export const renderCurrentDates = ({
         format,
         valueFormat,
         disabledRender,
-      })
+      }),
     );
   }
 
@@ -255,7 +257,7 @@ export const renderNextDates = ({
   const maxNumber =
     weekNumber -
     Number(
-      moment(`${years}-${trueMonths}-${dateNumbers}`, formatDateDefault).day()
+      moment(`${years}-${trueMonths}-${dateNumbers}`, formatDateDefault).day(),
     ) -
     firstDayOfWeek;
 
@@ -263,7 +265,7 @@ export const renderNextDates = ({
     nextDateNumbers++;
     const momentLastItem = moment(
       `${nextYear}-${paddingZero(nextMonth)}-${paddingZero(nextDateNumbers)}`,
-      formatDateDefault
+      formatDateDefault,
     );
     dates.push(
       handleMomentObject({
@@ -272,7 +274,7 @@ export const renderNextDates = ({
         format,
         valueFormat,
         disabledRender,
-      })
+      }),
     );
   }
 
@@ -313,7 +315,7 @@ export const paddingDatesWithToSixLines = ({
     while (dateNumbers < WEEK_TEXT.length) {
       const momentItem = moment(
         `${years}-${paddingZero(startMonths)}-${paddingZero(startDates)}`,
-        formatDateDefault
+        formatDateDefault,
       );
 
       date6.push(
@@ -323,7 +325,7 @@ export const paddingDatesWithToSixLines = ({
           format,
           valueFormat,
           disabledRender,
-        })
+        }),
       );
 
       dateNumbers++;
@@ -342,28 +344,25 @@ export const renderDates = ({
   valueFormat,
   disabledRender,
 }: RenderDatesEntity): DateEntity[] => {
-  const newParams: RenderMonthDatesEntity = Object.assign(
-    {},
-    {
-      firstDayOfWeek,
+  const newParams: RenderMonthDatesEntity = {
+    firstDayOfWeek,
+    format,
+    valueFormat,
+    dateNumbers: mObject.daysInMonth(),
+    disabledRender,
+    mJson: handleMomentObject({
+      mObject,
+      status: 'default',
       format,
       valueFormat,
-      dateNumbers: mObject.daysInMonth(),
       disabledRender,
-      mJson: handleMomentObject({
-        mObject,
-        status: 'default',
-        format,
-        valueFormat,
-        disabledRender,
-      }),
-    }
-  );
+    }),
+  };
 
   const allDates: DateEntity[] = concat(
     renderPrevDates(newParams),
     renderCurrentDates(newParams),
-    renderNextDates(newParams)
+    renderNextDates(newParams),
   );
 
   return concat(
@@ -373,7 +372,7 @@ export const renderDates = ({
       disabledRender,
       format,
       valueFormat,
-    })
+    }),
   );
 };
 
@@ -684,7 +683,7 @@ export const renderMonths = ({
     (value: string, valueIndex: number): MonthInMonthsEntity => {
       const monthMoment = moment(
         `${year}-${paddingZero(valueIndex + 1)}`,
-        formatMonthDefault
+        formatMonthDefault,
       );
       return {
         value: monthMoment.format(valueFormat),
@@ -705,7 +704,7 @@ export const renderMonths = ({
             })
           : false,
       };
-    }
+    },
   );
 
   return {

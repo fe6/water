@@ -1,3 +1,5 @@
+/** @format */
+
 import WCheckboxGroup from '@/components/checkbox/src/CheckboxGroup.vue';
 
 const waterName = 'WCheckboxGroup';

@@ -1,3 +1,5 @@
+/** @format */
+
 import switchJson from 'water-helper-maps/out/maps/attrs/switch/switch.json';
 import getProps from '@/views/common/getprop';
 

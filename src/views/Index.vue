@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div class="layout">
     <WAffix :offset-top="0">

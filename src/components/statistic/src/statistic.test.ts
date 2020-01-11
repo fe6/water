@@ -1,3 +1,5 @@
+/** @format */
+
 import { mount } from '@vue/test-utils';
 import Statistic from './Statistic.vue';
 

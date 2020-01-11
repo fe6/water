@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div>
     按需加载

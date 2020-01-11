@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div class="affix">
     <h1>{{ Affix }}</h1>

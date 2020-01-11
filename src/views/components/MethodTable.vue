@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <WScroll type="horizontal" v-once class="table-box">
     <table style="width: calc(100vw - 286px);">

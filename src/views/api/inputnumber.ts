@@ -1,3 +1,5 @@
+/** @format */
+
 import inputNumber from 'water-helper-maps/out/maps/attrs/input-number/input-number.json';
 import getProps from '@/views/common/getprop';
 

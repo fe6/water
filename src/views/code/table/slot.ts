@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import { slotCol, slotOptions } from '@/views/code/table/options/slot';
 

@@ -1,3 +1,5 @@
+/** @format */
+
 import { mount, shallowMount } from '@vue/test-utils';
 import Scroll from './Scroll.vue';
 

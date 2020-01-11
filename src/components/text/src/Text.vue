@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div>
     <WTextBase :render="baseRender" :slot="$slots.default" />
@@ -49,7 +51,7 @@
           {
             class: ['w-text-u', `w-text-u${this.type ? `-${this.type}` : ''}`],
           },
-          [content]
+          [content],
         );
       }
 
@@ -59,7 +61,7 @@
           {
             class: 'w-text-strong',
           },
-          [content]
+          [content],
         );
       }
 
@@ -69,7 +71,7 @@
           {
             class: 'w-text-code',
           },
-          [content]
+          [content],
         );
       }
 
@@ -88,7 +90,7 @@
             class: 'w-text-mark',
             style: markStyle,
           },
-          [content]
+          [content],
         );
       }
 
@@ -98,7 +100,7 @@
           {
             class: 'w-text-delete',
           },
-          [content]
+          [content],
         );
       }
 
@@ -115,7 +117,7 @@
             },
           ],
         },
-        textChilds
+        textChilds,
       );
     }
   }

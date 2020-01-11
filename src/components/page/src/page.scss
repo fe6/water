@@ -1,3 +1,5 @@
+/** @format */
+
 @import '../../../helper/config.scss';
 @import '../../../helper/arrow.scss';
 @import '../../icon/src/icon.scss';
@@ -248,17 +250,11 @@ $move-time: 0.4s;
       transition: border-color $move-time;
 
       &-prev {
-        transform: translate(
-          5px,
-          -4px
-        ) rotate(135deg);
+        transform: translate(5px, -4px) rotate(135deg);
       }
 
       &-next {
-        transform: translate(
-          2px,
-          -4px
-        ) rotate(-45deg);
+        transform: translate(2px, -4px) rotate(-45deg);
       }
     }
   }

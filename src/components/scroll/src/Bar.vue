@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div
     :class="['w-scroll-bar', 'w-scroll-' + bar.key]"
@@ -77,7 +79,7 @@
     clickTrackHandler(ev: any): ThumbPositionPercentageEntity {
       const offset = Math.abs(
         ev.target.getBoundingClientRect()[this.bar.direction] -
-          ev[this.bar.client]
+          ev[this.bar.client],
       );
       const thumbHalf = this.thumb[this.bar.offset] / 2;
       const thumbPositionPercentage =
@@ -99,13 +101,13 @@
       this.mouseMoveEvent = addDOMEventListener(
         document,
         'mousemove',
-        this.mouseMoveDocumentHandler
+        this.mouseMoveDocumentHandler,
       );
 
       this.mouseUpEvent = addDOMEventListener(
         document,
         'mouseup',
-        this.mouseUpDocumentHandler
+        this.mouseUpDocumentHandler,
       );
       document.onselectstart = () => false;
 

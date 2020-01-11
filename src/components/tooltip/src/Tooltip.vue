@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div
     ref="tooltip"
@@ -167,7 +169,7 @@
       this.resizeEvent = addDOMEventListener(
         window,
         'resize',
-        this.resizeChange
+        this.resizeChange,
       );
     }
 

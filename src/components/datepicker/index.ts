@@ -1,3 +1,5 @@
+/** @format */
+
 import WDatepicker from './src/DatePicker.vue';
 
 const waterName = 'WDatepicker';

@@ -1,3 +1,5 @@
+/** @format */
+
 import addDOMEventListener from 'add-dom-event-listener';
 
 interface ObserverEntity {
@@ -14,14 +16,14 @@ const observers: ObserverEntity[] = [];
 
 export const addObserved = (
   target: HTMLElement | Window | null,
-  updatePostion: Function
+  updatePostion: Function,
 ): void => {
   if (!target) {
     return;
   }
 
   let entity: ObserverEntity | undefined = observers.find(
-    (item) => item.target === target
+    (item) => item.target === target,
   );
   // 如果一个页面存在多个 target 一样的，就存起来一起触发
   if (entity) {
@@ -43,7 +45,7 @@ export const addObserved = (
           entity!.eventList.forEach((eventItem) => {
             eventItem(event);
           });
-        }
+        },
       );
     });
   }
@@ -51,10 +53,10 @@ export const addObserved = (
 
 export const removeObserved = (target: HTMLElement | Window | null): void => {
   const entity: ObserverEntity | undefined = observers.find(
-    (item) => item.target === target
+    (item) => item.target === target,
   );
   const entityIndex: number | undefined = observers.findIndex(
-    (item) => item.target === target
+    (item) => item.target === target,
   );
   if (entity) {
     Object.keys(entity.eventHandler).forEach((eventName) => {

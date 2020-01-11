@@ -1,3 +1,5 @@
+/** @format */
+
 import { mount } from '@vue/test-utils';
 import Input from './Input.vue';
 import Icon from '@/components/icon/src/Icon.vue';

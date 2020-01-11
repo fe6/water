@@ -1,3 +1,5 @@
+/** @format */
+
 import badge from 'water-helper-maps/out/maps/attrs/badge/badge.json';
 import getProps from '@/views/common/getprop';
 

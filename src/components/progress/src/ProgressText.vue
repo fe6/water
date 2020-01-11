@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div
     :class="[
@@ -40,7 +42,6 @@
     iconList,
     IconListEntity,
     statusList,
-    ColorItemEntity,
   } from '@/components/progress/src/helper';
   import WIcon from '@/components/icon/src/Icon.vue';
 

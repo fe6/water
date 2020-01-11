@@ -1,3 +1,5 @@
+/** @format */
+
 export interface RectEntity {
   bottom?: number;
   height?: number;

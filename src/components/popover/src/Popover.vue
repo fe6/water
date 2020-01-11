@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div
     ref="popover"
@@ -194,7 +196,7 @@
       this.resizeEvent = addDOMEventListener(
         window,
         'resize',
-        this.resizeChange
+        this.resizeChange,
       );
     }
 

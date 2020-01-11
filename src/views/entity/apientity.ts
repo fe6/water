@@ -1,3 +1,5 @@
+/** @format */
+
 export interface PropsEntity {
   param: string;
   description: string;

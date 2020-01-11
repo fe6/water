@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div
     ref="popconfirm"
@@ -209,7 +211,7 @@
       this.resizeEvent = addDOMEventListener(
         window,
         'resize',
-        this.resizeChange
+        this.resizeChange,
       );
     }
 

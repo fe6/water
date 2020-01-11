@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div style="display: inline-block">
     <template v-for="(optItem, optItemIndex) in optionMenu">
@@ -38,7 +40,6 @@
   import WOption from '@/components/select/src/Option.vue';
   import WScroll from '@/components/scroll/src/Scroll.vue';
   import {
-    OptionsEntity,
     FieldNamesEntity,
     ReturnParamsEntity,
     fieldNamesDefault,
@@ -97,7 +98,7 @@
     handleOptionChange(
       menuIndex: number,
       itemIndex: any,
-      current: ReturnParamsEntity
+      current: ReturnParamsEntity,
     ) {
       if (
         !hasOwn(current, this.fieldNames.disabled) ||
@@ -109,7 +110,7 @@
           current.ev,
           false,
           menuIndex,
-          itemIndex
+          itemIndex,
         );
       } else {
         current.ev!.stopPropagation();
@@ -121,12 +122,12 @@
       ev: MouseEvent | undefined,
       emit: boolean,
       menuIndex: number,
-      itemIndex: number
+      itemIndex: number,
     ) {
       if (current) {
         const { children, label } = this.fieldNames;
         const newOption = this.optionMenu[menuIndex].options.find(
-          (optItem: any) => optItem[label] === current
+          (optItem: any) => optItem[label] === current,
         );
 
         // 如果当前禁用

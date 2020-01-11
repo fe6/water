@@ -1,3 +1,5 @@
+/** @format */
+
 import empty from 'water-helper-maps/out/maps/attrs/empty/empty.json';
 import getProps from '@/views/common/getprop';
 

@@ -1,3 +1,5 @@
+/** @format */
+
 import WSpin from './src/Spin.vue';
 
 const waterName = 'WSpin';

@@ -1,3 +1,5 @@
+/** @format */
+
 @import '../../../helper/config.scss';
 @import '../../../helper/buttonclick.scss';
 @import '../../../helper/loading.scss';
@@ -35,10 +37,7 @@ $margin-right: (
     &#{$size} {
       height: $value + px;
       line-height: $value + px;
-      margin-right: map-get(
-        $margin-right,
-        $size
-      ) + px;
+      margin-right: map-get($margin-right, $size) + px;
 
       @if $size == '-sm' {
         padding: 0 8px;
@@ -79,12 +78,7 @@ $margin-right: (
     &:hover {
       &::before,
       &::after {
-        background: rgba(
-          0,
-          0,
-          0,
-          0.85
-        );
+        background: rgba(0, 0, 0, 0.85);
       }
 
       & .w-tag-close-section {

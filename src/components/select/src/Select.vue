@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div
     ref="select"
@@ -180,7 +182,7 @@
     @Model('model', { type: [String, Number, Array] }) readonly value!: [
       string,
       number,
-      string[]
+      string[],
     ];
 
     @Prop({
@@ -342,12 +344,12 @@
         slotsDefault.length > 0
       ) {
         const slotProps = slotsDefault.map(
-          (slot: any) => slot.componentOptions.propsData
+          (slot: any) => slot.componentOptions.propsData,
         );
 
         nameItem = slotProps.find(
           (slot: any) =>
-            slot[label] === this.title || slot[value] === this.title
+            slot[label] === this.title || slot[value] === this.title,
         );
       }
 
@@ -363,7 +365,7 @@
       this.resizeEvent = addDOMEventListener(
         window,
         'resize',
-        this.resizeChange
+        this.resizeChange,
       );
     }
 
@@ -470,7 +472,7 @@
       const isKeyUp = ev.type === 'keyUp';
       // 获取当前
       const optItem = options.find((opt: any) =>
-        isKeyUp ? value.indexOf(opt[label]) > -1 : value === opt[label]
+        isKeyUp ? value.indexOf(opt[label]) > -1 : value === opt[label],
       );
       const newValue = this.isSingleMode && optItem ? optItem[label] : value;
       const reParams: ReturnParamsEntity = {
@@ -503,7 +505,7 @@
         this.slotsData,
         this.optHoverIndex,
         1,
-        this.fieldNames
+        this.fieldNames,
       );
     }
 
@@ -516,7 +518,7 @@
         this.slotsData,
         this.optHoverIndex,
         -1,
-        this.fieldNames
+        this.fieldNames,
       );
     }
 
@@ -528,7 +530,7 @@
       const { value } = (ev as any).target;
       let newValue = '';
       const searchItem = this.slotsData.find(
-        (nameItem) => nameItem[this.fieldNames.label].indexOf(value) > -1
+        (nameItem) => nameItem[this.fieldNames.label].indexOf(value) > -1,
       );
       if (searchItem) {
         newValue = searchItem[this.fieldNames.label];
@@ -584,10 +586,10 @@
             this.title,
             this.slotsData,
             this.isTagMode,
-            this.fieldNames
+            this.fieldNames,
           ),
           ev,
-          this.slotsData
+          this.slotsData,
         );
         this.setFieldValue();
       }
@@ -602,7 +604,7 @@
       if (
         this.isTagMode &&
         this.slotsData.find(
-          (slotItem) => slotItem.new && slotItem.value === value
+          (slotItem) => slotItem.new && slotItem.value === value,
         )
       ) {
         toggleItem(this.newTags, value, this.fieldNames);
@@ -629,10 +631,10 @@
               this.title,
               this.slotsData,
               this.isTagMode,
-              this.fieldNames
+              this.fieldNames,
             ),
             ev,
-            this.slotsData
+            this.slotsData,
           );
         }
       }
@@ -649,10 +651,10 @@
           this.title,
           this.slotsData,
           this.isTagMode,
-          this.fieldNames
+          this.fieldNames,
         ),
         ev,
-        this.slotsData
+        this.slotsData,
       );
       this.resetHoverIndex();
       this.getFocus();

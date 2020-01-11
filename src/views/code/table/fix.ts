@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import { fixOptions } from '@/views/code/table/options/fix';
 

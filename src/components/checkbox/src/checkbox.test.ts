@@ -1,3 +1,5 @@
+/** @format */
+
 import { mount } from '@vue/test-utils';
 import Checkbox from './Checkbox.vue';
 import CheckboxGroup from './CheckboxGroup.vue';

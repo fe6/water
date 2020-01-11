@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import { codeCommon, defaultDatas } from '@/views/code/radio/base';
 

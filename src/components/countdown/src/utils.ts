@@ -1,3 +1,5 @@
+/** @format */
+
 import moment, { Moment, MomentFormatSpecification } from 'moment';
 import padStart from 'lodash/padStart';
 import { isNumber } from '@/helper/type';
@@ -24,7 +26,7 @@ export function formatTimeStr(duration: number, format: string) {
 
   const escapeRegex = /\[[^\]]*\]/g;
   const keepList: string[] = (format.match(escapeRegex) || []).map((str) =>
-    str.slice(1, -1)
+    str.slice(1, -1),
   );
   const templateText = format.replace(escapeRegex, '[]');
 
@@ -61,5 +63,5 @@ export function formatCountdown(value: any, format: string) {
 
 export const getTime = (
   value?: number | Moment | string,
-  format?: MomentFormatSpecification
+  format?: MomentFormatSpecification,
 ) => interopDefault(moment)(value, isNumber(value) ? '' : format).valueOf();
