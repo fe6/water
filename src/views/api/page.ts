@@ -1,3 +1,5 @@
+/** @format */
+
 import page from 'water-helper-maps/out/maps/attrs/page/page.json';
 import pageJump from 'water-helper-maps/out/maps/attrs/page/page-jump.json';
 import getProps from '@/views/common/getprop';

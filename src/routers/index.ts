@@ -1,3 +1,5 @@
+/** @format */
+
 import Vue from 'vue';
 import Router from 'vue-router';
 import concat from 'lodash/concat';
@@ -60,7 +62,7 @@ export default new Router({
               import(/* webpackChunkName: "log" */ '@/views/Log.vue'),
           },
         ],
-        ...importDemoRouters()
+        ...importDemoRouters(),
       ),
       component: () =>
         import(/* webpackChunkName: "index" */ '@/views/Index.vue'),

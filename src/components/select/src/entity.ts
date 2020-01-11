@@ -1,3 +1,5 @@
+/** @format */
+
 export interface ReturnParamsEntity {
   ev: MouseEvent;
   [propName: string]: any;

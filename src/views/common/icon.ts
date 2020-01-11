@@ -1,3 +1,5 @@
+/** @format */
+
 export const thisName = '图标';
 
 export const github =

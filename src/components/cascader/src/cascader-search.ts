@@ -1,3 +1,5 @@
+/** @format */
+
 import WEmpty from '@/components/empty/src/Empty.vue';
 import WScroll from '@/components/scroll/src/Scroll.vue';
 import { FieldNamesEntity, fieldNamesDefault } from './entity';
@@ -32,8 +34,8 @@ export default {
                 {
                   class: 'w-cascader-search-keyword',
                 },
-                searchKeyWord
-              )
+                searchKeyWord,
+              ),
             );
             valueResLen--;
           }
@@ -55,7 +57,7 @@ export default {
       searchRender,
     } = props;
     const searchResult = search.filter(
-      (searchItem: any) => searchItem.path.indexOf(searchKeyWord) > -1
+      (searchItem: any) => searchItem.path.indexOf(searchKeyWord) > -1,
     );
 
     getSearchResult(searchResult);
@@ -81,9 +83,9 @@ export default {
                 },
               },
             },
-            emptyText
+            emptyText,
           ),
-        ]
+        ],
       ),
     ];
 
@@ -119,7 +121,7 @@ export default {
                       floor,
                       [fieldNames.children]: children,
                     },
-                    ev
+                    ev,
                   );
                 } else {
                   ev.stopPropagation();
@@ -132,7 +134,7 @@ export default {
             searchKeyWord,
             item: sResult,
             searchResult,
-          })
+          }),
         );
       });
     }
@@ -151,9 +153,9 @@ export default {
               width,
             },
           },
-          liElem
+          liElem,
         ),
-      ]
+      ],
     );
   },
 };

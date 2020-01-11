@@ -1,3 +1,5 @@
+/** @format */
+
 import { upperFirst } from 'lodash/string';
 import { ApiEntity, CodeCommonParamsEntity } from '@/views/entity/demoentity';
 
@@ -19,7 +21,7 @@ export const codeCommon = ({
       }>${content || upperFirst(type) || 'Default'}</w-button>${
         index < types.length - 1 ? '\n' : ''
       }`,
-    ''
+    '',
   );
 
 const base: ApiEntity = {

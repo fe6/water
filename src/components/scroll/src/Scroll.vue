@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div
     class="w-scroll"
@@ -175,7 +177,7 @@
         this.resizeEvent = addDOMEventListener(
           window,
           'resize',
-          this.updateResize
+          this.updateResize,
         );
       }
     }

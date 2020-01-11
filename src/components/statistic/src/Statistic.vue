@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div class="w-statistic">
     <div class="w-statistic-title" v-if="title || $slots.title">

@@ -1,3 +1,5 @@
+<!-- @format -->
+
 ProgressCircle
 <template>
   <div
@@ -77,7 +79,7 @@ ProgressCircle
       if (this.type === 'circle' || this.type === 'dashboard') {
         return parseInt(
           String(50 - parseFloat(this.relativeStrokeWidth) / 2),
-          10
+          10,
         );
       }
       return 0;

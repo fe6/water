@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div
     class="w-input-number"
@@ -154,14 +156,14 @@
       const writeValue = formatWrapper(
         this.tweenedNumber,
         this.formatter,
-        this.parser
+        this.parser,
       );
       const readValue = formatWrapper(
         this.tweenedNumber.toFixed(
-          Math.abs(getMaxPrecision(this.number, this.step, this.precision))
+          Math.abs(getMaxPrecision(this.number, this.step, this.precision)),
         ),
         this.formatter,
-        this.parser
+        this.parser,
       );
 
       return this.write ? writeValue : readValue;
@@ -229,8 +231,8 @@
             this.min,
             this.max,
             this.step,
-            this.precision
-          )
+            this.precision,
+          ),
         );
       }
     }
@@ -243,8 +245,8 @@
             this.min,
             this.max,
             this.step,
-            this.precision
-          )
+            this.precision,
+          ),
         );
       }
     }

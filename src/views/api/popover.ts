@@ -1,3 +1,5 @@
+/** @format */
+
 import popover from 'water-helper-maps/out/maps/attrs/popover/popover.json';
 import getProps from '@/views/common/getprop';
 

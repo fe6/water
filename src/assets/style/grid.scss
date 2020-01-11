@@ -1,3 +1,5 @@
+/** @format */
+
 .demo-grid {
   &-first {
     margin-top: 24px !important;
@@ -66,12 +68,7 @@
 
     &:nth-of-type(odd) {
       color: #fff;
-      background: rgba(
-        25,
-        150,
-        249,
-        0.5
-      );
+      background: rgba(25, 150, 249, 0.5);
     }
   }
 
@@ -83,12 +80,7 @@
   }
 
   &-box {
-    background: rgba(
-      25,
-      150,
-      249,
-      0.8
-    );
+    background: rgba(25, 150, 249, 0.8);
     color: #fff;
     font-size: 14px;
     text-align: center;
@@ -96,12 +88,7 @@
   }
 
   &-box2 {
-    background: rgba(
-      25,
-      150,
-      249,
-      0.4
-    );
+    background: rgba(25, 150, 249, 0.4);
     color: #fff;
     font-size: 14px;
     text-align: center;

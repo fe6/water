@@ -1,3 +1,5 @@
+/** @format */
+
 import WStatistic from './src/Statistic.vue';
 
 const waterName = 'WStatistic';

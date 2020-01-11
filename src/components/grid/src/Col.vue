@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <script lang="ts">
   import { VNode } from 'vue';
   import { Component, Vue, Prop, Inject } from 'vue-property-decorator';
@@ -67,12 +69,12 @@
 
     get customize(): string[] {
       const customize: string[] = SPACE.filter(
-        (size: string): string => (this as any)[size]
+        (size: string): string => (this as any)[size],
       );
 
       return customize.map(
         (prop: string): string =>
-          `${this.preName}-${(this as any)[prop]}-${prop}`
+          `${this.preName}-${(this as any)[prop]}-${prop}`,
       );
     }
 
@@ -90,7 +92,7 @@
           ],
           style: this.colStyle,
         },
-        this.$slots.default
+        this.$slots.default,
       );
     }
   }

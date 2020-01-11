@@ -1,3 +1,5 @@
+/** @format */
+
 import WText from './src/Text.vue';
 
 const waterName = 'WText';

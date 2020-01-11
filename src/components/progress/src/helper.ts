@@ -1,3 +1,5 @@
+/** @format */
+
 import { hasOwn } from '../../../helper/o';
 
 export interface IconEntity {
@@ -38,11 +40,11 @@ export interface ColorItemEntity {
 
 export const getColorInArray = (
   color: ColorItemEntity[],
-  value: number
+  value: number,
 ): string => {
   const colorList: ColorItemEntity[] = color.filter(
     (colorItem: ColorItemEntity): boolean =>
-      hasOwn(colorItem, 'value') && colorItem.value <= value
+      hasOwn(colorItem, 'value') && colorItem.value <= value,
   );
 
   if (colorList.length) {

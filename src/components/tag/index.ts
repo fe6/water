@@ -1,3 +1,5 @@
+/** @format */
+
 import WTag from './src/Tag.vue';
 
 const waterName = 'WTag';

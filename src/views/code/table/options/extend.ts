@@ -1,3 +1,5 @@
+/** @format */
+
 import WTable from '@/components/table/src/Table.vue';
 
 const detailCol = [
@@ -40,7 +42,7 @@ export const extendCol = [
               },
             },
           },
-          '详情'
+          '详情',
         ),
         createElement(
           'a',
@@ -55,7 +57,7 @@ export const extendCol = [
               },
             },
           },
-          '朋友'
+          '朋友',
         ),
       ]);
     },
@@ -69,7 +71,7 @@ export const extendCol = [
               col: detailCol,
               options: [],
             },
-          })
+          }),
         );
       }
 
@@ -80,7 +82,7 @@ export const extendCol = [
               col: detailCol,
               options: optItem.extend2,
             },
-          })
+          }),
         );
       }
 

@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div>
     <w-progress v-model="value1" stroke-linecap="square"></w-progress>

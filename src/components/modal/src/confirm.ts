@@ -1,3 +1,5 @@
+/** @format */
+
 import Vue from 'vue';
 import WModal from '@/components/modal/src/Modal.vue';
 import WIcon from '@/components/icon/src/Icon.vue';
@@ -120,7 +122,7 @@ export default {
                     fill: color,
                   },
                 }),
-              ]
+              ],
             ),
           ]),
         ]);
@@ -190,23 +192,23 @@ export default {
               {
                 class: 'w-confirm-icon',
               },
-              [isFunction(icon) ? (icon as Function)(h) : icon]
+              [isFunction(icon) ? (icon as Function)(h) : icon],
             ),
             h(
               'div',
               {
                 class: 'w-confirm-title',
               },
-              [isFunction(title) ? (title as Function)(h) : title]
+              [isFunction(title) ? (title as Function)(h) : title],
             ),
             h(
               'div',
               {
                 class: 'w-confirm-content',
               },
-              [isFunction(content) ? (content as Function)(h) : content]
+              [isFunction(content) ? (content as Function)(h) : content],
             ),
-          ]
+          ],
         );
       },
     });

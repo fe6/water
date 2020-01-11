@@ -1,3 +1,5 @@
+/** @format */
+
 export default [
   {
     version: 'v0.20.1',

@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div>
     <h1>{{ Text }}</h1>
@@ -45,11 +47,7 @@
   import base from '@/views/code/text/base';
   import type from '@/views/code/text/type';
   import { props } from '@/views/api/text';
-  import {
-    PropsEntity,
-    SlotMethodsEntity,
-    MethodsEntity,
-  } from '@/views/entity/apientity';
+  import { PropsEntity } from '@/views/entity/apientity';
   import { TITLE } from '@/views/common/constant';
 
   interface StatusEntity {

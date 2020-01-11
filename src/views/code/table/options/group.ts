@@ -1,3 +1,5 @@
+/** @format */
+
 export const groupCol = `[
         {
           "title": "Name",

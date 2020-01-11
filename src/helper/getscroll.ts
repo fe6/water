@@ -1,6 +1,8 @@
+/** @format */
+
 export default (
   target: HTMLElement | Window | null,
-  isTop?: boolean
+  isTop?: boolean,
 ): number => {
   if (typeof window === 'undefined') {
     return 0;

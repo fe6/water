@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div class="w-progress-line" :class="{}">
     <div class="w-progress-line-bar" :style="fontStyle">

@@ -1,3 +1,5 @@
+/** @format */
+
 import WOption from './Option.vue';
 import WEmpty from '@/components/empty/src/Empty.vue';
 import WScroll from '@/components/scroll/src/Scroll.vue';
@@ -93,9 +95,9 @@ const renderOption = {
                 },
               },
             },
-            emptyText
+            emptyText,
           ),
-        ]
+        ],
       ),
     ];
     // 初始化下来选项
@@ -134,7 +136,7 @@ const renderOption = {
       slotsDefault = slotsDefault.filter(
         (slot: any) =>
           fieldValue.indexOf(slot.value) > -1 ||
-          slot.value.indexOf(fieldValue) > -1
+          slot.value.indexOf(fieldValue) > -1,
       );
       // 如果tag模式
       // 输入中添加下拉内容的地方
@@ -185,10 +187,10 @@ const renderOption = {
                         name,
                         slotsDefault,
                         isSingleMode,
-                        fieldNames
+                        fieldNames,
                       ),
                       params.ev,
-                      slotsDefault
+                      slotsDefault,
                     );
                     params.ev.stopPropagation();
                   }
@@ -199,7 +201,7 @@ const renderOption = {
               },
             },
           },
-          value
+          value,
         );
       });
     }
@@ -221,9 +223,9 @@ const renderOption = {
           {
             class: ['w-option-list'],
           },
-          liElem
+          liElem,
         ),
-      ]
+      ],
     );
   },
 };

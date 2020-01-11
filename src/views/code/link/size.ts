@@ -1,3 +1,5 @@
+/** @format */
+
 import { upperFirst } from 'lodash/string';
 import { ApiEntity } from '@/views/entity/demoentity';
 import { IMAGE, ALT } from '@/views/common/constant';
@@ -13,11 +15,11 @@ const base: ApiEntity = {
       `${acc}<w-link${
         size ? ` size="${size}"` : ''
       }>\n  <img slot="icon" src="${IMAGE}" alt="${ALT}" />这是个超链 ${upperFirst(
-        size
+        size,
       ) || 'Default'}\n</w-link>${
         index < sizes.length - 1 ? '\n<br />\n' : ''
       }`,
-    ''
+    '',
   ),
 };
 

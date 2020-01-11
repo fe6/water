@@ -1,3 +1,5 @@
+/** @format */
+
 // Thanks to: https://github.com/iview/iview/blob/2.0/src/directives/transfer-dom.js
 // Thanks to: https://github.com/airyland/vux/blob/v2/src/directives/transfer-dom/index.js
 // Thanks to: https://github.com/calebroseland/vue-dom-portal
@@ -24,7 +26,7 @@ function transferInsert(
   value: any,
   el: any,
   hasMovedOut: any,
-  callBack: Function
+  callBack: Function,
 ) {
   if (value !== false) {
     parentNode.replaceChild(home, el); // moving out, el is no longer in the document
@@ -47,7 +49,7 @@ function transferUpdate(
   home: any,
   value: any,
   el: any,
-  hasMovedOut: any
+  hasMovedOut: any,
 ) {
   if (home.nodeType === 1) {
     if (!hasMovedOut && value) {
@@ -55,17 +57,19 @@ function transferUpdate(
       parentNode.replaceChild(home, el);
       // append to target
       getTarget(value).appendChild(el);
-      el.wTransferDomData = Object.assign({}, el.wTransferDomData, {
+      el.wTransferDomData = {
+        ...el.wTransferDomData,
         hasMovedOut: true,
         target: getTarget(value),
-      });
+      };
     } else if (hasMovedOut && value === false) {
       // previously moved, coming back home
       parentNode.replaceChild(el, home);
-      el.wTransferDomData = Object.assign({}, el.wTransferDomData, {
+      el.wTransferDomData = {
+        ...el.wTransferDomData,
         hasMovedOut: false,
         target: getTarget(value),
-      });
+      };
     } else if (value && value.nodeName !== 'BODY') {
       // already moved, going somewhere else
       // 并且 不是 body 元素，就继续添加，修复 w-modal 中有 w-input 的时候输入内容会自定失去焦点

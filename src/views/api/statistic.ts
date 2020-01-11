@@ -1,3 +1,5 @@
+/** @format */
+
 import statistic from 'water-helper-maps/out/maps/attrs/statistic/statistic.json';
 import getProps from '@/views/common/getprop';
 

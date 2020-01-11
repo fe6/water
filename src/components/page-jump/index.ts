@@ -1,3 +1,5 @@
+/** @format */
+
 import WPageJump from '@/components/page/src/PageJump.vue';
 
 const waterName = 'WPageJump';

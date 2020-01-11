@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import Page from '@/components/page/src/Page.vue';
 
@@ -53,11 +55,11 @@ export const renderCommon = (h: Function, params: RenderCommonParamsEntity) =>
                 ...params.props,
               },
             },
-            ''
+            '',
           ),
-        ]
+        ],
       ),
-    ]
+    ],
   );
 
 const base: ApiEntity = {

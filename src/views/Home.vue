@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div class="home">
     <div ref="lottie" class="home-lottie"></div>

@@ -1,3 +1,5 @@
+/** @format */
+
 import tooltip from 'water-helper-maps/out/maps/attrs/tooltip/tooltip.json';
 import getProps from '@/views/common/getprop';
 

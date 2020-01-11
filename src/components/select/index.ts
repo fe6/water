@@ -1,3 +1,5 @@
+/** @format */
+
 import WSelect from './src/Select.vue';
 
 const waterName = 'WSelect';

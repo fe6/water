@@ -1,3 +1,5 @@
+/** @format */
+
 import tag from 'water-helper-maps/out/maps/attrs/tag/tag.json';
 import checkTag from 'water-helper-maps/out/maps/attrs/tag/check-tag.json';
 import newTag from 'water-helper-maps/out/maps/attrs/tag/new-tag.json';

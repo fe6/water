@@ -1,3 +1,5 @@
+/** @format */
+
 import { paddingZero } from '@/helper/date';
 
 export const genNumberArray = (length: number) =>

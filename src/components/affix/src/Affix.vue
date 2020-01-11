@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div class="w-affix">
     <!-- 在定位的过程中位置会变，滚动之后刷新就会有问题 -->

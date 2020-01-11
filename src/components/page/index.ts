@@ -1,3 +1,5 @@
+/** @format */
+
 import WPage from './src/Page.vue';
 
 const waterName = 'WPage';

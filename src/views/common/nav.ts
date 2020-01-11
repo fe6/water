@@ -1,3 +1,5 @@
+/** @format */
+
 import { TITLE, VSC_URL, LOADER_URL } from '@/views/common/constant';
 
 export interface ToEntity {

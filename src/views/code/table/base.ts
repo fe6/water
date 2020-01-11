@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import { baseCol, baseOptions } from '@/views/code/table/options/base';
 

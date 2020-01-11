@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <WSpin v-model="loading">
     <div class="w-table-wrap">
@@ -388,7 +390,7 @@
 
     get leftCol() {
       return this.theadCol[0].filter(
-        (colItem: any) => colItem.fixed === 'left'
+        (colItem: any) => colItem.fixed === 'left',
       );
     }
 
@@ -398,7 +400,7 @@
 
     get rightCol() {
       return this.theadCol[0].filter(
-        (colItem: any) => colItem.fixed === 'right'
+        (colItem: any) => colItem.fixed === 'right',
       );
     }
 

@@ -1,3 +1,5 @@
+/** @format */
+
 import radio from 'water-helper-maps/out/maps/attrs/radio/radio.json';
 import radioGroup from 'water-helper-maps/out/maps/attrs/radio/radio-group.json';
 import getProps from '@/views/common/getprop';

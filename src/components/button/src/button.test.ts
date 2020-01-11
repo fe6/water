@@ -1,3 +1,5 @@
+/** @format */
+
 import { mount } from '@vue/test-utils';
 import Button from './Button.vue';
 import ButtonGroup from './ButtonGroup.vue';

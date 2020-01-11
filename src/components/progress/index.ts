@@ -1,3 +1,5 @@
+/** @format */
+
 import WProgress from './src/Progress.vue';
 
 const waterName = 'WProgress';

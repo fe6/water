@@ -1,3 +1,5 @@
+/** @format */
+
 import WTable from './src/Table.vue';
 
 const waterName = 'WTable';

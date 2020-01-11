@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <li :class="optionClass" @click="optionClick($event)">
     <slot></slot>

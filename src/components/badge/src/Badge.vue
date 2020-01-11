@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div v-if="slotDefault" class="w-badge">
     <sup

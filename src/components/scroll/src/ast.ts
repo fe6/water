@@ -1,4 +1,8 @@
-/* eslint-disable no-unused-vars */
+/**
+ * /* eslint-disable no-unused-vars
+ *
+ * @format
+ */
 
 export interface BarEntity {
   offset: string;

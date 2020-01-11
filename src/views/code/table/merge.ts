@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import { mergeOptions } from '@/views/code/table/options/merge';
 

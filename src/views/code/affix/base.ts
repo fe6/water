@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import Affix from '@/components/affix/src/Affix.vue';
 import Button from '@/components/button/src/Button.vue';
@@ -36,7 +38,7 @@ export const codeCommon = ({
 export const renderCommon = (
   h: Function,
   aaa: any,
-  params: RenderCommonParamsEntity
+  params: RenderCommonParamsEntity,
 ) =>
   h(
     'section',
@@ -57,11 +59,11 @@ export const renderCommon = (
                 ...params.props,
               },
             },
-            [h(Button, {}, params.defaultText || 'Affix')]
+            [h(Button, {}, params.defaultText || 'Affix')],
           ),
-        ]
+        ],
       ),
-    ]
+    ],
   );
 
 const base: ApiEntity = {

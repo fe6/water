@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div class="statistic">
     <WStatistic title="Active Users" v-model="value1" groupSeparator="。" />

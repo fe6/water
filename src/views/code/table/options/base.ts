@@ -1,3 +1,5 @@
+/** @format */
+
 export const baseCol = `[{
         "title": "Name",
         "dataIndex": "name",

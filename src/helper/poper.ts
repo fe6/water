@@ -1,3 +1,5 @@
+/** @format */
+
 import { hasOwn } from './o';
 
 export const getScroll = (target: any, top?: boolean): number => {
@@ -17,7 +19,7 @@ export const setLeftFn = (
   self: any,
   render: Element,
   before = () => {},
-  after = () => {}
+  after = () => {},
 ) => {
   if (!render) {
     return new Promise((resolve) => {
@@ -58,7 +60,7 @@ export const setTopFn = (
   self: any,
   render: Element,
   before = () => {},
-  after = () => {}
+  after = () => {},
 ) => {
   if (!render) {
     return new Promise((resolve) => {

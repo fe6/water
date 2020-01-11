@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <button
     :type="htmlType"

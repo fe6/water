@@ -1,3 +1,5 @@
+/** @format */
+
 import { shallowMount } from '@vue/test-utils';
 import CascaderPanel from './CascaderPanel.vue';
 
@@ -130,7 +132,7 @@ describe('CascaderPanel.vue', () => {
           { stopPropagation: stopPropagationStub },
           false,
           0,
-          1
+          1,
         );
         expect(stopPropagationStub).toBeCalled();
         wrapperSetValue.vm.optChange();
@@ -143,7 +145,7 @@ describe('CascaderPanel.vue', () => {
           { stopPropagation: stopPropagationStub },
           false,
           0,
-          1
+          1,
         );
         done();
       } catch (err) {
@@ -161,7 +163,7 @@ describe('CascaderPanel.vue', () => {
           { stopPropagation: stopPropagationStub },
           false,
           0,
-          1
+          1,
         );
         expect(stopPropagationStub).toBeCalled();
         done();
@@ -211,7 +213,7 @@ describe('CascaderPanel.vue', () => {
           {
             label: 'Zhejiang',
           },
-          {}
+          {},
         );
         expect(optChangeStub).toBeCalled();
         const stopPropagationStub = jest.fn();

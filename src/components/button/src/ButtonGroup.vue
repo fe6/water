@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div :class="['w-btn-group', className]">
     <slot></slot>

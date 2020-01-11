@@ -1,3 +1,5 @@
+/** @format */
+
 import WCascader from './src/Cascader.vue';
 
 const waterName = 'WCascader';

@@ -1,3 +1,5 @@
+/** @format */
+
 import WCol from '@/components/grid/src/Col.vue';
 
 const waterName = 'WCol';

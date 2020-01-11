@@ -1,3 +1,5 @@
+/** @format */
+
 import { shallowMount } from '@vue/test-utils';
 import ProgressText from './ProgressText.vue';
 

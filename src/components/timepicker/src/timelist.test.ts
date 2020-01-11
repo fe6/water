@@ -1,3 +1,5 @@
+/** @format */
+
 import { mount } from '@vue/test-utils';
 import TimeList from './TimeList.vue';
 import { genHours } from '@/helper/time';

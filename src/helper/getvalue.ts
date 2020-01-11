@@ -1,3 +1,5 @@
+/** @format */
+
 import { isNumber } from './type';
 
 export default (val: number | string) =>

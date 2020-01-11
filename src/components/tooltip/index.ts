@@ -1,3 +1,5 @@
+/** @format */
+
 import WTooltip from './src/Tooltip.vue';
 
 const waterName = 'WTooltip';

@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div>
     <WCheckTag v-model="value1">WCheckTag</WCheckTag>

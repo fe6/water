@@ -1,3 +1,5 @@
+/** @format */
+
 import { shallowMount } from '@vue/test-utils';
 import Tag from './Tag.vue';
 
@@ -98,7 +100,7 @@ describe('Tag.vue', () => {
         expect(wrapperSection.vm.isAllValue).toBeFalsy();
         expect(wrapperSection.vm.colorTypeValue).toBe('section');
         expect(wrapperSection.vm.borderColorValue).toBe(
-          'rgba(25, 150, 249, 1)'
+          'rgba(25, 150, 249, 1)',
         );
         done();
       } catch (err) {

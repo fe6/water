@@ -1,3 +1,5 @@
+/** @format */
+
 import { mount, createLocalVue } from '@vue/test-utils';
 import VueRouter from 'vue-router';
 import Breadcrumb from './Breadcrumb.vue';
@@ -34,7 +36,7 @@ describe('BreadcrumbItem.vue', () => {
                   to: { name: 'Breadcrumb' },
                 },
               },
-              'vue 路由跳转'
+              'vue 路由跳转',
             );
           },
         },
@@ -55,7 +57,7 @@ describe('BreadcrumbItem.vue', () => {
                   href,
                 },
               },
-              '本标签页面跳转'
+              '本标签页面跳转',
             );
           },
         },
@@ -74,7 +76,7 @@ describe('BreadcrumbItem.vue', () => {
                   open,
                 },
               },
-              '新标签页面跳转'
+              '新标签页面跳转',
             );
           },
         },

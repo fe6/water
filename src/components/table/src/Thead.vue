@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <table
     class="w-table"
@@ -187,7 +189,7 @@
         (col) =>
           hasOwn(col, 'defaultSortOrder') &&
           !!col.defaultSortOrder &&
-          typeof col.defaultSortOrder === 'string'
+          typeof col.defaultSortOrder === 'string',
       );
 
       if (defSortIndex > -1) {
@@ -257,7 +259,7 @@
     // 设置筛选切换
     sortType(ignoreIndex = -1) {
       this.colSort = this.colIndex.map((col, colIndex) =>
-        ignoreIndex === colIndex ? this.colSort[colIndex] : 'all'
+        ignoreIndex === colIndex ? this.colSort[colIndex] : 'all',
       );
     }
   }

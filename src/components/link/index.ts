@@ -1,3 +1,5 @@
+/** @format */
+
 import WLink from './src/Link.vue';
 
 const waterName = 'WLink';

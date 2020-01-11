@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import { emptyCol, emptyOptions } from '@/views/code/table/options/empty';
 

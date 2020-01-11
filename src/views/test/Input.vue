@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div>
     <h1>限制字数</h1>

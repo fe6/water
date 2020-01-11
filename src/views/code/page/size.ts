@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 
 export const codeCommon = (): string => `<w-page :total="100"></w-page>

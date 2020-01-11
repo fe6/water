@@ -1,3 +1,5 @@
+/** @format */
+
 import WBadge from './src/Badge.vue';
 
 const waterName = 'WBadge';

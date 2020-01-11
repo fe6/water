@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div
     ref="cascader"
@@ -114,7 +116,6 @@
   import { findEnabled } from '@/helper/option';
   import { noop } from '@/helper/noop';
   import {
-    OptionsEntity,
     FieldNamesEntity,
     ReturnParamsEntity,
     fieldNamesDefault,
@@ -262,7 +263,7 @@
       return getValueByLabel(
         this.realValue,
         this.options,
-        this.fieldNames
+        this.fieldNames,
       ).slice();
     }
 
@@ -286,7 +287,7 @@
       this.resizeEvent = addDOMEventListener(
         window,
         'resize',
-        this.resizeChange
+        this.resizeChange,
       );
     }
 
@@ -465,7 +466,7 @@
         this.searchResult,
         this.searchHoverIndex,
         1,
-        this.fieldNames
+        this.fieldNames,
       );
     }
 
@@ -479,7 +480,7 @@
         this.searchResult,
         this.searchHoverIndex,
         -1,
-        this.fieldNames
+        this.fieldNames,
       );
     }
 

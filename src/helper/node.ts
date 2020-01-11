@@ -1,3 +1,5 @@
+/** @format */
+
 import { keys } from '@/helper/o';
 
 export const findUpNode = (content: any, name: string) => {
@@ -20,9 +22,9 @@ export const preventDefaultExceptionFn = (
     tagName?: RegExp;
     className?: RegExp;
     [key: string]: any;
-  }
+  },
 ): boolean => {
-  let result: boolean = false;
+  let result = false;
 
   keys(exceptions).forEach((excItem: string) => {
     if (exceptions[excItem].test(el[excItem])) {

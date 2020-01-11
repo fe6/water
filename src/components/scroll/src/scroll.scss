@@ -1,3 +1,5 @@
+/** @format */
+
 .w-scroll {
   overflow: hidden;
   position: relative;
@@ -66,12 +68,7 @@
     width: 0;
     height: 0;
     border-radius: inherit;
-    background-color: rgba(
-      144,
-      147,
-      153,
-      0.3
-    );
+    background-color: rgba(144, 147, 153, 0.3);
     transition: background-color 0.3s, height 0.3s, width 0.3s, margin 0.3s;
 
     &-horizontal {

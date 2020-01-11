@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div>
     <!-- <Timepicker disabled @change="change" /> -->
@@ -43,13 +45,13 @@
         second,
         moment(
           `${time}:${minute}:${second}`,
-          TIME_VALUE_FORMAT_DEFAULT
+          TIME_VALUE_FORMAT_DEFAULT,
         ).isBefore(moment('12:12:12', TIME_VALUE_FORMAT_DEFAULT)),
-        'params disabled render'
+        'params disabled render',
       );
       return moment(
         `${time}:${minute}:${second}`,
-        TIME_VALUE_FORMAT_DEFAULT
+        TIME_VALUE_FORMAT_DEFAULT,
       ).isBefore(moment('12:12:12', TIME_VALUE_FORMAT_DEFAULT));
     }
 
@@ -71,7 +73,7 @@
       // );
       return moment(
         `${hour}:${time}:${second}`,
-        TIME_VALUE_FORMAT_DEFAULT
+        TIME_VALUE_FORMAT_DEFAULT,
       ).isBefore(moment('12:12:12', TIME_VALUE_FORMAT_DEFAULT));
     }
 
@@ -93,7 +95,7 @@
       // );
       return moment(
         `${hour}:${minute}:${time}`,
-        TIME_VALUE_FORMAT_DEFAULT
+        TIME_VALUE_FORMAT_DEFAULT,
       ).isBefore(moment('12:12:12', TIME_VALUE_FORMAT_DEFAULT));
     }
 

@@ -1,3 +1,5 @@
+/** @format */
+
 import { noop, noopArray } from '@/helper/noop';
 
 export default {

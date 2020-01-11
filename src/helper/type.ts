@@ -1,3 +1,5 @@
+/** @format */
+
 export const type = (thing: any): string =>
   Object.prototype.toString.call(thing);
 

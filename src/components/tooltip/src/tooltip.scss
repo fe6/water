@@ -1,3 +1,5 @@
+/** @format */
+
 @import '../../../helper/config.scss';
 @import '../../../helper/fade.scss';
 
@@ -8,12 +10,7 @@ $prefix: w-tooltip;
   font-size: 14px;
   font-variant: tabular-nums;
   line-height: 1.5;
-  color: rgba(
-    0,
-    0,
-    0,
-    0.65
-  );
+  color: rgba(0, 0, 0, 0.65);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -36,12 +33,7 @@ $prefix: w-tooltip;
     color: $normal-color;
     text-align: left;
     text-decoration: none;
-    background-color: rgba(
-      0,
-      0,
-      0,
-      0.75
-    );
+    background-color: rgba(0, 0, 0, 0.75);
     border-radius: 4px;
     box-shadow: 0 2px 8px $shadow;
     box-sizing: border-box;
@@ -71,23 +63,13 @@ $prefix: w-tooltip;
     &-horbottom {
       top: 0;
       border-width: 0 5px 5px;
-      border-bottom-color: rgba(
-        0,
-        0,
-        0,
-        0.75
-      );
+      border-bottom-color: rgba(0, 0, 0, 0.75);
     }
 
     &-hortop {
       bottom: 0;
       border-width: 5px 5px 0;
-      border-top-color: rgba(
-        0,
-        0,
-        0,
-        0.75
-      );
+      border-top-color: rgba(0, 0, 0, 0.75);
     }
 
     &-vercenter {
@@ -106,23 +88,13 @@ $prefix: w-tooltip;
     &-horleft {
       right: 0;
       border-width: 5px 0 5px 5px;
-      border-left-color: rgba(
-        0,
-        0,
-        0,
-        0.75
-      );
+      border-left-color: rgba(0, 0, 0, 0.75);
     }
 
     &-horright {
       left: 0;
       border-width: 5px 5px 5px 0;
-      border-right-color: rgba(
-        0,
-        0,
-        0,
-        0.75
-      );
+      border-right-color: rgba(0, 0, 0, 0.75);
     }
 
     &-horcenter {

@@ -1,3 +1,5 @@
+/** @format */
+
 @import '../../../helper/config.scss';
 @import '../../../helper/loading.scss';
 @import '../../../helper/ellipsis.scss';
@@ -220,30 +222,10 @@ $move-time: 0.4s;
       position: relative;
       overflow: hidden;
       transition:
-        padding $move-time cubic-bezier(
-          0.645,
-          0.045,
-          0.355,
-          1
-        ),
-        height $move-time cubic-bezier(
-          0.645,
-          0.045,
-          0.355,
-          1
-        ),
-        line-height $move-time cubic-bezier(
-          0.645,
-          0.045,
-          0.355,
-          1
-        ),
-        font-size $move-time cubic-bezier(
-          0.645,
-          0.045,
-          0.355,
-          1
-        );
+        padding $move-time cubic-bezier(0.645, 0.045, 0.355, 1),
+        height $move-time cubic-bezier(0.645, 0.045, 0.355, 1),
+        line-height $move-time cubic-bezier(0.645, 0.045, 0.355, 1),
+        font-size $move-time cubic-bezier(0.645, 0.045, 0.355, 1);
       padding: 0 20px 0 8px;
       margin: 0 4px 0 0;
       height: 18px;

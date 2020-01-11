@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div v-if="isNormalMode" class="w-page">
     <span v-if="totalText" class="w-page-text">{{ totalText }}</span>
@@ -267,7 +269,7 @@
       const step = Math.ceil((this.midleSizeValue - 1) / 2);
       let first = Math.min(
         this.current > step ? this.current - step : 1,
-        this.pageNumber - this.midleSizeValue + 1
+        this.pageNumber - this.midleSizeValue + 1,
       );
       while (midle.length < this.midleSizeValue) {
         midle.push(first++);

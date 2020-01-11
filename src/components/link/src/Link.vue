@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <a
     v-if="href"

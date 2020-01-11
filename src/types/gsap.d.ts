@@ -1,1 +1,3 @@
+/** @format */
+
 declare module 'gsap';

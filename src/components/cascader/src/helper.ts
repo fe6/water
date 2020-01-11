@@ -1,3 +1,5 @@
+/** @format */
+
 import { hasOwn } from '@/helper/o';
 import { FieldNamesEntity } from './entity';
 
@@ -5,7 +7,7 @@ import { FieldNamesEntity } from './entity';
 export const getValueByLabel = (
   values: any[],
   options: any[],
-  fieldNames: FieldNamesEntity
+  fieldNames: FieldNamesEntity,
 ) => {
   const newValue: string[] = [];
   let index = 0;
@@ -36,7 +38,7 @@ export const objToPath = (arr: any, fieldNames: FieldNamesEntity) => {
     target: any[],
     valuePrefix = '',
     labelPrefix = '',
-    disabled = false
+    disabled = false,
   ) => {
     target.forEach((cur, index) => {
       const itemValuePath = valuePrefix
@@ -52,7 +54,7 @@ export const objToPath = (arr: any, fieldNames: FieldNamesEntity) => {
           cur[fieldNames.children],
           itemValuePath,
           itemLabelPath,
-          itemDisabled
+          itemDisabled,
         );
       } else {
         const value = itemValuePath.split(format);

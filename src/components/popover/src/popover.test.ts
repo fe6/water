@@ -1,3 +1,5 @@
+/** @format */
+
 import { shallowMount } from '@vue/test-utils';
 import Popover from './Popover.vue';
 import Icon from '@/components/icon/src/Icon.vue';

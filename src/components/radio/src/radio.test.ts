@@ -1,3 +1,5 @@
+/** @format */
+
 import { mount } from '@vue/test-utils';
 import Radio from './Radio.vue';
 import RadioGroup from './RadioGroup.vue';

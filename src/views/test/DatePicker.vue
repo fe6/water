@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div>
     <!-- --{{value3}}
@@ -149,7 +151,7 @@
           class: 'w-picker-date',
           style,
         },
-        a.dateItem.trueValue
+        a.dateItem.trueValue,
       );
     }
 

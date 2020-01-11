@@ -1,3 +1,5 @@
+/** @format */
+
 import { mount } from '@vue/test-utils';
 import Row from './Row.vue';
 import Col from './Col.vue';

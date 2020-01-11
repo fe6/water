@@ -1,3 +1,5 @@
+/** @format */
+
 export default {
   name: 'Render',
   functional: true,

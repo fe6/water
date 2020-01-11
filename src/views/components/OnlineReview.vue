@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <section ref="box" class="demo-box">
     <section ref="meta" class="demo-meta">

@@ -1,3 +1,5 @@
+/** @format */
+
 import WTimelineItem from '@/components/timeline/src/TimelineItem.vue';
 
 const waterName = 'WTimelineItem';

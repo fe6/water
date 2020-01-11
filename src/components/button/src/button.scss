@@ -1,3 +1,5 @@
+/** @format */
+
 @import '../../../helper/config.scss';
 @import '../../../helper/buttonclick.scss';
 @import '../../icon/src/icon.scss';
@@ -124,30 +126,18 @@ $button-text-margin: (
       & > .w-icon img,
       & > .w-icon svg {
         display: inline-block;
-        width: map-get(
-          $button-icon,
-          $size
-        ) + px;
-        height: map-get(
-          $button-icon,
-          $size
-        ) + px;
+        width: map-get($button-icon, $size) + px;
+        height: map-get($button-icon, $size) + px;
       }
 
       & > .#{$prefix}btn-text {
-        font-size: map-get(
-          $button-font,
-          $size
-        ) + px;
+        font-size: map-get($button-font, $size) + px;
         line-height: ($value - 2) + px;
       }
     }
 
     &-icon#{$size} {
-      padding: 0 map-get(
-        $button-icon-padding,
-        $size
-      ) + px;
+      padding: 0 map-get($button-icon-padding, $size) + px;
     }
   }
 

@@ -1,3 +1,5 @@
+/** @format */
+
 import WTimepicker from './src/Timepicker.vue';
 
 const waterName = 'WTimepicker';

@@ -1,3 +1,5 @@
+/** @format */
+
 import scroll from 'water-helper-maps/out/maps/attrs/scroll/scroll.json';
 import getProps from '@/views/common/getprop';
 

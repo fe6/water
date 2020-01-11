@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <section class="demo-box">
     <WRender

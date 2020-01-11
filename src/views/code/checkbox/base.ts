@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity, CodeCommonParamsEntity } from '@/views/entity/demoentity';
 
 export interface DataEntity {

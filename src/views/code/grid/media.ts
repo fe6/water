@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 
 const url = 'http://getbootstrap.com/css/#grid-media-queries';

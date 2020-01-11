@@ -1,3 +1,5 @@
+/** @format */
+
 import WScroll from '@/components/scroll/src/Scroll.vue';
 
 const waterName = 'WScroll';

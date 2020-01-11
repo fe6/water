@@ -1,3 +1,5 @@
+/** @format */
+
 import { upperFirst } from 'lodash/string';
 import { ApiEntity } from '@/views/entity/demoentity';
 
@@ -11,7 +13,7 @@ const base: ApiEntity = {
     (acc: string, size: string, index: number) =>
       `${acc}<w-button${size ? ` size="${size}"` : ''}>${upperFirst(size) ||
         'Default'}</w-button>${index < sizes.length - 1 ? '\n' : ''}`,
-    ''
+    '',
   ),
 };
 

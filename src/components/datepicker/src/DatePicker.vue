@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div ref="picker" v-doc-click="bodyClick" class="w-datepicker">
     <div
@@ -470,7 +472,7 @@
       this.resizeEvent = addDOMEventListener(
         window,
         'resize',
-        this.resizeChange
+        this.resizeChange,
       );
       this.resizeChange();
     }
@@ -546,7 +548,7 @@
       const momentValue = this.inputValue || this.defaultPickerValue;
       const tableMoment = moment(
         momentValue,
-        momentValue ? this.trueFormat : ''
+        momentValue ? this.trueFormat : '',
       );
       this.initTable(tableMoment);
     }
@@ -582,7 +584,7 @@
                 ? formatDateDefault
                 : this.trueValueFormat,
             disabledRender: this.disabledRender,
-          })
+          }),
         );
         this.tableType = this.type;
       }
@@ -610,20 +612,20 @@
           if (this.type === 'week') {
             const dateMoment: string = moment(
               this.value,
-              this.trueValueFormat
+              this.trueValueFormat,
             ).format(formatDateDefault);
             this.inputValue = moment(dateMoment, formatDateDefault).format(
-              this.trueFormat
+              this.trueFormat,
             );
           } else {
             this.inputValue = moment(value, this.trueFormat).format(
-              this.trueFormat
+              this.trueFormat,
             );
           }
 
           if (this.type === 'datetime') {
             this.timeValue = moment(value, this.trueFormat).format(
-              TIME_FORMAT_DEFAULT
+              TIME_FORMAT_DEFAULT,
             );
           }
         } else {
@@ -666,7 +668,7 @@
       this.tableChunkNumber = WEEK_TEXT.length;
       this.tableCol = concat(
         WEEK_TEXT.slice(this.firstDayOfWeek, WEEK_TEXT.length),
-        WEEK_TEXT.slice(0, this.firstDayOfWeek)
+        WEEK_TEXT.slice(0, this.firstDayOfWeek),
       );
       this.tableTextValue = 'trueValue';
       this.tablePanelChange();
@@ -704,7 +706,7 @@
       this.setTableNoTh();
       this.tableTextValue = 'trueValue';
       this.setTableValue(
-        moment(this.nowYear, this.trueFormat).format(this.trueValueFormat)
+        moment(this.nowYear, this.trueFormat).format(this.trueValueFormat),
       );
       this.tablePanelChange();
     }
@@ -755,7 +757,7 @@
 
     getDateTimeValue(panelValue: string, timeValue: string) {
       return moment(`${panelValue} ${timeValue}`, this.trueValueFormat).format(
-        this.trueValueFormat
+        this.trueValueFormat,
       );
     }
 
@@ -821,10 +823,10 @@
       this.$nextTick(() => {
         const { status } = item;
         const isPrev = (dateWeek as []).find(
-          (weekItem: any) => weekItem.status === 'prev'
+          (weekItem: any) => weekItem.status === 'prev',
         );
         const isNext = (dateWeek as []).find(
-          (weekItem: any) => weekItem.status === 'next'
+          (weekItem: any) => weekItem.status === 'next',
         );
 
         if (
@@ -847,7 +849,7 @@
     returnModel({ value }: PickerTableChangeEntity): string {
       let newValue = value;
       this.panelValue = moment(value, this.trueValueFormat).format(
-        formatDateDefault
+        formatDateDefault,
       );
 
       if (this.type === 'datetime') {
@@ -864,13 +866,13 @@
         renderDates({
           mObject: moment(
             `${this.nowYear}-${this.nowMonth}`,
-            this.type === 'week' ? formatDateDefault : this.trueFormat
+            this.type === 'week' ? formatDateDefault : this.trueFormat,
           ),
           firstDayOfWeek: this.firstDayOfWeek,
           format: this.trueFormat,
           valueFormat: this.trueValueFormat,
           disabledRender: this.disabledRender,
-        })
+        }),
       );
     }
 

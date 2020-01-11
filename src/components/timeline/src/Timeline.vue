@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <ul class="w-timeline">
     <slot></slot>

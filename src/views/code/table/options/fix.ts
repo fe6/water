@@ -1,3 +1,5 @@
+/** @format */
+
 export const fixCol = [
   {
     title: 'Full Name',

@@ -1,3 +1,5 @@
+/** @format */
+
 import WInput from './src/Input.vue';
 
 const waterName = 'WInput';

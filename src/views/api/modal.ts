@@ -1,3 +1,5 @@
+/** @format */
+
 import modal from 'water-helper-maps/out/maps/attrs/modal/modal.json';
 import getProps from '@/views/common/getprop';
 

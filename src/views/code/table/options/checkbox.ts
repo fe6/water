@@ -1,3 +1,5 @@
+/** @format */
+
 export const checkboxCol = `[{
         "dataIndex": "checkbox",
         "width": "20px",

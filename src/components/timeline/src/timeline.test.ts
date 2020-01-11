@@ -1,3 +1,5 @@
+/** @format */
+
 import { mount } from '@vue/test-utils';
 import Timeline from './Timeline.vue';
 import TimelineItem from './TimelineItem.vue';
@@ -18,7 +20,7 @@ describe('Timeline.vue', () => {
                   timeline: { name: '2019-10-10' },
                 },
               },
-              '一个事儿'
+              '一个事儿',
             );
           },
         },

@@ -1,3 +1,5 @@
+/** @format */
+
 @mixin colMixin($percentage, $i, $size: '') {
   &-#{$i}-#{$size} {
     display: block;

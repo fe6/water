@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <span class="w-breadcrumb-item">
     <Icon v-if="$slots.icon" class="w-breadcrumb-item-icon">

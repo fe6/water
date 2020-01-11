@@ -1,3 +1,5 @@
+/** @format */
+
 import { ApiEntity } from '@/views/entity/demoentity';
 import { defaultDatas } from '@/views/code/cascader/base';
 

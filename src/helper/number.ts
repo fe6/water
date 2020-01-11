@@ -1,3 +1,5 @@
+/** @format */
+
 // import * as gsap from 'gsap';
 import { noop } from '@/helper/noop';
 // 参照 https://github.com/react-component/input-number/blob/master/src/index.js
@@ -13,7 +15,7 @@ export const isNegativeZero = (number: number | string) =>
 
 export const getValueFromEvent = (
   ev: MouseEvent,
-  decimalSeparator = '.'
+  decimalSeparator = '.',
 ): string => {
   // optimize for chinese input expierence
   // https://github.com/ant-design/ant-design/issues/8196
@@ -27,7 +29,7 @@ export const getValueFromEvent = (
 export const formatWrapper = (
   num: number | string,
   formatter: Function = noop,
-  parase: Function = noop
+  parase: Function = noop,
 ): number | string => {
   if (isNegativeZero(num)) {
     return '-0';
@@ -37,7 +39,7 @@ export const formatWrapper = (
 
 export const getPrecision = (
   value: number | string,
-  precision: number
+  precision: number,
 ): number => {
   const valueString = value.toString();
   if (valueString.indexOf('e-') >= 0) {
@@ -61,7 +63,7 @@ export const getMaxPrecision = (
   currentValue: number | string,
   stepValue: number,
   precision: number,
-  rat = 1
+  rat = 1,
 ) => {
   const ratioPrecision = getPrecision(rat, precision);
   const stepPrecision = getPrecision(stepValue, precision);
@@ -79,7 +81,7 @@ export const getPrecisionFactor = (
   currentValue: number | string,
   stepValue: number,
   precision: number,
-  rat = 1
+  rat = 1,
 ) => 10 ** getMaxPrecision(currentValue, stepValue, precision, rat);
 
 export const changeStep = (
@@ -89,7 +91,7 @@ export const changeStep = (
   stepValue: number,
   precision: number,
   rat = 1,
-  direction: number
+  direction: number,
 ): number => {
   let newValue: string | number = val;
   // 如果输入的数字超过边界
@@ -105,10 +107,10 @@ export const changeStep = (
     newValue,
     stepValue,
     precision,
-    rat
+    rat,
   );
   const newPrecision = Math.abs(
-    getMaxPrecision(newValue, stepValue, precision, rat)
+    getMaxPrecision(newValue, stepValue, precision, rat),
   );
   let result;
 
@@ -149,7 +151,7 @@ export const upStep = (
   maxValue: number,
   stepValue: number,
   precision: number,
-  rat = 1
+  rat = 1,
 ): number => changeStep(val, minValue, maxValue, stepValue, precision, rat, 1);
 
 export const downStep = (
@@ -158,5 +160,5 @@ export const downStep = (
   maxValue: number,
   stepValue: number,
   precision: number,
-  rat = 1
+  rat = 1,
 ): number => changeStep(val, minValue, maxValue, stepValue, precision, rat, -1);

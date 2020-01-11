@@ -1,3 +1,5 @@
+/** @format */
+
 import checkbox from 'water-helper-maps/out/maps/attrs/checkbox/checkbox.json';
 import checkboxGroup from 'water-helper-maps/out/maps/attrs/checkbox/checkbox-group.json';
 import getProps from '@/views/common/getprop';

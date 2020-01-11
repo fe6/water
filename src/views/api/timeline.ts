@@ -1,3 +1,5 @@
+/** @format */
+
 import timeline from 'water-helper-maps/out/maps/attrs/timeline/timeline.json';
 import timelineItem from 'water-helper-maps/out/maps/attrs/timeline/timeline-item.json';
 import getProps from '@/views/common/getprop';

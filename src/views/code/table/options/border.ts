@@ -1,3 +1,5 @@
+/** @format */
+
 export const borderCol = `[{
         "title": "Name",
         "dataIndex": "name",

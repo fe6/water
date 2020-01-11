@@ -1,3 +1,5 @@
+/** @format */
+
 import calendar from 'water-helper-maps/out/maps/attrs/calendar/calendar.json';
 import getProps from '@/views/common/getprop';
 

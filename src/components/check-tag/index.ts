@@ -1,3 +1,5 @@
+/** @format */
+
 import WCheckTag from '@/components/tag/src/CheckTag.vue';
 
 const waterName = 'WCheckTag';

@@ -1,3 +1,5 @@
+/** @format */
+
 import { upperFirst } from 'lodash/string';
 import { ApiEntity } from '@/views/entity/demoentity';
 import Button from '@/components/button/src/Button.vue';
@@ -12,7 +14,7 @@ const renderCode = (type: string): string => `<w-button-group>${sizes.reduce(
     `${acc}${index < 1 ? '\n' : ''}  <w-button :key="${index}"${
       type ? ` type="${type}"` : ''
     }>${upperFirst(size)}</w-button>${index < types.length - 1 ? '\n' : ''}`,
-  ''
+  '',
 )}
 </w-button-group>`;
 
@@ -23,7 +25,7 @@ const base: ApiEntity = {
   code: types.reduce(
     (acc: string, type: string, index: number) =>
       `${acc}${renderCode(type)}${index < types.length - 1 ? '\n' : ''}`,
-    ''
+    '',
   ),
   render: (createElement: Function) =>
     createElement(
@@ -40,8 +42,8 @@ const base: ApiEntity = {
               {
                 key: index,
               },
-              [upperFirst(size) || 'Default']
-            )
+              [upperFirst(size) || 'Default'],
+            ),
           ),
         ]),
         // 主色 end
@@ -57,8 +59,8 @@ const base: ApiEntity = {
                 },
                 key: index,
               },
-              [upperFirst(size) || 'Default']
-            )
+              [upperFirst(size) || 'Default'],
+            ),
           ),
         ]),
         // border end
@@ -74,12 +76,12 @@ const base: ApiEntity = {
                 },
                 key: index,
               },
-              [upperFirst(size) || 'Default']
-            )
+              [upperFirst(size) || 'Default'],
+            ),
           ),
         ]),
         // danger end
-      ]
+      ],
     ),
 };
 

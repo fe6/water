@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
   <div>
     <WTimeline mode="right">

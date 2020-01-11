@@ -1,3 +1,5 @@
+/** @format */
+
 import WRow from '@/components/grid/src/Row.vue';
 
 const waterName = 'WRow';
