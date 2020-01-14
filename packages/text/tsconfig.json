@@ -29,8 +29,10 @@
   },
   "include": [
     "index.ts",
+    "../../src/types/shims-vue.d.ts",
     "src/**/*.vue",
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "tests/**/*.ts"
   ],
   "exclude": [
     "node_modules"

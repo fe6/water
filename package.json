@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "start": "vue-cli-service serve",
-    "test:unit": "vue-cli-service test:unit",
-    "bootstrap": "lerna bootstrap",
-    "c": "lerna create",
     "a": "lerna add",
+    "b": "lerna bootstrap",
+    "c": "lerna create",
     "clean": "lerna clean",
+    "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint && lerna run lint",
     "build": "lerna run build"
   },
@@ -49,8 +49,8 @@
   },
   "husky": {
     "hooks": {
-      "post-merge": "lerna bootstrap",
-      "pre-commit": "yarn lint"
+      "post-merge": "yarn b",
+      "pre-commit": "yarn lint && yarn test"
     }
   }
 }

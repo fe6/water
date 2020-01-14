@@ -4,6 +4,7 @@
   "description": "Water 样式的基础",
   "scripts": {
     "lint": "echo 'style lint'",
+    "test": "echo 'style test'",
     "build": "echo 'style build'"
   },
   "keywords": [
@@ -28,5 +29,9 @@
   },
   "bugs": {
     "url": "https://github.com/fe6/water/issues"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-unit-jest": "^4.1.2",
+    "@vue/test-utils": "^1.0.0-beta.30"
   }
 }
