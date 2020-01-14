@@ -2,7 +2,7 @@
 
 - [ ] Bugfix
 - [ ] Feature
-- [ ] Code style update
+- [ ] Style
 - [ ] Refactor
 - [ ] Build-related changes
 - [ ] Other, please describe:

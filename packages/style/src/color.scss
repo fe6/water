@@ -1,0 +1,21 @@
+/** @format */
+
+// ----------- Base Colors -----------
+$blue-6: #1890ff;
+$green-6: #52c41a;
+$red-6: #f5222d;
+$gold-6: #faad14;
+$gray-6: #bfbfbf;
+
+// ----------- Colors -----------
+$primary-color: $blue-6 !default;
+$info-color: $blue-6 !default;
+$success-color: $green-6 !default;
+$processing-color: $blue-6 !default;
+$error-color: $red-6 !default;
+
+$highlight-color: $red-6 !default;
+$warning-color: $gold-6 !default;
+
+$white: #fff !default;
+$black: #000 !default;

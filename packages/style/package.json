@@ -1,0 +1,32 @@
+{
+  "name": "@fe6/water-style",
+  "version": "0.0.0",
+  "description": "Water 样式的基础",
+  "scripts": {
+    "lint": "echo 'style lint'",
+    "build": "echo 'style build'"
+  },
+  "keywords": [
+    "@fe6/water",
+    "water",
+    "@fe6"
+  ],
+  "author": "李梦龙 <649076408@qq.com>",
+  "homepage": "https://github.com/fe6/water#readme",
+  "license": "MIT",
+  "main": "lib/water-style.js",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fe6/water.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fe6/water/issues"
+  }
+}

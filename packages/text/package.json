@@ -1,0 +1,48 @@
+{
+  "name": "@fe6/water-text",
+  "version": "0.0.0",
+  "description": "文本的基本格式",
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name text './index.ts' --mode production",
+    "lint": "vue-cli-service lint"
+  },
+  "keywords": [
+    "@fe6/text",
+    "text",
+    "water"
+  ],
+  "author": "李梦龙 <649076408@qq.com>",
+  "homepage": "https://github.com/fe6/water#readme",
+  "license": "MIT",
+  "main": "dist/text.umd.js",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fe6/water.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fe6/water/issues"
+  },
+  "dependencies": {
+    "@fe6/water-style": "^0.0.0",
+    "vue": "^2.6.10",
+    "vue-property-decorator": "^8.3.0"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-eslint": "^4.1.2",
+    "@vue/cli-plugin-typescript": "^4.1.2",
+    "@vue/cli-service": "^4.1.2",
+    "typescript": "^3.5.3",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

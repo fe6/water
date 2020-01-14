@@ -1,18 +1,17 @@
 /** @format */
 
 import Vue from 'vue';
-import VueCodemirror from 'vue-codemirror';
+import App from './App.vue';
+import router from './router';
+import store from './store';
+import Water from '@/water';
 
-// require styles
-import 'codemirror/lib/codemirror.css';
+Vue.config.productionTip = false;
 
-import App from '@/App.vue';
-import router from '@/routers';
-import './registerServiceWorker';
-
-Vue.use(VueCodemirror);
+Vue.use(Water);
 
 new Vue({
   router,
+  store,
   render: (h) => h(App),
 }).$mount('#app');

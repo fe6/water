@@ -1,8 +1,10 @@
 .DS_Store
 node_modules
 /dist
+**/dist
 /site
 /coverage
+**/coverage
 
 # local env files
 .env.local
@@ -20,7 +22,7 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw*
+*.sw?
 
 # depoly
 lab.sh

@@ -9,8 +9,6 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
-const file = process.env.VUE_APP_FILE;
-
 const buildConf = {
   devServer: {
     overlay: {
@@ -19,7 +17,8 @@ const buildConf = {
     },
   },
   productionSourceMap: false,
-  outputDir: file,
+  outputDir: 'dist',
+  transpileDependencies: [/@fe6/],
   configureWebpack: (config) => {
     // 自动修复语法错误
     Object.assign(
@@ -40,11 +39,6 @@ const buildConf = {
   chainWebpack: (config) => {
     config.resolve.alias.set('assets', resolve('src/assets'));
 
-    // 解决 wc-async 打包之后引入路径问题
-    if (file === 'dist') {
-      config.resolve.alias.set('~root', resolve(file));
-    }
-
     config.plugin('StyleLintPlugin').use(StyleLintPlugin, [
       {
         fix: true,
@@ -54,9 +48,5 @@ const buildConf = {
     return config;
   },
 };
-
-if (file === 'site') {
-  buildConf.publicPath = process.env.VUE_APP_CDN;
-}
 
 module.exports = buildConf;
