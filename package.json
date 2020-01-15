@@ -28,7 +28,8 @@
   },
   "devDependencies": {
     "@fe6/norm": "^1.0.7",
-    "@fe6/water-text": "^0.0.0",
+    "@fe6/water": "^0.0.0",
+    "@fe6/water-theme": "^0.0.0",
     "@types/jest": "^24.0.19",
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-eslint": "^4.1.0",

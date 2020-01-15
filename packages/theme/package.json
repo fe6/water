@@ -1,11 +1,11 @@
 {
-  "name": "@fe6/water-style",
+  "name": "@fe6/water-theme",
   "version": "0.0.0",
-  "description": "Water 样式的基础",
+  "description": "Water 的样式集合",
   "scripts": {
-    "lint": "echo 'style lint'",
+    "lint": "gulp styleLint",
     "test": "echo 'style test'",
-    "build": "echo 'style build'"
+    "build": "gulp"
   },
   "keywords": [
     "@fe6/water",
@@ -15,9 +15,10 @@
   "author": "李梦龙 <649076408@qq.com>",
   "homepage": "https://github.com/fe6/water#readme",
   "license": "MIT",
-  "main": "lib/water-style.js",
+  "main": "src/index.scss",
   "files": [
-    "lib"
+    "src",
+    "dist"
   ],
   "publishConfig": {
     "access": "public",
@@ -31,7 +32,15 @@
     "url": "https://github.com/fe6/water/issues"
   },
   "devDependencies": {
-    "@vue/cli-plugin-unit-jest": "^4.1.2",
-    "@vue/test-utils": "^1.0.0-beta.30"
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cli": "^2.2.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-stylelint": "^11.0.0",
+    "sass": "^1.24.4",
+    "stylelint": "^13.0.0"
   }
 }

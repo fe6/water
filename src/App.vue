@@ -11,8 +11,8 @@
 </template>
 
 <style lang="scss">
+  // 自定义 water 主题
   @import './assets/val.scss';
-  @import './water/index.scss';
 
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;

@@ -1,10 +1,11 @@
 /** @format */
 
 import Vue from 'vue';
+import Water from '@fe6/water';
+
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import Water from '@/water';
 
 Vue.config.productionTip = false;
 
