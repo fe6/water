@@ -10,7 +10,3 @@
   @Component
   export default class WText extends Vue {}
 </script>
-
-<style lang="scss">
-  @import 'text.scss';
-</style>

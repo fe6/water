@@ -11,6 +11,9 @@
 </template>
 
 <style lang="scss">
+  @import './assets/val.scss';
+  @import './water/index.scss';
+
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
