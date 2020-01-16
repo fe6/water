@@ -1,10 +1,8 @@
-/** @format */
-
 // 通用组件
 import WText from '@fe6/water-text';
 
-const components = {
-  WText,
+export const components = {
+  WText
 };
 
 const install = (Vue: any): void => {

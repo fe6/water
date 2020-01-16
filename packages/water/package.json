@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "An enterprise-class UI design language and Vue components implementation.",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name water './index.ts' --mode production",
+    "build": "yarn build:min && yarn build:lib",
+    "build:lib": "vue-cli-service build --target lib --name water './lib.ts' --dest dist/lib --mode production",
+    "build:min": "vue-cli-service build --target lib --name water './index.ts' --mode production",
     "test": "echo 'water test'",
     "lint": "vue-cli-service lint"
   },
