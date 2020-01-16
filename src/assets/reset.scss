@@ -1,0 +1,83 @@
+/** @format */
+
+@import '../../packages/theme/src/var/default.scss';
+
+body,
+ul {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 0 0 5px 20px;
+  padding-left: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  font-family: $family;
+  list-style-type: circle;
+}
+
+h1 {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 500;
+  font-size: 30px;
+  font-family: $family;
+  line-height: 38px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+  margin: 1.6em 0 0.6em;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.5;
+  font-family: $family;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  font-size: 12px;
+}
+
+p {
+  margin: 1em 0;
+  font-family: $family;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 2;
+}
+
+code {
+  margin: 0 1px;
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
+  background: #f2f4f5;
+  border: 1px solid #dcdcdc;
+  border-radius: 3px;
+}

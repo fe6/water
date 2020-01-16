@@ -1944,6 +1944,11 @@
   resolved "https://registry.npm.taobao.org/@types/json-schema/download/@types/json-schema-7.0.4.tgz?cache=0&sync_timestamp=1577133380181&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjson-schema%2Fdownload%2F%40types%2Fjson-schema-7.0.4.tgz#38fd73ddfd9b55abb1e1b2ed578cb55bd7b7d339"
   integrity sha1-OP1z3f2bVaux4bLtV4y1W9e30zk=
 
+"@types/lodash@^4.14.149":
+  version "4.14.149"
+  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.149.tgz#1342d63d948c6062838fbf961012f74d4e638440"
+  integrity sha512-ijGqzZt/b7BfzcK9vTrS6MFljQRPn5BFWOx8oE0GYxribu6uV+aA9zZuXI1zc/etK9E8nrgdoF2+LgUw7+9tJQ==
+
 "@types/minimatch@*":
   version "3.0.3"
   resolved "https://registry.npm.taobao.org/@types/minimatch/download/@types/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -9096,6 +9101,11 @@ loose-envify@^1.0.0:
   integrity sha1-ce5R+nvkyuwaY4OffmgtgTLTDK8=
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
+
+lottie-web@^5.6.2:
+  version "5.6.2"
+  resolved "https://registry.npmjs.org/lottie-web/-/lottie-web-5.6.2.tgz#f34b92f398325e770a591c43726539af21de423d"
+  integrity sha512-XpNdLzj3x0IXhtoLxvp2v+UoiWBjs7sVZJvRKIRk5Tc37MDJoKgz+aOnUwnMbpqZ9u/0O//3eWN4A2UE1JxPXQ==
 
 loud-rejection@^1.0.0:
   version "1.6.0"
