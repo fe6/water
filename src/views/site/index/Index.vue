@@ -1,7 +1,9 @@
 <!-- @format -->
 
 <template>
-  <div>index</div>
+  <div>
+    <router-view />
+  </div>
 </template>
 
 <script lang="ts">

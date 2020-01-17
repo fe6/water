@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import concat from 'lodash/concat';
 import TITLE from '@/common/title';
 import Home from '@/views/site/home/Home.vue';
+import Dev from '@/views/site/dev/Dev.vue';
 
 Vue.use(VueRouter);
 
@@ -14,14 +15,16 @@ export const importDemoRouters = () => {
   return rq.keys().map((key) => rq(key).default);
 };
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const routes = [
   {
     path: '',
-    name: 'home',
+    name: isDev ? 'Dev' : 'Home',
     meta: {
       title: TITLE.Home,
     },
-    component: Home,
+    component: isDev ? Dev : Home,
   },
   {
     path: '/',
@@ -31,6 +34,17 @@ const routes = [
       import(/* webpackChunkName: "index" */ '@/views/site/index/Index.vue'),
   },
 ];
+
+if (isDev) {
+  routes.push({
+    path: '/home',
+    name: 'Home',
+    meta: {
+      title: TITLE.Home,
+    },
+    component: Home,
+  });
+}
 
 const router = new VueRouter({
   mode: 'history',
