@@ -7,7 +7,7 @@
     "build:lib": "vue-cli-service build --target lib --name water './lib.ts' --dest dist/lib --mode production",
     "build:min": "vue-cli-service build --target lib --name water './index.ts' --mode production",
     "test": "echo 'water test'",
-    "lint": "vue-cli-service lint"
+    "lint": "eslint '*.ts' --fix"
   },
   "keywords": [
     "@fe6/water",
@@ -18,7 +18,7 @@
   "author": "李梦龙 <649076408@qq.com>",
   "homepage": "https://github.com/fe6/water#readme",
   "license": "MIT",
-  "main": "lib/water.js",
+  "main": "dist/water.umd.js",
   "files": [
     "lib"
   ],
@@ -34,6 +34,7 @@
     "url": "https://github.com/fe6/water/issues"
   },
   "dependencies": {
+    "@fe6/water-shared": "^0.0.0",
     "@fe6/water-text": "^0.0.0",
     "vue": "^2.6.10",
     "vue-property-decorator": "^8.3.0"
@@ -42,9 +43,11 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@fe6/norm": "^1.0.7",
     "@vue/cli-plugin-eslint": "^4.1.2",
     "@vue/cli-plugin-typescript": "^4.1.2",
     "@vue/cli-service": "^4.1.2",
+    "eslint": "^6.8.0",
     "typescript": "^3.5.3",
     "vue-template-compiler": "^2.6.10"
   }

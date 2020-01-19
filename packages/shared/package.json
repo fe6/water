@@ -1,0 +1,44 @@
+{
+  "name": "@fe6/water-shared",
+  "version": "0.0.0",
+  "description": "water 共享方法",
+  "scripts": {
+    "build": "rollup --config rollup.config.js",
+    "lint": "eslint . --ext '.ts,.js' --fix"
+  },
+  "keywords": [
+    "@fe6/water",
+    "water",
+    "@fe6",
+    "vue"
+  ],
+  "author": "李梦龙 <649076408@qq.com>",
+  "homepage": "https://github.com/fe6/water#readme",
+  "license": "MIT",
+  "main": "dist/shared.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fe6/water.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fe6/water/issues"
+  },
+  "devDependencies": {
+    "@fe6/norm": "^1.0.7",
+    "eslint": "^6.8.0",
+    "rollup": "^1.29.0",
+    "rollup-plugin-delete": "^1.1.0",
+    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "typescript": "^3.7.5"
+  }
+}

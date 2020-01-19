@@ -2,9 +2,7 @@
   "extends": "../../tsconfig",
   "include": [
     "index.ts",
-    "../../src/types/shims-vue.d.ts",
-    "src/**/*.vue",
-    "src/**/*.ts",
-    "tests/**/*.ts"
+    "lib.ts",
+    "../../src/types/shims-vue.d.ts"
   ]
 }

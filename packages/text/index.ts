@@ -1,11 +1,6 @@
 /** @format */
 
+import { installVueComponent } from '@fe6/water-shared';
 import WText from './src/Text.vue';
 
-const waterName = 'WText';
-
-(WText as any).install = (Vue: any): void => {
-  Vue.component(waterName, WText);
-};
-
-export default WText;
+export default installVueComponent(WText, 'text');
