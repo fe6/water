@@ -19,7 +19,7 @@
   "main": "dist/shared.js",
   "types": "dist/index.d.ts",
   "files": [
-    "src",
+    "lib",
     "dist"
   ],
   "publishConfig": {

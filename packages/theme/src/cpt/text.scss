@@ -2,7 +2,78 @@
 
 @import '../var/default.scss';
 
+$type-list: (
+  '-danger': $danger-color,
+  '-warning': $warning-color,
+  '-secondary': $text-color-secondary,
+  '-info': $info-color,
+  '-success': $success-color,
+);
+
 .w-text {
-  color: $red-6;
-  display: flex;
+  color: $text-color;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: $family;
+  position: relative;
+
+  &-mark {
+    padding: 0;
+    color: inherit;
+  }
+
+  &-strong {
+    font-weight: 600;
+  }
+
+  &-delete {
+    text-decoration: line-through;
+  }
+
+  &-code {
+    margin: 0 4px;
+    padding: 0.2em 0.4em 0.1em;
+    font-size: 85%;
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 3px;
+  }
+
+  &-u {
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 0;
+      bottom: 0;
+      border-bottom: 1px solid $text-color;
+    }
+
+    @each $size, $value in $type-list {
+      &#{$size} {
+        &::after {
+          border-bottom: 1px solid $value;
+        }
+      }
+    }
+  }
+
+  @each $size, $value in $type-list {
+    &#{$size} {
+      color: $value;
+    }
+  }
+
+  &-disabled {
+    color: $disabled-color;
+    cursor: not-allowed;
+
+    & .w-text-u::after {
+      border-bottom: 1px solid $disabled-color;
+    }
+  }
 }

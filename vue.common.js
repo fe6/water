@@ -3,6 +3,10 @@
 const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
+
 const configureWebpack = {};
 
 configureWebpack.externals = [
@@ -30,6 +34,7 @@ module.exports = {
   },
   configureWebpack,
   chainWebpack(webpackConfig) {
+    webpackConfig.resolve.alias.set('@packages', resolve('packages'));
     webpackConfig.module
       .rule('fonts')
       .use('url-loader')

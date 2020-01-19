@@ -11,8 +11,6 @@ export const installVueComponent = (
     Vue.component(`${prefix}${name}`, target);
   };
 
-  target.name = name;
-
   return target;
 };
 

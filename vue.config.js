@@ -38,6 +38,7 @@ const buildConf = {
   },
   chainWebpack: (config) => {
     config.resolve.alias.set('assets', resolve('src/assets'));
+    config.resolve.alias.set('@packages', resolve('packages'));
 
     config.plugin('StyleLintPlugin').use(StyleLintPlugin, [
       {

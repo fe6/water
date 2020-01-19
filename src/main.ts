@@ -1,7 +1,7 @@
 /** @format */
 
 import Vue from 'vue';
-import Water from '@fe6/water';
+import Water from '@fe6/water/lib';
 
 import App from './App.vue';
 import router from './routers';

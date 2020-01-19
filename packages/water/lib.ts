@@ -1,8 +1,9 @@
 /** @format */
-import { install } from '@fe6/water-shared';
+
+import { install } from '@packages/shared/lib/index';
 
 // 通用组件
-import WText from '../text/index';
+import WText from '@packages/text/src/text';
 
 export const components = { WText };
 

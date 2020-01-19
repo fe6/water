@@ -19,7 +19,7 @@ const tsPlugin = ts({
 });
 
 export default {
-  input: './src/index.ts',
+  input: './lib/index.ts',
   output: [
     {
       file: './dist/shared.js',

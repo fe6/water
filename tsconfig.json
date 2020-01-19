@@ -16,6 +16,9 @@
       "jest"
     ],
     "paths": {
+      "@packages/*": [
+        "packages/*"
+      ],
       "@/*": [
         "src/*"
       ]

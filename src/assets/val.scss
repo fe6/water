@@ -1,5 +1,7 @@
 /** @format */
 
-$red-6: #f0f;
+// 定制化主题
+// $red-6: #f0f;
 
-@import '@fe6/water-theme/src/index.scss';
+@import '../../packages/theme/src/index.scss';
+// @import '@fe6/water-theme/src/index.scss';
