@@ -4,7 +4,8 @@
   "description": "water 共享方法",
   "scripts": {
     "build": "rollup --config rollup.config.js",
-    "lint": "eslint . --ext '.ts,.js' --fix"
+    "lint": "eslint . --ext '.ts,.js' --fix",
+    "test": "echo 'shared test'"
   },
   "keywords": [
     "@fe6/water",
