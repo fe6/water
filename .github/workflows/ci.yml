@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
-        with: # 用
+        with:
           node-version: '13.x'
       - uses: borales/actions-yarn@v2.0.0
         with:
