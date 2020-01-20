@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Water 的样式集合",
   "scripts": {
-    "lint": "gulp styleLint",
+    "lint": "gulp styleLint && eslint . --ext '.js' --fix",
     "test": "echo 'style test'",
     "build": "gulp"
   },
@@ -32,7 +32,9 @@
     "url": "https://github.com/fe6/water/issues"
   },
   "devDependencies": {
+    "@fe6/norm": "^1.0.7",
     "del": "^5.1.0",
+    "eslint": "^6.8.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-cli": "^2.2.0",
