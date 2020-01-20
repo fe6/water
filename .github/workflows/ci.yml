@@ -55,9 +55,6 @@ jobs:
         with:
           name: test-action
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage/clover.xml
-          flags:  unittests
-          yml: .codecov.yml
           fail_ci_if_error: true
 
   build:
