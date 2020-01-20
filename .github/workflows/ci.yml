@@ -51,11 +51,9 @@ jobs:
           cmd: test
       - name: Upload coverage to Codecov
         id: coverage-codecov
-        uses: codecov/codecov-action@v1.0.5
+        uses: codecov/codecov-action@v1
         with:
-          name: test-action
           token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
 
   build:
     runs-on: ubuntu-latest
