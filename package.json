@@ -7,7 +7,7 @@
     "b": "lerna bootstrap",
     "c": "lerna create",
     "clean": "lerna clean",
-    "test": "vue-cli-service test:unit",
+    "test": "yarn build && vue-cli-service test:unit",
     "lint": "vue-cli-service lint && lerna run lint",
     "build": "lerna run build"
   },
@@ -54,7 +54,7 @@
   "husky": {
     "hooks": {
       "post-merge": "yarn b",
-      "pre-commit": "yarn lint && yarn test"
+      "pre-commit": "yarn lint && yarn build && yarn test"
     }
   }
 }
