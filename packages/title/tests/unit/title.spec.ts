@@ -14,6 +14,8 @@ describe('Title.vue', () => {
   let wrapperLevel: any = null;
   let wrapperBorder: any = null;
 
+  const warn = jest.fn();
+
   beforeEach(() => {
     wrapperModel = mount(Title, {});
     wrapperDelete = mount(Title, {
@@ -49,11 +51,21 @@ describe('Title.vue', () => {
       },
     });
     wrapperLevel = mount(Title, {
+      data() {
+        return {
+          warn,
+        };
+      },
       propsData: {
         level: 12,
       },
     });
     wrapperBorder = mount(Title, {
+      data() {
+        return {
+          warn,
+        };
+      },
       propsData: {
         border: 'right',
       },
@@ -139,8 +151,10 @@ describe('Title.vue', () => {
 
   it('test level error', (done) => {
     const { vm } = wrapperLevel;
+    vm.warn = warn;
     vm.$nextTick(() => {
       try {
+        expect(warn).toBeCalled();
         done();
       } catch (err) {
         done.fail(err);
@@ -152,6 +166,7 @@ describe('Title.vue', () => {
     const { vm } = wrapperBorder;
     vm.$nextTick(() => {
       try {
+        expect(warn).toBeCalled();
         done();
       } catch (err) {
         done.fail(err);

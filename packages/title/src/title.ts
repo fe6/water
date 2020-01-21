@@ -10,6 +10,8 @@ const BORDER_ELE_LIST = tuple('', 'left');
 
 @Component
 export default class WTitle extends Vue {
+  warn: Function = warn;
+
   @Prop(Boolean) private disabled!: boolean;
 
   @Prop(Boolean) private underline!: boolean;
@@ -47,7 +49,7 @@ export default class WTitle extends Vue {
     if (TITLE_ELE_LIST.indexOf(level as any) !== -1) {
       return `h${level}`;
     }
-    warn('Title only accept `1 | 2 | 3 | 4 | 5 | 6` as `level` value.');
+    this.warn('Title only accept `1 | 2 | 3 | 4 | 5 | 6` as `level` value.');
     return 'h1';
   }
 
@@ -55,7 +57,7 @@ export default class WTitle extends Vue {
     if (BORDER_ELE_LIST.indexOf(border as any) !== -1) {
       return this.border;
     }
-    warn('Title only accept `left` as `border` value.');
+    this.warn('Title only accept `left` as `border` value.');
     return '';
   }
 
