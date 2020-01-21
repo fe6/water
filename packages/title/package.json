@@ -26,6 +26,7 @@
     "url": "https://github.com/fe6/water/issues"
   },
   "dependencies": {
+    "@fe6/water-shared": "^0.0.0",
     "@fe6/water-text": "^0.0.0",
     "vue": "^2.6.10",
     "vue-property-decorator": "^8.3.0"
@@ -34,7 +35,6 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@fe6/water-shared": "^0.0.0",
     "@vue/cli-plugin-eslint": "^4.1.2",
     "@vue/cli-plugin-typescript": "^4.1.2",
     "@vue/cli-service": "^4.1.2",
