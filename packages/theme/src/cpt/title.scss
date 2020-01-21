@@ -1,0 +1,38 @@
+/** @format */
+
+@import '../var/default.scss';
+@import '../minix/title.scss';
+@import './text.scss';
+
+.w-title {
+  margin: 0 0 0.5em;
+
+  @each $head, $fontSize in $head-list {
+    &-#{$head} {
+      @extend .w-title;
+
+      @include setTitle(
+        $fontSize,
+        $title-font-weight,
+        $title-color,
+        map-get($line-height-list, $head)
+      );
+    }
+
+    @each $size, $value in $type-list {
+      &-#{$head}.w-text#{$size} {
+        color: $value;
+      }
+    }
+  }
+
+  &-border {
+    padding-left: $title-padding-left;
+
+    &-left {
+      @extend .w-title-border;
+
+      border-left: $title-border-left-width solid $title-border-left-color;
+    }
+  }
+}

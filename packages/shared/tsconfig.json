@@ -4,7 +4,8 @@
     "target": "ES5",
     "module": "es2015",
     "lib": [
-      "ES5"
+      "ES5",
+      "dom"
     ]
   },
   "include": [

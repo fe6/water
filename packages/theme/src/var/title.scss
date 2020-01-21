@@ -1,0 +1,48 @@
+/** @format */
+@import './type.scss';
+
+// ----------- Title -----------
+$font-size-base: 14px !default;
+$font-size-lg: $font-size-base + 2px !default;
+$font-size-sm: $font-size-base - 2px !default;
+
+$title-1-size: ceil($font-size-base * 2.71) !default;
+$title-2-size: ceil($font-size-base * 2.14) !default;
+$title-3-size: ceil($font-size-base * 1.71) !default;
+$title-4-size: ceil($font-size-base * 1.42) !default;
+$title-5-size: ceil($font-size-base * 1.1) !default;
+$title-6-size: ceil($font-size-base * 1) !default;
+
+$title-font-weight: 600 !default;
+
+$title-color: mix($black, $white, 85%) !default;
+$title-color-dark: mix($black, $white, 100%) !default;
+
+$title-1-line-height: 1.23 !default;
+$title-2-line-height: 1.35 !default;
+$title-3-line-height: 1.35 !default;
+$title-4-line-height: 1.4 !default;
+$title-5-line-height: 1.4 !default;
+$title-6-line-height: 1.2 !default;
+
+$head-list: (
+  'h1': $title-1-size,
+  'h2': $title-2-size,
+  'h3': $title-3-size,
+  'h4': $title-4-size,
+  'h5': $title-5-size,
+  'h6': $title-6-size,
+) !default;
+
+$line-height-list: (
+  'h1': $title-1-line-height,
+  'h2': $title-2-line-height,
+  'h3': $title-3-line-height,
+  'h4': $title-4-line-height,
+  'h5': $title-5-line-height,
+  'h6': $title-6-line-height,
+) !default;
+
+$title-padding-left: 16px !default;
+$title-border-left-width: 4px !default;
+$title-border-left-color: $primary-color !default;

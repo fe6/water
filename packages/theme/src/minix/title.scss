@@ -1,0 +1,8 @@
+/** @format */
+
+@mixin setTitle($fontSize, $fontWeight, $headingColor, $lineHeight) {
+  color: $headingColor;
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}

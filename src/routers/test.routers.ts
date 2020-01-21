@@ -13,4 +13,13 @@ export default [
     component: () =>
       import(/* webpackChunkName: "test-text" */ '@/views/test/Text.vue'),
   },
+  {
+    path: '/ttitle',
+    name: 'TestTitle',
+    meta: {
+      title: TITLE.Title,
+    },
+    component: () =>
+      import(/* webpackChunkName: "test-title" */ '@/views/test/Title.vue'),
+  },
 ];

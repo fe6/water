@@ -7,6 +7,9 @@
     <h2>通用</h2>
     <div>
       <router-link :to="{ name: 'TestText' }">文本</router-link>
+      <br />
+      <br />
+      <router-link :to="{ name: 'TestTitle' }">标题</router-link>
     </div>
   </div>
 </template>

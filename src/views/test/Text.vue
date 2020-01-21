@@ -9,6 +9,7 @@
     <w-text class-name="test-demo">Water 水滴</w-text>
     <div>禁用 disabled</div>
     <w-text disabled>Water 水滴</w-text>
+    <w-text disabled underline>Water 水滴</w-text>
     <div>加粗 strong</div>
     <WText strong>Water 水滴</WText>
     <div>下划线 underline</div>
@@ -21,12 +22,15 @@
     <WText code>Water 水滴</WText>
     <div>类型 type</div>
     <WText type="success">Water 水滴 - success</WText>
+    <w-text type="success" underline>Water 水滴</w-text>
     <br />
     <WText type="warning" class="test-demo">Water 水滴 - warning</WText>
+    <w-text type="warning" underline>Water 水滴</w-text>
     <br />
     <WText type="danger">Water 水滴 - danger</WText>
     <br />
     <WText type="info">Water 水滴 - info</WText>
+    <w-text type="info" underline>Water 水滴</w-text>
     <br />
     <WText type="secondary">Water 水滴 - secondary</WText>
     <br />

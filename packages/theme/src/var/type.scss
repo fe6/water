@@ -1,0 +1,11 @@
+/** @format */
+@import './color.scss';
+
+// ----------- Type -----------
+$type-list: (
+  '-danger': $danger-color,
+  '-warning': $warning-color,
+  '-secondary': $text-color-secondary,
+  '-info': $info-color,
+  '-success': $success-color,
+) !default;

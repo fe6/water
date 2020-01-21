@@ -1,14 +1,7 @@
 /** @format */
 
 @import '../var/default.scss';
-
-$type-list: (
-  '-danger': $danger-color,
-  '-warning': $warning-color,
-  '-secondary': $text-color-secondary,
-  '-info': $info-color,
-  '-success': $success-color,
-);
+@import '../var/text.scss';
 
 .w-text {
   color: $text-color;
@@ -50,13 +43,14 @@ $type-list: (
       right: 0;
       height: 0;
       bottom: 0;
-      border-bottom: 1px solid $text-color;
+      border-bottom: 0.1em solid $text-color;
+      border-bottom-color: inherit;
     }
 
     @each $size, $value in $type-list {
       &#{$size} {
         &::after {
-          border-bottom: 1px solid $value;
+          border-bottom-color: inherit;
         }
       }
     }

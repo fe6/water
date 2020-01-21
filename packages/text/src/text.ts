@@ -19,6 +19,12 @@ export default class WText extends Vue {
 
   @Prop({
     type: String,
+    default: 'span',
+  })
+  private tag!: keyof HTMLElementTagNameMap | string; // 1.0.0
+
+  @Prop({
+    type: String,
     default: '',
   })
   private type!: string;
@@ -100,7 +106,7 @@ export default class WText extends Vue {
     const textChilds = [content];
 
     return h(
-      'span',
+      this.tag,
       {
         class: [
           {
